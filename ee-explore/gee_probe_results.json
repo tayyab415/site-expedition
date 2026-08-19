@@ -1,0 +1,630 @@
+{
+  "project": "gen-lang-client-0261050164",
+  "ran_at": "2026-08-11T17:14:27.531799+00:00",
+  "sites": {
+    "galveston_island_tx": {
+      "lon": -94.7977,
+      "lat": 29.3013,
+      "gsw": {
+        "change_abs": 3.5814709467696058,
+        "occurrence": 71.9520741039066,
+        "recurrence": 85.61682242990652,
+        "seasonality": 6.80148066904305,
+        "transition": 5.692807801706624
+      },
+      "elevation_m": {
+        "elevation": 6.014223593636451
+      },
+      "dw_water_2017": {
+        "water": 0.04837408688357677
+      },
+      "dw_water_2023": {
+        "water": 0.04598828419750329
+      },
+      "s2_ndwi_2023": {
+        "ndwi": -0.20545209029929673
+      },
+      "hycom_2023jun": {
+        "salinity_psu": null,
+        "sst_c": null
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 6.955186280337247
+      },
+      "olci_chl_2023jun": {}
+    },
+    "galveston_bay_water": {
+      "lon": -94.85,
+      "lat": 29.45,
+      "gsw": {
+        "change_abs": 0,
+        "occurrence": 98.52165263480245,
+        "recurrence": 100,
+        "seasonality": 12,
+        "transition": 1
+      },
+      "elevation_m": {
+        "elevation": 0
+      },
+      "dw_water_2017": {
+        "water": 0.7404057537861135
+      },
+      "dw_water_2023": {
+        "water": 0.7452387345402911
+      },
+      "s2_ndwi_2023": {
+        "ndwi": 0.5224861470363295
+      },
+      "hycom_2023jun": {
+        "salinity_psu": null,
+        "sst_c": null
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 10.732658386230469
+      },
+      "olci_chl_2023jun": {}
+    },
+    "houston_inland": {
+      "lon": -95.3698,
+      "lat": 29.7604,
+      "gsw": {
+        "change_abs": 10.123456790123457,
+        "occurrence": 15.031203566121858,
+        "recurrence": 100,
+        "seasonality": 3.6,
+        "transition": 5.320987654320987
+      },
+      "elevation_m": {
+        "elevation": 20.985553054457494
+      },
+      "dw_water_2017": {
+        "water": 0.04835990998328551
+      },
+      "dw_water_2023": {
+        "water": 0.04908831058311485
+      },
+      "s2_ndwi_2023": {
+        "ndwi": -0.18866923633526642
+      },
+      "hycom_2023jun": {
+        "salinity_psu": null,
+        "sst_c": null
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": null
+      },
+      "olci_chl_2023jun": {}
+    },
+    "mississippi_delta": {
+      "lon": -89.25,
+      "lat": 29.15,
+      "gsw": {
+        "change_abs": -0.4486738142216376,
+        "occurrence": 98.00430546887817,
+        "recurrence": 98.59960058523518,
+        "seasonality": 11.652189456695941,
+        "transition": 1.2665500234170137
+      },
+      "elevation_m": {
+        "elevation": 0.2485434310827386
+      },
+      "dw_water_2017": {
+        "water": 0.6659191031483059
+      },
+      "dw_water_2023": {
+        "water": 0.6775260247408809
+      },
+      "s2_ndwi_2023": {
+        "ndwi": 0.24371001287628316
+      },
+      "hycom_2023jun": {
+        "salinity_psu": null,
+        "sst_c": null
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": null
+      },
+      "olci_chl_2023jun": {}
+    },
+    "miami_beach": {
+      "lon": -80.13,
+      "lat": 25.7907,
+      "gsw": {
+        "change_abs": -4.629472058512848,
+        "occurrence": 96.06711864406874,
+        "recurrence": 92.1312386627717,
+        "seasonality": 11.122523774543874,
+        "transition": 1.8984657861571097
+      },
+      "elevation_m": {
+        "elevation": 4.655850720544958
+      },
+      "dw_water_2017": {
+        "water": 0.20931360610866576
+      },
+      "dw_water_2023": {
+        "water": 0.2289804432790457
+      },
+      "s2_ndwi_2023": {
+        "ndwi": -0.026347660628728006
+      },
+      "hycom_2023jun": {
+        "salinity_psu": 36.23228571428571,
+        "sst_c": 28.334625000000003
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 1.1255984593714987
+      },
+      "olci_chl_2023jun": {}
+    },
+    "chesapeake_bay": {
+      "lon": -76.25,
+      "lat": 37.8,
+      "gsw": {
+        "change_abs": 0,
+        "occurrence": 98.62192539699525,
+        "recurrence": 100,
+        "seasonality": 12,
+        "transition": 1
+      },
+      "elevation_m": {
+        "elevation": 0
+      },
+      "dw_water_2017": {
+        "water": 0.7482029692027905
+      },
+      "dw_water_2023": {
+        "water": 0.7455076467536397
+      },
+      "s2_ndwi_2023": {
+        "ndwi": 0.2547763815088827
+      },
+      "hycom_2023jun": {
+        "salinity_psu": 20.63073214285714,
+        "sst_c": 20.449098214285716
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 7.469544796233482
+      },
+      "olci_chl_2023jun": {}
+    },
+    "gulf_nearshore_30km": {
+      "lon": -94.9,
+      "lat": 28.9,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elevation_m": {
+        "elevation": null
+      },
+      "dw_water_2017": {
+        "water": 0.6307012768777472
+      },
+      "dw_water_2023": {
+        "water": 0.7247005316187911
+      },
+      "s2_ndwi_2023": {
+        "ndwi": 0.20917223137061963
+      },
+      "hycom_2023jun": {
+        "salinity_psu": 31.354267857142858,
+        "sst_c": 28.847785714285713
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 1.1232330799102783
+      },
+      "olci_chl_2023jun": {}
+    },
+    "gulf_open_ocean": {
+      "lon": -93.0,
+      "lat": 27.0,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elevation_m": {
+        "elevation": null
+      },
+      "dw_water_2017": {
+        "water": 0.6415819803282512
+      },
+      "dw_water_2023": {
+        "water": 0.6481347478971007
+      },
+      "s2_ndwi_2023": {
+        "ndwi": 0.10120976099504408
+      },
+      "hycom_2023jun": {
+        "salinity_psu": 34.76604363524406,
+        "sst_c": 28.28010826242722
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 0.09801824984167426
+      },
+      "olci_chl_2023jun": {}
+    },
+    "atlantic_open": {
+      "lon": -70.0,
+      "lat": 35.0,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elevation_m": {
+        "elevation": null
+      },
+      "dw_water_2017": {},
+      "dw_water_2023": {},
+      "s2_ndwi_2023": {},
+      "hycom_2023jun": {
+        "salinity_psu": 36.418466993087556,
+        "sst_c": 21.926172580645158
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 0.06413853734608269
+      },
+      "olci_chl_2023jun": {}
+    },
+    "pacific_open": {
+      "lon": -125.0,
+      "lat": 35.0,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elevation_m": {
+        "elevation": null
+      },
+      "dw_water_2017": {},
+      "dw_water_2023": {},
+      "s2_ndwi_2023": {},
+      "hycom_2023jun": {
+        "salinity_psu": 32.94870889378479,
+        "sst_c": 14.594055687615956
+      },
+      "chlor_a_2023jun": {
+        "chlor_a": 0.1735207483110842
+      },
+      "olci_chl_2023jun": {}
+    }
+  },
+  "collection_smoke": {
+    "JRC_GSW_mapping": {
+      "id": "JRC/GSW1_4/GlobalSurfaceWater",
+      "type": "Image",
+      "bands": [
+        "occurrence",
+        "change_abs",
+        "change_norm",
+        "seasonality",
+        "recurrence",
+        "transition",
+        "max_extent"
+      ],
+      "n_bands": 7
+    },
+    "JRC_GSW_monthly": {
+      "id": "JRC/GSW1_4/MonthlyHistory",
+      "error": "Image.bandNames: Parameter 'image' is required and may not be null."
+    },
+    "JRC_GSW_yearly": {
+      "id": "JRC/GSW1_4/YearlyHistory",
+      "error": "Image.bandNames: Parameter 'image' is required and may not be null."
+    },
+    "DynamicWorld": {
+      "id": "GOOGLE/DYNAMICWORLD/V1",
+      "error": "Image.bandNames: Parameter 'image' is required and may not be null."
+    },
+    "S2_SR_HARMONIZED": {
+      "id": "COPERNICUS/S2_SR_HARMONIZED",
+      "type": "ImageCollection",
+      "sample_window": "2024-01-01..2024-01-08 near Galveston",
+      "count_in_window": 1,
+      "bands_sample": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B9",
+        "B11",
+        "B12",
+        "AOT",
+        "WVP",
+        "SCL",
+        "TCI_R",
+        "TCI_G",
+        "TCI_B",
+        "MSK_CLDPRB",
+        "MSK_SNWPRB",
+        "QA10",
+        "QA20",
+        "QA60",
+        "MSK_CLASSI_OPAQUE",
+        "MSK_CLASSI_CIRRUS"
+      ]
+    },
+    "HYCOM_temp_sal": {
+      "id": "HYCOM/sea_temp_salinity",
+      "type": "ImageCollection",
+      "sample_window": "2023-06-01..2023-06-15",
+      "count_in_window": 112,
+      "bands_sample": [
+        "water_temp_0",
+        "salinity_0",
+        "water_temp_2",
+        "salinity_2",
+        "water_temp_4",
+        "salinity_4",
+        "water_temp_6",
+        "salinity_6",
+        "water_temp_8",
+        "salinity_8",
+        "water_temp_10",
+        "salinity_10",
+        "water_temp_12",
+        "salinity_12",
+        "water_temp_15",
+        "salinity_15",
+        "water_temp_20",
+        "salinity_20",
+        "water_temp_25",
+        "salinity_25",
+        "water_temp_30",
+        "salinity_30",
+        "water_temp_35",
+        "salinity_35",
+        "water_temp_40"
+      ]
+    },
+    "HYCOM_currents": {
+      "id": "HYCOM/sea_water_velocity",
+      "type": "ImageCollection",
+      "sample_window": "2023-06-01..2023-06-15",
+      "count_in_window": 112,
+      "bands_sample": [
+        "velocity_u_0",
+        "velocity_v_0",
+        "velocity_u_2",
+        "velocity_v_2",
+        "velocity_u_4",
+        "velocity_v_4",
+        "velocity_u_6",
+        "velocity_v_6",
+        "velocity_u_8",
+        "velocity_v_8",
+        "velocity_u_10",
+        "velocity_v_10",
+        "velocity_u_12",
+        "velocity_v_12",
+        "velocity_u_15",
+        "velocity_v_15",
+        "velocity_u_20",
+        "velocity_v_20",
+        "velocity_u_25",
+        "velocity_v_25",
+        "velocity_u_30",
+        "velocity_v_30",
+        "velocity_u_35",
+        "velocity_v_35",
+        "velocity_u_40"
+      ]
+    },
+    "Copernicus_ocean_color_v6": {
+      "id": "COPERNICUS/MARINE/SATELLITE_OCEAN_COLOR/V6",
+      "type": "ImageCollection",
+      "sample_window": "2023-06-01..2023-06-15",
+      "count_in_window": 14,
+      "bands_sample": [
+        "MERIS_nobs",
+        "MODISA_nobs",
+        "OLCI-A_nobs",
+        "OLCI-B_nobs",
+        "SeaWiFS_nobs",
+        "VIIRS_nobs",
+        "chlor_a",
+        "total_nobs",
+        "Rrs_412",
+        "Rrs_443",
+        "Rrs_490",
+        "Rrs_510",
+        "Rrs_560",
+        "Rrs_665",
+        "Rrs_MERIS_nobs",
+        "Rrs_MODISA_nobs",
+        "Rrs_OLCI-A_nobs",
+        "Rrs_OLCI-B_nobs",
+        "Rrs_SeaWiFS_nobs",
+        "Rrs_VIIRS_nobs",
+        "Rrs_total_nobs"
+      ]
+    },
+    "Copernicus_CHL_OLCI_300m": {
+      "id": "COPERNICUS/MARINE/OC_GLO_BGC/PLANKTON_OLCI_300M",
+      "error": "Image.bandNames: Parameter 'image' is required and may not be null."
+    },
+    "MODIS_SST": {
+      "id": "NASA/OCEANDATA/MODIS-Aqua/L3SMI",
+      "type": "ImageCollection",
+      "sample_window": "2023-06-01..2023-06-15",
+      "count_in_window": 14,
+      "bands_sample": [
+        "chlor_a",
+        "nflh",
+        "poc",
+        "Rrs_412",
+        "Rrs_443",
+        "Rrs_469",
+        "Rrs_488",
+        "Rrs_531",
+        "Rrs_547",
+        "Rrs_555",
+        "Rrs_645",
+        "Rrs_667",
+        "Rrs_678",
+        "sst",
+        "nsst",
+        "par",
+        "Kd_490"
+      ]
+    },
+    "MODIS_LST": {
+      "id": "MODIS/061/MOD11A1",
+      "type": "ImageCollection",
+      "sample_window": "2023-06-01..2023-06-15",
+      "count_in_window": 14,
+      "bands_sample": [
+        "LST_Day_1km",
+        "QC_Day",
+        "Day_view_time",
+        "Day_view_angle",
+        "LST_Night_1km",
+        "QC_Night",
+        "Night_view_time",
+        "Night_view_angle",
+        "Emis_31",
+        "Emis_32",
+        "Clear_day_cov",
+        "Clear_night_cov"
+      ]
+    },
+    "FIRMS": {
+      "id": "FIRMS",
+      "type": "ImageCollection",
+      "sample_window": "2024-01-01..2024-01-08 near Galveston",
+      "count_in_window": 7,
+      "bands_sample": [
+        "T21",
+        "confidence",
+        "line_number"
+      ]
+    },
+    "Hansen_GFC": {
+      "id": "UMD/hansen/global_forest_change_2024_v1_12",
+      "type": "Image",
+      "bands": [
+        "treecover2000",
+        "loss",
+        "gain",
+        "lossyear",
+        "first_b30",
+        "first_b40",
+        "first_b50",
+        "first_b70",
+        "last_b30",
+        "last_b40",
+        "last_b50",
+        "last_b70",
+        "datamask"
+      ],
+      "n_bands": 13
+    },
+    "NASADEM": {
+      "id": "NASA/NASADEM_HGT/001",
+      "type": "Image",
+      "bands": [
+        "elevation",
+        "num",
+        "swb"
+      ],
+      "n_bands": 3
+    },
+    "ERA5_LAND": {
+      "id": "ECMWF/ERA5_LAND/HOURLY",
+      "type": "ImageCollection",
+      "sample_window": "2024-01-01..2024-01-08 near Galveston",
+      "count_in_window": 168,
+      "bands_sample": [
+        "dewpoint_temperature_2m",
+        "temperature_2m",
+        "skin_temperature",
+        "soil_temperature_level_1",
+        "soil_temperature_level_2",
+        "soil_temperature_level_3",
+        "soil_temperature_level_4",
+        "lake_bottom_temperature",
+        "lake_ice_depth",
+        "lake_ice_temperature",
+        "lake_mix_layer_depth",
+        "lake_mix_layer_temperature",
+        "lake_shape_factor",
+        "lake_total_layer_temperature",
+        "snow_albedo",
+        "snow_cover",
+        "snow_density",
+        "snow_depth",
+        "snow_depth_water_equivalent",
+        "snowfall",
+        "snowmelt",
+        "temperature_of_snow_layer",
+        "skin_reservoir_content",
+        "volumetric_soil_water_layer_1",
+        "volumetric_soil_water_layer_2"
+      ]
+    },
+    "CHIRPS": {
+      "id": "UCSB-CHG/CHIRPS/DAILY",
+      "type": "ImageCollection",
+      "sample_window": "2024-01-01..2024-01-08 near Galveston",
+      "count_in_window": 7,
+      "bands_sample": [
+        "precipitation"
+      ]
+    },
+    "GOES_16_MCMIPF": {
+      "id": "NOAA/GOES/16/MCMIPF",
+      "type": "ImageCollection",
+      "sample_window": "2024-01-01..2024-01-08 near Galveston",
+      "count_in_window": 1032,
+      "bands_sample": [
+        "CMI_C01",
+        "DQF_C01",
+        "CMI_C02",
+        "DQF_C02",
+        "CMI_C03",
+        "DQF_C03",
+        "CMI_C04",
+        "DQF_C04",
+        "CMI_C05",
+        "DQF_C05",
+        "CMI_C06",
+        "DQF_C06",
+        "CMI_C07",
+        "DQF_C07",
+        "CMI_C08",
+        "DQF_C08",
+        "CMI_C09",
+        "DQF_C09",
+        "CMI_C10",
+        "DQF_C10",
+        "CMI_C11",
+        "DQF_C11",
+        "CMI_C12",
+        "DQF_C12",
+        "CMI_C13"
+      ]
+    },
+    "VIIRS_ocean_color": {
+      "id": "NASA/OCEANDATA/VIIRS/L3SMI",
+      "error": "ImageCollection.load: ImageCollection asset 'NASA/OCEANDATA/VIIRS/L3SMI' not found (does not exist or caller does not have access)."
+    }
+  },
+  "errors": []
+}

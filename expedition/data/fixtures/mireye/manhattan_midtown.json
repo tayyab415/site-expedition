@@ -1,0 +1,13 @@
+{
+  "lat": 40.748,
+  "lng": -73.985,
+  "fetched_at": "2026-08-15T01:55:12Z",
+  "fields": {
+    "is_cultivated": {"value": false, "source": "USDA_NASS_CDL", "status": "ok", "confidence": "medium", "source_url": "https://nassgeodata.gmu.edu/CropScape/", "dataset_vintage": "USDA CDL 2025"},
+    "dominant_crop_5y": {"value": null, "source": "USDA_NASS_CDL", "status": "absent"},
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "elevation": {"value": 14.65, "unit": "meters", "source": "USGS_3DEP_COG", "status": "ok"},
+    "prime_farmland_classification": {"value": "not_prime", "source": "NRCS_gNATSGO", "status": "ok"}
+  }
+}

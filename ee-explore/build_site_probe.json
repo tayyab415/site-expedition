@@ -1,0 +1,677 @@
+{
+  "ran_at": "2026-08-11T18:53:30.028824+00:00",
+  "project": "gen-lang-client-0261050164",
+  "idea": "Can You Build Here / Plotcraft \u2014 EE resource bars for GO/HOLD/KILL",
+  "sites": [
+    {
+      "id": "ashburn_dc_alley",
+      "label": "Ashburn VA \u2014 data-center alley",
+      "project": "data_center",
+      "lat": 39.0438,
+      "lng": -77.4874,
+      "expect": "Neighbors/built high; Power story for Mireye; heat maybe elevated",
+      "ee": {
+        "water": {
+          "occurrence_pct": null,
+          "change_abs": null,
+          "seasonality": null,
+          "freq_1985_1995": {
+            "freq": 0.0,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.0,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.0,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 89.68,
+          "slope_deg": 2.66,
+          "fabdem_m": 88.56,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 33.6,
+          "ring_lst_c": 31.26,
+          "uhi_anom_c": 2.35,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 231,
+          "built": 0.6233,
+          "bare": 0.0309,
+          "water": 0.0396,
+          "trees": 0.1177,
+          "crops": 0.0377,
+          "grass": 0.0384
+        },
+        "dw_old": {
+          "n": 281,
+          "built": 0.6201,
+          "bare": 0.0314,
+          "water": 0.0382,
+          "trees": 0.1099,
+          "crops": 0.0402,
+          "grass": 0.0427
+        },
+        "hansen": {
+          "loss_fraction": 0.0344,
+          "treecover2000_pct": 13.96,
+          "mean_lossyear": 6.0,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 100.0,
+            "flag": "OK"
+          },
+          "ground": {
+            "score": 78.7,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 71.8,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 24.6,
+            "flag": "HOLD",
+            "built_delta": 0.0032
+          },
+          "dirt": {
+            "score": 95.4,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 93.1,
+            "flag": "OK"
+          }
+        },
+        "composite": 72.4,
+        "decision": "HOLD",
+        "critical": [],
+        "weights": {
+          "water": 1.2,
+          "ground": 0.8,
+          "heat": 1.0,
+          "neighbors": 1.3,
+          "dirt": 0.7,
+          "trees": 0.4
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/ashburn_dc_alley_gsw_change.png"
+    },
+    {
+      "id": "midland_empty",
+      "label": "Midland TX periphery \u2014 empty pad fantasy",
+      "project": "solar",
+      "lat": 31.8457,
+      "lng": -102.3676,
+      "expect": "Low built; dry; ground flat-ish; water creep low",
+      "ee": {
+        "water": {
+          "occurrence_pct": null,
+          "change_abs": null,
+          "seasonality": null,
+          "freq_1985_1995": {
+            "freq": 0.0,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.0,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.0,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 884.93,
+          "slope_deg": 2.82,
+          "fabdem_m": 882.71,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 43.38,
+          "ring_lst_c": 43.77,
+          "uhi_anom_c": -0.39,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 168,
+          "built": 0.6983,
+          "bare": 0.0711,
+          "water": 0.0322,
+          "trees": 0.0268,
+          "crops": 0.0382,
+          "grass": 0.0291
+        },
+        "dw_old": {
+          "n": 177,
+          "built": 0.6981,
+          "bare": 0.069,
+          "water": 0.0328,
+          "trees": 0.0272,
+          "crops": 0.0378,
+          "grass": 0.0291
+        },
+        "hansen": {
+          "loss_fraction": 0.0,
+          "treecover2000_pct": 0.0,
+          "mean_lossyear": null,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 100.0,
+            "flag": "OK"
+          },
+          "ground": {
+            "score": 77.4,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 100,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 16.2,
+            "flag": "OK",
+            "built_delta": 0.0002
+          },
+          "dirt": {
+            "score": 89.3,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 100,
+            "flag": "OK"
+          }
+        },
+        "composite": 78.8,
+        "decision": "CLEAR_TO_BUILD",
+        "critical": [],
+        "weights": {
+          "water": 0.8,
+          "ground": 1.2,
+          "heat": 0.6,
+          "neighbors": 0.7,
+          "dirt": 0.5,
+          "trees": 0.5
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/midland_empty_gsw_change.png"
+    },
+    {
+      "id": "san_leon_rising",
+      "label": "San Leon TX \u2014 waterline creep kill",
+      "project": "warehouse",
+      "lat": 29.475732110989398,
+      "lng": -94.96653315875905,
+      "expect": "Water bar should fail hard despite pretty coastal vibes",
+      "ee": {
+        "water": {
+          "occurrence_pct": 60.98,
+          "change_abs": 25.99,
+          "seasonality": 6.72,
+          "freq_1985_1995": {
+            "freq": 0.0079,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.0302,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.0223,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 2.64,
+          "slope_deg": 2.64,
+          "fabdem_m": 1.03,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 31.32,
+          "ring_lst_c": 33.31,
+          "uhi_anom_c": -2.0,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 293,
+          "built": 0.0971,
+          "bare": 0.1225,
+          "water": 0.0746,
+          "trees": 0.168,
+          "crops": 0.14,
+          "grass": 0.1367
+        },
+        "dw_old": {
+          "n": 420,
+          "built": 0.0932,
+          "bare": 0.0521,
+          "water": 0.0888,
+          "trees": 0.154,
+          "crops": 0.0738,
+          "grass": 0.2639
+        },
+        "hansen": {
+          "loss_fraction": 0.0051,
+          "treecover2000_pct": 3.35,
+          "mean_lossyear": 18.0,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 9.0,
+            "flag": "KILL"
+          },
+          "ground": {
+            "score": 78.9,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 100,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 87.6,
+            "flag": "OK",
+            "built_delta": 0.0039
+          },
+          "dirt": {
+            "score": 81.6,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 99.0,
+            "flag": "OK"
+          }
+        },
+        "composite": 67.1,
+        "decision": "SITE_KILLED",
+        "critical": [
+          "waterline/occurrence"
+        ],
+        "weights": {
+          "water": 1.3,
+          "ground": 1.0,
+          "heat": 0.7,
+          "neighbors": 0.8,
+          "dirt": 0.8,
+          "trees": 0.4
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/san_leon_rising_gsw_change.png"
+    },
+    {
+      "id": "round_rock_suburb",
+      "label": "Round Rock TX \u2014 3-story house",
+      "project": "house",
+      "lat": 30.5083,
+      "lng": -97.6789,
+      "expect": "Mostly clear ground/water; suburban built neighbors",
+      "ee": {
+        "water": {
+          "occurrence_pct": null,
+          "change_abs": null,
+          "seasonality": null,
+          "freq_1985_1995": {
+            "freq": 0.0,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.0,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.0,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 220.89,
+          "slope_deg": 2.23,
+          "fabdem_m": 220.23,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 37.73,
+          "ring_lst_c": 36.38,
+          "uhi_anom_c": 1.35,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 146,
+          "built": 0.6655,
+          "bare": 0.0475,
+          "water": 0.0336,
+          "trees": 0.0554,
+          "crops": 0.0411,
+          "grass": 0.0372
+        },
+        "dw_old": {
+          "n": 185,
+          "built": 0.673,
+          "bare": 0.0427,
+          "water": 0.0329,
+          "trees": 0.0554,
+          "crops": 0.0413,
+          "grass": 0.0395
+        },
+        "hansen": {
+          "loss_fraction": 0.0077,
+          "treecover2000_pct": 2.44,
+          "mean_lossyear": 18.6,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 100.0,
+            "flag": "OK"
+          },
+          "ground": {
+            "score": 82.2,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 83.8,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 20.1,
+            "flag": "OK",
+            "built_delta": -0.0075
+          },
+          "dirt": {
+            "score": 92.9,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 98.5,
+            "flag": "OK"
+          }
+        },
+        "composite": 84.5,
+        "decision": "CLEAR_TO_BUILD",
+        "critical": [],
+        "weights": {
+          "water": 1.4,
+          "ground": 1.0,
+          "heat": 0.9,
+          "neighbors": 0.5,
+          "dirt": 0.6,
+          "trees": 0.6
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/round_rock_suburb_gsw_change.png"
+    },
+    {
+      "id": "quincy_wa_datahub",
+      "label": "Quincy WA \u2014 hyperscale cluster",
+      "project": "data_center",
+      "lat": 47.2343,
+      "lng": -119.8525,
+      "expect": "Irrigation ag neighbors; dry climate; DC competition signal",
+      "ee": {
+        "water": {
+          "occurrence_pct": 14.32,
+          "change_abs": 6.41,
+          "seasonality": 4.36,
+          "freq_1985_1995": {
+            "freq": 0.0005,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.0017,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.0012,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 396.19,
+          "slope_deg": 1.9,
+          "fabdem_m": 395.71,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 36.93,
+          "ring_lst_c": 36.25,
+          "uhi_anom_c": 0.68,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 123,
+          "built": 0.7056,
+          "bare": 0.0465,
+          "water": 0.0409,
+          "trees": 0.0343,
+          "crops": 0.0338,
+          "grass": 0.0275
+        },
+        "dw_old": {
+          "n": 151,
+          "built": 0.7081,
+          "bare": 0.0463,
+          "water": 0.0407,
+          "trees": 0.0353,
+          "crops": 0.034,
+          "grass": 0.0279
+        },
+        "hansen": {
+          "loss_fraction": 0.0,
+          "treecover2000_pct": 0.05,
+          "mean_lossyear": null,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 81.9,
+            "flag": "HOLD"
+          },
+          "ground": {
+            "score": 84.8,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 91.8,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 15.3,
+            "flag": "HOLD",
+            "built_delta": -0.0025
+          },
+          "dirt": {
+            "score": 93.0,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 100,
+            "flag": "OK"
+          }
+        },
+        "composite": 70.9,
+        "decision": "HOLD",
+        "critical": [],
+        "weights": {
+          "water": 1.2,
+          "ground": 0.8,
+          "heat": 1.0,
+          "neighbors": 1.3,
+          "dirt": 0.7,
+          "trees": 0.4
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/quincy_wa_datahub_gsw_change.png"
+    },
+    {
+      "id": "miami_coast_pretty",
+      "label": "North Miami beach-adjacent \u2014 pretty trap",
+      "project": "apartment",
+      "lat": 25.891,
+      "lng": -80.145,
+      "expect": "Looks buildable; water + heat pressure",
+      "ee": {
+        "water": {
+          "occurrence_pct": 97.39,
+          "change_abs": -0.85,
+          "seasonality": 11.8,
+          "freq_1985_1995": {
+            "freq": 0.6822,
+            "months": 132,
+            "error": null
+          },
+          "freq_2015_2021": {
+            "freq": 0.8195,
+            "months": 84,
+            "error": null
+          },
+          "waterline_creep": 0.1373,
+          "errors": []
+        },
+        "terrain": {
+          "nasadem_m": 0.0,
+          "slope_deg": 0.0,
+          "fabdem_m": 0.03,
+          "errors": []
+        },
+        "heat": {
+          "n": 91,
+          "lst_c": 34.38,
+          "ring_lst_c": 35.1,
+          "uhi_anom_c": -0.72,
+          "errors": []
+        },
+        "dw_recent": {
+          "n": 83,
+          "built": 0.0436,
+          "bare": 0.0382,
+          "water": 0.693,
+          "trees": 0.0403,
+          "crops": 0.0327,
+          "grass": 0.0355
+        },
+        "dw_old": {
+          "n": 82,
+          "built": 0.0409,
+          "bare": 0.0387,
+          "water": 0.699,
+          "trees": 0.0392,
+          "crops": 0.0332,
+          "grass": 0.0358
+        },
+        "hansen": {
+          "loss_fraction": 0.0,
+          "treecover2000_pct": 0.12,
+          "mean_lossyear": null,
+          "errors": []
+        }
+      },
+      "score": {
+        "bars": {
+          "water": {
+            "score": 0,
+            "flag": "KILL"
+          },
+          "ground": {
+            "score": 100,
+            "flag": "OK"
+          },
+          "heat": {
+            "score": 100,
+            "flag": "OK"
+          },
+          "neighbors": {
+            "score": 94.2,
+            "flag": "OK",
+            "built_delta": 0.0027
+          },
+          "dirt": {
+            "score": 94.3,
+            "flag": "OK"
+          },
+          "trees": {
+            "score": 100,
+            "flag": "OK"
+          }
+        },
+        "composite": 69.2,
+        "decision": "SITE_KILLED",
+        "critical": [
+          "waterline/occurrence"
+        ],
+        "weights": {
+          "water": 1.5,
+          "ground": 0.9,
+          "heat": 1.0,
+          "neighbors": 0.6,
+          "dirt": 0.6,
+          "trees": 0.5
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/miami_coast_pretty_gsw_change.png"
+    }
+  ],
+  "engineering_notes": [
+    "JRC GSW occurrence/change_abs MUST use .unmask(0) before reduceRegion mean \u2014 otherwise dry land is masked and buffers that touch any pond report false-high occurrence (Ashburn/Culpeper/Crane fake SITE_KILLED at 2km).",
+    "Parcel-scale (~200-500m) or parcel polygon is right for Water bar; 2km buffer is for Neighbors/QueueDirt only.",
+    "Dynamic World built% works for saturated-cluster HOLD (Ashburn ~0.55-0.62). Built surge 2016\u21922023 was small at tested pins \u2014 pick growth-fringe polygons or competitor pads for stronger DirtMoved demos.",
+    "Mireye Free plan credits exhausted mid-session (5000/5000). Use cached Ashburn/San Leon/Midland/Quincy fetches.",
+    "Hansen 2024 asset deprecated \u2192 use UMD/hansen/global_forest_change_2025_v1_13.",
+    "Sentinel-2 NDWI summer composites timed out / returned None in round2 \u2014 prefer JRC monthly freq for water trend in hackathon."
+  ],
+  "mireye_crosscheck": {
+    "ashburn": {
+      "fema": "X",
+      "floodplain": false,
+      "substations_10km": 23,
+      "tx_redundancy": true,
+      "permanence_pct": 0.0
+    },
+    "san_leon": {
+      "fema": "AE",
+      "floodplain": true,
+      "wetland": true,
+      "elev_m": 2.37,
+      "tx_345kv_m": 1332,
+      "protected_area": true
+    },
+    "midland_downtown": {
+      "ghi": 5.66,
+      "pv_cf_pct": 20.1,
+      "note": "bad empty-pad pin \u2014 too urban; use Crane County for solar CLEAR"
+    },
+    "quincy": {
+      "fema": "X",
+      "substations_10km": 17,
+      "tx_redundancy": true,
+      "permanence_pct": 0.0
+    }
+  }
+}

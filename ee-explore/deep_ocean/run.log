@@ -1,0 +1,134 @@
+EE initialized gen-lang-client-0261050164
+
+=== ASSET SMOKE ===
+  smoke OK: modis_aqua_l3smi (NASA/OCEANDATA/MODIS-Aqua/L3SMI)
+  smoke OK: modis_terra_l3smi (NASA/OCEANDATA/MODIS-Terra/L3SMI)
+  smoke OK: seawifs_l3smi (NASA/OCEANDATA/SeaWiFS/L3SMI)
+  smoke FAIL: viirs_l3smi_old (NASA/OCEANDATA/VIIRS/L3SMI)
+  smoke FAIL: viirs_snpp_l3smi (NASA/OCEANDATA/VIIRS-SNPP/L3SMI)
+  smoke OK: jaxa_chla_v3 (JAXA/GCOM-C/L3/OCEAN/CHLA/V3)
+  smoke OK: jaxa_sst_v3 (JAXA/GCOM-C/L3/OCEAN/SST/V3)
+  smoke OK: jaxa_chla_v2 (JAXA/GCOM-C/L3/OCEAN/CHLA/V2)
+  smoke OK: copernicus_ocean_color_v6 (COPERNICUS/MARINE/SATELLITE_OCEAN_COLOR/V6)
+  smoke OK: copernicus_plankton_multi_4km (COPERNICUS/MARINE/OC_GLO_BGC/PLANKTON_MULTI_4KM)
+  smoke OK: copernicus_plankton_olci_300m (COPERNICUS/MARINE/OC_GLO_BGC/PLANKTON_OLCI_300M)
+  smoke OK: copernicus_optics_multi_4km (COPERNICUS/MARINE/OC_GLO_BGC/OPTICS_MULTI_4KM)
+  smoke OK: copernicus_reflectance_multi_4km (COPERNICUS/MARINE/OC_GLO_BGC/REFLECTANCE_MULTI_4KM)
+  smoke OK: copernicus_transparency_multi_4km (COPERNICUS/MARINE/OC_GLO_BGC/TRANSPARENCY_MULTI_4KM)
+  smoke OK: copernicus_pp_multi_4km (COPERNICUS/MARINE/OC_GLO_BGC/PRIMARY_PRODUCTION_MULTI_4KM)
+  smoke OK: copernicus_phy_daily (COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_PHY_DAILY)
+  smoke OK: copernicus_waves (COPERNICUS/MARINE/WAV/ANFC_0_083DEG_PT3H)
+  smoke OK: copernicus_wave_bathy (COPERNICUS/MARINE/WAV/ANFC_0_083DEG_STATIC)
+  smoke OK: ecmwf_ifs_wave (ECMWF/NRT_FORECAST/IFS/WAVE)
+  smoke OK: oisst_v2_1 (NOAA/CDR/OISST/V2_1)
+  smoke OK: pathfinder_sst (NOAA/CDR/SST_PATHFINDER/V53)
+  smoke OK: hycom_temp_sal (HYCOM/sea_temp_salinity)
+  smoke OK: hycom_velocity (HYCOM/sea_water_velocity)
+  smoke OK: hycom_ssh (HYCOM/sea_surface_elevation)
+  smoke OK: etopo1 (NOAA/NGDC/ETOPO1)
+  smoke OK: gebco_sat_io (projects/sat-io/open-datasets/gebco/gebco_grid)
+  smoke OK: fabdem (projects/sat-io/open-datasets/FABDEM)
+  smoke OK: nasadem (NASA/NASADEM_HGT/001)
+  smoke OK: murray_intertidal (UQ/murray/Intertidal/v1_1/global_intertidal)
+  smoke OK: murray_datamask (UQ/murray/Intertidal/v1_1/data_mask)
+  smoke OK: murray_qa (UQ/murray/Intertidal/v1_1/qa_pixel_count)
+  smoke OK: landsat_mangrove (LANDSAT/MANGROVE_FORESTS)
+  smoke OK: gmw_v3_extent (projects/sat-io/open-datasets/GMW/extent/GMW_V3)
+  smoke OK: gmw_2020 (projects/sat-io/open-datasets/GMW/annual-extent/GMW_MNG_2020)
+  smoke OK: cgmd_extent30 (projects/mangrovedatahub2/assets/CGMD-Extent30)
+  smoke OK: allen_coral_v2 (ACA/reef_habitat/v2_0)
+  smoke OK: modocga (MODIS/006/MODOCGA)
+  smoke OK: mydocga_061 (MODIS/061/MYDOCGA)
+  smoke OK: grace_ocean (NASA/GRACE/MASS_GRIDS_V04/OCEAN)
+  smoke FAIL: copernicus_sss_my (COPERNICUS/MARINE/GLOBAL_MULTIYEAR_PHY_SSS_SSD_DAILY)
+  smoke FAIL: nsidc_g02135 (NOAA/NSIDC/G02135/north)
+  smoke FAIL: nsidc_g02202 (NOAA/NSIDC/G02202_V4)
+  smoke FAIL: copernicus_argo (COPERNICUS/MARINE/INSITU_GLO_PHY_UV_DISCRETE_MY_NRT)
+
+=== EXP 01_oisst_gulf_mhw ===
+  done: 01_oisst_gulf_mhw
+
+=== EXP 02_oisst_vs_pathfinder ===
+  done: 02_oisst_vs_pathfinder
+
+=== EXP 03_ocean_color_multi_source ===
+  done: 03_ocean_color_multi_source
+
+=== EXP 04_olci_300m_dig ===
+  done: 04_olci_300m_dig
+
+=== EXP 05_hycom_profiles_velocity ===
+  done: 05_hycom_profiles_velocity
+
+=== EXP 06_murray_intertidal_change ===
+  done: 06_murray_intertidal_change
+
+=== EXP 07_mangroves_multi ===
+  done: 07_mangroves_multi
+
+=== EXP 08_allen_coral_seagrass ===
+  done: 08_allen_coral_seagrass
+
+=== EXP 09_bathymetry_stack ===
+  done: 09_bathymetry_stack
+
+=== EXP 10_waves_gulf_vs_hawaii ===
+  done: 10_waves_gulf_vs_hawaii
+
+=== EXP 11_estuary_turbidity_compare ===
+  done: 11_estuary_turbidity_compare
+
+=== EXP 12_hab_candidates ===
+  done: 12_hab_candidates
+
+=== EXP 13_arctic_ice ===
+  done: 13_arctic_ice
+
+=== EXP 14_hawaii_weird ===
+  done: 14_hawaii_weird
+
+=== EXP 15_mississippi_plume ===
+  done: 15_mississippi_plume
+
+=== EXP 16_grace_ocean_mass ===
+  done: 16_grace_ocean_mass
+
+=== EXP 17_copernicus_optics_transparency ===
+  done: 17_copernicus_optics_transparency
+
+=== EXP 18_hycom_galveston_null_mystery ===
+  done: 18_hycom_galveston_null_mystery
+
+=== EXP 19_seawifs_historical ===
+  done: 19_seawifs_historical
+
+=== EXP 20_gfw_fishing ===
+  done: 20_gfw_fishing
+
+=== EXP 21_ipcc_slr ===
+  done: 21_ipcc_slr
+
+=== SUMMARY ===
+{
+  "asset_smoke_ok": 37,
+  "asset_smoke_n": 43,
+  "experiments_ok": 21,
+  "experiments_n": 21,
+  "thumbs_ok": 28,
+  "thumbs_n": 30,
+  "whoa_n": 12
+}
+WHOA:
+ - Gulf Aug 2023 OISST: large fraction of days with anom>1C — marine heatwave proxy lights up.
+ - MODIS Aug 2023: Galveston Bay chl ~138x open Gulf (10.3 vs 0.075 mg/m3).
+ - HYCOM Aug 2023: SE Gulf speed ~0.52 m/s — Loop Current signature.
+ - CGMD Texas mangroves: 1.07 → 3.80 km² (1984→2023) — large expansion.
+ - Allen Coral Atlas (ACA/reef_habitat/v2_0) exposes benthic classes incl. seagrass — rare EE habitat layer.
+ - San Leon DEM mismatch: FABDEM=0.70m vs NASADEM=3.00m (Δ=-2.30m) — coastal flood math flips.
+ - Waves Jan 2024: Hawaii Hs≈2.65m vs Gulf≈1.35m — Pacific swell regime visible in EE.
+ - S2 NDTI (turbidity proxy) Sep–Oct 2023: galveston muddiest (-0.249) > sf_bay (-0.264) > chesapeake (-0.274).
+ - HAB candidate Jul 2023: SW Florida MODIS chl 3.43 vs open Gulf 0.152 (23x); nflh also sampled for fluorescence corroboration.
+ - Mississippi May 2023 plume: salinity 32.6→35.8 PSU offshore; chl 5.549084895423744 vs 0.09578462074847129.
+ - GRACE ocean mass grids in EE (lwe_thickness_csr on 2017-05-22) — weird gravity/ocean stack beyond SST/color.
+ - HYCOM goes null on Galveston Island/Bay landmask — use buffer into shelf or MODIS/OISST for bay SST.
+Wrote /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/deep_ocean_results.json

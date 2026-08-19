@@ -1,0 +1,11 @@
+start 2026-08-12T00:41:13.048633+00:00
+CRASH growth: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_round2.py", line 771, in main
+    fn()
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_round2.py", line 429, in probe_growth_better
+    record(
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_round2.py", line 64, in record
+    print(f"[{'OK' if ok else 'FAIL'}] {category:18} {name}", flush=True)
+BrokenPipeError: [Errno 32] Broken pipe
+

@@ -1,0 +1,269 @@
+{
+  "generated_at": "2026-08-13T14:55:44.585990+00:00",
+  "site_key": "san_leon",
+  "site": {
+    "name": "San Leon, TX (Galveston Bay shore)",
+    "lat": 29.475732,
+    "lng": -94.966533
+  },
+  "verdict": "KILL",
+  "fights": [
+    {
+      "fight": "TIME",
+      "claim": "record says water 5% of the time",
+      "witness": "JRC monthly history: dry 1985-2000 (baseline 0.03% of months), wetting since 2001, 10.8% of months by 2021",
+      "numbers": {
+        "recorded_permanence_pct": 5.0,
+        "observed_2021_pct": 10.8,
+        "baseline_pct": 0.03,
+        "breakpoint_year": 2001
+      }
+    },
+    {
+      "fight": "HEIGHT",
+      "claim": "record says ground at 2.37 m (USGS_3DEP_COG)",
+      "witness": "FABDEM says 0.75 m \u2014 1.62 m lower; NASADEM says 2.68 m. Flood-depth math flips on a 1.6 m disagreement this close to the shore (743 m).",
+      "numbers": {
+        "record_m": 2.3652405738830566,
+        "fabdem_m": 0.75,
+        "nasadem_m": 2.68,
+        "gap_m": 1.62,
+        "height_gated": true
+      }
+    }
+  ],
+  "aggravators": [
+    "already zone AE (48167C_STUDY1) and intersects a mapped wetland"
+  ],
+  "total_duration_ms": 5555,
+  "steps": [
+    {
+      "index": 0,
+      "tool": "mireye.fetch",
+      "description": "Load the cited federal record for a pin (cache-only).",
+      "input": {
+        "lat": 29.475732,
+        "lng": -94.966533,
+        "preset": "terrain"
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/san_leon/cache/mireye/san_leon.json",
+        "record_summary": {
+          "elevation_m": 2.3652405738830566,
+          "fema_flood_zone": "AE",
+          "surface_water_permanence_pct": 5.0,
+          "intersects_wetland": true
+        },
+        "fields_returned": [
+          "elevation",
+          "slope_degrees",
+          "aspect_cardinal",
+          "coast_distance_m",
+          "soil_drainage_class",
+          "bedrock_depth_cm",
+          "fema_flood_zone",
+          "intersects_wetland",
+          "surface_water_permanence_pct"
+        ]
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 0,
+      "duration_ms": 420,
+      "finished_ms": 420
+    },
+    {
+      "index": 1,
+      "tool": "ee.water_rewind",
+      "description": "JRC Global Surface Water monthly history at 60 m buffer.",
+      "input": {
+        "lat": 29.475732,
+        "lng": -94.966533,
+        "years": [
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021
+        ]
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/san_leon/cache/earth/san_leon.json",
+        "dataset": "JRC/GSW1_4/MonthlyHistory",
+        "baseline_freq_1985_1999": 0.0003,
+        "latest_freq_2021": 0.1084,
+        "breakpoint_year": 2001,
+        "timeline_years": 37
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 540,
+      "duration_ms": 2800,
+      "finished_ms": 3340
+    },
+    {
+      "index": 2,
+      "tool": "ee.height_check",
+      "description": "FABDEM vs NASADEM vs cited elevation.",
+      "input": {
+        "lat": 29.475732,
+        "lng": -94.966533,
+        "buffer_m": 60
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/san_leon/cache/earth/san_leon.json",
+        "fabdem_m": 0.7473415573274482,
+        "nasadem_m": 2.6759945130315503,
+        "record_elevation_m": 2.3652405738830566,
+        "gap_m": 1.62,
+        "datasets": [
+          "NASA/NASADEM_HGT/001",
+          "projects/sat-io/open-datasets/FABDEM"
+        ]
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 3460,
+      "duration_ms": 1100,
+      "finished_ms": 4560
+    },
+    {
+      "index": 3,
+      "tool": "intel.triage",
+      "description": "Record-driven docket \u2014 which witnesses to stage.",
+      "input": {
+        "record_ref": "ctx.record"
+      },
+      "output": {
+        "scheduled_tools": [
+          "ee.water_rewind",
+          "ee.height_check"
+        ],
+        "reasons": [
+          "coast 743 m \u2014 time witness mandatory",
+          "coastal pin \u2014 bare-earth elevation dissent matters"
+        ],
+        "signals": {
+          "flood_zone": "AE",
+          "coast_m": 742.9429269466059,
+          "water_permanence_pct": 5.0,
+          "drainage": "Somewhat poorly drained"
+        }
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 4680,
+      "duration_ms": 180,
+      "finished_ms": 4860
+    },
+    {
+      "index": 4,
+      "tool": "judge.verdict",
+      "description": "Deterministic KEEP / KILL / HUMAN from fights.",
+      "input": {
+        "record_ref": "ctx.record",
+        "witness_ref": "ctx.witness"
+      },
+      "output": {
+        "verdict": "KILL",
+        "fights": [
+          {
+            "fight": "TIME",
+            "claim": "record says water 5% of the time",
+            "witness": "JRC monthly history: dry 1985-2000 (baseline 0.03% of months), wetting since 2001, 10.8% of months by 2021",
+            "numbers": {
+              "recorded_permanence_pct": 5.0,
+              "observed_2021_pct": 10.8,
+              "baseline_pct": 0.03,
+              "breakpoint_year": 2001
+            }
+          },
+          {
+            "fight": "HEIGHT",
+            "claim": "record says ground at 2.37 m (USGS_3DEP_COG)",
+            "witness": "FABDEM says 0.75 m \u2014 1.62 m lower; NASADEM says 2.68 m. Flood-depth math flips on a 1.6 m disagreement this close to the shore (743 m).",
+            "numbers": {
+              "record_m": 2.3652405738830566,
+              "fabdem_m": 0.75,
+              "nasadem_m": 2.68,
+              "gap_m": 1.62,
+              "height_gated": true
+            }
+          }
+        ],
+        "aggravators": [
+          "already zone AE (48167C_STUDY1) and intersects a mapped wetland"
+        ]
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 4980,
+      "duration_ms": 95,
+      "finished_ms": 5075
+    },
+    {
+      "index": 5,
+      "tool": "act.write_packet",
+      "description": "Write verdict.json, evidence, timeline SVG, letter.",
+      "input": {
+        "site_key": "san_leon"
+      },
+      "output": {
+        "output_dir": "data/san_leon",
+        "files": [
+          "verdict.json",
+          "evidence.json",
+          "water_timeline.svg",
+          "kill_letter.md"
+        ],
+        "verdict": "KILL",
+        "fight_count": 2
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 5195,
+      "duration_ms": 240,
+      "finished_ms": 5435
+    }
+  ],
+  "replay": {
+    "mode": "cached",
+    "live_apis": false,
+    "note": "Timings simulated; payloads from data/*/cache/"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "3605 Winfield Cove, Austin TX",
+    "lat": 30.2363775,
+    "lng": -97.7807633
+  },
+  "layer": 2,
+  "triage": {
+    "staged": [],
+    "skipped": [
+      {
+        "fight": "TIME",
+        "reason": "TIME skipped: inland (188178 m to shore), zone X, drainage \u201cWell drained\u201d, permanence 0%"
+      },
+      {
+        "fight": "HEIGHT",
+        "reason": "HEIGHT skipped: inland, zone X, elev 206 m"
+      }
+    ],
+    "stage_time": false,
+    "stage_height": false
+  },
+  "vintage": {
+    "applies": false,
+    "label": null,
+    "sentence": null,
+    "dataset_vintage": "48453C_STUDY1",
+    "breakpoint_year": null,
+    "inferred_study_year": 1995
+  },
+  "ruling": {
+    "verdict": "KEEP",
+    "fights": [],
+    "not_fought": [
+      {
+        "fight": "TIME",
+        "reason": "TIME skipped: inland (188178 m to shore), zone X, drainage \u201cWell drained\u201d, permanence 0%"
+      },
+      {
+        "fight": "HEIGHT",
+        "reason": "HEIGHT skipped: inland, zone X, elev 206 m"
+      }
+    ],
+    "aggravators": [],
+    "keep_explanation": "No fights cleared adjudication. TIME skipped: inland (188178 m to shore), zone X, drainage \u201cWell drained\u201d, permanence 0%. HEIGHT skipped: inland, zone X, elev 206 m."
+  },
+  "docket": [
+    {
+      "number": null,
+      "fight": "TIME",
+      "staged": false,
+      "because": [
+        "TIME skipped: inland (188178 m to shore), zone X, drainage \u201cWell drained\u201d, permanence 0%"
+      ]
+    },
+    {
+      "number": null,
+      "fight": "HEIGHT",
+      "staged": false,
+      "because": [
+        "HEIGHT skipped: inland, zone X, elev 206 m"
+      ]
+    }
+  ],
+  "record": {
+    "elevation_m": {
+      "value": 205.84068298339844,
+      "unit": "meters",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "vintage": "3DEP 1/3 arc-second seamless DEM",
+      "fetched_at": "2026-08-13T03:50:58.362857+00:00"
+    },
+    "fema_flood_zone": {
+      "value": "X",
+      "unit": null,
+      "source": "FEMA_NFHL",
+      "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "confidence": "high",
+      "vintage": "48453C_STUDY1",
+      "fetched_at": "2026-08-13T03:50:57.824043+00:00"
+    },
+    "intersects_wetland": {
+      "value": false,
+      "unit": null,
+      "source": "USFWS_NWI",
+      "source_url": "https://www.fws.gov/program/national-wetlands-inventory",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-13T03:50:59.328133+00:00"
+    },
+    "surface_water_permanence_pct": {
+      "value": 0.0,
+      "unit": "percent",
+      "source": "JRC_GSW",
+      "source_url": "https://global-surface-water.appspot.com/",
+      "confidence": "medium",
+      "vintage": null,
+      "fetched_at": "2026-08-13T03:50:57.831346+00:00"
+    },
+    "coast_distance_m": {
+      "value": 188177.8473681091,
+      "unit": "meters",
+      "source": "NOAA_CUSP",
+      "source_url": "https://shoreline.noaa.gov/data/datasheets/cusp.html",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-13T03:50:57.763998+00:00"
+    },
+    "soil_drainage_class": {
+      "value": "Well drained",
+      "unit": null,
+      "source": "NRCS_gNATSGO",
+      "source_url": "https://storage.googleapis.com/mireye-earth-data/soils/gnatsgo_mukey_conus_fy2025.tif",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-13T03:50:58.242975+00:00"
+    },
+    "fetched_at": "2026-08-13T03:50:59.370565+00:00"
+  },
+  "witness_summary": {
+    "water": {
+      "dataset": "JRC/GSW1_4/MonthlyHistory",
+      "baseline_freq_1985_1999": 0.0,
+      "latest_freq_2021": 0.0,
+      "breakpoint_year": null
+    },
+    "height": {
+      "nasadem_m": 208.3425143168803,
+      "fabdem_m": 208.35069024819654,
+      "datasets": [
+        "NASA/NASADEM_HGT/001",
+        "projects/sat-io/open-datasets/FABDEM"
+      ]
+    }
+  }
+}

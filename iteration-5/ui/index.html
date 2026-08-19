@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Layer 2 — Intelligence Workbook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="workbook">
+    <header class="masthead">
+      <div class="masthead-inner">
+        <p class="eyebrow">Property vetting · Layer 2</p>
+        <h1>Intelligence workbook</h1>
+        <p class="lede">Triage picks the fights. Vintage arithmetic explains the map. The judge only counts what triage staged.</p>
+      </div>
+      <nav class="site-picker" aria-label="Sites">
+        <label for="site-select">Docket</label>
+        <select id="site-select"></select>
+      </nav>
+    </header>
+
+    <main id="app" class="hidden">
+      <section class="verdict-strip" id="verdict-strip"></section>
+
+      <div class="columns">
+        <section class="panel" id="triage-panel">
+          <h2>§1 — Fight triage</h2>
+          <p class="panel-note">Why each cross-examination was staged or skipped.</p>
+          <div id="docket"></div>
+        </section>
+
+        <section class="panel" id="vintage-panel">
+          <h2>§2 — Map vintage</h2>
+          <p class="panel-note">FEMA panel age vs water-regime breakpoint.</p>
+          <div id="vintage"></div>
+        </section>
+      </div>
+
+      <section class="panel" id="fights-panel">
+        <h2>§3 — Adjudication</h2>
+        <p class="panel-note">Fights that cleared the witness thresholds.</p>
+        <div id="fights"></div>
+      </section>
+
+      <section class="panel" id="keep-panel" hidden>
+        <h2>§4 — KEEP rationale</h2>
+        <div id="keep-explanation"></div>
+      </section>
+
+      <section class="panel" id="timeline-panel">
+        <h2>Exhibit — water timeline</h2>
+        <div id="timeline" class="timeline-frame"></div>
+      </section>
+    </main>
+
+    <p id="loading">Loading intelligence packet…</p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

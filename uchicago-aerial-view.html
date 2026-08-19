@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>UChicago Aerial View</title>
+<style>
+  html,body{margin:0;height:100%;background:#000;color:#fff;font-family:system-ui,sans-serif}
+  header{position:absolute;z-index:2;left:16px;top:12px;text-shadow:0 1px 4px #000}
+  h1{margin:0;font-size:16px} p{margin:4px 0 0;opacity:.8;font-size:12px}
+  video{width:100%;height:100%;object-fit:contain;background:#000}
+</style></head>
+<body>
+<header>
+  <h1>University of Chicago — Aerial View</h1>
+  <p>40s orbit · imagery 2022-06-19 · videoId KPvJfAwQnLollCjP2bks-y · playback is fetched at runtime, never stored</p>
+</header>
+<video id="v" controls autoplay muted playsinline></video>
+<script>
+const VIDEO_ID = "KPvJfAwQnLollCjP2bks-y";
+const v = document.getElementById("v");
+fetch("/api/aerial-play?video_id=" + encodeURIComponent(VIDEO_ID))
+  .then((r) => r.json())
+  .then((d) => {
+    if (!d.uri) return;
+    v.src = d.uri;
+    return v.play();
+  })
+  .catch(() => {});
+</script>
+</body></html>

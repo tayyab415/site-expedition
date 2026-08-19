@@ -1,0 +1,121 @@
+{
+  "lat": 30.2363775,
+  "lng": -97.7807633,
+  "fetched_at": "2026-08-13T03:50:59.370565+00:00",
+  "fields": {
+    "elevation": {
+      "value": 205.84068298339844,
+      "unit": "meters",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "fetched_at": "2026-08-13T03:50:58.362857+00:00",
+      "dataset_vintage": "3DEP 1/3 arc-second seamless DEM",
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "slope_degrees": {
+      "value": 3.51373028755188,
+      "unit": "degrees",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "fetched_at": "2026-08-13T03:50:58.362517+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "aspect_cardinal": {
+      "value": "E",
+      "unit": null,
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "fetched_at": "2026-08-13T03:50:58.362587+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "coast_distance_m": {
+      "value": 188177.8473681091,
+      "unit": "meters",
+      "source": "NOAA_CUSP",
+      "source_url": "https://shoreline.noaa.gov/data/datasheets/cusp.html",
+      "confidence": "high",
+      "fetched_at": "2026-08-13T03:50:57.763998+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "soil_drainage_class": {
+      "value": "Well drained",
+      "unit": null,
+      "source": "NRCS_gNATSGO",
+      "source_url": "https://storage.googleapis.com/mireye-earth-data/soils/gnatsgo_mukey_conus_fy2025.tif",
+      "confidence": "high",
+      "fetched_at": "2026-08-13T03:50:58.242975+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "bedrock_depth_cm": {
+      "value": 36.0,
+      "unit": "centimeters",
+      "source": "NRCS_gNATSGO",
+      "source_url": "https://storage.googleapis.com/mireye-earth-data/soils/gnatsgo_mukey_conus_fy2025.tif",
+      "confidence": "medium",
+      "fetched_at": "2026-08-13T03:50:59.328897+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": "restrictive layer classified as bedrock",
+      "status": "ok"
+    },
+    "fema_flood_zone": {
+      "value": "X",
+      "unit": null,
+      "source": "FEMA_NFHL",
+      "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "confidence": "high",
+      "fetched_at": "2026-08-13T03:50:57.824043+00:00",
+      "dataset_vintage": "48453C_STUDY1",
+      "ttl_seconds": 2592000,
+      "notes": "FEMA NFHL flood zone X.",
+      "status": "ok"
+    },
+    "intersects_wetland": {
+      "value": false,
+      "unit": null,
+      "source": "USFWS_NWI",
+      "source_url": "https://www.fws.gov/program/national-wetlands-inventory",
+      "confidence": "high",
+      "fetched_at": "2026-08-13T03:50:59.328133+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "surface_water_permanence_pct": {
+      "value": 0.0,
+      "unit": "percent",
+      "source": "JRC_GSW",
+      "source_url": "https://global-surface-water.appspot.com/",
+      "confidence": "medium",
+      "fetched_at": "2026-08-13T03:50:57.831346+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    }
+  },
+  "partial_failures": [],
+  "resolved_location": {
+    "lat": 30.2363775,
+    "lng": -97.7807633,
+    "source": "coordinate"
+  }
+}

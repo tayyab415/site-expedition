@@ -1,0 +1,1631 @@
+{
+  "ran_at": "2026-08-12T00:32:50.210870+00:00",
+  "project": "gen-lang-client-0261050164",
+  "n_tests": 80,
+  "n_ok": 68,
+  "n_fail": 12,
+  "by_category": {
+    "catalog": {
+      "ok": 33,
+      "fail": 6
+    },
+    "catalog_viz": {
+      "ok": 11,
+      "fail": 0
+    },
+    "platform_api": {
+      "ok": 5,
+      "fail": 1
+    },
+    "ml": {
+      "ok": 2,
+      "fail": 0
+    },
+    "export": {
+      "ok": 1,
+      "fail": 1
+    },
+    "geometry": {
+      "ok": 3,
+      "fail": 0
+    },
+    "array_unmix": {
+      "ok": 2,
+      "fail": 0
+    },
+    "catalog_search": {
+      "ok": 7,
+      "fail": 0
+    },
+    "stress": {
+      "ok": 2,
+      "fail": 4
+    },
+    "sharpness": {
+      "ok": 1,
+      "fail": 0
+    },
+    "deep_dive": {
+      "ok": 1,
+      "fail": 0
+    }
+  },
+  "results": [
+    {
+      "name": "methane_s5p_ch4",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "COPERNICUS/S5P/OFFL/L3_CH4",
+        "kind": "IC",
+        "bands": [
+          "CH4_column_volume_mixing_ratio_dry_air",
+          "aerosol_height",
+          "aerosol_optical_depth",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle",
+          "CH4_column_volume_mixing_ratio_dry_air_bias_corrected",
+          "CH4_column_volume_mixing_ratio_dry_air_uncertainty"
+        ],
+        "n_bands": 9,
+        "elapsed_s": 0.15
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "no2_s5p_offl",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "COPERNICUS/S5P/OFFL/L3_NO2",
+        "kind": "IC",
+        "bands": [
+          "NO2_column_number_density",
+          "tropospheric_NO2_column_number_density",
+          "stratospheric_NO2_column_number_density",
+          "NO2_slant_column_number_density",
+          "tropopause_pressure",
+          "absorbing_aerosol_index",
+          "cloud_fraction",
+          "sensor_altitude",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle"
+        ],
+        "n_bands": 12,
+        "elapsed_s": 0.15
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "no2_tempo",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/TEMPO/NO2_L3",
+        "kind": "IC",
+        "bands": [
+          "weight",
+          "vertical_column_troposphere",
+          "vertical_column_troposphere_uncertainty",
+          "vertical_column_stratosphere",
+          "main_data_quality_flag",
+          "num_vertical_column_troposphere_samples",
+          "min_vertical_column_troposphere_sample",
+          "max_vertical_column_troposphere_sample",
+          "num_vertical_column_troposphere_uncertainty_samples",
+          "min_vertical_column_troposphere_uncertainty_sample",
+          "max_vertical_column_troposphere_uncertainty_sample",
+          "num_vertical_column_stratosphere_samples",
+          "min_vertical_column_stratosphere_sample",
+          "max_vertical_column_stratosphere_sample",
+          "num_vertical_column_total_samples",
+          "min_vertical_column_total_sample",
+          "max_vertical_column_total_sample",
+          "solar_zenith_angle",
+          "viewing_zenith_angle",
+          "relative_azimuth_angle"
+        ],
+        "n_bands": 35,
+        "elapsed_s": 0.09
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "viirs_ntl_monthly",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG",
+        "kind": "IC",
+        "bands": [
+          "avg_rad",
+          "cf_cvg"
+        ],
+        "n_bands": 2,
+        "elapsed_s": 0.1
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "viirs_ntl_annual",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NOAA/VIIRS/DNB/ANNUAL_V21",
+        "kind": "IC",
+        "bands": [
+          "average",
+          "average_masked",
+          "cf_cvg",
+          "cvg",
+          "maximum",
+          "median",
+          "median_masked",
+          "minimum"
+        ],
+        "n_bands": 8,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "dmsp_nightlights",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NOAA/DMSP-OLS/NIGHTTIME_LIGHTS",
+        "kind": "IC",
+        "bands": [
+          "avg_vis",
+          "stable_lights",
+          "cf_cvg",
+          "avg_lights_x_pct"
+        ],
+        "n_bands": 4,
+        "elapsed_s": 0.18
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "gpw_pop_density",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "CIESIN/GPWv411/GPW_Population_Density",
+        "kind": "IC",
+        "bands": [
+          "population_density"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.13
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "ghsl_pop",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "JRC/GHSL/P2023A/GHS_POP",
+        "kind": "IC",
+        "bands": [
+          "population_count"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.09
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "landscan_global",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "projects/sat-io/open-datasets/ORNL/LANDSCAN_GLOBAL",
+        "kind": "IC",
+        "bands": [
+          "b1"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.18
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "open_buildings_v3",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "GOOGLE/Research/open-buildings/v3/polygons",
+        "kind": "FC",
+        "props": [
+          "longitude_latitude",
+          "area_in_meters",
+          "system:index",
+          "confidence",
+          "full_plus_code"
+        ],
+        "elapsed_s": 0.46
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "open_buildings_temporal",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "GOOGLE/Research/open-buildings-temporal/v1",
+        "kind": "IC",
+        "bands": [
+          "building_fractional_count",
+          "building_height",
+          "building_presence"
+        ],
+        "n_bands": 3,
+        "elapsed_s": 0.14
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "emit_ch4_plume",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/EMIT/L2B/CH4PLM",
+        "kind": "IC",
+        "bands": [
+          "methane_plume_complex"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "emit_ch4_enh",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/EMIT/L2B/CH4ENH",
+        "kind": "IC",
+        "bands": [
+          "vertical_column_enhancement"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.18
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "emit_reflectance",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/EMIT/L2A/RFL",
+        "kind": "IC",
+        "bands": [
+          "reflectance_0",
+          "reflectance_1",
+          "reflectance_2",
+          "reflectance_3",
+          "reflectance_4",
+          "reflectance_5",
+          "reflectance_6",
+          "reflectance_7",
+          "reflectance_8",
+          "reflectance_9",
+          "reflectance_10",
+          "reflectance_11",
+          "reflectance_12",
+          "reflectance_13",
+          "reflectance_14",
+          "reflectance_15",
+          "reflectance_16",
+          "reflectance_17",
+          "reflectance_18",
+          "reflectance_19"
+        ],
+        "n_bands": 579,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "soil_grtgroup",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "OpenLandMap/SOL/SOL_GRTGROUP_USDA-SOILTAX_C/v01",
+        "kind": "IMG",
+        "bands": [
+          "grtgroup"
+        ],
+        "elapsed_s": 0.14
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "soil_texture",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02",
+        "kind": "IMG",
+        "bands": [
+          "b0",
+          "b10",
+          "b30",
+          "b60",
+          "b100",
+          "b200"
+        ],
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "soil_ph",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "OpenLandMap/SOL/SOL_PH-H2O_USDA-4C1A2A_M/v02",
+        "kind": "IMG",
+        "bands": [
+          "b0",
+          "b10",
+          "b30",
+          "b60",
+          "b100",
+          "b200"
+        ],
+        "elapsed_s": 0.14
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "gap_wildlife_habitat",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "USGS/GAP/CONUS/2011",
+        "kind": "IMG",
+        "bands": [
+          "landcover"
+        ],
+        "elapsed_s": 0.09
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "padus_protected",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "USGS/GAP/PAD-US/v20/designation",
+        "kind": "FC",
+        "props": [
+          "State_Nm",
+          "Category",
+          "Des_Tp",
+          "Access",
+          "Own_Type",
+          "Mang_Name",
+          "Access_Src",
+          "Date_Est",
+          "GAP_Sts",
+          "Loc_Ds",
+          "IUCNCtSrc",
+          "Mang_Type",
+          "Loc_Mang",
+          "SHAPE_Leng",
+          "GIS_Src"
+        ],
+        "elapsed_s": 0.54
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "wdpa_protected",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "WCMC/WDPA/current/polygons",
+        "kind": "FC",
+        "props": [
+          "REP_AREA",
+          "OWN_TYPE",
+          "REP_M_AREA",
+          "INT_CRIT",
+          "GOV_TYPE",
+          "SITE_PID",
+          "REALM",
+          "ISO3",
+          "GIS_AREA",
+          "DESIG",
+          "STATUS",
+          "NO_TAKE",
+          "INLND_WTRS",
+          "PRNT_ISO3",
+          "CONS_OBJ"
+        ],
+        "elapsed_s": 0.38
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "tiger_roads_2016",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "TIGER/2016/Roads",
+        "kind": "FC",
+        "props": [
+          "mtfcc",
+          "fullname",
+          "rttyp",
+          "system:index",
+          "linearid"
+        ],
+        "elapsed_s": 0.56
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "grace_land_v04",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/GRACE/MASS_GRIDS_V04/LAND",
+        "kind": "IC",
+        "bands": [
+          "lwe_thickness_csr",
+          "lwe_thickness_gfz",
+          "lwe_thickness_jpl",
+          "uncertainty_csr",
+          "uncertainty_gfz",
+          "uncertainty_jpl"
+        ],
+        "n_bands": 6,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "grace_mascon",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+        "kind": "IC",
+        "bands": [
+          "lwe_thickness",
+          "uncertainty"
+        ],
+        "n_bands": 2,
+        "elapsed_s": 0.1
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "lithology_ergo",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "CSP/ERGo/1_0/US/lithology",
+        "kind": "IMG",
+        "bands": [
+          "b1"
+        ],
+        "elapsed_s": 0.12
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "topo_diversity",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "CSP/ERGo/1_0/Global/ALOS_topoDiversity",
+        "kind": "IMG",
+        "bands": [
+          "constant"
+        ],
+        "elapsed_s": 0.16
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "human_modification",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "CSP/HM/GlobalHumanModification",
+        "kind": "IC",
+        "bands": [
+          "gHM"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "gaia_impervious_change",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "Tsinghua/FROM-GLC/GAIA/v10",
+        "kind": "IMG",
+        "bands": [
+          "change_year_index"
+        ],
+        "elapsed_s": 0.09
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "ghsl_built_height",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "JRC/GHSL/P2023A/GHS_BUILT_H",
+        "kind": "IC",
+        "bands": [
+          "built_height"
+        ],
+        "n_bands": 1,
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "hydroatlas_l6",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "WWF/HydroATLAS/v1/Basins/level06",
+        "kind": "FC",
+        "props": [
+          "sgr_dk_sav",
+          "glc_pc_s06",
+          "glc_pc_s07",
+          "nli_ix_sav",
+          "glc_pc_s04",
+          "glc_pc_s05",
+          "glc_pc_s02",
+          "rev_mc_usu",
+          "glc_pc_s03",
+          "glc_pc_s01",
+          "pet_mm_syr",
+          "DIST_MAIN",
+          "NEXT_DOWN",
+          "for_pc_use",
+          "tmp_dc_uyr"
+        ],
+        "elapsed_s": 0.75
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "freeflowing_rivers",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "WWF/HydroSHEDS/v1/FreeFlowingRivers",
+        "kind": "FC",
+        "props": [
+          "CSI_FFID",
+          "URB",
+          "BB_LEN_KM",
+          "CSI_D",
+          "LENGTH_KM",
+          "CON_ID",
+          "OBJECTID",
+          "RDD",
+          "COUNTRY",
+          "ERO_YLD_TO",
+          "BB_VOL_TCM",
+          "CONTINENT",
+          "CSI",
+          "CSI_FF2",
+          "DIS_AV_CMS"
+        ],
+        "elapsed_s": 0.54
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "s5p_co",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "COPERNICUS/S5P/OFFL/L3_CO",
+        "kind": "IC",
+        "bands": [
+          "CO_column_number_density",
+          "H2O_column_number_density",
+          "cloud_height",
+          "sensor_altitude",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle"
+        ],
+        "n_bands": 8,
+        "elapsed_s": 0.15
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "s5p_so2",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "COPERNICUS/S5P/OFFL/L3_SO2",
+        "kind": "IC",
+        "bands": [
+          "SO2_column_number_density",
+          "SO2_column_number_density_amf",
+          "SO2_slant_column_number_density",
+          "absorbing_aerosol_index",
+          "cloud_fraction",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle",
+          "SO2_column_number_density_15km"
+        ],
+        "n_bands": 10,
+        "elapsed_s": 0.07
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "isda_soil_ph_africa",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "asset_id": "ISDASOIL/Africa/v1/ph",
+        "kind": "IMG",
+        "bands": [
+          "mean_0_20",
+          "mean_20_50",
+          "stdev_0_20",
+          "stdev_20_50"
+        ],
+        "elapsed_s": 0.11
+      },
+      "thumb": null,
+      "note": "load OK",
+      "error": null
+    },
+    {
+      "name": "uspvdb_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "USGS/USPVDB/v1",
+        "elapsed_s": 0.14
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: Collection.loadTable: Collection asset 'USGS/USPVDB/v1' not found."
+    },
+    {
+      "name": "covid_mobility_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "GOOGLE/COVID19/Mobility",
+        "elapsed_s": 0.03
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: ImageCollection.load: ImageCollection asset 'GOOGLE/COVID19/Mobility' not found (does not exist or caller does not have access)."
+    },
+    {
+      "name": "landslide_inventory_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "USGS/LANDSLIDES/v1",
+        "elapsed_s": 0.1
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: Collection.loadTable: Collection asset 'USGS/LANDSLIDES/v1' not found."
+    },
+    {
+      "name": "earthquake_comcat_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "USGS/ANSS_ComCat",
+        "elapsed_s": 0.1
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: Collection.loadTable: Collection asset 'USGS/ANSS_ComCat' not found."
+    },
+    {
+      "name": "methanesat_preview_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "projects/edf-methanesat-ee/assets/publicPreview/L3concentration",
+        "elapsed_s": 0.12
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: ImageCollection.load: ImageCollection asset 'projects/edf-methanesat-ee/assets/publicPreview/L3concentration' not found (does not exist or caller does not have access)."
+    },
+    {
+      "name": "traffic_guess",
+      "category": "catalog",
+      "ok": false,
+      "detail": {
+        "asset_id": "GOOGLE/Traffic/v1",
+        "elapsed_s": 0.09
+      },
+      "thumb": null,
+      "note": "",
+      "error": "EEException: ImageCollection.load: ImageCollection asset 'GOOGLE/Traffic/v1' not found (does not exist or caller does not have access)."
+    },
+    {
+      "name": "thumb_s5p_ch4_permian",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "CH4_column_volume_mixing_ratio_dry_air_bias_corrected_count": 978,
+          "CH4_column_volume_mixing_ratio_dry_air_bias_corrected_mean": 1884.521370550683
+        },
+        "scale": 10000
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_s5p_ch4_permian.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_s5p_no2_houston",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "tropospheric_NO2_column_number_density_count": 90,
+          "tropospheric_NO2_column_number_density_mean": 4.443147024850759e-05
+        },
+        "scale": 5000
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_s5p_no2_houston.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_viirs_ntl_houston",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "avg_rad_count": 7452,
+          "avg_rad_mean": 55.75943050911424
+        },
+        "scale": 500
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_viirs_ntl_houston.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_viirs_ntl_change",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "average_count": 7533,
+          "average_mean": -1.424292101306806
+        },
+        "scale": 500
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_viirs_ntl_change.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_gpw_pop",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "population_density_count": 1886,
+          "population_density_mean": 1736.396919575348
+        },
+        "scale": 1000
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_gpw_pop.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_emit_plume_permian",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "methane_plume_complex_count": 29067,
+          "methane_plume_complex_mean": 174.76447902992592
+        },
+        "scale": 200
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_emit_plume_permian.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_soil_ph_iowa",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "b0_count": 34981,
+          "b0_mean": 62.215392717723624
+        },
+        "scale": 500
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_soil_ph_iowa.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_gap_habitat",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "landcover_count": 159663,
+          "landcover_mean": 569.4974401347941
+        },
+        "scale": 100
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_gap_habitat.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_lithology",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "b1_count": 40124,
+          "b1_mean": 18.992252979516984
+        },
+        "scale": 200
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_lithology.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_open_buildings_temporal",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "building_height_count": 357182,
+          "building_height_mean": 2.736264506247232
+        },
+        "scale": 10
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_open_buildings_temporal.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "thumb_grace_mascon",
+      "category": "catalog_viz",
+      "ok": true,
+      "detail": {
+        "stats": {
+          "lwe_thickness_count": 3132,
+          "lwe_thickness_mean": -11.889526078627368
+        },
+        "scale": 25000
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_grace_mascon.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "getDownloadURL_srtm",
+      "category": "platform_api",
+      "ok": true,
+      "detail": {
+        "url_prefix": "https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/thumbnails/06ec227a2a36826719ecb1c9ffb10b8b-1af30aaa89be29f9bf09cd",
+        "url_len": 160
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "getThumbURL_s2",
+      "category": "platform_api",
+      "ok": true,
+      "detail": {
+        "url_prefix": "https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/thumbnails/94dac2a9bd9b42a"
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/thumb_s2_houston.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "reduceRegions_roads_elev",
+      "category": "platform_api",
+      "ok": true,
+      "detail": {
+        "means_sample": [
+          11.36838514482172,
+          16.498568994603335,
+          11.752126729918695,
+          11.390634260687747,
+          13.96730929148516
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "fastDistanceTransform",
+      "category": "platform_api",
+      "ok": true,
+      "detail": {
+        "dist_m_max": 8818.98992243177,
+        "dist_m_mean": 2654.7397156287107
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/distance_transform_houston.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "cumulativeCost",
+      "category": "platform_api",
+      "ok": true,
+      "detail": {
+        "cumulative_cost": 12238.19232013101
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/cumulative_cost_houston.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "kriging",
+      "category": "platform_api",
+      "ok": false,
+      "detail": {
+        "hasattr_Image_kriging": false,
+        "ee_attrs_with_rig": []
+      },
+      "thumb": null,
+      "note": "",
+      "error": "ee.Image.kriging does not exist"
+    },
+    {
+      "name": "classifiers_rf_nb_svm",
+      "category": "ml",
+      "ok": true,
+      "detail": {
+        "smileRandomForest": {
+          "train_accuracy": 0.9657534246575342,
+          "val_accuracy": 0.59375,
+          "kappa": 0.5222509331036462,
+          "matrix_shape": [
+            8,
+            8
+          ]
+        },
+        "smileNaiveBayes": {
+          "train_accuracy": 0.5684931506849316,
+          "val_accuracy": 0.59375,
+          "kappa": 0.5257908235964662,
+          "matrix_shape": [
+            8,
+            8
+          ]
+        },
+        "libsvm": {
+          "train_accuracy": 0.8287671232876712,
+          "val_accuracy": 0.671875,
+          "kappa": 0.6144578313253012,
+          "matrix_shape": [
+            8,
+            8
+          ]
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/rf_classified_iowa.png",
+      "note": "fixed: WorldCover is ImageCollection",
+      "error": null
+    },
+    {
+      "name": "clusterer_wekaKMeans_s2",
+      "category": "ml",
+      "ok": true,
+      "detail": {
+        "histogram": {
+          "cluster": {
+            "0": 52339.44705882353,
+            "1": 192689.76862745086,
+            "2": 342072.73725490243,
+            "3": 522439.53725490056,
+            "4": 245837.45490196184
+          }
+        },
+        "clusterers": [
+          "wekaCascadeKMeans",
+          "wekaCobweb",
+          "wekaKMeans",
+          "wekaLVQ",
+          "wekaXMeans"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "export_table_gcs",
+      "category": "export",
+      "ok": false,
+      "detail": {
+        "task_id": "VTZBDIWFSVDPJ4FPC4MA6ES7",
+        "status": {
+          "state": "READY",
+          "description": "deep_weird_table_probe",
+          "priority": 100,
+          "creation_timestamp_ms": 1786494715111,
+          "update_timestamp_ms": 1786494715111,
+          "start_timestamp_ms": 0,
+          "task_type": "EXPORT_FEATURES",
+          "id": "VTZBDIWFSVDPJ4FPC4MA6ES7",
+          "name": "projects/gen-lang-client-0261050164/operations/VTZBDIWFSVDPJ4FPC4MA6ES7"
+        }
+      },
+      "thumb": null,
+      "note": "",
+      "error": "expect fail: state=READY error=None"
+    },
+    {
+      "name": "export_image_drive_tasklist",
+      "category": "export",
+      "ok": true,
+      "detail": {
+        "started_task": {
+          "state": "READY",
+          "description": "deep_weird_image_probe",
+          "priority": 100,
+          "creation_timestamp_ms": 1786494718423,
+          "update_timestamp_ms": 1786494718423,
+          "start_timestamp_ms": 0,
+          "task_type": "EXPORT_IMAGE",
+          "id": "6UTUWE2YFQSKARVXDMSEMEGA",
+          "name": "projects/gen-lang-client-0261050164/operations/6UTUWE2YFQSKARVXDMSEMEGA"
+        },
+        "recent_tasks": [
+          {
+            "id": "6UTUWE2YFQSKARVXDMSEMEGA",
+            "state": "READY",
+            "description": "deep_weird_image_probe",
+            "error_message": null
+          },
+          {
+            "id": "VTZBDIWFSVDPJ4FPC4MA6ES7",
+            "state": "READY",
+            "description": "deep_weird_table_probe",
+            "error_message": null
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "coveringGrid_houston",
+      "category": "geometry",
+      "ok": true,
+      "detail": {
+        "n_cells": 801247
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "spatial_join_basins_padus",
+      "category": "geometry",
+      "ok": true,
+      "detail": {
+        "open_buildings_lagos_limit200": 200,
+        "basins": 2,
+        "pad_limit40": 1,
+        "sample_intersects": [
+          {
+            "intersect_area": 54605713.89345649,
+            "basin_area": 14703698479.30947
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "intersect_large_fc_roads",
+      "category": "geometry",
+      "ok": true,
+      "detail": {
+        "limit_5000_size": 5000
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "image_unmix_landsat",
+      "category": "array_unmix",
+      "ok": true,
+      "detail": {
+        "mean_fractions": {
+          "soil": 0.5039045322365564,
+          "veg": 0.288392864690605,
+          "water": 0.207702603072823
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/unmix_ca_central.png",
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "emit_toArray_hyperspectral",
+      "category": "array_unmix",
+      "ok": true,
+      "detail": {
+        "n_subset_bands": 23,
+        "array_length_mean": {
+          "array": 23
+        },
+        "total_bands": 579
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_methane",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "COPERNICUS/S5P/OFFL/L3_CH4",
+        "n": 4,
+        "ids": [
+          "COPERNICUS/S5P/OFFL/L3_CH4/20181128T122504_20181205T132750",
+          "COPERNICUS/S5P/OFFL/L3_CH4/20181128T140634_20181205T130815",
+          "COPERNICUS/S5P/OFFL/L3_CH4/20181128T154803_20181205T125852",
+          "COPERNICUS/S5P/OFFL/L3_CH4/20181128T172933_20181205T131551"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_tropomi",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "COPERNICUS/S5P/OFFL/L3_NO2",
+        "n": 4,
+        "ids": [
+          "COPERNICUS/S5P/OFFL/L3_NO2/20180628T102407_20180704T120838",
+          "COPERNICUS/S5P/OFFL/L3_NO2/20180628T120537_20180704T163936",
+          "COPERNICUS/S5P/OFFL/L3_NO2/20180628T134706_20180704T145649",
+          "COPERNICUS/S5P/OFFL/L3_NO2/20180628T152836_20180704T165246"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_landslide_proxy_emit",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "NASA/EMIT/L2B/CH4PLM",
+        "n": 4,
+        "ids": [
+          "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T064957_000485",
+          "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065021_000486",
+          "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065132_000487",
+          "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065132_000496"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_building",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "GOOGLE/Research/open-buildings-temporal/v1",
+        "n": 4,
+        "ids": [
+          "GOOGLE/Research/open-buildings-temporal/v1/01_EPSG_32723_2016_06_30",
+          "GOOGLE/Research/open-buildings-temporal/v1/01_EPSG_32723_2017_06_30",
+          "GOOGLE/Research/open-buildings-temporal/v1/01_EPSG_32723_2018_06_30",
+          "GOOGLE/Research/open-buildings-temporal/v1/01_EPSG_32723_2019_06_30"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_solar_proxy_viirs",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG",
+        "n": 4,
+        "ids": [
+          "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG/20140101",
+          "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG/20140201",
+          "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG/20140301",
+          "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG/20140401"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "listImages_traffic_proxy_ntl",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "parent": "NOAA/VIIRS/DNB/ANNUAL_V21",
+        "n": 4,
+        "ids": [
+          "NOAA/VIIRS/DNB/ANNUAL_V21/20130101",
+          "NOAA/VIIRS/DNB/ANNUAL_V21/20140101",
+          "NOAA/VIIRS/DNB/ANNUAL_V21/20150101",
+          "NOAA/VIIRS/DNB/ANNUAL_V21/20160101"
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "getList_emit_ch4plm",
+      "category": "catalog_search",
+      "ok": true,
+      "detail": {
+        "n": 1590,
+        "sample": [
+          {
+            "type": "Image",
+            "id": "projects/earthengine-public/assets/NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T064957_000485"
+          },
+          {
+            "type": "Image",
+            "id": "projects/earthengine-public/assets/NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065021_000486"
+          },
+          {
+            "type": "Image",
+            "id": "projects/earthengine-public/assets/NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065132_000487"
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "reduce_conus_scale1",
+      "category": "stress",
+      "ok": false,
+      "detail": {
+        "scale": 1,
+        "kwargs": null
+      },
+      "thumb": null,
+      "note": "",
+      "error": "Image.reduceRegion: Too many pixels in the region. Found 19405998228952, but maxPixels allows only 10000000.\nEnsure that you are not aggregating at a higher resolution than you intended; that is a frequent cause of this error. If not, then you may set the 'maxPixels' argument to a limit suitable for your computation; set 'bestEffort' to true to aggregate at whatever scale results in 'maxPixels' total pixels; or both."
+    },
+    {
+      "name": "reduce_texas_scale10",
+      "category": "stress",
+      "ok": false,
+      "detail": {
+        "scale": 10,
+        "kwargs": null
+      },
+      "thumb": null,
+      "note": "",
+      "error": "Image.reduceRegion: Too many pixels in the region. Found 17757215049, but maxPixels allows only 10000000.\nEnsure that you are not aggregating at a higher resolution than you intended; that is a frequent cause of this error. If not, then you may set the 'maxPixels' argument to a limit suitable for your computation; set 'bestEffort' to true to aggregate at whatever scale results in 'maxPixels' total pixels; or both."
+    },
+    {
+      "name": "reduce_houston_scale1",
+      "category": "stress",
+      "ok": false,
+      "detail": {
+        "scale": 1,
+        "kwargs": null
+      },
+      "thumb": null,
+      "note": "",
+      "error": "Image.reduceRegion: Too many pixels in the region. Found 1836998434, but maxPixels allows only 10000000.\nEnsure that you are not aggregating at a higher resolution than you intended; that is a frequent cause of this error. If not, then you may set the 'maxPixels' argument to a limit suitable for your computation; set 'bestEffort' to true to aggregate at whatever scale results in 'maxPixels' total pixels; or both."
+    },
+    {
+      "name": "reduce_houston_scale30_ok",
+      "category": "stress",
+      "ok": true,
+      "detail": {
+        "scale": 30,
+        "mean": {
+          "elevation": 21.711759206723837
+        },
+        "kwargs": {}
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "reduce_houston_scale1_maxPixels1e9",
+      "category": "stress",
+      "ok": false,
+      "detail": {
+        "scale": 1,
+        "kwargs": 1000000000.0
+      },
+      "thumb": null,
+      "note": "",
+      "error": "Image.reduceRegion: Too many pixels in the region. Found 1836998434, but maxPixels allows only 1000000000.\nEnsure that you are not aggregating at a higher resolution than you intended; that is a frequent cause of this error. If not, then you may set the 'maxPixels' argument to a limit suitable for your computation; set 'bestEffort' to true to aggregate at whatever scale results in 'maxPixels' total pixels; or both."
+    },
+    {
+      "name": "reduce_texas_bestEffort",
+      "category": "stress",
+      "ok": true,
+      "detail": {
+        "scale": 10,
+        "mean": {
+          "elevation": 686.795531557647
+        },
+        "kwargs": {
+          "bestEffort": true
+        }
+      },
+      "thumb": null,
+      "note": "",
+      "error": null
+    },
+    {
+      "name": "sharpness_naip_s2_landsat",
+      "category": "sharpness",
+      "ok": true,
+      "detail": {
+        "NAIP_1m": {
+          "edge_mean": 12.869030307179559,
+          "edge_p90": 30.748852633967036,
+          "edge_p99": 51.746596058252166,
+          "edge_stdDev": 12.140401640192474
+        },
+        "S2_10m": {
+          "edge_mean": 34.670550265110776,
+          "edge_p90": 71.00852193410569,
+          "edge_p99": 182.72744142597654,
+          "edge_stdDev": 35.49032925440449
+        },
+        "Landsat_30m": {
+          "edge_mean": 0.0010527901906059742,
+          "edge_p90": 0.0021701807579742865,
+          "edge_p99": 0.004725318787268837,
+          "edge_stdDev": 0.001008392791590306
+        },
+        "normalized_unitvar_edge": {
+          "NAIP_1m_unitvar": {
+            "x_mean": 0.30372898593716796,
+            "x_p90": 0.726525251353338,
+            "x_p99": 1.2264688045130483
+          },
+          "S2_10m_unitvar": {
+            "x_mean": 0.04718083054292078,
+            "x_p90": 0.09567370829292997,
+            "x_p99": 0.24819249318998546
+          },
+          "Landsat_30m_unitvar": {
+            "x_mean": 0.021090708525989113,
+            "x_p90": 0.04348903884427041,
+            "x_p99": 0.09437325314744441
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/sharp_naip.png",
+      "note": "raw edge is radiometry-dependent; normalized_unitvar_edge is comparable",
+      "error": null
+    },
+    {
+      "name": "deep_dive_emit_methane",
+      "category": "deep_dive",
+      "ok": true,
+      "detail": {
+        "followups": [
+          {
+            "f": "count_and_span",
+            "ok": true,
+            "n_images_limit5000": 1590,
+            "start": "2022-08-10T06:49:57",
+            "end": "2024-10-26T17:21:33"
+          },
+          {
+            "f": "permian_plume_max",
+            "ok": true,
+            "n_scenes_limit2000": 122,
+            "stats": {
+              "methane_plume_complex_count": 29067,
+              "methane_plume_complex_max": 7506.01318359375,
+              "methane_plume_complex_mean": 174.76447902992592
+            },
+            "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/emit_permian_max.png"
+          },
+          {
+            "f": "ch4enh_colocated",
+            "ok": true,
+            "n": 75,
+            "stats": {
+              "vertical_column_enhancement_max": 592.617919921875,
+              "vertical_column_enhancement_mean": 0.3329727749553088
+            },
+            "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/emit_enh_permian.png"
+          },
+          {
+            "f": "plume_vs_population",
+            "ok": true,
+            "stats": {
+              "population_density_mean": 0.16086542146457714,
+              "population_density_sum": 101.18435010121902
+            }
+          },
+          {
+            "f": "plume_vs_viirs_ntl",
+            "ok": true,
+            "ntl_under_plume": {
+              "avg_rad": 7.913143180459053
+            },
+            "ntl_outside": {
+              "avg_rad": 8.234000824496306
+            }
+          },
+          {
+            "f": "listImages_and_props",
+            "ok": true,
+            "ids": [
+              "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T064957_000485",
+              "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065021_000486",
+              "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065132_000487",
+              "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220810T065132_000496",
+              "NASA/EMIT/L2B/CH4PLM/EMIT_L2B_CH4PLM_001_20220811T042630_000490"
+            ],
+            "sample_props": {
+              "Concentration_Uncertainty": 553,
+              "DAAC_Scene_Names": [
+                "EMIT_L2B_CH4ENH_V001_20220810T064957_2222205_033"
+              ],
+              "DAAC_Scene_Numbers": [
+                "033"
+              ],
+              "DCID": "1344041727",
+              "Latitude_of_max_concentration": 31.12788965249969,
+              "Longitude_of_max_concentration": 35.20281459382317,
+              "Max_Plume_Concentration": 2895,
+              "Orbit": "2222205",
+              "Plume_ID": "CH4_PlumeComplex-485",
+              "Scene_FIDs": [
+                "emit20220810t064957"
+              ],
+              "global_plume_identifier": "000485"
+            }
+          },
+          {
+            "f": "plume_vs_s5p_ch4",
+            "ok": true,
+            "s5p_under": {
+              "CH4_column_volume_mixing_ratio_dry_air_bias_corrected": 1885.3381047470557
+            },
+            "s5p_outside": {
+              "CH4_column_volume_mixing_ratio_dry_air_bias_corrected": 1884.5195308320256
+            }
+          }
+        ],
+        "n_ok": 7
+      },
+      "thumb": null,
+      "note": "EMIT CH4PLM deep dive",
+      "error": null
+    }
+  ]
+}

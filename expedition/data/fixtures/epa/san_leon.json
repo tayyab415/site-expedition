@@ -1,0 +1,40 @@
+{
+  "fetched_at": "2026-08-15T04:49:37.116215+00:00",
+  "service_version": "ALL DATA v2017-06-16 0923",
+  "query_rows": 1,
+  "query": {
+    "program": "RMP",
+    "radius_m": 4147.1,
+    "lat": 29.475732,
+    "lng": -94.966533
+  },
+  "facility": {
+    "registry_id": "110002345515",
+    "name": "P. H. ROBINSON ELECTRIC GENERATING STATION",
+    "address": "5501 HIGHWAY 146, BACLIFF, TX, 77518",
+    "lat": 29.505222,
+    "lng": -94.959361,
+    "distance_m": 3351.8,
+    "rmp_ids": ["100000182517"],
+    "sems_ids": [],
+    "sic_codes": "4911",
+    "naics_codes": "221112 221122",
+    "active_flag": "Y",
+    "compliance_status": "No Violation Identified",
+    "air_compliance_status": "No Violation Identified",
+    "water_compliance_status": "Terminated Permit",
+    "rcra_compliance_status": "No Violation Identified",
+    "inspection_count": 2,
+    "last_inspection": "08/29/2024",
+    "formal_action_count": 0,
+    "last_formal_action": "09/14/2013",
+    "total_penalties": "$0",
+    "penalty_count": null,
+    "last_penalty": "09/14/2013",
+    "source_url": "https://echo.epa.gov/detailed-facility-report?fid=110002345515"
+  },
+  "limitations": [
+    "ECHO is a lagged regulatory snapshot and completeness varies by program and state.",
+    "A nearby RMP record is a due-diligence lead, not a clean-site or hazard conclusion."
+  ]
+}

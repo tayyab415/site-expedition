@@ -1,0 +1,5074 @@
+{
+  "generated_at": "2026-08-12T00:39:55.465830+00:00",
+  "n_probes": 152,
+  "n_ok": 147,
+  "n_fail": 5,
+  "results": [
+    {
+      "name": "landsat_linfit_central_valley_ag_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -3.628264789958983,
+        "scale": 0.00199820963115733
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_linfit_central_valley_ag_NDWI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 4.130872549489757,
+        "scale": -0.0022798852523525214
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_linfit_central_valley_ag_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 0.8098918642381547,
+        "scale": -0.00034601217490168356
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_sensSlope_central_valley_ag_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -3.625288832123097,
+        "slope": 0.001999016746555899
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_sensSlope_central_valley_ag_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 0.9588576322732564,
+        "slope": -0.0004183195999724694
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_breakpoint_ndvi_central_valley_ag",
+      "category": "landsat_breakpoint",
+      "ok": true,
+      "detail": {
+        "early_1985_2004": {
+          "offset": -6.307871986282324,
+          "scale": 0.003342826952622775
+        },
+        "late_2005_2024": {
+          "offset": -3.626407306441661,
+          "scale": 0.001996179581588237
+        },
+        "slope_delta": -0.001346647371034538
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/landsat_ndvi_slope_central_valley_ag.png",
+      "note": "year-window breakpoint proxy: late slope minus early slope",
+      "lat": 36.5,
+      "lng": -121.2
+    },
+    {
+      "name": "landsat_linfit_colorado_pine_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -3.8638389693500104,
+        "scale": 0.002086301949547474
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_linfit_colorado_pine_NDWI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 4.683725056854646,
+        "scale": -0.0025307488721036104
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_linfit_colorado_pine_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 0.3368001201587383,
+        "scale": -8.201463476068683e-05
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_sensSlope_colorado_pine_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -4.186339510232539,
+        "slope": 0.0022455739020395262
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_sensSlope_colorado_pine_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -0.7057559411097408,
+        "slope": 0.00043232811473001097
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_breakpoint_ndvi_colorado_pine",
+      "category": "landsat_breakpoint",
+      "ok": true,
+      "detail": {
+        "early_1985_2004": {
+          "offset": -1.249331275999751,
+          "scale": 0.0007768412998418342
+        },
+        "late_2005_2024": {
+          "offset": -9.883355258303553,
+          "scale": 0.005073012230729422
+        },
+        "slope_delta": 0.004296170930887588
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/landsat_ndvi_slope_colorado_pine.png",
+      "note": "year-window breakpoint proxy: late slope minus early slope",
+      "lat": 39.2,
+      "lng": -105.5
+    },
+    {
+      "name": "landsat_linfit_louisiana_wetland_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 6.258158238409059,
+        "scale": -0.003086023583435871
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_linfit_louisiana_wetland_NDWI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -5.380470447603843,
+        "scale": 0.0026560170210326015
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_linfit_louisiana_wetland_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 10.748346890073888,
+        "scale": -0.005131173328653555
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_sensSlope_louisiana_wetland_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 6.071673689444361,
+        "slope": -0.00299274501119541
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_sensSlope_louisiana_wetland_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 11.07839696011816,
+        "slope": -0.005293838366302291
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_breakpoint_ndvi_louisiana_wetland",
+      "category": "landsat_breakpoint",
+      "ok": true,
+      "detail": {
+        "early_1985_2004": {
+          "offset": 7.4423354060328615,
+          "scale": -0.003680586030038312
+        },
+        "late_2005_2024": {
+          "offset": 7.094925861228008,
+          "scale": -0.0035005631668034577
+        },
+        "slope_delta": 0.00018002286323485443
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/landsat_ndvi_slope_louisiana_wetland.png",
+      "note": "year-window breakpoint proxy: late slope minus early slope",
+      "lat": 29.5,
+      "lng": -90.0
+    },
+    {
+      "name": "landsat_linfit_texas_hill_country_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -1.888597329411233,
+        "scale": 0.001168311897646977
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_linfit_texas_hill_country_NDWI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 2.594348595231745,
+        "scale": -0.001537536337030627
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_linfit_texas_hill_country_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 1.221785826795524,
+        "scale": -0.0005079749087692727
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_sensSlope_texas_hill_country_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -2.115905648853457,
+        "slope": 0.001283023222946496
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_sensSlope_texas_hill_country_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 1.1586284624114422,
+        "slope": -0.00047312595224353903
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_breakpoint_ndvi_texas_hill_country",
+      "category": "landsat_breakpoint",
+      "ok": true,
+      "detail": {
+        "early_1985_2004": {
+          "offset": -2.417067647170758,
+          "scale": 0.0014347156657632085
+        },
+        "late_2005_2024": {
+          "offset": -4.8348828243794415,
+          "scale": 0.002629425572117035
+        },
+        "slope_delta": 0.0011947099063538266
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/landsat_ndvi_slope_texas_hill_country.png",
+      "note": "year-window breakpoint proxy: late slope minus early slope",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "landsat_linfit_cascades_clearcut_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -10.29664112080387,
+        "scale": 0.00549564219527921
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "landsat_linfit_cascades_clearcut_NDWI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": 7.6737030399367265,
+        "scale": -0.004162389097380549
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "landsat_linfit_cascades_clearcut_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -9.374108044581718,
+        "scale": 0.0050077086976133105
+      },
+      "thumb": null,
+      "note": "slope=change per year from annual medians 1985-2024",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "landsat_sensSlope_cascades_clearcut_NDVI",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -10.281712911483327,
+        "slope": 0.005490300658961285
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "landsat_sensSlope_cascades_clearcut_NBR",
+      "category": "landsat_trend",
+      "ok": true,
+      "detail": {
+        "offset": -9.395797524306749,
+        "slope": 0.005027110782410061
+      },
+      "thumb": null,
+      "note": "Thiel-Sen slope if reducer available",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "landsat_breakpoint_ndvi_cascades_clearcut",
+      "category": "landsat_breakpoint",
+      "ok": true,
+      "detail": {
+        "early_1985_2004": {
+          "offset": -11.270006388420267,
+          "scale": 0.005983647562991177
+        },
+        "late_2005_2024": {
+          "offset": -9.26678938546289,
+          "scale": 0.004984441811250181
+        },
+        "slope_delta": -0.0009992057517409962
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/landsat_ndvi_slope_cascades_clearcut.png",
+      "note": "year-window breakpoint proxy: late slope minus early slope",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "s2_harmonic_phenology_iowa_corn",
+      "category": "sentinel2_phenology",
+      "ok": false,
+      "detail": {
+        "amplitude": "s2_amp_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9994082116062598, 0.9994082116062598>.\n  Actual type: Float<0.9963032375991965, 0.9963032375991965>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "doy_peak": "s2_doy_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9994082116062598, 0.9994082116062598>.\n  Actual type: Float<0.9963032375991965, 0.9963032375991965>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "coefs": "s2_coef_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9994082116062598, 0.9994082116062598>.\n  Actual type: Float<0.9963032375991965, 0.9963032375991965>.\n     Image ID: null\nThis band might require an explicit cast."
+      },
+      "thumb": "thumb_fail: HTTP Error 400: Bad Request",
+      "note": "Cloud Score+ masked harmonic fit 2019-2024; amp + day-of-peak greenness",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "s2_monthly_2023_iowa_corn",
+      "category": "sentinel2_phenology",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "month": "Float",
+          "ndvi": "Float",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "month": 1,
+              "ndvi": 0.0062933780226020405
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "month": 2,
+              "ndvi": 0.14772167328157673
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "month": 3,
+              "ndvi": 0.1779549395587
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "month": 4,
+              "ndvi": 0.204635811095391
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "month": 5,
+              "ndvi": 0.2456363367531157
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "5",
+            "properties": {
+              "month": 6,
+              "ndvi": 0.5368385738449687
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "6",
+            "properties": {
+              "month": 7,
+              "ndvi": 0.808839106064031
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "7",
+            "properties": {
+              "month": 8,
+              "ndvi": 0.8481591372188051
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "8",
+            "properties": {
+              "month": 9,
+              "ndvi": 0.7402023529072489
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "9",
+            "properties": {
+              "month": 10,
+              "ndvi": 0.26820881130821606
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "10",
+            "properties": {
+              "month": 11,
+              "ndvi": 0.2051422919908306
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "11",
+            "properties": {
+              "month": 12,
+              "ndvi": 0.19275211101502565
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "monthly NDVI 2023 with Cloud Score+",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "s2_harmonic_phenology_sonoran",
+      "category": "sentinel2_phenology",
+      "ok": false,
+      "detail": {
+        "amplitude": "s2_amp_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9986686402879997, 0.9986686402879997>.\n  Actual type: Float<0.9905453876091833, 0.9905453876091833>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "doy_peak": "s2_doy_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9986686402879997, 0.9986686402879997>.\n  Actual type: Float<0.9905453876091833, 0.9905453876091833>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "coefs": "s2_coef_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9986686402879997, 0.9986686402879997>.\n  Actual type: Float<0.9905453876091833, 0.9905453876091833>.\n     Image ID: null\nThis band might require an explicit cast."
+      },
+      "thumb": "thumb_fail: HTTP Error 400: Bad Request",
+      "note": "Cloud Score+ masked harmonic fit 2019-2024; amp + day-of-peak greenness",
+      "lat": 33.4,
+      "lng": -112.1
+    },
+    {
+      "name": "s2_monthly_2023_sonoran",
+      "category": "sentinel2_phenology",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "month": "Float",
+          "ndvi": "Float",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "month": 1,
+              "ndvi": 0.15927642628807687
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "month": 2,
+              "ndvi": 0.15516893495136164
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "month": 3,
+              "ndvi": 0.15167095904687541
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "month": 4,
+              "ndvi": 0.13600734811044438
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "month": 5,
+              "ndvi": 0.12711570913153694
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "5",
+            "properties": {
+              "month": 6,
+              "ndvi": 0.13003902162154077
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "6",
+            "properties": {
+              "month": 7,
+              "ndvi": 0.10930038124790528
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "7",
+            "properties": {
+              "month": 8,
+              "ndvi": 0.10963860897287976
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "8",
+            "properties": {
+              "month": 9,
+              "ndvi": 0.12680753472926823
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "9",
+            "properties": {
+              "month": 10,
+              "ndvi": 0.12879063974145555
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "10",
+            "properties": {
+              "month": 11,
+              "ndvi": 0.1370499902373267
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "11",
+            "properties": {
+              "month": 12,
+              "ndvi": 0.1389289041488949
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "monthly NDVI 2023 with Cloud Score+",
+      "lat": 33.4,
+      "lng": -112.1
+    },
+    {
+      "name": "s2_harmonic_phenology_atlanta",
+      "category": "sentinel2_phenology",
+      "ok": false,
+      "detail": {
+        "amplitude": "s2_amp_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9963032375991965, 0.9963032375991965>.\n  Actual type: Float<0.9927586335250793, 0.9927586335250793>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "doy_peak": "s2_doy_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9963032375991965, 0.9963032375991965>.\n  Actual type: Float<0.9927586335250793, 0.9927586335250793>.\n     Image ID: null\nThis band might require an explicit cast.",
+        "coefs": "s2_coef_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':\nExpected type: Float<0.9963032375991965, 0.9963032375991965>.\n  Actual type: Float<0.9927586335250793, 0.9927586335250793>.\n     Image ID: null\nThis band might require an explicit cast."
+      },
+      "thumb": "thumb_fail: HTTP Error 400: Bad Request",
+      "note": "Cloud Score+ masked harmonic fit 2019-2024; amp + day-of-peak greenness",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "s2_monthly_2023_atlanta",
+      "category": "sentinel2_phenology",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "month": "Float",
+          "ndvi": "Float",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "month": 1,
+              "ndvi": 0.3764404231426302
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "month": 2,
+              "ndvi": 0.36064358997406787
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "month": 3,
+              "ndvi": 0.40090277276086933
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "month": 4,
+              "ndvi": 0.5333704101348652
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "month": 5,
+              "ndvi": 0.5724000771859103
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "5",
+            "properties": {
+              "month": 6,
+              "ndvi": 0.561379490709137
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "6",
+            "properties": {
+              "month": 7,
+              "ndvi": 0.5378163318345959
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "7",
+            "properties": {
+              "month": 8,
+              "ndvi": 0.5537522564755718
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "8",
+            "properties": {
+              "month": 9,
+              "ndvi": 0.5648820302733613
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "9",
+            "properties": {
+              "month": 10,
+              "ndvi": 0.5461395243045623
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "10",
+            "properties": {
+              "month": 11,
+              "ndvi": 0.4516334414522744
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "11",
+            "properties": {
+              "month": 12,
+              "ndvi": 0.406482576310543
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "monthly NDVI 2023 with Cloud Score+",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "modis_biome_curves_sonoran_desert",
+      "category": "modis_biome",
+      "ok": true,
+      "detail": {
+        "ndvi_climatology": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.17473141020739702
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.1829649140197827
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.18932448776915256
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.1767612864204323
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.17281732514561987
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.1773255356945511
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.18164776211219374
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.1907229559866049
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.19268947126157623
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.1875718449254747
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.18475505859495597
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.1746459155451253
+              }
+            }
+          ]
+        },
+        "ndvi_2023": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.18509145638399777
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.1913380550673081
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.191222352017135
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.17223190933155097
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.168970623927756
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.16672443006599239
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.16622495934681233
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.1738592615591877
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.17937655100462044
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.17436621917462214
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.17435975373904122
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.16707314666196574
+              }
+            }
+          ]
+        },
+        "lst_climatology_c": {
+          "type": "FeatureCollection",
+          "columns": {
+            "lst_c": "Float",
+            "month": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "lst_c": 19.883455738502978,
+                "month": 1
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "lst_c": 24.981820291906097,
+                "month": 2
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "lst_c": 33.529712044612594,
+                "month": 3
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "lst_c": 40.98223058780844,
+                "month": 4
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "lst_c": 46.689463621218955,
+                "month": 5
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "lst_c": 51.24274311959147,
+                "month": 6
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "lst_c": 49.197295593051045,
+                "month": 7
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "lst_c": 47.50956732051608,
+                "month": 8
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "lst_c": 43.77265061699799,
+                "month": 9
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "lst_c": 35.66338302280605,
+                "month": 10
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "lst_c": 26.911902676562928,
+                "month": 11
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "lst_c": 19.12726891888381,
+                "month": 12
+              }
+            }
+          ]
+        },
+        "ndvi_annual_slope_2001_2024": {
+          "offset": 1.6153906656099768,
+          "scale": -0.0007122665097534248
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/modis_ndvi_2023_sonoran_desert.png",
+      "note": "MOD13Q1 + MOD11A2 monthly arrays for biome contrast",
+      "lat": 33.4,
+      "lng": -112.1
+    },
+    {
+      "name": "modis_biome_curves_iowa_corn",
+      "category": "modis_biome",
+      "ok": true,
+      "detail": {
+        "ndvi_climatology": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.11208489192238202
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.12153888302550354
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.24537919161980523
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.314087081993456
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.39454236645728247
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.6706031059338294
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.8204565709654758
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.7784166678913896
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.4662626379936858
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.3168061485001572
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.28188521457050275
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.18764165248719475
+              }
+            }
+          ]
+        },
+        "ndvi_2023": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.08516689603646192
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.2244398603404945
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.23079063698131244
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.29336076125321187
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.37599312745481617
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.6979876002126639
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.8346699535327089
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.8002839845936571
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.5130694200020148
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.31454036073045416
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.29435334569182187
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.27166085423463676
+              }
+            }
+          ]
+        },
+        "lst_climatology_c": {
+          "type": "FeatureCollection",
+          "columns": {
+            "lst_c": "Float",
+            "month": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "lst_c": -3.462413823446386,
+                "month": 1
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "lst_c": 0.16304464350564332,
+                "month": 2
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "lst_c": 12.979197447397997,
+                "month": 3
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "lst_c": 24.29138450570142,
+                "month": 4
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "lst_c": 29.09019658437933,
+                "month": 5
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "lst_c": 32.573934556759006,
+                "month": 6
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "lst_c": 28.52826431950455,
+                "month": 7
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "lst_c": 26.653746744401154,
+                "month": 8
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "lst_c": 25.26911161675492,
+                "month": 9
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "lst_c": 17.776684036340924,
+                "month": 10
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "lst_c": 8.364734981063052,
+                "month": 11
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "lst_c": -0.26720098293690014,
+                "month": 12
+              }
+            }
+          ]
+        },
+        "ndvi_annual_slope_2001_2024": {
+          "offset": -0.965417037831436,
+          "scale": 0.0006765532867588172
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/modis_ndvi_2023_iowa_corn.png",
+      "note": "MOD13Q1 + MOD11A2 monthly arrays for biome contrast",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "modis_biome_curves_el_yunque_pr",
+      "category": "modis_biome",
+      "ok": true,
+      "detail": {
+        "ndvi_climatology": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.720729040228239
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.6877199668272147
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.7083901472852641
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.6632562462895215
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.6201806553108669
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.6025782009568399
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.627549151178747
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.6919090441036014
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.6810730757622694
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.6816118743522961
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.6858819327001097
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.6827884771670863
+              }
+            }
+          ]
+        },
+        "ndvi_2023": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.6854366875149634
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.7654820048779037
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.8245126141668652
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.8040736108451039
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.7348735077507776
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.6553972504189619
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.6766835607194155
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.6301586831158721
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.741503218069188
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.6587905635025147
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.6369721721630364
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.7630279864436194
+              }
+            }
+          ]
+        },
+        "lst_climatology_c": {
+          "type": "FeatureCollection",
+          "columns": {
+            "lst_c": "Float",
+            "month": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "lst_c": 21.91949723307865,
+                "month": 1
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "lst_c": 22.322145691022513,
+                "month": 2
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "lst_c": 23.39815623848342,
+                "month": 3
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "lst_c": 24.556995045688335,
+                "month": 4
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "lst_c": 25.03735128203797,
+                "month": 5
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "lst_c": 24.443142525449897,
+                "month": 6
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "lst_c": 24.450796297980386,
+                "month": 7
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "lst_c": 25.294994587236207,
+                "month": 8
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "lst_c": 24.9872804856613,
+                "month": 9
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "lst_c": 24.5957822964895,
+                "month": 10
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "lst_c": 23.167359305538177,
+                "month": 11
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "lst_c": 22.149341349659405,
+                "month": 12
+              }
+            }
+          ]
+        },
+        "ndvi_annual_slope_2001_2024": {
+          "offset": -0.4519065781981226,
+          "scale": 0.0005577846078144376
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/modis_ndvi_2023_el_yunque_pr.png",
+      "note": "MOD13Q1 + MOD11A2 monthly arrays for biome contrast",
+      "lat": 18.29,
+      "lng": -65.79
+    },
+    {
+      "name": "modis_biome_curves_manhattan",
+      "category": "modis_biome",
+      "ok": true,
+      "detail": {
+        "ndvi_climatology": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.04034240606610679
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.03095949600475817
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.05003156263624175
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.09248143030776429
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.16729091471490573
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.178597772671443
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.18162959025426775
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.1806004499081884
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.1684555008332945
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.15867854089370168
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.08968600873720718
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.053538267707228776
+              }
+            }
+          ]
+        },
+        "ndvi_2023": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.09756164040661583
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.10396427729583783
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.12306527238913649
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.14917274989001175
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.2514391277250643
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.1930265103475028
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.20661204375888212
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.22476916573291242
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.2212493527643811
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.22792951213669752
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.13602759069868872
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.09975210281734814
+              }
+            }
+          ]
+        },
+        "lst_climatology_c": {
+          "type": "FeatureCollection",
+          "columns": {
+            "lst_c": "Float",
+            "month": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "lst_c": 0.9850967592279983,
+                "month": 1
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "lst_c": 4.827406546649527,
+                "month": 2
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "lst_c": 13.571622794773429,
+                "month": 3
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "lst_c": 22.47159951606321,
+                "month": 4
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "lst_c": 28.47579969212705,
+                "month": 5
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "lst_c": 33.161067360467825,
+                "month": 6
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "lst_c": 34.82072039401134,
+                "month": 7
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "lst_c": 32.62441981620716,
+                "month": 8
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "lst_c": 26.839130156770175,
+                "month": 9
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "lst_c": 18.08304061381062,
+                "month": 10
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "lst_c": 10.348942052438208,
+                "month": 11
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "lst_c": 3.8271153659870047,
+                "month": 12
+              }
+            }
+          ]
+        },
+        "ndvi_annual_slope_2001_2024": {
+          "offset": -0.8335347134350772,
+          "scale": 0.00046932581495338216
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/modis_ndvi_2023_manhattan.png",
+      "note": "MOD13Q1 + MOD11A2 monthly arrays for biome contrast",
+      "lat": 40.748,
+      "lng": -73.985
+    },
+    {
+      "name": "modis_biome_curves_olympic_rainforest",
+      "category": "modis_biome",
+      "ok": true,
+      "detail": {
+        "ndvi_climatology": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.3686795921699151
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.4165150785597742
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.39006522952677347
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.41778966041361204
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.4842088380612111
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.5679764127366499
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.6999567564014579
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.7346312469305197
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.7303117689241867
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.5891283505569496
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.4714597089094442
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.3341116075539517
+              }
+            }
+          ]
+        },
+        "ndvi_2023": {
+          "type": "FeatureCollection",
+          "columns": {
+            "month": "Float",
+            "ndvi": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "month": 1,
+                "ndvi": 0.42124565738448616
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "month": 2,
+                "ndvi": 0.2893217178955756
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "month": 3,
+                "ndvi": 0.3861038106770944
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "month": 4,
+                "ndvi": 0.3487471885671214
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "month": 5,
+                "ndvi": 0.5617297211642878
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "month": 6,
+                "ndvi": 0.6482552489959913
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "month": 7,
+                "ndvi": 0.7291481935273512
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "month": 8,
+                "ndvi": 0.7501190264990247
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "month": 9,
+                "ndvi": 0.7451297637168507
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "month": 10,
+                "ndvi": 0.6220844856897558
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "month": 11,
+                "ndvi": 0.5533248654090035
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "month": 12,
+                "ndvi": 0.42976736946343314
+              }
+            }
+          ]
+        },
+        "lst_climatology_c": {
+          "type": "FeatureCollection",
+          "columns": {
+            "lst_c": "Float",
+            "month": "Float",
+            "system:index": "String"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "0",
+              "properties": {
+                "lst_c": -0.29069818898542604,
+                "month": 1
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "1",
+              "properties": {
+                "lst_c": -0.07917652071931644,
+                "month": 2
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "2",
+              "properties": {
+                "lst_c": 2.6116558486276573,
+                "month": 3
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "3",
+              "properties": {
+                "lst_c": 7.611089240459217,
+                "month": 4
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "4",
+              "properties": {
+                "lst_c": 12.813214812077112,
+                "month": 5
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "5",
+              "properties": {
+                "lst_c": 16.53733518547947,
+                "month": 6
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "6",
+              "properties": {
+                "lst_c": 19.796027293679387,
+                "month": 7
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "7",
+              "properties": {
+                "lst_c": 19.29119809367652,
+                "month": 8
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "8",
+              "properties": {
+                "lst_c": 15.038147715920472,
+                "month": 9
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "9",
+              "properties": {
+                "lst_c": 8.034787088993776,
+                "month": 10
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "10",
+              "properties": {
+                "lst_c": 1.7791140653605266,
+                "month": 11
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": null,
+              "id": "11",
+              "properties": {
+                "lst_c": -2.6271876086567914,
+                "month": 12
+              }
+            }
+          ]
+        },
+        "ndvi_annual_slope_2001_2024": {
+          "offset": -1.6857968968013055,
+          "scale": 0.0010938415598190808
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/modis_ndvi_2023_olympic_rainforest.png",
+      "note": "MOD13Q1 + MOD11A2 monthly arrays for biome contrast",
+      "lat": 47.8,
+      "lng": -123.8
+    },
+    {
+      "name": "jrc_decade_delta_salton_sea_south",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "salton_sea_south",
+        "lng": -115.8,
+        "lat": 33.1,
+        "delta_mean": -0.06032527934704324,
+        "delta_pct": {
+          "d_freq_p50": 5.145749349951366e-05,
+          "d_freq_p90": 5.145749349951366e-05,
+          "d_freq_p99": 5.145749349951366e-05
+        },
+        "early_freq": {
+          "freq": 0.20190927275106563
+        },
+        "late_freq": {
+          "freq": 0.1415839933741523
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_salton_sea_south.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 33.1,
+      "lng": -115.8
+    },
+    {
+      "name": "jrc_decade_delta_lake_mead",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "lake_mead",
+        "lng": -114.4,
+        "lat": 36.1,
+        "delta_mean": -0.14757348948639476,
+        "delta_pct": {
+          "d_freq_p50": 0,
+          "d_freq_p90": 0,
+          "d_freq_p99": 0.012263179542603584
+        },
+        "early_freq": {
+          "freq": 0.5179728363829263
+        },
+        "late_freq": {
+          "freq": 0.37039934694750537
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_lake_mead.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 36.1,
+      "lng": -114.4
+    },
+    {
+      "name": "jrc_decade_delta_louisiana_delta",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "louisiana_delta",
+        "lng": -89.5,
+        "lat": 29.3,
+        "delta_mean": 0.07802602471005088,
+        "delta_pct": {
+          "d_freq_p50": 6.97337048347604e-05,
+          "d_freq_p90": 0.4253556323902948,
+          "d_freq_p99": 0.9566849271323689
+        },
+        "early_freq": {
+          "freq": 0.7071199701712791
+        },
+        "late_freq": {
+          "freq": 0.7851459948552099
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_louisiana_delta.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 29.3,
+      "lng": -89.5
+    },
+    {
+      "name": "jrc_decade_delta_florida_everglades",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "florida_everglades",
+        "lng": -80.8,
+        "lat": 25.6,
+        "delta_mean": -0.02521360817214634,
+        "delta_pct": {
+          "d_freq_p50": 7.120133202325016e-05,
+          "d_freq_p90": 0.12283873548956051,
+          "d_freq_p99": 0.21301775480448976
+        },
+        "early_freq": {
+          "freq": 0.1415776160568683
+        },
+        "late_freq": {
+          "freq": 0.11636400807065413
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_florida_everglades.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 25.6,
+      "lng": -80.8
+    },
+    {
+      "name": "jrc_decade_delta_great_salt_lake",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "great_salt_lake",
+        "lng": -112.5,
+        "lat": 41.1,
+        "delta_mean": -0.012364419500015753,
+        "delta_pct": {
+          "d_freq_p50": 0,
+          "d_freq_p90": 0.013389793222062782,
+          "d_freq_p99": 0.013389793222062782
+        },
+        "early_freq": {
+          "freq": 0.9980848230318071
+        },
+        "late_freq": {
+          "freq": 0.9857204035357133
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_great_salt_lake.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 41.1,
+      "lng": -112.5
+    },
+    {
+      "name": "jrc_decade_delta_chesapeake",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "chesapeake",
+        "lng": -76.3,
+        "lat": 38.8,
+        "delta_mean": 0.0024164484955618787,
+        "delta_pct": {
+          "d_freq_p50": 0.0029026046165554894,
+          "d_freq_p90": 0.027404261188666967,
+          "d_freq_p99": 0.3038310433264639
+        },
+        "early_freq": {
+          "freq": 0.6313509011335661
+        },
+        "late_freq": {
+          "freq": 0.6337673496018968
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_chesapeake.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 38.8,
+      "lng": -76.3
+    },
+    {
+      "name": "jrc_decade_delta_columbia_gorge",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "columbia_gorge",
+        "lng": -121.2,
+        "lat": 45.7,
+        "delta_mean": 0.0011523456938964363,
+        "delta_pct": {
+          "d_freq_p50": 1.004103224942909e-05,
+          "d_freq_p90": 1.004103224942909e-05,
+          "d_freq_p99": 0.020244891106568533
+        },
+        "early_freq": {
+          "freq": 0.051692237435395715
+        },
+        "late_freq": {
+          "freq": 0.052844583130936575
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_columbia_gorge.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 45.7,
+      "lng": -121.2
+    },
+    {
+      "name": "jrc_decade_delta_plains_playa_tx",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "plains_playa_tx",
+        "lng": -102.0,
+        "lat": 33.5,
+        "delta_mean": 0.0012833076090335894,
+        "delta_pct": {
+          "d_freq_p50": 9.265165584405717e-07,
+          "d_freq_p90": 9.265165584405717e-07,
+          "d_freq_p99": 9.265165584405717e-07
+        },
+        "early_freq": {
+          "freq": 0.0012378951709069756
+        },
+        "late_freq": {
+          "freq": 0.002521202781913586
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_plains_playa_tx.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 33.5,
+      "lng": -102.0
+    },
+    {
+      "name": "jrc_decade_delta_minnesota_lakes",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "minnesota_lakes",
+        "lng": -94.0,
+        "lat": 47.0,
+        "delta_mean": -0.004852460631633123,
+        "delta_pct": {
+          "d_freq_p50": 1.4617734241537295e-05,
+          "d_freq_p90": 1.4617734241537295e-05,
+          "d_freq_p99": 0.12828009802362192
+        },
+        "early_freq": {
+          "freq": 0.1205541922514463
+        },
+        "late_freq": {
+          "freq": 0.11570173161898446
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_minnesota_lakes.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 47.0,
+      "lng": -94.0
+    },
+    {
+      "name": "jrc_decade_delta_sacramento_delta",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "sacramento_delta",
+        "lng": -121.6,
+        "lat": 38.1,
+        "delta_mean": 0.0009863806033400516,
+        "delta_pct": {
+          "d_freq_p50": 1.1702504187053573e-05,
+          "d_freq_p90": 0.014125482576966775,
+          "d_freq_p99": 0.2139999376402961
+        },
+        "early_freq": {
+          "freq": 0.20083824156951835
+        },
+        "late_freq": {
+          "freq": 0.20182462217180352
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_sacramento_delta.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 38.1,
+      "lng": -121.6
+    },
+    {
+      "name": "jrc_decade_delta_cape_hatteras",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "cape_hatteras",
+        "lng": -75.6,
+        "lat": 35.2,
+        "delta_mean": -0.0034043437967090063,
+        "delta_pct": {
+          "d_freq_p50": 0.0019834334556898827,
+          "d_freq_p90": 0.0019834334556898827,
+          "d_freq_p99": 0.038635167099107796
+        },
+        "early_freq": {
+          "freq": 0.857344676553794
+        },
+        "late_freq": {
+          "freq": 0.8539403327460099
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_cape_hatteras.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 35.2,
+      "lng": -75.6
+    },
+    {
+      "name": "jrc_decade_delta_mobile_bay",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "mobile_bay",
+        "lng": -88.0,
+        "lat": 30.5,
+        "delta_mean": -0.004151679007245572,
+        "delta_pct": {
+          "d_freq_p50": 1.6117999205839605e-06,
+          "d_freq_p90": 0.011512720118796936,
+          "d_freq_p99": 0.024517998060123673
+        },
+        "early_freq": {
+          "freq": 0.9645493921393423
+        },
+        "late_freq": {
+          "freq": 0.9603977131284401
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_mobile_bay.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 30.5,
+      "lng": -88.0
+    },
+    {
+      "name": "jrc_decade_delta_puerto_rico_coast",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "puerto_rico_coast",
+        "lng": -66.1,
+        "lat": 18.45,
+        "delta_mean": -0.0004563863978253757,
+        "delta_pct": {
+          "d_freq_p50": 1.4869361243143352e-05,
+          "d_freq_p90": 1.4869361243143352e-05,
+          "d_freq_p99": 0.08617455842056672
+        },
+        "early_freq": {
+          "freq": 0.494298244727383
+        },
+        "late_freq": {
+          "freq": 0.49384185831025706
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_puerto_rico_coast.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 18.45,
+      "lng": -66.1
+    },
+    {
+      "name": "jrc_decade_delta_nevada_reservoir",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "nevada_reservoir",
+        "lng": -119.0,
+        "lat": 39.3,
+        "delta_mean": 6.99673303734266e-05,
+        "delta_pct": {
+          "d_freq_p50": 0,
+          "d_freq_p90": 0,
+          "d_freq_p99": 0
+        },
+        "early_freq": {
+          "freq": 0
+        },
+        "late_freq": {
+          "freq": 6.99673303734266e-05
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_nevada_reservoir.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 39.3,
+      "lng": -119.0
+    },
+    {
+      "name": "jrc_decade_delta_arizona_ag_canals",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "arizona_ag_canals",
+        "lng": -114.7,
+        "lat": 32.7,
+        "delta_mean": -0.0047670243349472435,
+        "delta_pct": {
+          "d_freq_p50": 5.566183612816002e-07,
+          "d_freq_p90": 5.566183612816002e-07,
+          "d_freq_p99": 5.566183612816002e-07
+        },
+        "early_freq": {
+          "freq": 0.008846610140147987
+        },
+        "late_freq": {
+          "freq": 0.004079585799384712
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_arizona_ag_canals.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 32.7,
+      "lng": -114.7
+    },
+    {
+      "name": "jrc_decade_delta_north_dakota_bakken",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "north_dakota_bakken",
+        "lng": -103.0,
+        "lat": 48.0,
+        "delta_mean": 0.0003649633030521328,
+        "delta_pct": {
+          "d_freq_p50": 0,
+          "d_freq_p90": 0,
+          "d_freq_p99": 0
+        },
+        "early_freq": {
+          "freq": 0.00010317486609401518
+        },
+        "late_freq": {
+          "freq": 0.000468138169146148
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_north_dakota_bakken.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 48.0,
+      "lng": -103.0
+    },
+    {
+      "name": "jrc_decade_delta_ohio_river_paducah",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "ohio_river_paducah",
+        "lng": -88.6,
+        "lat": 37.1,
+        "delta_mean": 0.019807013487078595,
+        "delta_pct": {
+          "d_freq_p50": 3.499071485129298e-05,
+          "d_freq_p90": 0.08284971396154615,
+          "d_freq_p99": 0.2227350066487606
+        },
+        "early_freq": {
+          "freq": 0.1090908310635526
+        },
+        "late_freq": {
+          "freq": 0.12889784449415168
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_ohio_river_paducah.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 37.1,
+      "lng": -88.6
+    },
+    {
+      "name": "jrc_decade_delta_galveston_control",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "name": "galveston_control",
+        "lng": -94.8,
+        "lat": 29.3,
+        "delta_mean": 0.000660619187602442,
+        "delta_pct": {
+          "d_freq_p50": 2.6009937217093783e-05,
+          "d_freq_p90": 0.011769911208060037,
+          "d_freq_p99": 0.2547832056879997
+        },
+        "early_freq": {
+          "freq": 0.7109913729702733
+        },
+        "late_freq": {
+          "freq": 0.711651992132452
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_delta_galveston_control.png",
+      "note": "JRC MonthlyHistory water freq 2014-21 minus 1984-93; unmask(0)",
+      "lat": 29.3,
+      "lng": -94.8
+    },
+    {
+      "name": "jrc_conus_grid_top15_rising",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "i": "Integer",
+          "lat": "Integer",
+          "lng": "Integer",
+          "max_d": "Object",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -109,
+                26
+              ]
+            },
+            "id": "5",
+            "properties": {
+              "i": 5,
+              "lat": 26,
+              "lng": -109,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -97,
+                26
+              ]
+            },
+            "id": "9",
+            "properties": {
+              "i": 9,
+              "lat": 26,
+              "lng": -97,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -82,
+                26
+              ]
+            },
+            "id": "14",
+            "properties": {
+              "i": 14,
+              "lat": 26,
+              "lng": -82,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -118,
+                29
+              ]
+            },
+            "id": "21",
+            "properties": {
+              "i": 21,
+              "lat": 29,
+              "lng": -118,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -115,
+                29
+              ]
+            },
+            "id": "22",
+            "properties": {
+              "i": 22,
+              "lat": 29,
+              "lng": -115,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -97,
+                29
+              ]
+            },
+            "id": "28",
+            "properties": {
+              "i": 28,
+              "lat": 29,
+              "lng": -97,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -91,
+                29
+              ]
+            },
+            "id": "30",
+            "properties": {
+              "i": 30,
+              "lat": 29,
+              "lng": -91,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -82,
+                29
+              ]
+            },
+            "id": "33",
+            "properties": {
+              "i": 33,
+              "lat": 29,
+              "lng": -82,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -115,
+                32
+              ]
+            },
+            "id": "41",
+            "properties": {
+              "i": 41,
+              "lat": 32,
+              "lng": -115,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -100,
+                32
+              ]
+            },
+            "id": "46",
+            "properties": {
+              "i": 46,
+              "lat": 32,
+              "lng": -100,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -91,
+                32
+              ]
+            },
+            "id": "49",
+            "properties": {
+              "i": 49,
+              "lat": 32,
+              "lng": -91,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -121,
+                35
+              ]
+            },
+            "id": "58",
+            "properties": {
+              "i": 58,
+              "lat": 35,
+              "lng": -121,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -97,
+                35
+              ]
+            },
+            "id": "66",
+            "properties": {
+              "i": 66,
+              "lat": 35,
+              "lng": -97,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -91,
+                35
+              ]
+            },
+            "id": "68",
+            "properties": {
+              "i": 68,
+              "lat": 35,
+              "lng": -91,
+              "max_d": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -82,
+                35
+              ]
+            },
+            "id": "71",
+            "properties": {
+              "i": 71,
+              "lat": 35,
+              "lng": -82,
+              "max_d": 1
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "CONUS ~3deg grid, max decade water-freq delta in 20km buffer",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "name": "jrc_zoom_rising_louisiana_delta",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "d_freq": 0.06768027542096085,
+        "early": 0.8840607557090776,
+        "late": 0.9517410311081267
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_zoom_rising_louisiana_delta.png",
+      "note": "fine-scale zoom on rising outlier",
+      "lat": 29.3,
+      "lng": -89.5
+    },
+    {
+      "name": "jrc_zoom_rising_ohio_river_paducah",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "d_freq": 0.029685311264011898,
+        "early": 0.3030024103243497,
+        "late": 0.3326877215068418
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_zoom_rising_ohio_river_paducah.png",
+      "note": "fine-scale zoom on rising outlier",
+      "lat": 37.1,
+      "lng": -88.6
+    },
+    {
+      "name": "jrc_zoom_rising_chesapeake",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "d_freq": 0.01304219006841211,
+        "early": 0.32503598777672454,
+        "late": 0.33807817782881333
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_zoom_rising_chesapeake.png",
+      "note": "fine-scale zoom on rising outlier",
+      "lat": 38.8,
+      "lng": -76.3
+    },
+    {
+      "name": "jrc_zoom_falling_lake_mead",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "d_freq": -0.20194855585217,
+        "early": 0.25297276952646325,
+        "late": 0.05102421389913248
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_zoom_falling_lake_mead.png",
+      "note": "fine-scale zoom on falling outlier",
+      "lat": 36.1,
+      "lng": -114.4
+    },
+    {
+      "name": "jrc_zoom_falling_salton_sea_south",
+      "category": "jrc_water",
+      "ok": true,
+      "detail": {
+        "d_freq": -0.0002409138627289449,
+        "early": 0.0002597106324258978,
+        "late": 1.8796771896197264e-05
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/jrc_zoom_falling_salton_sea_south.png",
+      "note": "fine-scale zoom on falling outlier",
+      "lat": 33.1,
+      "lng": -115.8
+    },
+    {
+      "name": "dw_built_phoenix_fringe_2016",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.6101151297018913
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_phoenix_fringe_2018",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.6068531768576974
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_phoenix_fringe_2020",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.6070062364855914
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_phoenix_fringe_2022",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.612093664479772
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_phoenix_fringe_2024",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.6042512673761051
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_surge_phoenix_fringe",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "name": "phoenix_fringe",
+        "lng": -112.05,
+        "lat": 33.55,
+        "mean_dbuilt": -0.005863862325769136,
+        "pct": {
+          "dbuilt_p50": -0.003994148278837197,
+          "dbuilt_p90": 0.011140576928993133,
+          "dbuilt_p99": 0.08974274259404208
+        },
+        "traj": [
+          {
+            "year": 2016,
+            "built_prob": 0.6101151297018913,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2018,
+            "built_prob": 0.6068531768576974,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2020,
+            "built_prob": 0.6070062364855914,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2022,
+            "built_prob": 0.612093664479772,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2024,
+            "built_prob": 0.6042512673761051,
+            "ok": true,
+            "raw": null
+          }
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_built_delta_phoenix_fringe.png",
+      "note": "built prob 2024 minus 2016",
+      "lat": 33.55,
+      "lng": -112.05
+    },
+    {
+      "name": "dw_built_austin_nw_2016",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.36719078091957275
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_austin_nw_2018",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.3649081959004922
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_austin_nw_2020",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.3669475753577702
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_austin_nw_2022",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.3815615359012358
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_austin_nw_2024",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.38243076886352007
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_surge_austin_nw",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "name": "austin_nw",
+        "lng": -97.8,
+        "lat": 30.4,
+        "mean_dbuilt": 0.015565883037309065,
+        "pct": {
+          "dbuilt_p50": 0.0037906458371553624,
+          "dbuilt_p90": 0.074134918739028,
+          "dbuilt_p99": 0.3007008032006039
+        },
+        "traj": [
+          {
+            "year": 2016,
+            "built_prob": 0.36719078091957275,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2018,
+            "built_prob": 0.3649081959004922,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2020,
+            "built_prob": 0.3669475753577702,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2022,
+            "built_prob": 0.3815615359012358,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2024,
+            "built_prob": 0.38243076886352007,
+            "ok": true,
+            "raw": null
+          }
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_built_delta_austin_nw.png",
+      "note": "built prob 2024 minus 2016",
+      "lat": 30.4,
+      "lng": -97.8
+    },
+    {
+      "name": "dw_built_atlanta_suburbs_2016",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.4525172044481945
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_atlanta_suburbs_2018",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.4305156618256014
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_atlanta_suburbs_2020",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.4342250016169041
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_atlanta_suburbs_2022",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.45628215641073916
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_atlanta_suburbs_2024",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.44561224952434547
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_surge_atlanta_suburbs",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "name": "atlanta_suburbs",
+        "lng": -84.25,
+        "lat": 33.95,
+        "mean_dbuilt": -0.006903204844598359,
+        "pct": {
+          "dbuilt_p50": -0.0035463671127861675,
+          "dbuilt_p90": 0.07411930952495632,
+          "dbuilt_p99": 0.35543352671875156
+        },
+        "traj": [
+          {
+            "year": 2016,
+            "built_prob": 0.4525172044481945,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2018,
+            "built_prob": 0.4305156618256014,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2020,
+            "built_prob": 0.4342250016169041,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2022,
+            "built_prob": 0.45628215641073916,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2024,
+            "built_prob": 0.44561224952434547,
+            "ok": true,
+            "raw": null
+          }
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_built_delta_atlanta_suburbs.png",
+      "note": "built prob 2024 minus 2016",
+      "lat": 33.95,
+      "lng": -84.25
+    },
+    {
+      "name": "dw_built_dallas_north_2016",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.5429145498531224
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_built_dallas_north_2018",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.5451659374060797
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_built_dallas_north_2020",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.5566956764645437
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_built_dallas_north_2022",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.5568922887149134
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_built_dallas_north_2024",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built_prob": 0.5803890167955134
+      },
+      "thumb": null,
+      "note": "Dynamic World mean built probability",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_built_surge_dallas_north",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "name": "dallas_north",
+        "lng": -96.8,
+        "lat": 33.05,
+        "mean_dbuilt": 0.03790925043450521,
+        "pct": {
+          "dbuilt_p50": 0.011506836608419361,
+          "dbuilt_p90": 0.12107386453220312,
+          "dbuilt_p99": 0.5192370946544257
+        },
+        "traj": [
+          {
+            "year": 2016,
+            "built_prob": 0.5429145498531224,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2018,
+            "built_prob": 0.5451659374060797,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2020,
+            "built_prob": 0.5566956764645437,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2022,
+            "built_prob": 0.5568922887149134,
+            "ok": true,
+            "raw": null
+          },
+          {
+            "year": 2024,
+            "built_prob": 0.5803890167955134,
+            "ok": true,
+            "raw": null
+          }
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_built_delta_dallas_north.png",
+      "note": "built prob 2024 minus 2016",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_zoom_dallas_north_2km",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built": 0.02646982581526873,
+        "crops": -0.0025251512158495485,
+        "grass": -0.01962886896933478,
+        "shrub_and_scrub": -0.003122923736116149,
+        "trees": -3.37448705696788e-05
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_zoom_dallas_north_2km.png",
+      "note": "finest zoom on largest built surge: dallas_north",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "dw_zoom_dallas_north_500m",
+      "category": "dynamic_world",
+      "ok": true,
+      "detail": {
+        "built": 0.0026387050607949874,
+        "crops": -0.001267311944184346,
+        "grass": -0.0009430334763787228,
+        "shrub_and_scrub": -0.00012972080500668295,
+        "trees": 0.001068122104180432
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/dw_zoom_dallas_north_500m.png",
+      "note": "finest zoom on largest built surge: dallas_north",
+      "lat": 33.05,
+      "lng": -96.8
+    },
+    {
+      "name": "hansen_lossyear_cascades_or",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.21228889639247786
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 289.5450980392157,
+            "10": 320,
+            "11": 1738,
+            "12": 3509,
+            "13": 518.2666666666665,
+            "14": 1034.2745098039215,
+            "15": 637.9882352941177,
+            "16": 1037.0549019607843,
+            "17": 2797.3372549019614,
+            "18": 2676.117647058824,
+            "19": 1588.8392156862747,
+            "2": 7943.917647058825,
+            "20": 6339.243137254902,
+            "21": 6200.117647058823,
+            "22": 1398.0980392156862,
+            "23": 550.0784313725491,
+            "3": 18585.3568627451,
+            "4": 12740.639215686275,
+            "5": 451.0235294117646,
+            "6": 2357.1686274509802,
+            "7": 1501.0313725490198,
+            "8": 1495.3647058823528,
+            "9": 477.91372549019604
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_cascades_or.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 44.5,
+      "lng": -122.0
+    },
+    {
+      "name": "hansen_lossyear_nocal_sierra",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.3655949828289263
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 5613.878431372549,
+            "10": 919.2549019607843,
+            "11": 988.1019607843139,
+            "12": 1183,
+            "13": 3939,
+            "14": 33288.28627450981,
+            "15": 12767.129411764703,
+            "16": 2334.0078431372544,
+            "17": 1694.3607843137258,
+            "18": 1477.3411764705882,
+            "19": 2082.1137254901964,
+            "2": 5005.454901960784,
+            "20": 2126.196078431373,
+            "21": 1310.1411764705883,
+            "22": 11482.94117647059,
+            "23": 17186.258823529417,
+            "3": 1558.843137254902,
+            "4": 1808.2470588235294,
+            "5": 966.4274509803921,
+            "6": 2251.050980392157,
+            "7": 3513.6784313725493,
+            "8": 5890.270588235295,
+            "9": 925.3098039215687
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_nocal_sierra.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 39.0,
+      "lng": -120.5
+    },
+    {
+      "name": "hansen_lossyear_appalachia_tn",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.03802642047508394
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 820.1333333333333,
+            "10": 839.7294117647059,
+            "11": 1294.6901960784312,
+            "12": 558.5176470588235,
+            "13": 234,
+            "14": 226.6313725490196,
+            "15": 178.94901960784313,
+            "16": 817.9686274509804,
+            "17": 1047.6509803921567,
+            "18": 399.4470588235294,
+            "19": 299.09411764705885,
+            "2": 800,
+            "20": 215.30196078431374,
+            "21": 290,
+            "22": 222.53725490196078,
+            "23": 183,
+            "3": 446.46274509803925,
+            "4": 732.8039215686276,
+            "5": 446.28235294117644,
+            "6": 876.9176470588236,
+            "7": 667.0117647058823,
+            "8": 783.3490196078432,
+            "9": 368.42745098039217
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_appalachia_tn.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 35.5,
+      "lng": -84.0
+    },
+    {
+      "name": "hansen_lossyear_pnw_olympic",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.015817370154655865
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 56,
+            "10": 49.04705882352941,
+            "11": 154.64705882352942,
+            "12": 96.54117647058823,
+            "13": 196.50980392156862,
+            "14": 122.47843137254903,
+            "15": 581.4274509803922,
+            "16": 1450.4509803921567,
+            "17": 584.4470588235292,
+            "18": 308.7647058823529,
+            "19": 110.0235294117647,
+            "2": 177,
+            "20": 180,
+            "21": 246.4705882352941,
+            "22": 263.76862745098043,
+            "23": 305.43921568627445,
+            "3": 15,
+            "4": 293.0078431372549,
+            "5": 42,
+            "6": 158.47058823529412,
+            "7": 110,
+            "8": 473.2588235294117,
+            "9": 142
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_pnw_olympic.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 47.8,
+      "lng": -123.8
+    },
+    {
+      "name": "hansen_lossyear_southeast_ga",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.4204236381533713
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 3988.0901960784313,
+            "10": 5156.349019607843,
+            "11": 9027.31764705882,
+            "12": 7837.509803921569,
+            "13": 6147.396078431372,
+            "14": 7543.803921568628,
+            "15": 5326.399999999999,
+            "16": 8216.745098039217,
+            "17": 8222.701960784314,
+            "18": 6321.356862745098,
+            "19": 5748.752941176471,
+            "2": 3914.803921568627,
+            "20": 4161.121568627452,
+            "21": 4342.023529411764,
+            "22": 4832.894117647059,
+            "23": 3139.4980392156863,
+            "3": 3078.176470588235,
+            "4": 6536.752941176472,
+            "5": 4245.003921568627,
+            "6": 6659.41568627451,
+            "7": 5752.282352941175,
+            "8": 4697.360784313725,
+            "9": 3594.03137254902
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_southeast_ga.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 31.5,
+      "lng": -82.5
+    },
+    {
+      "name": "hansen_lossyear_maine",
+      "category": "hansen",
+      "ok": true,
+      "detail": {
+        "loss_fraction": {
+          "loss": 0.15345771517894716
+        },
+        "lossyear_hist": {
+          "lossyear": {
+            "1": 4686.458823529411,
+            "10": 1889.207843137255,
+            "11": 1074,
+            "12": 2503.7725490196076,
+            "13": 1427.1411764705879,
+            "14": 1890.921568627451,
+            "15": 2060.2745098039213,
+            "16": 2526.6627450980395,
+            "17": 2316.0274509803926,
+            "18": 2958.5882352941176,
+            "19": 3370.5137254901965,
+            "2": 3070.0823529411764,
+            "20": 2658.803921568627,
+            "21": 2293.5803921568627,
+            "22": 3353.392156862743,
+            "23": 2084.764705882353,
+            "3": 2166.23137254902,
+            "4": 3216.6039215686283,
+            "5": 3222.498039215686,
+            "6": 3160.4470588235295,
+            "7": 3250.376470588235,
+            "8": 3781.4196078431382,
+            "9": 2190.247058823529
+          }
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/hansen_lossyear_maine.png",
+      "note": "Hansen GFC lossyear spatial pattern",
+      "lat": 45.5,
+      "lng": -69.0
+    },
+    {
+      "name": "firms_density_socal_2020",
+      "category": "firms",
+      "ok": true,
+      "detail": {
+        "n_images": 2554,
+        "density_stats": {
+          "f_max": 17,
+          "f_mean": 0.4545459870775758
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/firms_density_socal_2020.png",
+      "note": "FIRMS 2018-2024 detection density",
+      "lat": 34.3,
+      "lng": -118.5
+    },
+    {
+      "name": "firms_density_oregon_2020",
+      "category": "firms",
+      "ok": true,
+      "detail": {
+        "n_images": 2554,
+        "density_stats": {
+          "f_max": 22,
+          "f_mean": 2.1408264946417312
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/firms_density_oregon_2020.png",
+      "note": "FIRMS 2018-2024 detection density",
+      "lat": 44.2,
+      "lng": -122.5
+    },
+    {
+      "name": "firms_density_texas_panhandle",
+      "category": "firms",
+      "ok": true,
+      "detail": {
+        "n_images": 2554,
+        "density_stats": {
+          "f_max": 17,
+          "f_mean": 0.2874159739326765
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/firms_density_texas_panhandle.png",
+      "note": "FIRMS 2018-2024 detection density",
+      "lat": 35.5,
+      "lng": -101.0
+    },
+    {
+      "name": "firms_density_florida_2022",
+      "category": "firms",
+      "ok": true,
+      "detail": {
+        "n_images": 2554,
+        "density_stats": {
+          "f_max": 26,
+          "f_mean": 2.783710621975176
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/firms_density_florida_2022.png",
+      "note": "FIRMS 2018-2024 detection density",
+      "lat": 27.0,
+      "lng": -81.5
+    },
+    {
+      "name": "firms_density_canada_border_mn",
+      "category": "firms",
+      "ok": true,
+      "detail": {
+        "n_images": 2554,
+        "density_stats": {
+          "f_max": 1,
+          "f_mean": 0.007360668584056706
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/firms_density_canada_border_mn.png",
+      "note": "FIRMS 2018-2024 detection density",
+      "lat": 48.5,
+      "lng": -93.0
+    },
+    {
+      "name": "chirps_drought_2012_california_cv",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -30.10628264094072,
+        "precip": 203.94504025537606,
+        "ref": 234.05132289631683
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "chirps_drought_2012_texas_hill",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -67.37590601640676,
+        "precip": 797.4917324930949,
+        "ref": 864.8676385095014
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "chirps_drought_2012_iowa",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -249.4923058548274,
+        "precip": 680.0651213121446,
+        "ref": 929.557427166972
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "chirps_drought_2012_arizona",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -58.78173812180008,
+        "precip": 150.1534401010221,
+        "ref": 208.93517822282212
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "chirps_drought_2012_florida",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -97.75004119857894,
+        "precip": 1198.412189596248,
+        "ref": 1296.1622307948269
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 28.0,
+      "lng": -81.5
+    },
+    {
+      "name": "chirps_drought_2012_louisiana",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 162.4924520831738,
+        "precip": 1792.2343001048357,
+        "ref": 1629.7418480216625
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/chirps_anom_drought_2012.png",
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2012",
+      "lat": 30.5,
+      "lng": -91.0
+    },
+    {
+      "name": "chirps_drought_2021_california_cv",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -32.01180656681219,
+        "precip": 202.03951632950458,
+        "ref": 234.05132289631683
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "chirps_drought_2021_texas_hill",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 75.23488641661224,
+        "precip": 940.1025249261137,
+        "ref": 864.8676385095014
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "chirps_drought_2021_iowa",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -215.68056080477618,
+        "precip": 713.876866362196,
+        "ref": 929.557427166972
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "chirps_drought_2021_arizona",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 29.861724205184515,
+        "precip": 238.79690242800672,
+        "ref": 208.93517822282212
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "chirps_drought_2021_florida",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -189.28252679177305,
+        "precip": 1106.8797040030538,
+        "ref": 1296.1622307948269
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 28.0,
+      "lng": -81.5
+    },
+    {
+      "name": "chirps_drought_2021_louisiana",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 469.5377309132259,
+        "precip": 2099.2795789348884,
+        "ref": 1629.7418480216625
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/chirps_anom_drought_2021.png",
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2021",
+      "lat": 30.5,
+      "lng": -91.0
+    },
+    {
+      "name": "chirps_wet_2019_california_cv",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 60.62561963782582,
+        "precip": 294.6769425341425,
+        "ref": 234.05132289631683
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "chirps_wet_2019_texas_hill",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -125.46777551229823,
+        "precip": 739.3998629972033,
+        "ref": 864.8676385095014
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "chirps_wet_2019_iowa",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 102.19184840980111,
+        "precip": 1031.7492755767728,
+        "ref": 929.557427166972
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "chirps_wet_2019_arizona",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 24.80770394095477,
+        "precip": 233.742882163777,
+        "ref": 208.93517822282212
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "chirps_wet_2019_florida",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 94.60239553240628,
+        "precip": 1390.7646263272336,
+        "ref": 1296.1622307948269
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 28.0,
+      "lng": -81.5
+    },
+    {
+      "name": "chirps_wet_2019_louisiana",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 107.50844022137457,
+        "precip": 1737.2502882430372,
+        "ref": 1629.7418480216625
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/chirps_anom_wet_2019.png",
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2019",
+      "lat": 30.5,
+      "lng": -91.0
+    },
+    {
+      "name": "chirps_elnino_2015_california_cv",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -83.94227085841136,
+        "precip": 150.10905203790534,
+        "ref": 234.05132289631683
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "chirps_elnino_2015_texas_hill",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 370.7265864880281,
+        "precip": 1235.5942249975299,
+        "ref": 864.8676385095014
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "chirps_elnino_2015_iowa",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 281.61945795874834,
+        "precip": 1211.1768851257204,
+        "ref": 929.557427166972
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "chirps_elnino_2015_arizona",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -23.742134909499615,
+        "precip": 185.19304331332262,
+        "ref": 208.93517822282212
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "chirps_elnino_2015_florida",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 112.5678531743419,
+        "precip": 1408.7300839691686,
+        "ref": 1296.1622307948269
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 28.0,
+      "lng": -81.5
+    },
+    {
+      "name": "chirps_elnino_2015_louisiana",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 215.29829923907255,
+        "precip": 1845.040147260735,
+        "ref": 1629.7418480216625
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/chirps_anom_elnino_2015.png",
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2015",
+      "lat": 30.5,
+      "lng": -91.0
+    },
+    {
+      "name": "chirps_normalish_2017_california_cv",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 31.015678171621442,
+        "precip": 265.0670010679381,
+        "ref": 234.05132289631683
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "chirps_normalish_2017_texas_hill",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -175.59171469015266,
+        "precip": 689.275923819349,
+        "ref": 864.8676385095014
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "chirps_normalish_2017_iowa",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -61.71365193698242,
+        "precip": 867.8437752299895,
+        "ref": 929.557427166972
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "chirps_normalish_2017_arizona",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -28.240895010877995,
+        "precip": 180.69428321194428,
+        "ref": 208.93517822282212
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "chirps_normalish_2017_florida",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": -87.3964485314499,
+        "precip": 1208.7657822633767,
+        "ref": 1296.1622307948269
+      },
+      "thumb": null,
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 28.0,
+      "lng": -81.5
+    },
+    {
+      "name": "chirps_normalish_2017_louisiana",
+      "category": "chirps",
+      "ok": true,
+      "detail": {
+        "anom": 235.90430150330573,
+        "precip": 1865.646149524968,
+        "ref": 1629.7418480216625
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/chirps_anom_normalish_2017.png",
+      "note": "CHIRPS annual precip anomaly vs 1991-2020 mean for 2017",
+      "lat": 30.5,
+      "lng": -91.0
+    },
+    {
+      "name": "era5_jja_anom_hot_2012_california_cv",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": -0.04863094909772827
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "era5_jja_anom_hot_2012_texas_hill",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.5694158934007971
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "era5_jja_anom_hot_2012_iowa",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 2.0641184797928807
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "era5_jja_anom_hot_2012_arizona",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.0528717000136372
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/era5_jja_anom_hot_2012.png",
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "era5_jja_anom_hot_2021_california_cv",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 1.230207111911467
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "era5_jja_anom_hot_2021_texas_hill",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": -1.3271616265231232
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "era5_jja_anom_hot_2021_iowa",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 1.6024583898128337
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "era5_jja_anom_hot_2021_arizona",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": -0.4621858980175695
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/era5_jja_anom_hot_2021.png",
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "era5_jja_anom_cool_2019_california_cv",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.9345731991422624
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 37.0,
+      "lng": -121.0
+    },
+    {
+      "name": "era5_jja_anom_cool_2019_texas_hill",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.9140123218762053
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 30.0,
+      "lng": -98.5
+    },
+    {
+      "name": "era5_jja_anom_cool_2019_iowa",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.17053198277615164
+      },
+      "thumb": null,
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 42.0,
+      "lng": -93.5
+    },
+    {
+      "name": "era5_jja_anom_cool_2019_arizona",
+      "category": "era5",
+      "ok": true,
+      "detail": {
+        "tanom": 0.6253519381896938
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/era5_jja_anom_cool_2019.png",
+      "note": "ERA5-Land JJA 2m temp anomaly vs 1991-2020",
+      "lat": 33.5,
+      "lng": -112.0
+    },
+    {
+      "name": "landsat_paradise_fire_recovery_ndvi",
+      "category": "edge",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "ndvi": "Float",
+          "system:index": "String",
+          "year": "Float"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "ndvi": 0.6089882685872039,
+              "year": 2015
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "ndvi": 0.6124578799155347,
+              "year": 2016
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "ndvi": 0.5961700766707773,
+              "year": 2017
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "ndvi": 0.582415106934744,
+              "year": 2018
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "ndvi": 0.38310273379618087,
+              "year": 2019
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "5",
+            "properties": {
+              "ndvi": 0.41754755852592856,
+              "year": 2020
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "6",
+            "properties": {
+              "ndvi": 0.43530359003606445,
+              "year": 2021
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "7",
+            "properties": {
+              "ndvi": 0.4570822169378193,
+              "year": 2022
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "8",
+            "properties": {
+              "ndvi": 0.47390194357388143,
+              "year": 2023
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "9",
+            "properties": {
+              "ndvi": 0.4483600594103994,
+              "year": 2024
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "Camp Fire 2018 \u2014 NDVI recovery curve",
+      "lat": 39.75,
+      "lng": -121.62
+    },
+    {
+      "name": "houston_ndwi_pre_harvey",
+      "category": "edge",
+      "ok": true,
+      "detail": {
+        "NDWI": -0.4361463883768549
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/houston_ndwi_pre_harvey.png",
+      "note": "Houston NDWI windows around Harvey",
+      "lat": 29.8,
+      "lng": -95.4
+    },
+    {
+      "name": "houston_ndwi_harvey_2017",
+      "category": "edge",
+      "ok": true,
+      "detail": {
+        "NDWI": -0.4327079011237546
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/houston_ndwi_harvey_2017.png",
+      "note": "Houston NDWI windows around Harvey",
+      "lat": 29.8,
+      "lng": -95.4
+    },
+    {
+      "name": "houston_ndwi_post",
+      "category": "edge",
+      "ok": true,
+      "detail": {
+        "NDWI": -0.4396172725907717
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/thumbs/houston_ndwi_post.png",
+      "note": "Houston NDWI windows around Harvey",
+      "lat": 29.8,
+      "lng": -95.4
+    },
+    {
+      "name": "bfast_reducer",
+      "category": "dead_end",
+      "ok": false,
+      "detail": "type object 'Reducer' has no attribute 'bfast'",
+      "thumb": null,
+      "note": "No native BFAST in EE reducers \u2014 use year-window slope deltas instead",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "name": "landtrendr_algo",
+      "category": "edge",
+      "ok": true,
+      "detail": {
+        "callable": "<function _InitializeUnboundMethods.<locals>.GenerateFunction.<locals>.<lambda> at 0x780ccda96c00>"
+      },
+      "thumb": null,
+      "note": "LandTrendr present",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "name": "landtrendr_algo",
+      "category": "dead_end",
+      "ok": false,
+      "detail": "Unrecognized argument type to convert to an ImageCollection: {'timeSeries': <ee.imagecollection.ImageCollection object at 0x780ccdd3af60>, 'maxSegments': 6, 'spikeThreshold': 0.9, 'vertexCountOvershoot': 3, 'preventOneYearRecovery': True, 'recoveryThreshold': 0.25, 'pvalThreshold': 0.05, 'bestModelProportion': 0.75, 'minObservationsNeeded': 6}",
+      "thumb": null,
+      "note": "LandTrendr failed",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "name": "s2_cs_join_mismatch_dates",
+      "category": "dead_end",
+      "ok": true,
+      "detail": {
+        "joined_size": 0
+      },
+      "thumb": null,
+      "note": "Join across non-overlapping dates \u2014 expect empty/null cs props",
+      "lat": null,
+      "lng": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mireye-expedition:custom-manifest:v1",
+  "title": "Constrained Custom Mission manifest",
+  "$comment": "The Python loader additionally enforces required base skills and cross-field constraint dependencies.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "manifest_version",
+    "title",
+    "description",
+    "skills",
+    "fields",
+    "hard_constraints",
+    "preferences",
+    "gaps"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "manifest_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,63}$" },
+    "manifest_version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "skills": {
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 16,
+      "items": {
+        "enum": [
+          "resolve-site",
+          "screen-site-core",
+          "flood-rewind",
+          "grid-readiness",
+          "route-reality",
+          "scene-context",
+          "skeptic-review",
+          "compare-candidates",
+          "farm-history"
+        ]
+      }
+    },
+    "fields": { "type": "array", "minItems": 1, "maxItems": 32, "uniqueItems": true, "items": { "$ref": "#/$defs/mireyeField" } },
+    "hard_constraints": { "type": "array", "maxItems": 8, "uniqueItems": true, "items": { "enum": ["not_mapped_sfha", "must_be_cultivated"] } },
+    "preferences": { "type": "array", "maxItems": 12, "uniqueItems": true, "items": { "$ref": "#/$defs/mireyeField" } },
+    "gaps": {
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "market_availability",
+          "electrical_capacity",
+          "truck_ingress",
+          "zoning_permission",
+          "water_right",
+          "yield",
+          "enterprise_fiber_redundancy",
+          "water_capacity",
+          "route_time"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "mireyeField": {
+      "enum": [
+        "coast_distance_m",
+        "days_above_32c_annual_count",
+        "design_wet_bulb_temperature_0_4pct_degc",
+        "design_wind_speed_mph",
+        "dominant_crop_5y",
+        "drought_category",
+        "electric_utility_service_territory",
+        "elevation",
+        "fema_flood_zone",
+        "fiber_broadband_available",
+        "fiber_provider_count",
+        "intersects_wetland",
+        "is_cultivated",
+        "max_transmission_line_voltage_kv_within_radius",
+        "nearest_hazardous_facility_distance_m",
+        "nearest_hospital_distance_m",
+        "nearest_long_haul_rail_corridor_distance_m",
+        "nearest_major_road_class",
+        "nearest_major_road_distance_m",
+        "nearest_substation_distance_m",
+        "nearest_substation_max_voltage_kv",
+        "nearest_superfund_distance_m",
+        "primary_building_footprint_sqm",
+        "prime_farmland_classification",
+        "slope_degrees",
+        "soil_available_water_capacity",
+        "soil_drainage_class",
+        "substations_within_radius_count",
+        "wildfire_annual_frequency",
+        "within_floodplain_polygon",
+        "within_sewer_service_area",
+        "within_water_service_area"
+      ]
+    }
+  }
+}

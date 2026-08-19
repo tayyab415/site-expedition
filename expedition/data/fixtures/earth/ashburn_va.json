@@ -1,0 +1,16 @@
+{
+  "candidate_id": "ashburn_va",
+  "lat": 39.0438,
+  "lng": -77.4874,
+  "fetched_at": "2026-08-11T18:53:30Z",
+  "observed_heat": {
+    "window": "2024-06-01/2024-08-31",
+    "daytime_mean_c": 33.6,
+    "comparison_ring_mean_c": 31.26,
+    "site_minus_ring_c": 2.35,
+    "collection_image_count": 91,
+    "nominal_scale_m": 1000,
+    "qa_filter": "legacy bounded probe; refresh live for QC_Day-filtered value"
+  },
+  "replay_provenance": "ee-explore/build_site_probe.json"
+}

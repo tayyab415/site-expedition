@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eyes — photorealistic 3D × Earth Engine witnesses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.105/Build/Cesium/Cesium.js"></script>
+  <link href="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.105/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+
+  <header class="hud-top">
+    <div>
+      <kbd>Iteration 7 · Eyes</kbd>
+      <h1>The robot aims. Then it cross-examines.</h1>
+    </div>
+    <div class="pins" role="tablist" aria-label="Pin">
+      <button type="button" class="pin on" data-site="san_leon" id="btn-san-leon">San Leon · bay</button>
+      <button type="button" class="pin" data-site="keep_control" id="btn-austin">Winfield · inland</button>
+    </div>
+  </header>
+
+  <div class="verdict-hud" id="verdict-hud">
+    <div class="stamp kill" id="stamp">KILL</div>
+    <p class="liner" id="liner">You're buying 2021 dirt at a 1995 feeling.</p>
+  </div>
+
+  <p class="context-tag" id="context-tag">Google photorealistic 3D — context, never a cited exhibit</p>
+
+  <aside class="dock">
+    <div class="modes" id="modes">
+      <button type="button" class="mode on" data-mode="mesh">3D mesh</button>
+      <button type="button" class="mode" data-mode="water">Water 1984–21</button>
+      <button type="button" class="mode" data-mode="naip">NAIP aerial</button>
+      <button type="button" class="mode" data-mode="height">FABDEM height</button>
+      <button type="button" class="mode" data-mode="change">Land change</button>
+    </div>
+    <p class="mode-note" id="mode-note">Photorealistic tiles from Map Tiles API. The listing photo of this marsh.</p>
+    <div class="dock-body">
+      <div class="film" id="film"></div>
+      <div class="brief">
+        <div class="facts" id="facts"></div>
+        <div class="fights" id="fights"></div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </div>
+    <p class="credits" id="credits">Google Map Tiles · JRC / USDA NAIP / FABDEM / Satellite Embedding via Earth Engine · Mireye cited record · verdict in code</p>
+  </aside>
+
+  <p class="status" id="status">Loading 3D tiles…</p>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+{
+  "ran_at": "2026-08-11T19:02:43.304582+00:00",
+  "sites": [
+    {
+      "id": "ashburn_2km",
+      "lat": 39.0438,
+      "lng": -77.4874,
+      "buf_m": 2000,
+      "note": "DC alley 2km",
+      "dw_2016_17": {
+        "built": 0.5566,
+        "bare": 0.0342,
+        "water": 0.0558,
+        "trees": 0.1288,
+        "crops": 0.0523,
+        "grass": 0.0508,
+        "n": 177
+      },
+      "dw_2019_20": {
+        "built": 0.5483,
+        "bare": 0.0356,
+        "water": 0.0571,
+        "trees": 0.1356,
+        "crops": 0.0503,
+        "grass": 0.0494,
+        "n": 211
+      },
+      "dw_2023_24": {
+        "built": 0.5546,
+        "bare": 0.0342,
+        "water": 0.0558,
+        "trees": 0.1351,
+        "crops": 0.0486,
+        "grass": 0.0484,
+        "n": 231
+      },
+      "y2020": {
+        "built": 0.5568,
+        "bare": 0.0348,
+        "water": 0.0566,
+        "trees": 0.1322,
+        "crops": 0.049,
+        "grass": 0.0491,
+        "n": 104
+      },
+      "y2024": {
+        "built": 0.5614,
+        "bare": 0.0334,
+        "water": 0.0555,
+        "trees": 0.136,
+        "crops": 0.0455,
+        "grass": 0.0471,
+        "n": 124
+      },
+      "built_surge_16_to_23": -0.002,
+      "bare_surge_16_to_23": 0.0,
+      "gsw": {
+        "occurrence": 52.59,
+        "change_abs": 17.19
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "HOLD_saturated_cluster",
+      "water_call": "SITE_KILLED_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/ashburn_2km_dw_built.png"
+    },
+    {
+      "id": "culpeper_greenfield",
+      "lat": 38.4735,
+      "lng": -77.9961,
+      "buf_m": 2000,
+      "note": "Culpeper VA rural",
+      "dw_2016_17": {
+        "built": 0.3556,
+        "bare": 0.0379,
+        "water": 0.0411,
+        "trees": 0.2078,
+        "crops": 0.0739,
+        "grass": 0.1278,
+        "n": 208
+      },
+      "dw_2019_20": {
+        "built": 0.3612,
+        "bare": 0.0391,
+        "water": 0.0427,
+        "trees": 0.2123,
+        "crops": 0.0736,
+        "grass": 0.1188,
+        "n": 258
+      },
+      "dw_2023_24": {
+        "built": 0.3782,
+        "bare": 0.0432,
+        "water": 0.0429,
+        "trees": 0.1954,
+        "crops": 0.0732,
+        "grass": 0.1122,
+        "n": 236
+      },
+      "y2020": {
+        "built": 0.3623,
+        "bare": 0.0396,
+        "water": 0.0432,
+        "trees": 0.2091,
+        "crops": 0.0739,
+        "grass": 0.1168,
+        "n": 134
+      },
+      "y2024": {
+        "built": 0.3835,
+        "bare": 0.0434,
+        "water": 0.0428,
+        "trees": 0.1975,
+        "crops": 0.071,
+        "grass": 0.114,
+        "n": 115
+      },
+      "built_surge_16_to_23": 0.0226,
+      "bare_surge_16_to_23": 0.0053,
+      "gsw": {
+        "occurrence": 64.17,
+        "change_abs": 0.39
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "HOLD_saturated_cluster",
+      "water_call": "SITE_KILLED_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/culpeper_greenfield_dw_built.png"
+    },
+    {
+      "id": "crane_tx_solar",
+      "lat": 31.3974,
+      "lng": -102.3501,
+      "buf_m": 2000,
+      "note": "Crane County empty",
+      "dw_2016_17": {
+        "built": 0.2523,
+        "bare": 0.1372,
+        "water": 0.0369,
+        "trees": 0.085,
+        "crops": 0.1076,
+        "grass": 0.0651,
+        "n": 83
+      },
+      "dw_2019_20": {
+        "built": 0.2518,
+        "bare": 0.1535,
+        "water": 0.0361,
+        "trees": 0.0648,
+        "crops": 0.1274,
+        "grass": 0.0576,
+        "n": 183
+      },
+      "dw_2023_24": {
+        "built": 0.2582,
+        "bare": 0.1738,
+        "water": 0.0325,
+        "trees": 0.0549,
+        "crops": 0.1108,
+        "grass": 0.0421,
+        "n": 182
+      },
+      "y2020": {
+        "built": 0.2497,
+        "bare": 0.1673,
+        "water": 0.037,
+        "trees": 0.0556,
+        "crops": 0.1349,
+        "grass": 0.054,
+        "n": 92
+      },
+      "y2024": {
+        "built": 0.2613,
+        "bare": 0.1787,
+        "water": 0.0323,
+        "trees": 0.0519,
+        "crops": 0.1121,
+        "grass": 0.0404,
+        "n": 96
+      },
+      "built_surge_16_to_23": 0.0059,
+      "bare_surge_16_to_23": 0.0366,
+      "gsw": {
+        "occurrence": 35.87,
+        "change_abs": 38.28
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "CLEAR_land_competition",
+      "water_call": "SITE_KILLED_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/crane_tx_solar_dw_built.png"
+    },
+    {
+      "id": "san_leon_1km",
+      "lat": 29.475732,
+      "lng": -94.966533,
+      "buf_m": 1000,
+      "note": "water creep",
+      "dw_2016_17": {
+        "built": 0.1554,
+        "bare": 0.0644,
+        "water": 0.1272,
+        "trees": 0.1882,
+        "crops": 0.0684,
+        "grass": 0.1539,
+        "n": 253
+      },
+      "dw_2019_20": {
+        "built": 0.1562,
+        "bare": 0.0685,
+        "water": 0.125,
+        "trees": 0.1573,
+        "crops": 0.0782,
+        "grass": 0.16,
+        "n": 295
+      },
+      "dw_2023_24": {
+        "built": 0.165,
+        "bare": 0.103,
+        "water": 0.1218,
+        "trees": 0.1628,
+        "crops": 0.0913,
+        "grass": 0.1262,
+        "n": 293
+      },
+      "y2020": {
+        "built": 0.1564,
+        "bare": 0.0705,
+        "water": 0.1248,
+        "trees": 0.1575,
+        "crops": 0.0766,
+        "grass": 0.1607,
+        "n": 153
+      },
+      "y2024": {
+        "built": 0.1695,
+        "bare": 0.097,
+        "water": 0.1211,
+        "trees": 0.1769,
+        "crops": 0.0924,
+        "grass": 0.1202,
+        "n": 138
+      },
+      "built_surge_16_to_23": 0.0096,
+      "bare_surge_16_to_23": 0.0386,
+      "gsw": {
+        "occurrence": 74.71,
+        "change_abs": 10.78
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "CLEAR_land_competition",
+      "water_call": "SITE_KILLED_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/san_leon_1km_dw_built.png"
+    },
+    {
+      "id": "mesa_east_fringe",
+      "lat": 33.4152,
+      "lng": -111.631,
+      "buf_m": 2000,
+      "note": "Phoenix east growth",
+      "dw_2016_17": {
+        "built": 0.6614,
+        "bare": 0.0821,
+        "water": 0.0343,
+        "trees": 0.0298,
+        "crops": 0.042,
+        "grass": 0.0301,
+        "n": 355
+      },
+      "dw_2019_20": {
+        "built": 0.668,
+        "bare": 0.0747,
+        "water": 0.0342,
+        "trees": 0.0302,
+        "crops": 0.0431,
+        "grass": 0.0305,
+        "n": 431
+      },
+      "dw_2023_24": {
+        "built": 0.6749,
+        "bare": 0.0732,
+        "water": 0.0347,
+        "trees": 0.0297,
+        "crops": 0.0414,
+        "grass": 0.0301,
+        "n": 436
+      },
+      "y2020": {
+        "built": 0.6693,
+        "bare": 0.073,
+        "water": 0.0343,
+        "trees": 0.0302,
+        "crops": 0.0432,
+        "grass": 0.0306,
+        "n": 242
+      },
+      "y2024": {
+        "built": 0.6735,
+        "bare": 0.0751,
+        "water": 0.035,
+        "trees": 0.0299,
+        "crops": 0.0406,
+        "grass": 0.03,
+        "n": 219
+      },
+      "built_surge_16_to_23": 0.0135,
+      "bare_surge_16_to_23": -0.0089,
+      "gsw": {
+        "occurrence": 0.0,
+        "change_abs": 0.0
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "HOLD_saturated_cluster",
+      "water_call": "OK_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/mesa_east_fringe_dw_built.png"
+    },
+    {
+      "id": "cedar_park_growth",
+      "lat": 30.5052,
+      "lng": -97.8203,
+      "buf_m": 1500,
+      "note": "Austin NW growth",
+      "dw_2016_17": {
+        "built": 0.5436,
+        "bare": 0.0496,
+        "water": 0.037,
+        "trees": 0.1236,
+        "crops": 0.0477,
+        "grass": 0.048,
+        "n": 111
+      },
+      "dw_2019_20": {
+        "built": 0.5396,
+        "bare": 0.0486,
+        "water": 0.0381,
+        "trees": 0.1301,
+        "crops": 0.048,
+        "grass": 0.046,
+        "n": 154
+      },
+      "dw_2023_24": {
+        "built": 0.5551,
+        "bare": 0.0592,
+        "water": 0.0379,
+        "trees": 0.1047,
+        "crops": 0.0469,
+        "grass": 0.0426,
+        "n": 147
+      },
+      "y2020": {
+        "built": 0.5423,
+        "bare": 0.0487,
+        "water": 0.0381,
+        "trees": 0.1298,
+        "crops": 0.0474,
+        "grass": 0.0452,
+        "n": 81
+      },
+      "y2024": {
+        "built": 0.5505,
+        "bare": 0.0576,
+        "water": 0.0396,
+        "trees": 0.1084,
+        "crops": 0.0458,
+        "grass": 0.0438,
+        "n": 77
+      },
+      "built_surge_16_to_23": 0.0115,
+      "bare_surge_16_to_23": 0.0096,
+      "gsw": {
+        "occurrence": 0.0,
+        "change_abs": 0.0
+      },
+      "ndwi": {
+        "ndwi_2018_19": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_2023_24": {
+          "n": 0,
+          "ndwi": null
+        },
+        "ndwi_delta": null
+      },
+      "queue_dirt": "HOLD_saturated_cluster",
+      "water_call": "OK_water",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/build_thumbs/cedar_park_growth_dw_built.png"
+    }
+  ]
+}

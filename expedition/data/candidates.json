@@ -1,0 +1,127 @@
+{
+  "version": "0.1.0",
+  "note": "Public candidate fixtures. No expected verdicts live here.",
+  "candidates": [
+    {
+      "id": "san_leon",
+      "name": "San Leon coastal pin",
+      "lat": 29.475732,
+      "lng": -94.966533,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "curated_research_pin",
+      "captured_at": "2026-08-13T00:00:00Z"
+    },
+    {
+      "id": "san_marcos_tx",
+      "name": "San Marcos I-35 / rail pin",
+      "lat": 29.883,
+      "lng": -97.941,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "curated_locator_lock_2026-08-15",
+      "captured_at": "2026-08-15T02:10:00Z"
+    },
+    {
+      "id": "alliance_tx",
+      "name": "Alliance / Fort Worth logistics pin",
+      "lat": 32.976,
+      "lng": -97.319,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "curated_locator_lock_2026-08-15",
+      "captured_at": "2026-08-15T02:10:00Z"
+    },
+    {
+      "id": "port_houston",
+      "name": "Port Houston logistics pin",
+      "lat": 29.73,
+      "lng": -95.12,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "curated_locator_lock_2026-08-15",
+      "captured_at": "2026-08-15T02:10:00Z"
+    },
+    {
+      "id": "joliet_il",
+      "name": "Joliet IL intermodal pin",
+      "lat": 41.525,
+      "lng": -88.083,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "curated_locator_lock_2026-08-15",
+      "captured_at": "2026-08-15T02:10:00Z"
+    },
+    {
+      "id": "manhattan_midtown",
+      "name": "Midtown Manhattan pin",
+      "lat": 40.748,
+      "lng": -73.985,
+      "label": "USER SITE",
+      "site_form": "existing_asset",
+      "source": "verification_pin",
+      "captured_at": "2026-08-15T01:55:00Z"
+    },
+    {
+      "id": "elba_ny",
+      "name": "Elba NY cultivated pin",
+      "lat": 43.077,
+      "lng": -78.181,
+      "label": "POTENTIAL",
+      "site_form": "developable_land",
+      "source": "verification_pin_cdl_lock",
+      "captured_at": "2026-08-15T01:56:00Z"
+    },
+    {
+      "id": "iowa_corn",
+      "name": "Iowa corn-belt pin",
+      "lat": 42.032,
+      "lng": -93.52,
+      "label": "POTENTIAL",
+      "site_form": "developable_land",
+      "source": "live_farm_screen_2026-08-15",
+      "captured_at": "2026-08-15T00:00:00Z"
+    },
+    {
+      "id": "lubbock_cotton",
+      "name": "Lubbock cotton pin",
+      "lat": 33.5,
+      "lng": -101.75,
+      "label": "POTENTIAL",
+      "site_form": "developable_land",
+      "source": "live_farm_screen_2026-08-15",
+      "captured_at": "2026-08-15T00:00:00Z"
+    },
+    {
+      "id": "austin_winfield",
+      "name": "3605 Winfield Cove, Austin TX",
+      "lat": 30.2363775,
+      "lng": -97.7807633,
+      "address": "3605 Winfield Cove, Austin, TX 78704",
+      "label": "USER SITE",
+      "site_form": "existing_asset",
+      "source": "harness_keep_control",
+      "captured_at": "2026-08-13T00:00:00Z"
+    },
+    {
+      "id": "ashburn_va",
+      "name": "Ashburn VA data-center pin",
+      "lat": 39.0438,
+      "lng": -77.4874,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "live_dc_screen_2026-08-15",
+      "captured_at": "2026-08-15T00:00:00Z"
+    },
+    {
+      "id": "quincy_wa",
+      "name": "Quincy WA data-center pin",
+      "lat": 47.2343,
+      "lng": -119.8525,
+      "label": "POTENTIAL",
+      "site_form": "either",
+      "source": "ee_probe_d2",
+      "captured_at": "2026-08-15T00:00:00Z"
+    }
+  ]
+}

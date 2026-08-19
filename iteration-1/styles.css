@@ -1,0 +1,69 @@
+:root {
+  --ink: #1a1f2b;
+  --rule: #c4b8a5;
+  --paper: #f4efe6;
+  --kill: #8b1e1e;
+  --keep: #1e4d3a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #d9d0c3;
+  color: var(--ink);
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+}
+.letterhead {
+  max-width: 720px;
+  margin: 32px auto 0;
+  padding: 28px 40px 16px;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+}
+.firm { margin: 0; letter-spacing: 0.18em; font-size: 10px; text-transform: uppercase; }
+h1 { margin: 6px 0 0; font-size: 22px; font-weight: 600; }
+nav button {
+  font: inherit;
+  font-size: 12px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+nav button.on { background: var(--ink); color: var(--paper); }
+#memo {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  padding: 28px 40px 48px;
+  background: var(--paper);
+  min-height: 70vh;
+  box-shadow: 0 12px 40px rgba(40, 30, 10, 0.12);
+}
+.meta { font-size: 13px; color: #4a453c; }
+.stamp {
+  display: inline-block;
+  border: 3px solid;
+  padding: 4px 14px;
+  letter-spacing: 0.2em;
+  font-size: 20px;
+  font-weight: 700;
+}
+.stamp.KILL { color: var(--kill); border-color: var(--kill); transform: rotate(-6deg); }
+.stamp.KEEP { color: var(--keep); border-color: var(--keep); }
+.tagline { font-style: italic; font-size: 20px; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { border-bottom: 1px solid var(--rule); text-align: left; padding: 6px 8px 6px 0; vertical-align: top; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.fight { margin: 18px 0; padding-left: 14px; border-left: 3px solid var(--ink); }
+.fight h3 { margin: 0 0 6px; font-size: 15px; }
+svg { width: 100%; height: auto; margin-top: 8px; }
+.rec { margin-top: 28px; font-size: 15px; }
+@media print {
+  body { background: white; }
+  nav, .letterhead { box-shadow: none; }
+  nav { display: none; }
+}

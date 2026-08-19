@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mireye Explorer — Physical World API & MCP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #0c1a17;
+    --ink-2: #163028;
+    --panel: #132822;
+    --panel-2: #1a3530;
+    --line: rgba(200, 245, 96, 0.18);
+    --muted: #8aa399;
+    --text: #e8f0ea;
+    --lime: #c8f560;
+    --lime-dim: #9bc43a;
+    --sand: #f3eee6;
+    --coral: #ff6b4a;
+    --sky: #6ec8ff;
+    --amber: #ffc857;
+    --radius: 14px;
+    --shadow: 0 24px 60px rgba(0,0,0,.35);
+    --font-d: "Syne", sans-serif;
+    --font-m: "IBM Plex Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-d);
+    background:
+      radial-gradient(1200px 700px at 10% -10%, rgba(200,245,96,.12), transparent 55%),
+      radial-gradient(900px 500px at 90% 0%, rgba(110,200,255,.10), transparent 50%),
+      linear-gradient(180deg, #0a1613 0%, #0f221c 40%, #0c1a17 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .22;
+    background-image:
+      linear-gradient(rgba(200,245,96,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,245,96,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(12,26,23,.78);
+    border-bottom: 1px solid var(--line);
+    margin: 0 -20px;
+    padding: 12px 20px;
+  }
+  .nav-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; letter-spacing: -.03em; font-size: 1.15rem;
+  }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: conic-gradient(from 210deg, var(--lime), var(--sky), var(--lime));
+    box-shadow: 0 0 24px rgba(200,245,96,.35);
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .nav-links { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: .78rem;
+    font-family: var(--font-m); padding: 7px 10px; border-radius: 999px;
+    border: 1px solid transparent; transition: .2s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--ink); background: var(--lime); border-color: var(--lime);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 56px 0 28px;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 36px;
+    align-items: end;
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+    .nav-links { margin-left: 0; width: 100%; }
+  }
+  .eyebrow {
+    font-family: var(--font-m); font-size: .72rem; color: var(--lime);
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: .95; letter-spacing: -.045em; margin: 0 0 16px;
+  }
+  h1 span { color: var(--lime); }
+  .lede {
+    font-size: 1.05rem; color: var(--muted); max-width: 46ch; line-height: 1.45; margin: 0 0 22px;
+  }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    border: 0; cursor: pointer; font-family: var(--font-d); font-weight: 700;
+    border-radius: 999px; padding: 12px 18px; font-size: .95rem;
+    transition: transform .15s, box-shadow .15s, background .15s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--lime); color: var(--ink); box-shadow: 0 0 0 0 rgba(200,245,96,.4); }
+  .btn-primary:hover { box-shadow: 0 8px 28px rgba(200,245,96,.25); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn-sm { padding: 8px 12px; font-size: .82rem; }
+  .btn-coral { background: var(--coral); color: #fff; }
+  .btn-sky { background: var(--sky); color: var(--ink); }
+
+  .hero-panel {
+    background: linear-gradient(160deg, rgba(26,53,48,.9), rgba(19,40,34,.95));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-panel::after {
+    content: "";
+    position: absolute; inset: auto -20% -40% auto;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,245,96,.2), transparent 70%);
+    pointer-events: none;
+  }
+  .coord-live {
+    font-family: var(--font-m); font-size: .75rem; color: var(--sky);
+    display: flex; justify-content: space-between; margin-bottom: 12px;
+  }
+  .pulse {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--lime); margin-right: 6px;
+    box-shadow: 0 0 0 0 rgba(200,245,96,.7);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 10px rgba(200,245,96,0); }
+    100% { box-shadow: 0 0 0 0 rgba(200,245,96,0); }
+  }
+  .hero-metric {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+  }
+  .metric {
+    background: rgba(0,0,0,.2); border-radius: 12px; padding: 12px;
+    border: 1px solid rgba(255,255,255,.04);
+  }
+  .metric b {
+    display: block; font-size: 1.55rem; letter-spacing: -.04em; color: var(--sand);
+  }
+  .metric span { font-family: var(--font-m); font-size: .68rem; color: var(--muted); }
+
+  /* SECTIONS */
+  section { padding: 48px 0 8px; }
+  .sec-head {
+    display: flex; align-items: end; justify-content: space-between; gap: 16px;
+    margin-bottom: 18px; flex-wrap: wrap;
+  }
+  h2 {
+    margin: 0; font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -.04em; line-height: 1;
+  }
+  .sec-sub { color: var(--muted); max-width: 52ch; font-size: .95rem; line-height: 1.4; margin: 8px 0 0; }
+
+  .panel {
+    background: rgba(19,40,34,.72);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px;
+  }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    padding: 18px; border-radius: 16px;
+    background: linear-gradient(145deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--line);
+    transition: transform .2s, border-color .2s;
+    cursor: default;
+  }
+  .stat:hover { transform: translateY(-3px); border-color: rgba(200,245,96,.45); }
+  .stat strong { font-size: 2rem; letter-spacing: -.05em; color: var(--lime); display: block; }
+  .stat em { font-style: normal; font-family: var(--font-m); font-size: .72rem; color: var(--muted); }
+
+  /* FLOW */
+  .flow {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 8px;
+  }
+  @media (max-width: 900px) { .flow { grid-template-columns: 1fr 1fr; } }
+  .flow-node {
+    text-align: left; padding: 14px; border-radius: 14px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.18); cursor: pointer; transition: .2s; min-height: 110px;
+  }
+  .flow-node:hover, .flow-node.on {
+    border-color: var(--lime); background: rgba(200,245,96,.08);
+    box-shadow: inset 0 0 0 1px rgba(200,245,96,.2);
+  }
+  .flow-node .n { font-family: var(--font-m); font-size: .65rem; color: var(--lime); margin-bottom: 6px; }
+  .flow-node h3 { margin: 0 0 6px; font-size: 1rem; letter-spacing: -.02em; }
+  .flow-node p { margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.35; }
+  .flow-detail {
+    margin-top: 12px; padding: 16px; border-radius: 14px;
+    background: rgba(0,0,0,.28); border: 1px dashed rgba(200,245,96,.25);
+    font-family: var(--font-m); font-size: .78rem; line-height: 1.55; color: var(--sand);
+    min-height: 72px;
+  }
+
+  /* TABS */
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .tab {
+    font-family: var(--font-m); font-size: .72rem; padding: 8px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
+  }
+  .tab.on { background: var(--lime); color: var(--ink); border-color: var(--lime); font-weight: 600; }
+
+  /* ENDPOINT GRID */
+  .ep-grid { display: grid; grid-template-columns: 280px 1fr; gap: 12px; }
+  @media (max-width: 860px) { .ep-grid { grid-template-columns: 1fr; } }
+  .ep-list { display: flex; flex-direction: column; gap: 6px; max-height: 520px; overflow: auto; }
+  .ep-item {
+    text-align: left; padding: 12px; border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.15); color: var(--text); cursor: pointer; transition: .15s;
+  }
+  .ep-item:hover, .ep-item.on { border-color: var(--sky); background: rgba(110,200,255,.08); }
+  .ep-item .method {
+    font-family: var(--font-m); font-size: .65rem; font-weight: 600;
+    color: var(--lime); letter-spacing: .04em;
+  }
+  .ep-item .path { font-family: var(--font-m); font-size: .78rem; margin-top: 2px; }
+  .ep-item .blurb { font-size: .75rem; color: var(--muted); margin-top: 4px; line-height: 1.3; }
+  .ep-body h3 { margin: 0 0 6px; font-size: 1.25rem; letter-spacing: -.03em; }
+  .chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .chip {
+    font-family: var(--font-m); font-size: .65rem; padding: 4px 8px; border-radius: 999px;
+    background: rgba(200,245,96,.1); color: var(--lime); border: 1px solid rgba(200,245,96,.2);
+  }
+  .chip.sky { background: rgba(110,200,255,.12); color: var(--sky); border-color: rgba(110,200,255,.25); }
+  .chip.amber { background: rgba(255,200,87,.12); color: var(--amber); border-color: rgba(255,200,87,.25); }
+  .code {
+    font-family: var(--font-m); font-size: .72rem; background: #071310;
+    border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 14px;
+    overflow: auto; white-space: pre; color: #cfe7d6; line-height: 1.45; max-height: 280px;
+  }
+  .code .k { color: var(--sky); }
+  .code .s { color: var(--lime); }
+  .code .c { color: var(--muted); }
+
+  /* MCP */
+  .mcp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .mcp-card {
+    padding: 14px; border-radius: 14px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.18); cursor: pointer; transition: .2s; text-align: left; color: inherit;
+  }
+  .mcp-card:hover, .mcp-card.on {
+    border-color: var(--lime); transform: translateY(-2px);
+    background: linear-gradient(160deg, rgba(200,245,96,.1), rgba(0,0,0,.2));
+  }
+  .mcp-card h4 { margin: 0 0 6px; font-size: .95rem; }
+  .mcp-card p { margin: 0; font-size: .78rem; color: var(--muted); line-height: 1.35; }
+  .mcp-stage { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 800px) { .mcp-stage { grid-template-columns: 1fr; } }
+  label.field { display: block; font-family: var(--font-m); font-size: .68rem; color: var(--muted); margin: 8px 0 4px; }
+  input, select, textarea {
+    width: 100%; background: #071310; border: 1px solid var(--line); color: var(--text);
+    border-radius: 10px; padding: 10px 12px; font-family: var(--font-m); font-size: .78rem;
+  }
+  input:focus, select:focus, textarea:focus { outline: 1px solid var(--lime); border-color: var(--lime); }
+  textarea { min-height: 90px; resize: vertical; }
+
+  /* CATALOG */
+  .catalog-top { display: grid; grid-template-columns: 340px 1fr; gap: 12px; }
+  @media (max-width: 860px) { .catalog-top { grid-template-columns: 1fr; } }
+  .chart-box { position: relative; height: 260px; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .filter-btn {
+    font-family: var(--font-m); font-size: .68rem; padding: 6px 10px; border-radius: 999px;
+    border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer;
+  }
+  .filter-btn.on { background: var(--sand); color: var(--ink); border-color: var(--sand); font-weight: 600; }
+  .field-table { max-height: 360px; overflow: auto; border-radius: 12px; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.05); }
+  th { position: sticky; top: 0; background: #10251f; font-family: var(--font-m); font-size: .68rem; color: var(--muted); }
+  tr { cursor: pointer; }
+  tr:hover td { background: rgba(200,245,96,.05); }
+  tr.sel td { background: rgba(110,200,255,.08); }
+  .layer-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+  /* PRESETS */
+  .preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  .preset {
+    padding: 14px; border-radius: 14px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.16); cursor: pointer; text-align: left; color: inherit; transition: .2s;
+  }
+  .preset:hover, .preset.on { border-color: var(--amber); background: rgba(255,200,87,.08); }
+  .preset b { display: block; font-size: .92rem; margin-bottom: 4px; }
+  .preset span { font-family: var(--font-m); font-size: .68rem; color: var(--amber); }
+
+  /* WORKFLOWS */
+  .wf-steps { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .wf-step {
+    flex: 1; min-width: 120px; padding: 12px; border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.15); cursor: pointer; text-align: left; color: inherit;
+  }
+  .wf-step.on { border-color: var(--coral); background: rgba(255,107,74,.1); }
+  .wf-step .ix { font-family: var(--font-m); font-size: .65rem; color: var(--coral); }
+  .timeline {
+    position: relative; padding-left: 18px; margin-top: 8px;
+  }
+  .timeline::before {
+    content: ""; position: absolute; left: 4px; top: 4px; bottom: 4px; width: 2px;
+    background: linear-gradient(var(--coral), var(--lime));
+  }
+  .tl-item { position: relative; margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: rgba(0,0,0,.2); }
+  .tl-item::before {
+    content: ""; position: absolute; left: -17px; top: 14px; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(200,245,96,.15);
+  }
+
+  /* LIVE PLAYGROUND */
+  .play-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 800px) { .play-grid { grid-template-columns: 1fr; } }
+  .token-row { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; }
+  .token-row > div { flex: 1; min-width: 200px; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-m); font-size: .68rem; padding: 5px 10px; border-radius: 999px;
+    background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--muted);
+  }
+  .status-pill.ok { color: var(--lime); border-color: rgba(200,245,96,.35); }
+  .status-pill.err { color: var(--coral); border-color: rgba(255,107,74,.35); }
+
+  /* PROVENANCE */
+  .prov {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  @media (max-width: 720px) { .prov { grid-template-columns: 1fr 1fr; } }
+  .prov-card {
+    padding: 16px; border-radius: 14px; border: 1px solid var(--line);
+    background: rgba(0,0,0,.18); min-height: 120px;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1);
+  }
+  .prov-card:hover { transform: translateY(-4px) rotate(-.5deg); }
+  .prov-card .k { font-family: var(--font-m); font-size: .65rem; color: var(--sky); }
+  .prov-card .v { font-size: 1.15rem; margin: 8px 0 4px; letter-spacing: -.02em; }
+  .prov-card .h { font-size: .78rem; color: var(--muted); }
+
+  /* MAP */
+  .map-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; }
+  @media (max-width: 800px) { .map-wrap { grid-template-columns: 1fr; } }
+  #usMap { width: 100%; height: 280px; border-radius: 14px; background: #071310; border: 1px solid var(--line); }
+  .pin-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 56px; padding: 24px 0; border-top: 1px solid var(--line);
+    font-family: var(--font-m); font-size: .72rem; color: var(--muted);
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  footer a { color: var(--lime); }
+
+  .toast {
+    position: fixed; bottom: 20px; right: 20px; z-index: 100;
+    background: var(--lime); color: var(--ink); font-weight: 700;
+    padding: 12px 16px; border-radius: 12px; box-shadow: var(--shadow);
+    transform: translateY(120px); opacity: 0; transition: .3s; pointer-events: none;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  .split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 800px) { .split-2 { grid-template-columns: 1fr; } }
+
+  .typewriter::after {
+    content: "▋"; animation: blink 1s step-end infinite; color: var(--lime); margin-left: 2px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .kbd {
+    font-family: var(--font-m); font-size: .65rem; padding: 2px 6px; border-radius: 5px;
+    border: 1px solid var(--line); background: rgba(0,0,0,.3); color: var(--sand);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><div class="brand-mark"></div> Mireye Explorer</div>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#flow">Flow</a>
+        <a href="#api">API</a>
+        <a href="#mcp">MCP</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#presets">Presets</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#playground">Playground</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="overview">
+    <div>
+      <div class="eyebrow">YC S26 · Physical-world infra for agents</div>
+      <h1>Cited facts about<br/>any <span>US place</span>.</h1>
+      <p class="lede">Interactive field guide to Mireye’s HTTP API + MCP tools. Click around — endpoints, catalog, presets, and live calls (optional token).</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" onclick="document.getElementById('playground').scrollIntoView({behavior:'smooth'})">Open playground</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Browse 300+ fields</button>
+        <button class="btn btn-sky btn-sm" onclick="runDemoTour()">Demo tour</button>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="coord-live"><span><span class="pulse"></span>live catalog</span><span id="heroCoords">40.7128, −74.0060</span></div>
+      <div class="typewriter" id="heroType">Asking: elevation + flood…</div>
+      <div class="hero-metric">
+        <div class="metric"><b id="mFields">—</b><span>catalog fields</span></div>
+        <div class="metric"><b id="mPresets">—</b><span>workflow presets</span></div>
+        <div class="metric"><b>7</b><span>MCP tools</span></div>
+        <div class="metric"><b>US</b><span>coverage envelope</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat"><strong id="sFields">304</strong><em>fields · 7 layers</em></div>
+    <div class="stat"><strong>15</strong><em>presets · siting → risk</em></div>
+    <div class="stat"><strong>7</strong><em>MCP tools</em></div>
+    <div class="stat"><strong>~1–15s</strong><em>fetch → ask latency</em></div>
+  </div>
+
+  <!-- FLOW -->
+  <section id="flow">
+    <div class="sec-head">
+      <div>
+        <h2>How a call becomes a decision</h2>
+        <p class="sec-sub">Click each stage. Mireye stops at cited facts + tools — your agent reasons, decides, and acts.</p>
+      </div>
+    </div>
+    <div class="flow" id="flowNodes"></div>
+    <div class="flow-detail" id="flowDetail">Pick a stage ↑</div>
+  </section>
+
+  <!-- API -->
+  <section id="api">
+    <div class="sec-head">
+      <div>
+        <h2>HTTP API surface</h2>
+        <p class="sec-sub">Same catalog whether you call REST or MCP. Click an endpoint for shape, when to use it, and a copy-ready example.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="copyEpCurl()">Copy curl</button>
+    </div>
+    <div class="panel ep-grid">
+      <div class="ep-list" id="epList"></div>
+      <div class="ep-body" id="epBody"></div>
+    </div>
+  </section>
+
+  <!-- MCP -->
+  <section id="mcp">
+    <div class="sec-head">
+      <div>
+        <h2>MCP tools</h2>
+        <p class="sec-sub">Hosted at <span class="kbd">https://api.mireye.com/mcp</span> · local via <span class="kbd">uvx mireye-mcp</span>. Pick a tool and simulate a call.</p>
+      </div>
+    </div>
+    <div class="mcp-grid" id="mcpGrid"></div>
+    <div class="panel mcp-stage">
+      <div>
+        <h3 id="mcpTitle" style="margin:0 0 8px;font-size:1.1rem">Select a tool</h3>
+        <p id="mcpDesc" style="margin:0 0 10px;color:var(--muted);font-size:.9rem">Click any MCP card above.</p>
+        <div id="mcpForm"></div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary btn-sm" onclick="simMcp()">Simulate response</button>
+          <button class="btn btn-ghost btn-sm" onclick="fillMcpSample()">Fill sample</button>
+        </div>
+      </div>
+      <div>
+        <div class="chip-row"><span class="chip">mock / structured</span><span class="chip sky" id="mcpLatency">~ —</span></div>
+        <div class="code" id="mcpOut"><span class="c">// response appears here</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog">
+    <div class="sec-head">
+      <div>
+        <h2>Field catalog</h2>
+        <p class="sec-sub">Public <span class="kbd">GET /v1/meta/fields</span> — filter by layer, search by name, click a row for detail.</p>
+      </div>
+      <span class="status-pill" id="catalogStatus">loading catalog…</span>
+    </div>
+    <div class="catalog-top">
+      <div class="panel">
+        <div class="chart-box"><canvas id="layerChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <input id="fieldSearch" type="search" placeholder="Search fields — elevation, flood, substation…" oninput="renderFields()" />
+        <div class="filters" id="layerFilters"></div>
+        <div class="field-table">
+          <table>
+            <thead><tr><th>Field</th><th>Layer</th><th>Source</th></tr></thead>
+            <tbody id="fieldBody"></tbody>
+          </table>
+        </div>
+        <div id="fieldDetail" class="flow-detail" style="margin-top:10px">Select a field for description + unit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESETS -->
+  <section id="presets">
+    <div class="sec-head">
+      <div>
+        <h2>Presets</h2>
+        <p class="sec-sub">Bundled field sets for desks that already write cheques — siting, underwriting, interconnect.</p>
+      </div>
+    </div>
+    <div class="preset-grid" id="presetGrid"></div>
+    <div class="panel" style="margin-top:12px">
+      <div class="split-2">
+        <div>
+          <h3 id="presetTitle" style="margin:0 0 6px">Pick a preset</h3>
+          <p id="presetBlurb" style="margin:0;color:var(--muted);font-size:.9rem">Field expansion loads here.</p>
+          <div style="margin-top:12px;height:200px"><canvas id="presetChart"></canvas></div>
+        </div>
+        <div>
+          <div class="chip-row" id="presetChips"></div>
+          <div class="code" id="presetCurl" style="margin-top:8px;max-height:320px"><span class="c">// preset curl</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVENANCE -->
+  <section id="provenance">
+    <div class="sec-head">
+      <div>
+        <h2>Provenance model</h2>
+        <p class="sec-sub">Every value is an audit object — not a vibe. Hover the cards.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="shuffleProv()">Shuffle example</button>
+    </div>
+    <div class="prov" id="provCards"></div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage">
+    <div class="sec-head">
+      <div>
+        <h2>Coverage + geocode quality</h2>
+        <p class="sec-sub">US envelope only for point facts. Click pins — rooftop vs street interpolation changes trust.</p>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <div class="panel">
+        <canvas id="usMap" width="720" height="280"></canvas>
+        <div class="pin-controls">
+          <button class="btn btn-sm btn-primary" onclick="dropPin('nyc')">NYC rooftop</button>
+          <button class="btn btn-sm btn-sky" onclick="dropPin('houston')">Houston</button>
+          <button class="btn btn-sm btn-ghost" onclick="dropPin('rural')">Rural interpolate</button>
+          <button class="btn btn-sm btn-coral" onclick="dropPin('oob')">Out of bounds</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 8px;font-size:1.1rem" id="pinTitle">Drop a pin</h3>
+        <div class="chip-row" id="pinChips"></div>
+        <p id="pinBlurb" style="color:var(--muted);font-size:.9rem;line-height:1.4;margin:10px 0"></p>
+        <div class="code" id="pinJson" style="max-height:180px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOWS -->
+  <section id="workflows">
+    <div class="sec-head">
+      <div>
+        <h2>Workflow demos</h2>
+        <p class="sec-sub">Five short agent loops. Step through reason → decide → act.</p>
+      </div>
+    </div>
+    <div class="tabs" id="wfTabs"></div>
+    <div class="panel">
+      <div class="wf-steps" id="wfSteps"></div>
+      <div class="timeline" id="wfTimeline"></div>
+    </div>
+  </section>
+
+  <!-- PLAYGROUND -->
+  <section id="playground">
+    <div class="sec-head">
+      <div>
+        <h2>Playground</h2>
+        <p class="sec-sub">Mock mode works offline. Paste a bearer token to hit the real API from your browser (CORS permitting).</p>
+      </div>
+      <span class="status-pill" id="playStatus">mock mode</span>
+    </div>
+    <div class="panel">
+      <div class="token-row">
+        <div>
+          <label class="field">API token (optional · stored in localStorage)</label>
+          <input id="apiToken" type="password" placeholder="Bearer token from mireye.com/account" />
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="saveToken()">Save token</button>
+        <button class="btn btn-coral btn-sm" onclick="clearToken()">Clear</button>
+      </div>
+      <div class="play-grid" style="margin-top:14px">
+        <div>
+          <label class="field">Mode</label>
+          <select id="playMode" onchange="syncPlayForm()">
+            <option value="ask">/v1/ask</option>
+            <option value="fetch">/v1/fetch</option>
+            <option value="geocode">/v1/geocode</option>
+            <option value="lookup">/v1/lookup</option>
+            <option value="batch">/v1/fetch/batch</option>
+          </select>
+          <div id="playForm"></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="runPlay()">Run</button>
+            <button class="btn btn-ghost btn-sm" onclick="fillPlaySample()">Sample inputs</button>
+          </div>
+        </div>
+        <div>
+          <div class="chip-row">
+            <span class="chip" id="playModeChip">ask</span>
+            <span class="chip amber" id="playTimer">—</span>
+          </div>
+          <div class="code" id="playOut" style="min-height:320px;max-height:420px"><span class="c">// hit Run</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="compare">
+    <div class="sec-head">
+      <div>
+        <h2>ask vs fetch vs lookup</h2>
+        <p class="sec-sub">Quick decision tree — tap a user intent.</p>
+      </div>
+    </div>
+    <div class="tabs" id="intentTabs"></div>
+    <div class="panel" id="intentOut"></div>
+  </section>
+
+  <footer>
+    <div>Built as a local explorer · catalog via public <code>GET /v1/meta/fields</code> · not affiliated branding</div>
+    <div>
+      <a href="https://docs.mireye.ai" target="_blank" rel="noopener">docs.mireye.ai</a> ·
+      <a href="https://www.mireye.com/templates" target="_blank" rel="noopener">templates</a> ·
+      <a href="https://www.ycombinator.com/companies/mireye" target="_blank" rel="noopener">YC</a>
+    </div>
+  </footer>
+</div>
+
+<div class="toast" id="toast">Copied</div>
+
+<script>
+/* ========== DATA ========== */
+const LAYER_COLORS = {
+  terrain: '#c8f560',
+  land_cover: '#9bc43a',
+  built_environment: '#6ec8ff',
+  utilities: '#ffc857',
+  parcels: '#ff8ad8',
+  climate: '#7ee0c3',
+  hazards: '#ff6b4a',
+  unknown: '#8aa399'
+};
+
+const ENDPOINTS = [
+  {
+    id: 'ask', method: 'POST', path: '/v1/ask',
+    blurb: 'NL Q&A — planner picks fields, synthesizer cites them.',
+    when: 'User asked a question in English. You want prose + citations.',
+    auth: true, chips: ['planner LLM', 'citations', 'address or lat/lng'],
+    curl: `curl -s https://api.mireye.com/v1/ask \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "lat": 40.7128,
+    "lng": -74.0060,
+    "question": "What is the elevation here?"
+  }'`,
+    sample: {
+      lat: 40.7128, lng: -74.006,
+      question: 'What is the elevation here?',
+      answer: 'The ground elevation is 13.15 m above NAVD88 (USGS 3DEP/EPQS).',
+      confidence: 'high',
+      citations: [{ source: 'USGS_EPQS', fields: ['elevation'], confidence: 'high' }],
+      fields_used: ['elevation']
+    }
+  },
+  {
+    id: 'fetch', method: 'POST', path: '/v1/fetch',
+    blurb: 'Deterministic fields or presets with per-field provenance.',
+    when: 'You know the fields / preset. Forms, tables, scoring rules.',
+    auth: true, chips: ['≤50 fields', 'presets', 'partial_failures'],
+    curl: `curl -s https://api.mireye.com/v1/fetch \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "address": "350 5th Ave, New York, NY 10118",
+    "preset": "flood_risk"
+  }'`,
+    sample: {
+      lat: 40.7484, lng: -73.9857,
+      fields: {
+        elevation: { value: 13.15, unit: 'meters', source: 'USGS_EPQS', confidence: 'high' },
+        within_floodplain_polygon: { value: false, source: 'FEMA_NFHL', confidence: 'high' }
+      },
+      partial_failures: []
+    }
+  },
+  {
+    id: 'batch', method: 'POST', path: '/v1/fetch/batch',
+    blurb: 'Same field set across up to 25 locations.',
+    when: 'Portfolio screens, candidate lists, insurance books.',
+    auth: true, chips: ['max 25', 'one field set', 'per-location ok'],
+    curl: `curl -s https://api.mireye.com/v1/fetch/batch \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "locations": [
+      {"address": "1600 Smith St, Houston, TX"},
+      {"lat": 40.7128, "lng": -74.0060}
+    ],
+    "fields": ["elevation", "within_floodplain_polygon"]
+  }'`,
+    sample: { count: 2, note: 'Each location returns fields + ok flag independently.' }
+  },
+  {
+    id: 'geocode', method: 'POST', path: '/v1/geocode',
+    blurb: 'Address → coordinate + accuracy_type.',
+    when: 'Inspect quality before spending a heavy fetch.',
+    auth: true, chips: ['rooftop', 'range_interpolation', 'refuses centroids'],
+    curl: `curl -s https://api.mireye.com/v1/geocode \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{"address": "350 5th Ave, New York, NY 10118"}'`,
+    sample: {
+      lat: 40.748377, lng: -73.984854,
+      accuracy_type: 'rooftop',
+      normalized_address: '350 5th Ave, New York, NY 10118',
+      provider: 'geocodio'
+    }
+  },
+  {
+    id: 'lookup', method: 'POST', path: '/v1/lookup',
+    blurb: 'Messy locator → canonical keys + parcel when safe.',
+    when: 'Ambiguous addresses, CRM cleanup, APN/coord inputs.',
+    auth: true, chips: ['disposition', 'clarify', 'parcel'],
+    curl: `curl -s https://api.mireye.com/v1/lookup \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{"input": "480 Berdoll Ln, Cedar Creek TX"}'`,
+    sample: {
+      disposition: 'resolved',
+      confidence: 0.95,
+      parcel: { apn: 'R123456', zoning: 'AG' },
+      note: 'Ambiguous inputs return disposition: clarify + candidates.'
+    }
+  },
+  {
+    id: 'proximity', method: 'POST', path: '/v1/proximity',
+    blurb: 'Drive-time distance, nearest, screen, labor shed.',
+    when: 'Relationships BETWEEN places — not single-point facts.',
+    auth: true, chips: ['US+Canada', 'sets: @substations', 'typical traffic'],
+    curl: `curl -s https://api.mireye.com/v1/proximity \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "op": "nearest",
+    "origins": ["29.7604,-95.3698"],
+    "set": "@substations"
+  }'`,
+    sample: {
+      op: 'nearest',
+      notes: ['durations reflect typical traffic, not real-time'],
+      paid_driving_calcs: 1
+    }
+  },
+  {
+    id: 'field-requests', method: 'POST', path: '/v1/field-requests',
+    blurb: 'Ask for a field that is not indexed yet.',
+    when: 'Catalog miss — match, near-miss, or queue a build.',
+    auth: true, chips: ['on-demand indexing', 'idempotency_key', 'poll status'],
+    curl: `curl -s https://api.mireye.com/v1/field-requests \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "description": "Distance to nearest EV fast charger",
+    "example_locations": [{"address": "350 5th Ave, New York, NY"}],
+    "idempotency_key": "ev-charger-demo-1"
+  }'`,
+    sample: {
+      disposition: 'accepted_new',
+      request_id: 'fr_…',
+      status: 'queued'
+    }
+  },
+  {
+    id: 'runs', method: 'POST', path: '/v1/runs',
+    blurb: 'Async jobs — submit, poll, stream, CSV/GeoJSON artifacts.',
+    when: 'Don’t hold the connection. Today: fetch_batch kind.',
+    auth: true, chips: ['202 + run_id', 'SSE events', '30-day retention'],
+    curl: `curl -s https://api.mireye.com/v1/runs \\
+  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\
+  -H 'content-type: application/json' \\
+  -d '{
+    "kind": "fetch_batch",
+    "request": {
+      "locations": [{"lat": 29.76, "lng": -95.37}],
+      "preset": "utilities"
+    }
+  }'`,
+    sample: { run_id: 'run_…', status: 'queued', poll: '/v1/runs/run_…' }
+  },
+  {
+    id: 'meta', method: 'GET', path: '/v1/meta/fields',
+    blurb: 'Public self-describing catalog + presets + envelope.',
+    when: 'Warm agent memory; build field pickers. No token.',
+    auth: false, chips: ['public', 'ETag', 'Cache-Control 1h'],
+    curl: `curl -s https://api.mireye.com/v1/meta/fields | jq '.fields | length'`,
+    sample: { fields: 304, presets: 15, version: '0.14.0' }
+  }
+];
+
+const MCP_TOOLS = [
+  {
+    id: 'mireye_ask',
+    title: 'mireye_ask',
+    desc: 'Natural-language question → cited answer.',
+    latency: '~6–15s',
+    fields: [
+      { key: 'address', label: 'address', sample: '350 5th Ave, New York, NY 10118' },
+      { key: 'question', label: 'question', sample: 'Is this in a flood zone?' }
+    ],
+    mock: (a) => ({
+      tool: 'mireye_ask',
+      address: a.address,
+      question: a.question,
+      answer: 'Outside FEMA SFHA polygon; coast ~0.8 km. Storm-surge still warrants review.',
+      confidence: 'high',
+      citations: [{ source: 'FEMA_NFHL', fields: ['within_floodplain_polygon'] }, { source: 'NOAA_CUSP', fields: ['coast_distance_m'] }],
+      fields_used: ['within_floodplain_polygon', 'coast_distance_m', 'elevation']
+    })
+  },
+  {
+    id: 'mireye_fetch',
+    title: 'mireye_fetch',
+    desc: 'Named fields or a preset, raw + provenance.',
+    latency: '~1–10s',
+    fields: [
+      { key: 'lat', label: 'lat', sample: '29.7604' },
+      { key: 'lng', label: 'lng', sample: '-95.3698' },
+      { key: 'preset', label: 'preset', sample: 'utilities' }
+    ],
+    mock: (a) => ({
+      tool: 'mireye_fetch',
+      lat: +a.lat, lng: +a.lng, preset: a.preset,
+      fields: {
+        nearest_transmission_line_distance_m: { value: 612, unit: 'meters', source: 'HIFLD', confidence: 'high' },
+        nearest_transmission_line_voltage_kv: { value: 138, unit: 'kV', source: 'HIFLD', confidence: 'high' },
+        nearest_power_plant_name: { value: 'Deepwater Generating Station', source: 'EIA', confidence: 'medium' }
+      },
+      partial_failures: []
+    })
+  },
+  {
+    id: 'mireye_geocode',
+    title: 'mireye_geocode',
+    desc: 'Street address → coord + accuracy_type.',
+    latency: '~0.5–2s',
+    fields: [{ key: 'address', label: 'address', sample: '1600 Smith St, Houston, TX' }],
+    mock: (a) => ({
+      tool: 'mireye_geocode',
+      address: a.address,
+      lat: 29.7512, lng: -95.3721,
+      accuracy_type: 'rooftop',
+      parcel_grade: true,
+      normalized_address: a.address
+    })
+  },
+  {
+    id: 'mireye_lookup',
+    title: 'mireye_lookup',
+    desc: 'Address / coord / APN → disposition + parcel.',
+    latency: '~1–4s',
+    fields: [{ key: 'input', label: 'input', sample: '1100 King St W, Toronto' }],
+    mock: (a) => ({
+      tool: 'mireye_lookup',
+      input: a.input,
+      disposition: 'clarify',
+      reason: 'Multiple strong candidates across regions',
+      candidates: [
+        { label: 'Toronto, ON (out of US fetch envelope)', confidence: 0.61 },
+        { label: 'Toronto, OH, USA', confidence: 0.58 }
+      ],
+      tip: 'Never auto-pick on clarify — present candidates.'
+    })
+  },
+  {
+    id: 'mireye_proximity',
+    title: 'mireye_proximity',
+    desc: 'Drive-time ops across multiple points.',
+    latency: '~1–8s',
+    fields: [
+      { key: 'op', label: 'op', sample: 'nearest' },
+      { key: 'origin', label: 'origin', sample: '40.7128,-74.0060' },
+      { key: 'set', label: 'set', sample: '@substations' }
+    ],
+    mock: (a) => ({
+      tool: 'mireye_proximity',
+      req: { op: a.op, origins: [a.origin], set: a.set },
+      results: [{ name: 'nearest curated candidate', duration_s: 842, distance_m: 9100 }],
+      notes: ['typical traffic', 'US+Canada driving only'],
+      paid_driving_calcs: 1
+    })
+  },
+  {
+    id: 'mireye_request_field',
+    title: 'mireye_request_field',
+    desc: 'Request missing data — match or queue build.',
+    latency: 'async',
+    fields: [
+      { key: 'description', label: 'description', sample: 'Distance to nearest Level-3 EV charger' },
+      { key: 'address', label: 'example address', sample: '350 5th Ave, New York, NY' }
+    ],
+    mock: (a) => ({
+      tool: 'mireye_request_field',
+      disposition: 'accepted_new',
+      request_id: 'fr_5d81c02e94aa4f31b7c6d2a90e8f1c3b',
+      description: a.description,
+      tip: 'Store request_id in durable state; poll mireye_field_request_status.'
+    })
+  },
+  {
+    id: 'mireye_field_request_status',
+    title: 'mireye_field_request_status',
+    desc: 'Poll a field-request until live + resume fetch.',
+    latency: 'fast',
+    fields: [{ key: 'request_id', label: 'request_id', sample: 'fr_5d81c02e94aa4f31b7c6d2a90e8f1c3b' }],
+    mock: (a) => ({
+      tool: 'mireye_field_request_status',
+      request_id: a.request_id,
+      status: 'building',
+      estimated_ready_at: '2026-08-06T18:00:00Z',
+      queue_position: 2
+    })
+  }
+];
+
+const FLOW = [
+  { n: '01', t: 'Locate', p: 'Address, APN, or lat/lng', d: 'geocode / lookup resolve the place. Check accuracy_type and disposition before trusting parcel fields.' },
+  { n: '02', t: 'Fetch', p: 'ask · fetch · proximity', d: 'Pull cited facts (or drive-time relations). Prefer fetch for tables; ask for prose; proximity for between-places.' },
+  { n: '03', t: 'Cite', p: 'source · url · time', d: 'Every field carries provenance. Forward citations into the agent’s decision memo — regulators can re-fetch.' },
+  { n: '04', t: 'Decide', p: 'Your rules / LLM', d: 'Mireye does not underwrite for you. Score, rank, kill, or escalate using thresholds you own.' },
+  { n: '05', t: 'Act', p: 'Notify · file · export', d: 'Slack, CRM note, CSV kill-list, work order. This is what the Build Challenge scores.' }
+];
+
+const WORKFLOWS = [
+  {
+    id: 'flood',
+    name: 'Flood check',
+    steps: [
+      { t: 'Input', b: 'Buyer pastes offer address' },
+      { t: 'Tool', b: 'mireye_ask → flood + coast + elevation' },
+      { t: 'Decide', b: 'Outside SFHA but coast < 1 km → HOLD' },
+      { t: 'Act', b: 'Email: get elevation certificate before offer' }
+    ],
+    timeline: [
+      'lookup disposition: resolved · rooftop',
+      'within_floodplain_polygon = false (FEMA_NFHL)',
+      'coast_distance_m ≈ 764 (NOAA_CUSP)',
+      'Decision: HOLD — surge risk dominates',
+      'Action: draft diligence note + checklist'
+    ]
+  },
+  {
+    id: 'dc',
+    name: 'Data-center screen',
+    steps: [
+      { t: 'Input', b: '12 candidate parcels CSV' },
+      { t: 'Tool', b: 'fetch/batch + data_center_siting' },
+      { t: 'Decide', b: 'Kill if tx > 5 km or flood' },
+      { t: 'Act', b: 'Export ranked shortlist + citations' }
+    ],
+    timeline: [
+      'POST /v1/runs kind=fetch_batch',
+      'Preset expands ~106 fields',
+      'Rank by substation distance + voltage',
+      'Drop floodplain / wetland intersections',
+      'Artifact: CSV + GeoJSON for GIS handoff'
+    ]
+  },
+  {
+    id: 'crm',
+    name: 'CRM cleanup',
+    steps: [
+      { t: 'Input', b: 'Messy lead addresses' },
+      { t: 'Tool', b: 'mireye_lookup per row' },
+      { t: 'Decide', b: 'resolved vs clarify vs no_match' },
+      { t: 'Act', b: 'Auto-enrich · queue reviews' }
+    ],
+    timeline: [
+      'Ambiguous “Toronto” → disposition clarify',
+      'Agent never auto-picks candidates',
+      'Resolved rows get parcel + flood context',
+      'Review queue gets human ticket',
+      'CRM updated with canonical address'
+    ]
+  },
+  {
+    id: 'ins',
+    name: 'Insurance book',
+    steps: [
+      { t: 'Input', b: 'Policy address list' },
+      { t: 'Tool', b: 'wildfire_underwrite batch' },
+      { t: 'Decide', b: 'Flag canopy / fuel thresholds' },
+      { t: 'Act', b: 'Renewal hold Slack to UW' }
+    ],
+    timeline: [
+      'Nightly cron pulls book',
+      'Batch fetch wildfire preset',
+      'Diff vs last screen',
+      'Escalate flipped risk',
+      'UW gets cited packet'
+    ]
+  },
+  {
+    id: 'prox',
+    name: 'Substation nearest',
+    steps: [
+      { t: 'Input', b: 'Site lat/lng' },
+      { t: 'Tool', b: 'proximity nearest @substations' },
+      { t: 'Decide', b: 'Drive-time ≤ 20 min?' },
+      { t: 'Act', b: 'Keep / kill for interconnect' }
+    ],
+    timeline: [
+      'Crow-flies can lie — use roads',
+      'set=@substations curated',
+      'Read notes + paid_driving_calcs',
+      'null duration = unreachable',
+      'Gate: pass only if duration_s ≤ 1200'
+    ]
+  }
+];
+
+const INTENTS = [
+  { id: 'q', label: '“What’s the flood risk?”', tool: 'mireye_ask', why: 'Natural language — let the planner pick fields.' },
+  { id: 'f', label: '“Give me elevation + slope CSV”', tool: 'mireye_fetch', why: 'Structured outputs — no planner needed.' },
+  { id: 'a', label: '“Is 1100 King St ambiguous?”', tool: 'mireye_lookup', why: 'Needs disposition / candidates, not a silent pick.' },
+  { id: 'p', label: '“Nearest substation by road?”', tool: 'mireye_proximity', why: 'Between places — drive-time matrix ops.' },
+  { id: 'm', label: '“Field doesn’t exist yet”', tool: 'mireye_request_field', why: 'On-demand indexing path.' }
+];
+
+const PROV_EXAMPLES = [
+  { value: '13.15 m', source: 'USGS_EPQS', fetched: '2026-07-28', conf: 'high' },
+  { value: 'Zone X', source: 'FEMA_NFHL', fetched: '2026-07-28', conf: 'high' },
+  { value: '612 m to 138 kV', source: 'HIFLD', fetched: '2026-07-27', conf: 'medium' },
+  { value: '8.2% canopy', source: 'USFS_LCMS', fetched: '2026-07-26', conf: 'high' }
+];
+
+const PINS = {
+  nyc: { title: 'Empire State · rooftop', lat: 40.7484, lng: -73.9857, accuracy: 'rooftop', parcel_grade: true, ok: true, note: 'Safe for parcel-specific fields (zoning, APN).' },
+  houston: { title: 'Downtown Houston', lat: 29.7604, lng: -95.3698, accuracy: 'rooftop', parcel_grade: true, ok: true, note: 'Good demo site for utilities + flood presets.' },
+  rural: { title: 'Rural range_interpolation', lat: 31.2, lng: -99.1, accuracy: 'range_interpolation', parcel_grade: false, ok: true, note: 'Can be ~km off — don’t trust neighboring-parcel claims.' },
+  oob: { title: 'Out of bounds', lat: 51.5, lng: -0.12, accuracy: 'n/a', parcel_grade: false, ok: false, note: 'Returns 400 coord_out_of_bounds. Fetch is US-envelope only.' }
+};
+
+/* ========== STATE ========== */
+let catalog = { fields: [], presets: {}, layer_counts: {}, version: null, us_envelope: null };
+let activeLayer = 'all';
+let activeEp = 'ask';
+let activeMcp = null;
+let activePreset = null;
+let activeWf = 0;
+let layerChart, presetChart;
+let currentEpCurl = '';
+
+/* ========== HELPERS ========== */
+function $(id) { return document.getElementById(id); }
+function toast(msg) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1600);
+}
+function pretty(obj) { return JSON.stringify(obj, null, 2); }
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ========== HERO ========== */
+const heroLines = [
+  'Asking: elevation + flood…',
+  'Fetching preset: data_center_siting…',
+  'Lookup disposition: resolved…',
+  'Proximity: nearest @substations…',
+  'Citations attached · confidence high'
+];
+let hi = 0;
+function cycleHero() {
+  $('heroType').textContent = heroLines[hi % heroLines.length];
+  hi++;
+}
+setInterval(cycleHero, 2200);
+setInterval(() => {
+  const jitter = () => (Math.random() - 0.5) * 0.0008;
+  $('heroCoords').textContent = `${(40.7128 + jitter()).toFixed(4)}, −${(74.0060 + Math.abs(jitter())).toFixed(4)}`;
+}, 1600);
+
+/* ========== FLOW ========== */
+function renderFlow() {
+  const root = $('flowNodes');
+  root.innerHTML = FLOW.map((f, i) => `
+    <button class="flow-node ${i===0?'on':''}" data-i="${i}">
+      <div class="n">STAGE ${f.n}</div>
+      <h3>${f.t}</h3>
+      <p>${f.p}</p>
+    </button>`).join('');
+  $('flowDetail').textContent = FLOW[0].d;
+  root.querySelectorAll('.flow-node').forEach(btn => {
+    btn.onclick = () => {
+      root.querySelectorAll('.flow-node').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      $('flowDetail').textContent = FLOW[+btn.dataset.i].d;
+    };
+  });
+}
+
+/* ========== ENDPOINTS ========== */
+function renderEndpoints() {
+  const list = $('epList');
+  list.innerHTML = ENDPOINTS.map(e => `
+    <button class="ep-item ${e.id===activeEp?'on':''}" data-id="${e.id}">
+      <div class="method">${e.method}${e.auth ? '' : ' · PUBLIC'}</div>
+      <div class="path">${e.path}</div>
+      <div class="blurb">${e.blurb}</div>
+    </button>`).join('');
+  list.querySelectorAll('.ep-item').forEach(b => b.onclick = () => { activeEp = b.dataset.id; renderEndpoints(); showEp(); });
+  showEp();
+}
+function showEp() {
+  const e = ENDPOINTS.find(x => x.id === activeEp);
+  currentEpCurl = e.curl;
+  $('epBody').innerHTML = `
+    <h3>${e.method} ${e.path}</h3>
+    <p style="margin:0;color:var(--muted);font-size:.9rem">${e.blurb}</p>
+    <div class="chip-row">${e.chips.map(c => `<span class="chip">${esc(c)}</span>`).join('')}<span class="chip amber">when: ${esc(e.when)}</span></div>
+    <div class="tabs">
+      <button class="tab on" data-p="curl">curl</button>
+      <button class="tab" data-p="sample">sample response</button>
+    </div>
+    <div class="code" id="epCode">${esc(e.curl)}</div>`;
+  $('epBody').querySelectorAll('.tab').forEach(t => {
+    t.onclick = () => {
+      $('epBody').querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+      t.classList.add('on');
+      $('epCode').textContent = t.dataset.p === 'curl' ? e.curl : pretty(e.sample);
+    };
+  });
+}
+function copyEpCurl() {
+  navigator.clipboard.writeText(currentEpCurl).then(() => toast('curl copied'));
+}
+
+/* ========== MCP ========== */
+function renderMcp() {
+  $('mcpGrid').innerHTML = MCP_TOOLS.map(t => `
+    <button class="mcp-card ${activeMcp===t.id?'on':''}" data-id="${t.id}">
+      <h4>${t.title}</h4>
+      <p>${t.desc}</p>
+    </button>`).join('');
+  $('mcpGrid').querySelectorAll('.mcp-card').forEach(b => {
+    b.onclick = () => { activeMcp = b.dataset.id; renderMcp(); showMcp(); };
+  });
+  if (!activeMcp) { activeMcp = MCP_TOOLS[0].id; renderMcp(); }
+  showMcp();
+}
+function showMcp() {
+  const t = MCP_TOOLS.find(x => x.id === activeMcp);
+  $('mcpTitle').textContent = t.title;
+  $('mcpDesc').textContent = t.desc;
+  $('mcpLatency').textContent = t.latency;
+  $('mcpForm').innerHTML = t.fields.map(f => `
+    <label class="field">${f.label}</label>
+    <input data-k="${f.key}" id="mcp_${f.key}" value="${esc(f.sample)}" />`).join('');
+  $('mcpOut').innerHTML = `<span class="c">// ready · ${t.title}</span>`;
+}
+function fillMcpSample() { showMcp(); toast('sample filled'); }
+function simMcp() {
+  const t = MCP_TOOLS.find(x => x.id === activeMcp);
+  const args = {};
+  t.fields.forEach(f => { args[f.key] = $(`mcp_${f.key}`).value; });
+  $('mcpOut').textContent = pretty(t.mock(args));
+  toast('simulated ' + t.title);
+}
+
+/* ========== CATALOG ========== */
+async function loadCatalog() {
+  $('catalogStatus').textContent = 'fetching live catalog…';
+  try {
+    const r = await fetch('https://api.mireye.com/v1/meta/fields');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    const fields = d.fields || [];
+    const presets = d.presets || {};
+    const layer_counts = {};
+    fields.forEach(f => { layer_counts[f.layer] = (layer_counts[f.layer] || 0) + 1; });
+    const presetMap = {};
+    Object.entries(presets).forEach(([k, v]) => {
+      presetMap[k] = Array.isArray(v) ? v : (v.fields || v.field_names || []);
+    });
+    catalog = { fields, presets: presetMap, layer_counts, version: d.version, us_envelope: d.us_envelope };
+    $('catalogStatus').textContent = `live · v${d.version || '?'} · ${fields.length} fields`;
+    $('catalogStatus').classList.add('ok');
+  } catch (err) {
+    // offline fallback snapshot
+    catalog = FALLBACK_CATALOG;
+    $('catalogStatus').textContent = 'offline snapshot · ' + catalog.fields.length + ' fields';
+    $('catalogStatus').classList.add('err');
+  }
+  $('mFields').textContent = catalog.fields.length;
+  $('sFields').textContent = catalog.fields.length;
+  $('mPresets').textContent = Object.keys(catalog.presets).length;
+  renderLayerFilters();
+  renderLayerChart();
+  renderFields();
+  renderPresets();
+}
+
+const FALLBACK_CATALOG = {
+  version: '0.14.0-snapshot',
+  us_envelope: { lat_min: 18, lat_max: 72, lng_min: -180, lng_max: -65 },
+  layer_counts: { terrain: 33, land_cover: 8, built_environment: 58, utilities: 99, parcels: 38, climate: 30, hazards: 38 },
+  fields: [
+    { name: 'elevation', layer: 'terrain', description: 'Ground elevation (NAVD88)', source: 'USGS_EPQS', unit: 'meters', type: 'number' },
+    { name: 'within_floodplain_polygon', layer: 'terrain', description: 'Inside FEMA SFHA polygon', source: 'FEMA_NFHL', unit: null, type: 'boolean' },
+    { name: 'nearest_transmission_line_distance_m', layer: 'utilities', description: 'Distance to nearest transmission line', source: 'HIFLD', unit: 'meters', type: 'number' },
+    { name: 'tree_canopy_pct', layer: 'land_cover', description: 'Tree canopy percent', source: 'USFS', unit: 'percent', type: 'number' },
+    { name: 'wildfire_annual_frequency', layer: 'hazards', description: 'Modeled wildfire frequency', source: 'USFS', unit: null, type: 'number' },
+    { name: 'parcel_zoning', layer: 'parcels', description: 'Zoning code', source: 'Regrid', unit: null, type: 'string' },
+    { name: 'ghi_annual_kwh_m2_day', layer: 'climate', description: 'Global horizontal irradiance', source: 'NREL', unit: 'kWh/m2/day', type: 'number' },
+    { name: 'primary_building_height_m', layer: 'built_environment', description: 'Primary building height', source: 'Overture', unit: 'meters', type: 'number' }
+  ],
+  presets: {
+    flood_risk: ['elevation', 'within_floodplain_polygon', 'coast_distance_m'],
+    utilities: ['nearest_transmission_line_distance_m', 'nearest_power_plant_name'],
+    data_center_siting: ['nearest_substation_distance_m', 'fiber_broadband_available'],
+    wildfire_underwrite: ['tree_canopy_pct', 'wildfire_annual_frequency'],
+    solar_siting: ['ghi_annual_kwh_m2_day', 'slope_degrees'],
+    site_selection: ['elevation', 'parcel_zoning', 'within_floodplain_polygon']
+  }
+};
+
+function renderLayerFilters() {
+  const layers = ['all', ...Object.keys(catalog.layer_counts)];
+  $('layerFilters').innerHTML = layers.map(l => `
+    <button class="filter-btn ${activeLayer===l?'on':''}" data-l="${l}">${l}${l==='all'?'':' · '+catalog.layer_counts[l]}</button>`).join('');
+  $('layerFilters').querySelectorAll('.filter-btn').forEach(b => {
+    b.onclick = () => { activeLayer = b.dataset.l; renderLayerFilters(); renderFields(); };
+  });
+}
+
+function renderLayerChart() {
+  const labels = Object.keys(catalog.layer_counts);
+  const data = labels.map(l => catalog.layer_counts[l]);
+  const colors = labels.map(l => LAYER_COLORS[l] || LAYER_COLORS.unknown);
+  if (layerChart) layerChart.destroy();
+  layerChart = new Chart($('layerChart'), {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{ data, backgroundColor: colors, borderWidth: 0, hoverOffset: 8 }]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#8aa399', boxWidth: 10, font: { family: 'IBM Plex Mono', size: 10 } } },
+        title: { display: true, text: 'Fields by layer', color: '#e8f0ea', font: { family: 'Syne', size: 14, weight: '700' } }
+      },
+      cutout: '62%'
+    }
+  });
+}
+
+function renderFields() {
+  const q = ($('fieldSearch').value || '').toLowerCase();
+  const rows = catalog.fields.filter(f => {
+    const name = f.name || f.n;
+    const layer = f.layer || f.l;
+    const okLayer = activeLayer === 'all' || layer === activeLayer;
+    const okQ = !q || name.toLowerCase().includes(q) || (f.description || f.d || '').toLowerCase().includes(q);
+    return okLayer && okQ;
+  }).slice(0, 200);
+  $('fieldBody').innerHTML = rows.map((f, i) => {
+    const name = f.name || f.n;
+    const layer = f.layer || f.l;
+    const source = f.source || f.s || '—';
+    return `<tr data-i="${i}"><td><span class="layer-dot" style="background:${LAYER_COLORS[layer]||'#888'}"></span>${esc(name)}</td><td>${esc(layer)}</td><td>${esc(source)}</td></tr>`;
+  }).join('') || `<tr><td colspan="3">No matches</td></tr>`;
+  $('fieldBody').querySelectorAll('tr[data-i]').forEach(tr => {
+    tr.onclick = () => {
+      $('fieldBody').querySelectorAll('tr').forEach(x => x.classList.remove('sel'));
+      tr.classList.add('sel');
+      const f = rows[+tr.dataset.i];
+      const name = f.name || f.n;
+      $('fieldDetail').innerHTML = `<strong>${esc(name)}</strong> · ${esc(f.layer||f.l)} · ${esc(f.type||f.t||'')} ${f.unit||f.u? '· '+esc(f.unit||f.u):''}<br/><span style="color:var(--muted)">${esc(f.description||f.d||'No description')}</span>`;
+    };
+  });
+}
+
+/* ========== PRESETS ========== */
+function renderPresets() {
+  const keys = Object.keys(catalog.presets).sort((a,b) => (catalog.presets[b].length||0)-(catalog.presets[a].length||0));
+  $('presetGrid').innerHTML = keys.map(k => `
+    <button class="preset ${activePreset===k?'on':''}" data-k="${k}">
+      <b>${k}</b>
+      <span>${(catalog.presets[k]||[]).length} fields</span>
+    </button>`).join('');
+  $('presetGrid').querySelectorAll('.preset').forEach(b => {
+    b.onclick = () => { activePreset = b.dataset.k; renderPresets(); showPreset(); };
+  });
+  if (!activePreset && keys.length) { activePreset = keys[0]; renderPresets(); showPreset(); }
+}
+function showPreset() {
+  const fields = catalog.presets[activePreset] || [];
+  $('presetTitle').textContent = activePreset;
+  $('presetBlurb').textContent = `${fields.length} fields bundled — use with /v1/fetch or mireye_fetch.`;
+  $('presetChips').innerHTML = fields.slice(0, 40).map(f => `<span class="chip amber">${esc(f)}</span>`).join('') +
+    (fields.length > 40 ? `<span class="chip">+${fields.length-40} more</span>` : '');
+  $('presetCurl').textContent = `curl -s https://api.mireye.com/v1/fetch \\\n  -H "Authorization: Bearer $MIREYE_API_TOKEN" \\\n  -H 'content-type: application/json' \\\n  -d '{\n    "lat": 40.7128,\n    "lng": -74.0060,\n    "preset": "${activePreset}"\n  }'`;
+
+  // layer mix for this preset
+  const counts = {};
+  fields.forEach(name => {
+    const f = catalog.fields.find(x => (x.name||x.n) === name);
+    const layer = f ? (f.layer||f.l) : 'unknown';
+    counts[layer] = (counts[layer]||0)+1;
+  });
+  const labels = Object.keys(counts);
+  if (presetChart) presetChart.destroy();
+  presetChart = new Chart($('presetChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data: labels.map(l => counts[l]),
+        backgroundColor: labels.map(l => LAYER_COLORS[l] || '#888'),
+        borderRadius: 6
+      }]
+    },
+    options: {
+      plugins: { legend: { display: false }, title: { display: true, text: 'Layer mix in preset', color: '#e8f0ea', font: { family: 'Syne', size: 13 } } },
+      scales: {
+        x: { ticks: { color: '#8aa399', font: { family: 'IBM Plex Mono', size: 9 }, maxRotation: 45 }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: { ticks: { color: '#8aa399', font: { family: 'IBM Plex Mono', size: 10 } }, grid: { color: 'rgba(255,255,255,.04)' } }
+      }
+    }
+  });
+}
+
+/* ========== PROVENANCE ========== */
+function renderProv() {
+  const e = PROV_EXAMPLES;
+  $('provCards').innerHTML = `
+    <div class="prov-card"><div class="k">value</div><div class="v">${e[0].value}</div><div class="h">typed + unit</div></div>
+    <div class="prov-card"><div class="k">source</div><div class="v">${e[0].source}</div><div class="h">agency / dataset id</div></div>
+    <div class="prov-card"><div class="k">fetched_at</div><div class="v">${e[0].fetched}</div><div class="h">when Mireye pulled it</div></div>
+    <div class="prov-card"><div class="k">confidence</div><div class="v">${e[0].conf}</div><div class="h">calibrated bucket</div></div>`;
+}
+function shuffleProv() {
+  PROV_EXAMPLES.push(PROV_EXAMPLES.shift());
+  renderProv();
+  toast('provenance example shuffled');
+}
+
+/* ========== MAP ========== */
+function drawMap(activeKey) {
+  const canvas = $('usMap');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  // background
+  const g = ctx.createLinearGradient(0, 0, w, h);
+  g.addColorStop(0, '#071310'); g.addColorStop(1, '#0f2a22');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  // grid
+  ctx.strokeStyle = 'rgba(200,245,96,0.08)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < w; x += 24) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+  for (let y = 0; y < h; y += 24) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+  // approximate US envelope rectangle in canvas
+  // lng -180..-65 → x, lat 18..72 → y (flipped)
+  function proj(lat, lng) {
+    const x = ((lng - (-180)) / ((-65) - (-180))) * (w * 0.86) + w * 0.07;
+    const y = (1 - (lat - 18) / (72 - 18)) * (h * 0.78) + h * 0.12;
+    return [x, y];
+  }
+  const [x1,y1] = proj(72, -180);
+  const [x2,y2] = proj(18, -65);
+  ctx.strokeStyle = 'rgba(110,200,255,0.55)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x1, y1, x2-x1, y2-y1);
+  ctx.fillStyle = 'rgba(110,200,255,0.06)';
+  ctx.fillRect(x1, y1, x2-x1, y2-y1);
+  ctx.fillStyle = '#8aa399';
+  ctx.font = '11px IBM Plex Mono';
+  ctx.fillText('US fetch envelope', x1 + 8, y1 + 16);
+
+  Object.entries(PINS).forEach(([key, pin]) => {
+    const [x, y] = proj(pin.lat, pin.lng);
+    const on = key === activeKey;
+    ctx.beginPath();
+    ctx.arc(x, y, on ? 8 : 5, 0, Math.PI * 2);
+    ctx.fillStyle = pin.ok ? (on ? '#c8f560' : '#6ec8ff') : '#ff6b4a';
+    ctx.fill();
+    if (on) {
+      ctx.strokeStyle = 'rgba(200,245,96,0.5)';
+      ctx.lineWidth = 6;
+      ctx.stroke();
+    }
+  });
+}
+
+function dropPin(key) {
+  const pin = PINS[key];
+  drawMap(key);
+  $('pinTitle').textContent = pin.title;
+  $('pinChips').innerHTML = `
+    <span class="chip">${pin.lat.toFixed(4)}, ${pin.lng.toFixed(4)}</span>
+    <span class="chip ${pin.ok?'':'amber'}">${pin.accuracy}</span>
+    <span class="chip sky">parcel_grade: ${pin.parcel_grade}</span>`;
+  $('pinBlurb').textContent = pin.note;
+  $('pinJson').textContent = pretty({
+    lat: pin.lat, lng: pin.lng,
+    accuracy_type: pin.accuracy,
+    parcel_grade: pin.parcel_grade,
+    in_envelope: pin.ok
+  });
+}
+
+/* ========== WORKFLOWS ========== */
+function renderWfTabs() {
+  $('wfTabs').innerHTML = WORKFLOWS.map((w, i) =>
+    `<button class="tab ${i===activeWf?'on':''}" data-i="${i}">${w.name}</button>`).join('');
+  $('wfTabs').querySelectorAll('.tab').forEach(t => {
+    t.onclick = () => { activeWf = +t.dataset.i; renderWfTabs(); renderWf(); };
+  });
+  renderWf();
+}
+function renderWf() {
+  const w = WORKFLOWS[activeWf];
+  let step = 0;
+  const paint = () => {
+    $('wfSteps').innerHTML = w.steps.map((s, i) => `
+      <button class="wf-step ${i===step?'on':''}" data-i="${i}">
+        <div class="ix">0${i+1}</div>
+        <strong>${s.t}</strong>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">${s.b}</div>
+      </button>`).join('');
+    $('wfSteps').querySelectorAll('.wf-step').forEach(b => {
+      b.onclick = () => { step = +b.dataset.i; paint(); };
+    });
+    $('wfTimeline').innerHTML = w.timeline.slice(0, step + 2).map(line =>
+      `<div class="tl-item">${esc(line)}</div>`).join('');
+  };
+  paint();
+}
+
+/* ========== INTENTS ========== */
+function renderIntents() {
+  $('intentTabs').innerHTML = INTENTS.map((it, i) =>
+    `<button class="tab ${i===0?'on':''}" data-i="${i}">${esc(it.label)}</button>`).join('');
+  const show = (i) => {
+    const it = INTENTS[i];
+    $('intentOut').innerHTML = `
+      <div class="chip-row"><span class="chip">use</span><span class="chip sky">${esc(it.tool)}</span></div>
+      <p style="margin:8px 0 0;font-size:1.05rem;letter-spacing:-.02em">${esc(it.why)}</p>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:.85rem">Rule of thumb: NL → ask · structured table → fetch · ambiguity → lookup · between places → proximity · missing data → request_field.</p>`;
+  };
+  show(0);
+  $('intentTabs').querySelectorAll('.tab').forEach(t => {
+    t.onclick = () => {
+      $('intentTabs').querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+      t.classList.add('on');
+      show(+t.dataset.i);
+    };
+  });
+}
+
+/* ========== PLAYGROUND ========== */
+function syncPlayForm() {
+  const mode = $('playMode').value;
+  $('playModeChip').textContent = mode;
+  const forms = {
+    ask: `
+      <label class="field">address</label><input id="p_address" value="350 5th Ave, New York, NY 10118" />
+      <label class="field">question</label><textarea id="p_question">What is the elevation and flood risk?</textarea>`,
+    fetch: `
+      <label class="field">lat</label><input id="p_lat" value="40.7128" />
+      <label class="field">lng</label><input id="p_lng" value="-74.0060" />
+      <label class="field">preset</label>
+      <select id="p_preset">${Object.keys(catalog.presets).map(k=>`<option ${k==='flood_risk'?'selected':''}>${k}</option>`).join('') || '<option>flood_risk</option>'}</select>`,
+    geocode: `
+      <label class="field">address</label><input id="p_address" value="1600 Smith St, Houston, TX" />`,
+    lookup: `
+      <label class="field">input</label><input id="p_input" value="480 Berdoll Ln, Cedar Creek TX" />`,
+    batch: `
+      <label class="field">addresses (one per line)</label>
+      <textarea id="p_addrs">1600 Smith St, Houston, TX\n350 5th Ave, New York, NY 10118</textarea>
+      <label class="field">fields (comma-separated)</label>
+      <input id="p_fields" value="elevation, within_floodplain_polygon" />`
+  };
+  $('playForm').innerHTML = forms[mode];
+}
+function fillPlaySample() { syncPlayForm(); toast('sample inputs'); }
+
+function saveToken() {
+  const t = $('apiToken').value.trim();
+  if (t) localStorage.setItem('mireye_token', t);
+  updatePlayStatus();
+  toast(t ? 'token saved' : 'empty token');
+}
+function clearToken() {
+  localStorage.removeItem('mireye_token');
+  $('apiToken').value = '';
+  updatePlayStatus();
+  toast('token cleared');
+}
+function updatePlayStatus() {
+  const t = localStorage.getItem('mireye_token');
+  const el = $('playStatus');
+  if (t) { el.textContent = 'live token ready'; el.className = 'status-pill ok'; }
+  else { el.textContent = 'mock mode'; el.className = 'status-pill'; }
+}
+
+async function runPlay() {
+  const mode = $('playMode').value;
+  const token = localStorage.getItem('mireye_token') || $('apiToken').value.trim();
+  const t0 = performance.now();
+  $('playOut').textContent = 'running…';
+
+  // always have a mock
+  const mock = () => {
+    if (mode === 'ask') return {
+      mode: 'mock',
+      address: $('p_address')?.value,
+      question: $('p_question')?.value,
+      answer: 'Elevation ~13.15 m (USGS). Outside FEMA SFHA; coast proximity still matters for surge.',
+      citations: [{ source: 'USGS_EPQS', fields: ['elevation'] }, { source: 'FEMA_NFHL', fields: ['within_floodplain_polygon'] }],
+      confidence: 'high'
+    };
+    if (mode === 'fetch') return {
+      mode: 'mock', lat: +$('p_lat').value, lng: +$('p_lng').value, preset: $('p_preset').value,
+      fields: {
+        elevation: { value: 13.15, unit: 'meters', source: 'USGS_EPQS', confidence: 'high' },
+        within_floodplain_polygon: { value: false, source: 'FEMA_NFHL', confidence: 'high' },
+        coast_distance_m: { value: 764.2, unit: 'meters', source: 'NOAA_CUSP', confidence: 'high' }
+      },
+      partial_failures: []
+    };
+    if (mode === 'geocode') return {
+      mode: 'mock', address: $('p_address').value, lat: 29.7512, lng: -95.3721,
+      accuracy_type: 'rooftop', provider: 'geocodio'
+    };
+    if (mode === 'lookup') return {
+      mode: 'mock', input: $('p_input').value, disposition: 'resolved', confidence: 0.95,
+      parcel: { zoning: 'AG', area_m2: 20234 }, fema_hint: 'Zone X'
+    };
+    return {
+      mode: 'mock',
+      locations: ($('p_addrs').value || '').split('\n').filter(Boolean).map((address, i) => ({
+        index: i, ok: true, address,
+        elevation: 10 + i * 3.1,
+        within_floodplain_polygon: i % 2 === 1
+      }))
+    };
+  };
+
+  if (!token) {
+    await new Promise(r => setTimeout(r, 450));
+    $('playOut').textContent = pretty(mock());
+    $('playTimer').textContent = `${Math.round(performance.now()-t0)} ms · mock`;
+    return;
+  }
+
+  try {
+    let url = 'https://api.mireye.com/v1/';
+    let body = {};
+    if (mode === 'ask') { url += 'ask'; body = { address: $('p_address').value, question: $('p_question').value }; }
+    else if (mode === 'fetch') { url += 'fetch'; body = { lat: +$('p_lat').value, lng: +$('p_lng').value, preset: $('p_preset').value }; }
+    else if (mode === 'geocode') { url += 'geocode'; body = { address: $('p_address').value }; }
+    else if (mode === 'lookup') { url += 'lookup'; body = { input: $('p_input').value }; }
+    else {
+      url += 'fetch/batch';
+      body = {
+        locations: ($('p_addrs').value || '').split('\n').filter(Boolean).map(address => ({ address })),
+        fields: ($('p_fields').value || '').split(',').map(s => s.trim()).filter(Boolean)
+      };
+    }
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + token, 'content-type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const text = await res.text();
+    let data; try { data = JSON.parse(text); } catch { data = { raw: text }; }
+    if (!res.ok) {
+      $('playOut').textContent = pretty({ error: true, status: res.status, body: data, fallback_mock: mock() });
+      $('playTimer').textContent = `${Math.round(performance.now()-t0)} ms · HTTP ${res.status}`;
+      toast('live call failed — showing error + mock');
+      return;
+    }
+    $('playOut').textContent = pretty(data);
+    $('playTimer').textContent = `${Math.round(performance.now()-t0)} ms · live`;
+    toast('live response');
+  } catch (err) {
+    $('playOut').textContent = pretty({ error: String(err), note: 'Browser CORS or network blocked live call. Showing mock.', mock: mock() });
+    $('playTimer').textContent = `${Math.round(performance.now()-t0)} ms · fallback`;
+  }
+}
+
+/* ========== DEMO TOUR ========== */
+async function runDemoTour() {
+  toast('tour starting');
+  const stops = ['#flow', '#api', '#mcp', '#catalog', '#presets', '#workflows', '#playground'];
+  for (const sel of stops) {
+    document.querySelector(sel).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    await new Promise(r => setTimeout(r, 900));
+  }
+  // animate interactions
+  activeEp = 'fetch'; renderEndpoints();
+  activeMcp = 'mireye_fetch'; renderMcp(); simMcp();
+  if (Object.keys(catalog.presets).length) {
+    activePreset = Object.keys(catalog.presets).sort((a,b)=>(catalog.presets[b].length||0)-(catalog.presets[a].length||0))[0];
+    renderPresets(); showPreset();
+  }
+  dropPin('houston');
+  activeWf = 1; renderWfTabs();
+  toast('tour complete — click around');
+}
+
+/* ========== NAV ACTIVE ========== */
+function watchNav() {
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const map = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) }));
+  const onScroll = () => {
+    let cur = map[0]?.a;
+    map.forEach(({ a, el }) => {
+      if (el && el.getBoundingClientRect().top < 120) cur = a;
+    });
+    links.forEach(l => l.classList.toggle('active', l === cur));
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+/* ========== INIT ========== */
+async function init() {
+  renderFlow();
+  renderEndpoints();
+  renderMcp();
+  renderProv();
+  drawMap('nyc');
+  dropPin('nyc');
+  renderWfTabs();
+  renderIntents();
+  $('apiToken').value = localStorage.getItem('mireye_token') || '';
+  updatePlayStatus();
+  await loadCatalog();
+  syncPlayForm();
+  watchNav();
+}
+init();
+</script>
+</body>
+</html>

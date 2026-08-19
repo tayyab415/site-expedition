@@ -1,0 +1,464 @@
+{
+  "ran_at": "2026-08-11T23:41:24.967160+00:00",
+  "project": "gen-lang-client-0261050164",
+  "n_tests": 25,
+  "n_ok": 24,
+  "n_fail": 1,
+  "results": [
+    {
+      "name": "list_sentinel2_meta",
+      "category": "catalog",
+      "ok": true,
+      "detail": {
+        "limit1_size": 1,
+        "sample_ids": [
+          "20230601T000439_20230601T000439_T56NRM"
+        ]
+      },
+      "thumb": null,
+      "note": "Can we read collection metadata?"
+    },
+    {
+      "name": "s2_cloudscore_ndvi_monthly",
+      "category": "optical_timeseries",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "month": "Float",
+          "ndvi": "Float",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "month": 5,
+              "ndvi": 0.2281759139964054
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "month": 6,
+              "ndvi": 0.4560125218314256
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "month": 7,
+              "ndvi": 0.8227940224532768
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "month": 8,
+              "ndvi": 0.8638181576853394
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "month": 9,
+              "ndvi": 0.7729407354807615
+            }
+          }
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_ndvi_summer2023.png",
+      "note": "Crop greenness May\u2013Sep with Google Cloud Score+ cloud mask"
+    },
+    {
+      "name": "sentinel1_vv_mean",
+      "category": "radar",
+      "ok": true,
+      "detail": {
+        "n_images": 57,
+        "vv_mean_db": -7.514383877331303
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/galveston_s1_vv.png",
+      "note": "Radar sees through clouds \u2014 useful for floods / ships / wet ground"
+    },
+    {
+      "name": "viirs_nightlights",
+      "category": "nightlights",
+      "ok": true,
+      "detail": {
+        "avg_rad": 89.91486259587357
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/la_nightlights_2023.png",
+      "note": "City glow from space \u2014 activity / blackout proxy"
+    },
+    {
+      "name": "landsat_dnbr_burnscar",
+      "category": "fire",
+      "ok": true,
+      "detail": {
+        "firms_count_2018_19": 727,
+        "dnbr_stats": {
+          "dnbr_p50": -0.011637901464748303,
+          "dnbr_p90": 0.03493334731556554
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/socal_dnbr_woolsey_window.png",
+      "note": "Burn severity from Landsat before/after fire season"
+    },
+    {
+      "name": "modis_snow_days",
+      "category": "snow",
+      "ok": true,
+      "detail": {
+        "snow": 17.83625476969201
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/cascades_snow_days_2324.png",
+      "note": "How many snowy days in winter \u2014 ski / water-supply vibe"
+    },
+    {
+      "name": "cdl_corn_to_soy_fraction",
+      "category": "agriculture",
+      "ok": true,
+      "detail": {
+        "fraction_corn19_to_soy23": 0.10136188064546955
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_cdl_2023.png",
+      "note": "USDA crop map \u2014 which fields switched crops"
+    },
+    {
+      "name": "ghsl_pop_built",
+      "category": "population",
+      "ok": false,
+      "detail": {
+        "pop_sum_5km_2030": "EEException: Image.load: Image asset 'JRC/GHSL/P2023A/GHS_POP_E2030/3857' not found (does not exist or caller does not have access).",
+        "built_mean": "EEException: Image.load: Image asset 'JRC/GHSL/P2023A/GHS_BUILT_S_E2020/3857' not found (does not exist or caller does not have access)."
+      },
+      "thumb": "thumb_fail: Image.load: Image asset 'JRC/GHSL/P2023A/GHS_BUILT_S_E2020/3857' not found (does not exist or caller does not have access).",
+      "note": "People + building density grids from EU JRC"
+    },
+    {
+      "name": "canopy_height",
+      "category": "forest",
+      "ok": true,
+      "detail": {
+        "h": 19.134178254283086
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/yosemite_canopy_height.png",
+      "note": "Tree height from space (GEDI / canopy maps)"
+    },
+    {
+      "name": "era5_land_miami_2023",
+      "category": "climate",
+      "ok": true,
+      "detail": {
+        "months": 12,
+        "mean_temp_c": null,
+        "total_precip_m": null
+      },
+      "thumb": null,
+      "note": "Weather model grid \u2014 heat + rain for a year"
+    },
+    {
+      "name": "smap_soil_moisture",
+      "category": "soil",
+      "ok": true,
+      "detail": {
+        "n": 240,
+        "sm_surface": 0.20190793156525874
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_smap_jul2023.png",
+      "note": "How wet the topsoil is \u2014 drought / farm signal"
+    },
+    {
+      "name": "open_buildings_count_500m",
+      "category": "buildings",
+      "ok": true,
+      "detail": {
+        "asset": "GOOGLE/Research/open-buildings/v3/polygons",
+        "count": 0
+      },
+      "thumb": null,
+      "note": "Building footprints from Google Research"
+    },
+    {
+      "name": "naip_hires_aerial",
+      "category": "highres",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "R",
+          "G",
+          "B",
+          "N"
+        ]
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/ashburn_naip.png",
+      "note": "Airplane photos ~1m \u2014 sharp local view"
+    },
+    {
+      "name": "terrain_hillshade_texture",
+      "category": "terrain",
+      "ok": true,
+      "detail": {
+        "a": 205.37118801033552,
+        "s": 31.384108893736887,
+        "tex": 7.563097559117948
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/yosemite_hillshade.png",
+      "note": "3D-looking hillshade + roughness roughness from DEM"
+    },
+    {
+      "name": "smilecart_toy_classify",
+      "category": "ml",
+      "ok": true,
+      "detail": {
+        "c": {
+          "0": 339.6666666666667,
+          "1": 2086.76862745098,
+          "2": 5140.490196078433,
+          "4": 30455.823529411777,
+          "6": 3839.2705882352925
+        }
+      },
+      "thumb": null,
+      "note": "Train a tiny decision-tree classifier inside EE (toy demo)"
+    },
+    {
+      "name": "modis_lst_monthly_profile",
+      "category": "timeseries",
+      "ok": true,
+      "detail": {
+        "type": "FeatureCollection",
+        "columns": {
+          "lst_c": "Float",
+          "month": "Float",
+          "system:index": "String"
+        },
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "0",
+            "properties": {
+              "lst_c": 18.481428571428637,
+              "month": 1
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "1",
+            "properties": {
+              "lst_c": 18.056153846153848,
+              "month": 2
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "2",
+            "properties": {
+              "lst_c": 24.385555555555584,
+              "month": 3
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "3",
+            "properties": {
+              "lst_c": 28.095454545454572,
+              "month": 4
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "4",
+            "properties": {
+              "lst_c": 31.058333333333337,
+              "month": 5
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "5",
+            "properties": {
+              "lst_c": 35.63916666666671,
+              "month": 6
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "6",
+            "properties": {
+              "lst_c": 36.16428571428577,
+              "month": 7
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "7",
+            "properties": {
+              "lst_c": 36.53880000000004,
+              "month": 8
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "8",
+            "properties": {
+              "lst_c": 34.085000000000036,
+              "month": 9
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "9",
+            "properties": {
+              "lst_c": 28.49421052631584,
+              "month": 10
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "10",
+            "properties": {
+              "lst_c": 19.741428571428628,
+              "month": 11
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": null,
+            "id": "11",
+            "properties": {
+              "lst_c": 16.857692307692332,
+              "month": 12
+            }
+          }
+        ]
+      },
+      "thumb": null,
+      "note": "12-number temperature curve for one point \u2014 chart fuel"
+    },
+    {
+      "name": "ocean_salinity_hycom",
+      "category": "ocean",
+      "ok": true,
+      "detail": {
+        "salinity_rawish": {
+          "salinity_0": 35.69051361380426
+        },
+        "chl_bands_ok": false,
+        "chl_bands": "EEException: ImageCollection.load: ImageCollection asset 'COPERNICUS/MARINE/OC_GLO_BGC/CHLOROPHYLL_PLANKTON/V6' not found (does not exist or caller does not have access)."
+      },
+      "thumb": null,
+      "note": "Ocean model salinity near Galveston"
+    },
+    {
+      "name": "built_edge_laplacian",
+      "category": "image_ops",
+      "ok": true,
+      "detail": {
+        "edge": 0.1426376520474603
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/la_built_edges.png",
+      "note": "Find sharp city edges with a convolution kernel"
+    },
+    {
+      "name": "water_reduceToVectors",
+      "category": "vectorize",
+      "ok": true,
+      "detail": {
+        "polygon_count": 15
+      },
+      "thumb": null,
+      "note": "Turn water pixels into polygons you can click"
+    },
+    {
+      "name": "getDownloadURL_geotiff",
+      "category": "export",
+      "ok": true,
+      "detail": {
+        "bytes": 4900,
+        "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/yosemite_dem_download.tif"
+      },
+      "thumb": null,
+      "note": "Pull a real GeoTIFF file out of EE to disk"
+    },
+    {
+      "name": "ndvi_month_strip",
+      "category": "animation_proxy",
+      "ok": true,
+      "detail": {
+        "thumbs": [
+          "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_ndvi_2023_05.png",
+          "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_ndvi_2023_07.png",
+          "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_ndvi_2023_09.png"
+        ]
+      },
+      "thumb": null,
+      "note": "Same field in May/Jul/Sep \u2014 greening then browning"
+    },
+    {
+      "name": "worldcover_vs_dynamicworld",
+      "category": "compare_maps",
+      "ok": true,
+      "detail": {
+        "esa_worldcover": {
+          "Map": 49.99999999999997
+        },
+        "dynamic_world": {
+          "label": 6
+        }
+      },
+      "thumb": null,
+      "note": "Two land-cover maps at same point \u2014 do they agree?"
+    },
+    {
+      "name": "chirps_precip_anomaly",
+      "category": "climate",
+      "ok": true,
+      "detail": {
+        "anom": -10.98365905713197
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/west_tx_chirps_jul2023_anom.png",
+      "note": "Was July 2023 wetter/drier than normal?"
+    },
+    {
+      "name": "mangrove_collection",
+      "category": "habitat",
+      "ok": true,
+      "detail": [
+        "1"
+      ],
+      "thumb": null,
+      "note": ""
+    },
+    {
+      "name": "server_math",
+      "category": "platform",
+      "ok": true,
+      "detail": 1026.2360679774997,
+      "thumb": null,
+      "note": "Math runs on Google servers, not your laptop"
+    }
+  ]
+}

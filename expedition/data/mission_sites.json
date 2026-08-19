@@ -1,0 +1,6 @@
+{
+  "warehouse": ["san_leon", "san_marcos_tx", "alliance_tx", "port_houston", "joliet_il"],
+  "farm": ["manhattan_midtown", "elba_ny", "iowa_corn", "lubbock_cotton"],
+  "home": ["austin_winfield", "san_leon"],
+  "data_center": ["ashburn_va", "quincy_wa"]
+}

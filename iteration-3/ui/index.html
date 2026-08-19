@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harness — tool loop</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◈</span>
+      <span class="brand-name">harness</span>
+      <span class="brand-sub">iteration-3 · the robot is the product</span>
+    </div>
+    <div class="site-switch">
+      <button class="site-btn active" data-site="san_leon">san_leon</button>
+      <button class="site-btn" data-site="keep_control">keep_control</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Pin</h2>
+        <div id="pin-meta" class="mono muted">loading…</div>
+      </section>
+      <section class="panel">
+        <h2>Plan</h2>
+        <ol id="plan-list" class="plan-list mono"></ol>
+      </section>
+      <section class="panel controls">
+        <button id="btn-play" class="primary">▶ Play trace</button>
+        <button id="btn-reset" class="ghost">↺ Reset</button>
+        <label class="speed">
+          <span>Speed</span>
+          <input id="speed" type="range" min="0.25" max="3" step="0.25" value="1">
+          <span id="speed-label">1×</span>
+        </label>
+      </section>
+      <section class="panel">
+        <h2>Replay</h2>
+        <p class="muted small">Cached packets only. Timings simulated — no Mireye/EE live calls.</p>
+      </section>
+    </aside>
+
+    <main class="trace-pane">
+      <div class="trace-header">
+        <span class="mono">TOOL TRACE</span>
+        <span id="trace-status" class="status idle">idle</span>
+        <span id="trace-clock" class="mono muted">0.0s</span>
+      </div>
+      <div id="timeline" class="timeline"></div>
+      <div id="verdict-stamp" class="verdict-stamp hidden" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

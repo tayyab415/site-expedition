@@ -1,0 +1,677 @@
+{
+  "ran_at": "2026-08-12T00:23:53.178874+00:00",
+  "seconds": 387.9,
+  "n": 27,
+  "n_ok": 25,
+  "log": [
+    {
+      "name": "ashburn_change_2017_2019",
+      "ok": true,
+      "detail": {
+        "change_p50": 0.025305576937045972,
+        "change_p90": 0.09175104748989545,
+        "change_p99": 0.6308903467889257
+      },
+      "note": "When did Ashburn embedding flip hardest?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_change_2017_2019.png",
+      "t": 41.3
+    },
+    {
+      "name": "ashburn_change_2019_2021",
+      "ok": true,
+      "detail": {
+        "change_p50": 0.029233866682902565,
+        "change_p90": 0.11131593125490244,
+        "change_p99": 0.5918665281794363
+      },
+      "note": "When did Ashburn embedding flip hardest?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_change_2019_2021.png",
+      "t": 63.8
+    },
+    {
+      "name": "ashburn_change_2021_2023",
+      "ok": true,
+      "detail": {
+        "change_p50": 0.01748279179201551,
+        "change_p90": 0.0722128599313392,
+        "change_p99": 0.576201766987741
+      },
+      "note": "When did Ashburn embedding flip hardest?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_change_2021_2023.png",
+      "t": 102.1
+    },
+    {
+      "name": "ashburn_change_2023_2024",
+      "ok": true,
+      "detail": {
+        "change_p50": 0.02142608288237374,
+        "change_p90": 0.07612720676131661,
+        "change_p99": 0.5567418235411085
+      },
+      "note": "When did Ashburn embedding flip hardest?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_change_2023_2024.png",
+      "t": 133.7
+    },
+    {
+      "name": "ashburn_change_2017_2024",
+      "ok": true,
+      "detail": {
+        "change_p50": 0.0370467713711813,
+        "change_p90": 0.2285336825109533,
+        "change_p99": 0.6621246558925934
+      },
+      "note": "When did Ashburn embedding flip hardest?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_change_2017_2024.png",
+      "t": 159.3
+    },
+    {
+      "name": "ashburn_hottest_pixels",
+      "ok": true,
+      "detail": [
+        {
+          "change": 0.7546728848411155,
+          "lng": -77.44064433939447,
+          "lat": 39.13955831827346
+        },
+        {
+          "change": 0.6939364889232411,
+          "lng": -77.42530115849941,
+          "lat": 39.12002572970068
+        },
+        {
+          "change": 0.6884343552837527,
+          "lng": -77.59178462911873,
+          "lat": 39.06654022560961
+        },
+        {
+          "change": 0.664840226920087,
+          "lng": -77.38935272651347,
+          "lat": 39.11797560873392
+        },
+        {
+          "change": 0.6570544140817103,
+          "lng": -77.43851431356222,
+          "lat": 39.001453265976686
+        },
+        {
+          "change": 0.6429330222117571,
+          "lng": -77.63282415062581,
+          "lat": 38.98706848269995
+        },
+        {
+          "change": 0.6266914192202124,
+          "lng": -77.35443124172325,
+          "lat": 39.12221045518438
+        },
+        {
+          "change": 0.6164875094176803,
+          "lng": -77.50511673340493,
+          "lat": 39.163439966012334
+        },
+        {
+          "change": 0.6130455980243602,
+          "lng": -77.45988651127692,
+          "lat": 39.01776305118586
+        },
+        {
+          "change": 0.6004502916616963,
+          "lng": -77.46116322819651,
+          "lat": 39.13478420318775
+        },
+        {
+          "change": 0.598034412163068,
+          "lng": -77.49908108597103,
+          "lat": 38.949800668593554
+        },
+        {
+          "change": 0.5890848272505134,
+          "lng": -77.56060909049967,
+          "lat": 38.947491802140064
+        },
+        {
+          "change": 0.5859111308001048,
+          "lng": -77.35878624178211,
+          "lat": 39.07685365307828
+        },
+        {
+          "change": 0.5853354752356952,
+          "lng": -77.34844691601238,
+          "lat": 39.115319630734064
+        },
+        {
+          "change": 0.5759586649384106,
+          "lng": -77.50476311119444,
+          "lat": 39.15909453989037
+        }
+      ],
+      "note": "Top changing pixels 2017\u21922024",
+      "thumb": null,
+      "t": 179.2
+    },
+    {
+      "name": "ashburn_hot1_naip_early",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "R",
+          "G",
+          "B",
+          "N"
+        ]
+      },
+      "note": "NAIP around hottest pixel change=0.755",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_hot1_naip_early.png",
+      "t": 181.9
+    },
+    {
+      "name": "ashburn_hot1_naip_late",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "R",
+          "G",
+          "B",
+          "N"
+        ]
+      },
+      "note": "NAIP around hottest pixel change=0.755",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_hot1_naip_late.png",
+      "t": 182.6
+    },
+    {
+      "name": "ashburn_similarity_search",
+      "ok": true,
+      "detail": {
+        "sim_p10": 0.31054797875838075,
+        "sim_p50": 0.5566495165861711,
+        "sim_p90": 0.8652291895310267,
+        "sim_p99": 0.9276822857826053
+      },
+      "note": "Pixels that look like Ashburn center in 2023 embedding",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/ashburn_similarity_to_center.png",
+      "t": 205.8
+    },
+    {
+      "name": "loudoun_compare_culpeper",
+      "ok": true,
+      "detail": {
+        "change_mean": 0.09507481438286194,
+        "change_p90": 0.2714634075362468,
+        "change_p99": 0.6426595542448368
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/culpeper_change_17_24.png",
+      "t": 216.1
+    },
+    {
+      "name": "loudoun_compare_sterling",
+      "ok": true,
+      "detail": {
+        "change_mean": 0.06053818838310311,
+        "change_p90": 0.11129380432073967,
+        "change_p99": 0.6155001271066858
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/sterling_change_17_24.png",
+      "t": 230.6
+    },
+    {
+      "name": "loudoun_compare_leesburg",
+      "ok": true,
+      "detail": {
+        "change_mean": 0.07695778685881678,
+        "change_p90": 0.18156971987414114,
+        "change_p99": 0.6309635816605952
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/leesburg_change_17_24.png",
+      "t": 243.4
+    },
+    {
+      "name": "austin_embed_kmeans",
+      "ok": true,
+      "detail": {
+        "cluster": {
+          "0": 126829.13333333333,
+          "1": 93575.3490196078,
+          "2": 94578.7137254902,
+          "3": 117874.18039215694,
+          "4": 144838.2039215685
+        }
+      },
+      "note": "",
+      "thumb": "fail:Must specify either one or three bands for PNG or JPEG encoding. Found 4 bands.",
+      "t": 246.8
+    },
+    {
+      "name": "emb_change_san_leon",
+      "ok": true,
+      "detail": {
+        "change": 0.09389647489633382
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/san_leon_emb_change_17_23.png",
+      "t": 257.1
+    },
+    {
+      "name": "emb_change_round_rock",
+      "ok": true,
+      "detail": {
+        "change": 0.04829492040192702
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/round_rock_emb_change_17_23.png",
+      "t": 266.3
+    },
+    {
+      "name": "emb_change_crane_tx",
+      "ok": true,
+      "detail": {
+        "change": 0.06914041109855021
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/crane_tx_emb_change_17_23.png",
+      "t": 277.6
+    },
+    {
+      "name": "methane_L3concentration",
+      "ok": false,
+      "detail": "EEException: ImageCollection.load: ImageCollection asset 'projects/edf-methanesat-ee/assets/public-preview/L3concentration' not found (does not exist or caller does not have access).",
+      "note": "needs access form if fail",
+      "thumb": null,
+      "t": 277.7
+    },
+    {
+      "name": "methane_L4area",
+      "ok": false,
+      "detail": "EEException: ImageCollection.load: ImageCollection asset 'projects/edf-methanesat-ee/assets/public-preview/L4area' not found (does not exist or caller does not have access).",
+      "note": "needs access form if fail",
+      "thumb": null,
+      "t": 277.9
+    },
+    {
+      "name": "hycom_velocity_bands",
+      "ok": true,
+      "detail": [
+        "velocity_u_0",
+        "velocity_v_0",
+        "velocity_u_2",
+        "velocity_v_2",
+        "velocity_u_4",
+        "velocity_v_4",
+        "velocity_u_6",
+        "velocity_v_6",
+        "velocity_u_8",
+        "velocity_v_8",
+        "velocity_u_10",
+        "velocity_v_10",
+        "velocity_u_12",
+        "velocity_v_12",
+        "velocity_u_15",
+        "velocity_v_15",
+        "velocity_u_20",
+        "velocity_v_20",
+        "velocity_u_25",
+        "velocity_v_25",
+        "velocity_u_30",
+        "velocity_v_30",
+        "velocity_u_35",
+        "velocity_v_35",
+        "velocity_u_40",
+        "velocity_v_40",
+        "velocity_u_45",
+        "velocity_v_45",
+        "velocity_u_50",
+        "velocity_v_50",
+        "velocity_u_60",
+        "velocity_v_60",
+        "velocity_u_70",
+        "velocity_v_70",
+        "velocity_u_80",
+        "velocity_v_80",
+        "velocity_u_90",
+        "velocity_v_90",
+        "velocity_u_100",
+        "velocity_v_100",
+        "velocity_u_125",
+        "velocity_v_125",
+        "velocity_u_150",
+        "velocity_v_150",
+        "velocity_u_200",
+        "velocity_v_200",
+        "velocity_u_250",
+        "velocity_v_250",
+        "velocity_u_300",
+        "velocity_v_300",
+        "velocity_u_350",
+        "velocity_v_350",
+        "velocity_u_400",
+        "velocity_v_400",
+        "velocity_u_500",
+        "velocity_v_500",
+        "velocity_u_600",
+        "velocity_v_600",
+        "velocity_u_700",
+        "velocity_v_700",
+        "velocity_u_800",
+        "velocity_v_800",
+        "velocity_u_900",
+        "velocity_v_900",
+        "velocity_u_1000",
+        "velocity_v_1000",
+        "velocity_u_1250",
+        "velocity_v_1250",
+        "velocity_u_1500",
+        "velocity_v_1500",
+        "velocity_u_2000",
+        "velocity_v_2000",
+        "velocity_u_2500",
+        "velocity_v_2500",
+        "velocity_u_3000",
+        "velocity_v_3000",
+        "velocity_u_4000",
+        "velocity_v_4000",
+        "velocity_u_5000",
+        "velocity_v_5000"
+      ],
+      "note": "",
+      "thumb": null,
+      "t": 278.1
+    },
+    {
+      "name": "hycom_current_speed",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "velocity_u_0",
+          "velocity_v_0",
+          "velocity_u_2",
+          "velocity_v_2",
+          "velocity_u_4",
+          "velocity_v_4",
+          "velocity_u_6",
+          "velocity_v_6",
+          "velocity_u_8",
+          "velocity_v_8",
+          "velocity_u_10",
+          "velocity_v_10",
+          "velocity_u_12",
+          "velocity_v_12",
+          "velocity_u_15",
+          "velocity_v_15",
+          "velocity_u_20",
+          "velocity_v_20",
+          "velocity_u_25",
+          "velocity_v_25",
+          "velocity_u_30",
+          "velocity_v_30",
+          "velocity_u_35",
+          "velocity_v_35",
+          "velocity_u_40",
+          "velocity_v_40",
+          "velocity_u_45",
+          "velocity_v_45",
+          "velocity_u_50",
+          "velocity_v_50",
+          "velocity_u_60",
+          "velocity_v_60",
+          "velocity_u_70",
+          "velocity_v_70",
+          "velocity_u_80",
+          "velocity_v_80",
+          "velocity_u_90",
+          "velocity_v_90",
+          "velocity_u_100",
+          "velocity_v_100",
+          "velocity_u_125",
+          "velocity_v_125",
+          "velocity_u_150",
+          "velocity_v_150",
+          "velocity_u_200",
+          "velocity_v_200",
+          "velocity_u_250",
+          "velocity_v_250",
+          "velocity_u_300",
+          "velocity_v_300",
+          "velocity_u_350",
+          "velocity_v_350",
+          "velocity_u_400",
+          "velocity_v_400",
+          "velocity_u_500",
+          "velocity_v_500",
+          "velocity_u_600",
+          "velocity_v_600",
+          "velocity_u_700",
+          "velocity_v_700",
+          "velocity_u_800",
+          "velocity_v_800",
+          "velocity_u_900",
+          "velocity_v_900",
+          "velocity_u_1000",
+          "velocity_v_1000",
+          "velocity_u_1250",
+          "velocity_v_1250",
+          "velocity_u_1500",
+          "velocity_v_1500",
+          "velocity_u_2000",
+          "velocity_v_2000",
+          "velocity_u_2500",
+          "velocity_v_2500",
+          "velocity_u_3000",
+          "velocity_v_3000",
+          "velocity_u_4000",
+          "velocity_v_4000",
+          "velocity_u_5000",
+          "velocity_v_5000"
+        ],
+        "val": {
+          "velocity_u_0": 50.73305012919914
+        }
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/gulf_hycom_speed.png",
+      "t": 279.3
+    },
+    {
+      "name": "modis_aqua_chlor_a",
+      "ok": true,
+      "detail": {
+        "chlor_a": 0.3091873600749642
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/galveston_modis_chl_log_jul2023.png",
+      "t": 282.8
+    },
+    {
+      "name": "tx_coast_embedding_grid",
+      "ok": true,
+      "detail": [
+        {
+          "lat": 28.5,
+          "lng": -96.0,
+          "ok": true,
+          "v": {
+            "change": 0.0143992586822154
+          }
+        },
+        {
+          "lat": 28.5,
+          "lng": -95.5,
+          "ok": true,
+          "v": {
+            "change": null
+          }
+        },
+        {
+          "lat": 28.5,
+          "lng": -95.0,
+          "ok": true,
+          "v": {
+            "change": null
+          }
+        },
+        {
+          "lat": 28.5,
+          "lng": -94.5,
+          "ok": false,
+          "v": "EEException: Image.reduce: Unable to reduce an image with 0 bands."
+        },
+        {
+          "lat": 29.0,
+          "lng": -96.0,
+          "ok": true,
+          "v": {
+            "change": 0.09355343067577254
+          }
+        },
+        {
+          "lat": 29.0,
+          "lng": -95.5,
+          "ok": true,
+          "v": {
+            "change": 0.11283112918563333
+          }
+        },
+        {
+          "lat": 29.0,
+          "lng": -95.0,
+          "ok": true,
+          "v": {
+            "change": 0.016978770045812355
+          }
+        },
+        {
+          "lat": 29.0,
+          "lng": -94.5,
+          "ok": true,
+          "v": {
+            "change": 0.01198697679055888
+          }
+        },
+        {
+          "lat": 29.5,
+          "lng": -96.0,
+          "ok": true,
+          "v": {
+            "change": 0.1760136787061879
+          }
+        },
+        {
+          "lat": 29.5,
+          "lng": -95.5,
+          "ok": true,
+          "v": {
+            "change": 0.10377319357780612
+          }
+        },
+        {
+          "lat": 29.5,
+          "lng": -95.0,
+          "ok": true,
+          "v": {
+            "change": 0.08668031078773056
+          }
+        },
+        {
+          "lat": 29.5,
+          "lng": -94.5,
+          "ok": true,
+          "v": {
+            "change": 0.04774215901208604
+          }
+        },
+        {
+          "lat": 30.0,
+          "lng": -96.0,
+          "ok": true,
+          "v": {
+            "change": 0.10384590373318649
+          }
+        },
+        {
+          "lat": 30.0,
+          "lng": -95.5,
+          "ok": true,
+          "v": {
+            "change": 0.06587447390627146
+          }
+        },
+        {
+          "lat": 30.0,
+          "lng": -95.0,
+          "ok": true,
+          "v": {
+            "change": 0.10240529580213464
+          }
+        },
+        {
+          "lat": 30.0,
+          "lng": -94.5,
+          "ok": true,
+          "v": {
+            "change": 0.13385899831691833
+          }
+        }
+      ],
+      "note": "",
+      "thumb": null,
+      "t": 296.7
+    },
+    {
+      "name": "tx_coast_best_zoom",
+      "ok": true,
+      "detail": {
+        "lat": 29.5,
+        "lng": -96.0,
+        "ok": true,
+        "v": {
+          "change": 0.1760136787061879
+        }
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/tx_coast_best_change_zoom.png",
+      "t": 305.0
+    },
+    {
+      "name": "harvey_imerg_followup",
+      "ok": true,
+      "detail": {
+        "precipitation_max": 1722.0799659714103,
+        "precipitation_mean": 1230.6515016076619
+      },
+      "note": "mm? check units \u2014 huge number during Harvey",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/harvey_imerg_sum.png",
+      "t": 310.2
+    },
+    {
+      "name": "no2_map_la",
+      "ok": true,
+      "detail": {
+        "tropospheric_NO2_column_number_density": 7.326801985384668e-05
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/no2_la_summer2023.png",
+      "t": 343.2
+    },
+    {
+      "name": "no2_map_houston",
+      "ok": true,
+      "detail": {
+        "tropospheric_NO2_column_number_density": 4.531724728805167e-05
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/no2_houston_summer2023.png",
+      "t": 361.4
+    },
+    {
+      "name": "no2_map_nyc",
+      "ok": true,
+      "detail": {
+        "tropospheric_NO2_column_number_density": 7.443223795347166e-05
+      },
+      "note": "",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/embeddings/thumbs/no2_nyc_summer2023.png",
+      "t": 387.9
+    }
+  ]
+}

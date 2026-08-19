@@ -1,0 +1,537 @@
+{
+  "ran_at": "2026-08-11T17:18:58.529127+00:00",
+  "assets": {
+    "ESA_WorldCover_2021": {
+      "ok": true,
+      "id": "ESA/WorldCover/v200/2021",
+      "type": "Image",
+      "bands": [
+        "Map"
+      ],
+      "n_bands": 1
+    },
+    "ESA_WorldCover_collection": {
+      "ok": true,
+      "id": "ESA/WorldCover/v200",
+      "type": "ImageCollection",
+      "limit5": 1,
+      "bands": [
+        "Map"
+      ]
+    },
+    "MODIS_LC_Type1": {
+      "ok": true,
+      "id": "MODIS/061/MCD12Q1",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "LC_Type1",
+        "LC_Type2",
+        "LC_Type3",
+        "LC_Type4",
+        "LC_Type5",
+        "LC_Prop1_Assessment",
+        "LC_Prop2_Assessment",
+        "LC_Prop3_Assessment",
+        "LC_Prop1",
+        "LC_Prop2",
+        "LC_Prop3",
+        "QC",
+        "LW"
+      ]
+    },
+    "DynamicWorld": {
+      "ok": true,
+      "id": "GOOGLE/DYNAMICWORLD/V1",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "water",
+        "trees",
+        "grass",
+        "flooded_vegetation",
+        "crops",
+        "shrub_and_scrub",
+        "built",
+        "bare",
+        "snow_and_ice",
+        "label"
+      ]
+    },
+    "GMW_mangroves": {
+      "ok": true,
+      "id": "LANDSAT/MANGROVE_FORESTS",
+      "type": "ImageCollection",
+      "limit5": 1,
+      "bands": [
+        "1"
+      ]
+    },
+    "GMW_v3": {
+      "ok": false,
+      "id": "JCU/Murray/GMW/V3",
+      "error": "ImageCollection.load: ImageCollection asset 'JCU/Murray/GMW/V3' not found (does not exist or caller does not have access)."
+    },
+    "mangrove_giri": {
+      "ok": true,
+      "id": "LANDSAT/MANGROVE_FORESTS/2000",
+      "type": "Image",
+      "bands": [
+        "1"
+      ],
+      "n_bands": 1
+    },
+    "GEBCO": {
+      "ok": true,
+      "id": "NOAA/NGDC/ETOPO1",
+      "type": "Image",
+      "bands": [
+        "bedrock",
+        "ice_surface"
+      ],
+      "n_bands": 2
+    },
+    "ETOPO1": {
+      "ok": true,
+      "id": "NOAA/NGDC/ETOPO1",
+      "type": "Image",
+      "bands": [
+        "bedrock",
+        "ice_surface"
+      ],
+      "n_bands": 2
+    },
+    "SRTM": {
+      "ok": true,
+      "id": "USGS/SRTMGL1_003",
+      "type": "Image",
+      "bands": [
+        "elevation"
+      ],
+      "n_bands": 1
+    },
+    "FABDEM": {
+      "ok": false,
+      "id": "projects/sat-io/open-datasets/FABDEM",
+      "error": "Image.load: Asset 'projects/sat-io/open-datasets/FABDEM' is not an Image."
+    },
+    "CoastalDEM": {
+      "ok": false,
+      "id": "projects/sat-io/open-datasets/CoastalDEM_v2_1",
+      "error": "Image.load: Image asset 'projects/sat-io/open-datasets/CoastalDEM_v2_1' not found (does not exist or caller does not have access)."
+    },
+    "JRC_MonthlyRecurrence": {
+      "ok": true,
+      "id": "JRC/GSW1_4/MonthlyRecurrence",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "monthly_recurrence",
+        "has_observations"
+      ]
+    },
+    "JRC_YearlyHistory": {
+      "ok": true,
+      "id": "JRC/GSW1_4/YearlyHistory",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "waterClass"
+      ]
+    },
+    "MODIS_flood": {
+      "ok": false,
+      "id": "MODIS/006/MCDWD_L3_NRT",
+      "error": "ImageCollection.load: ImageCollection asset 'MODIS/006/MCDWD_L3_NRT' not found (does not exist or caller does not have access)."
+    },
+    "GFMS_flood": {
+      "ok": false,
+      "id": "FFA/NRT_Flood",
+      "error": "ImageCollection.load: ImageCollection asset 'FFA/NRT_Flood' not found (does not exist or caller does not have access)."
+    },
+    "Hydrosheds": {
+      "ok": false,
+      "id": "WWF/HydroSHEDS/v1/FreeFlowingRivers",
+      "error": "Image.load: Asset 'WWF/HydroSHEDS/v1/FreeFlowingRivers' is not an Image."
+    },
+    "MODIS_aqua_sst": {
+      "ok": true,
+      "id": "NASA/OCEANDATA/MODIS-Aqua/L3SMI",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "chlor_a",
+        "nflh",
+        "poc",
+        "Rrs_412",
+        "Rrs_443",
+        "Rrs_469",
+        "Rrs_488",
+        "Rrs_531",
+        "Rrs_547",
+        "Rrs_555",
+        "Rrs_645",
+        "Rrs_667",
+        "Rrs_678",
+        "sst"
+      ]
+    },
+    "NOAA_CDR_SST": {
+      "ok": true,
+      "id": "NOAA/CDR/OISST/V2_1",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "sst",
+        "anom",
+        "ice",
+        "err"
+      ]
+    },
+    "NOAA_PATHFINDER_SST": {
+      "ok": true,
+      "id": "NOAA/CDR/SST_PATHFINDER/V53",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "sea_surface_temperature",
+        "dt_analysis",
+        "wind_speed",
+        "sea_ice_fraction",
+        "aerosol_dynamic_indicator",
+        "quality_level",
+        "pathfinder_quality_level",
+        "l2p_flags"
+      ]
+    },
+    "HYCOM_elev": {
+      "ok": true,
+      "id": "HYCOM/sea_surface_elevation",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "surface_elevation"
+      ]
+    },
+    "ERA5_daily": {
+      "ok": true,
+      "id": "ECMWF/ERA5/DAILY",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "mean_2m_air_temperature",
+        "minimum_2m_air_temperature",
+        "maximum_2m_air_temperature",
+        "dewpoint_2m_temperature",
+        "total_precipitation",
+        "surface_pressure",
+        "mean_sea_level_pressure",
+        "u_component_of_wind_10m",
+        "v_component_of_wind_10m"
+      ]
+    },
+    "ERA5_LAND_daily": {
+      "ok": true,
+      "id": "ECMWF/ERA5_LAND/DAILY_AGGR",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "dewpoint_temperature_2m",
+        "temperature_2m",
+        "skin_temperature",
+        "soil_temperature_level_1",
+        "soil_temperature_level_2",
+        "soil_temperature_level_3",
+        "soil_temperature_level_4",
+        "lake_bottom_temperature",
+        "lake_ice_depth",
+        "lake_ice_temperature",
+        "lake_mix_layer_depth",
+        "lake_mix_layer_temperature",
+        "lake_shape_factor",
+        "lake_total_layer_temperature",
+        "snow_albedo",
+        "snow_cover",
+        "snow_density",
+        "snow_depth",
+        "snow_depth_water_equivalent",
+        "snowfall_sum",
+        "snowmelt_sum",
+        "temperature_of_snow_layer",
+        "skin_reservoir_content",
+        "volumetric_soil_water_layer_1",
+        "volumetric_soil_water_layer_2"
+      ]
+    },
+    "GLDAS": {
+      "ok": true,
+      "id": "NASA/GLDAS/V021/NOAH/G025/T3H",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "Albedo_inst",
+        "AvgSurfT_inst",
+        "CanopInt_inst",
+        "ECanop_tavg",
+        "ESoil_tavg",
+        "Evap_tavg",
+        "LWdown_f_tavg",
+        "Lwnet_tavg",
+        "PotEvap_tavg",
+        "Psurf_f_inst",
+        "Qair_f_inst",
+        "Qg_tavg",
+        "Qh_tavg",
+        "Qle_tavg",
+        "Qs_acc",
+        "Qsb_acc",
+        "Qsm_acc",
+        "Rainf_f_tavg",
+        "Rainf_tavg",
+        "RootMoist_inst",
+        "SWE_inst",
+        "SWdown_f_tavg",
+        "SnowDepth_inst",
+        "Snowf_tavg",
+        "SoilMoi0_10cm_inst"
+      ]
+    },
+    "SMAP_soil": {
+      "ok": true,
+      "id": "NASA/SMAP/SPL4SMGP/007",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "sm_surface",
+        "sm_rootzone",
+        "sm_profile",
+        "sm_surface_wetness",
+        "sm_rootzone_wetness",
+        "sm_profile_wetness",
+        "surface_temp",
+        "soil_temp_layer1",
+        "soil_temp_layer2",
+        "soil_temp_layer3",
+        "soil_temp_layer4",
+        "soil_temp_layer5",
+        "soil_temp_layer6",
+        "snow_mass",
+        "snow_depth",
+        "land_evapotranspiration_flux",
+        "overland_runoff_flux",
+        "baseflow_flux",
+        "snow_melt_flux",
+        "soil_water_infiltration_flux",
+        "land_fraction_saturated",
+        "land_fraction_unsaturated",
+        "land_fraction_wilting",
+        "land_fraction_snow_covered",
+        "heat_flux_sensible"
+      ]
+    },
+    "GOES16_MCMIPC": {
+      "ok": true,
+      "id": "NOAA/GOES/16/MCMIPC",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "CMI_C01",
+        "DQF_C01",
+        "CMI_C02",
+        "DQF_C02",
+        "CMI_C03",
+        "DQF_C03",
+        "CMI_C04",
+        "DQF_C04",
+        "CMI_C05",
+        "DQF_C05",
+        "CMI_C06",
+        "DQF_C06",
+        "CMI_C07",
+        "DQF_C07",
+        "CMI_C08",
+        "DQF_C08",
+        "CMI_C09",
+        "DQF_C09",
+        "CMI_C10",
+        "DQF_C10",
+        "CMI_C11",
+        "DQF_C11",
+        "CMI_C12",
+        "DQF_C12",
+        "CMI_C13"
+      ]
+    },
+    "GRIDMET": {
+      "ok": true,
+      "id": "IDAHO_EPSCOR/GRIDMET",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "pr",
+        "rmax",
+        "rmin",
+        "sph",
+        "srad",
+        "th",
+        "tmmn",
+        "tmmx",
+        "vs",
+        "erc",
+        "eto",
+        "bi",
+        "fm100",
+        "fm1000",
+        "etr",
+        "vpd"
+      ]
+    },
+    "DAYMET": {
+      "ok": true,
+      "id": "NASA/ORNL/DAYMET_V4",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "dayl",
+        "prcp",
+        "srad",
+        "swe",
+        "tmax",
+        "tmin",
+        "vp"
+      ]
+    },
+    "PRISM": {
+      "ok": true,
+      "id": "OREGONSTATE/PRISM/AN81d",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "ppt",
+        "tmean",
+        "tmin",
+        "tmax",
+        "tdmean",
+        "vpdmin",
+        "vpdmax"
+      ]
+    },
+    "FIRMS": {
+      "ok": true,
+      "id": "FIRMS",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "T21",
+        "confidence",
+        "line_number"
+      ]
+    },
+    "USGS_landslide": {
+      "ok": false,
+      "id": "projects/sat-io/open-datasets/GLOBAL_LANDSLIDE",
+      "error": "ImageCollection.load: ImageCollection asset 'projects/sat-io/open-datasets/GLOBAL_LANDSLIDE' not found (does not exist or caller does not have access)."
+    },
+    "VIIRS_NTL": {
+      "ok": true,
+      "id": "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "avg_rad",
+        "cf_cvg"
+      ]
+    },
+    "GHSL_built": {
+      "ok": true,
+      "id": "JRC/GHSL/P2023A/GHS_BUILT_S",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "built_surface",
+        "built_surface_nres"
+      ]
+    },
+    "WorldPop": {
+      "ok": true,
+      "id": "WorldPop/GP/100m/pop",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "population"
+      ]
+    },
+    "OpenLandMap_soil": {
+      "ok": true,
+      "id": "OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02",
+      "type": "Image",
+      "bands": [
+        "b0",
+        "b10",
+        "b30",
+        "b60",
+        "b100",
+        "b200"
+      ],
+      "n_bands": 6
+    },
+    "USDA_CDL": {
+      "ok": true,
+      "id": "USDA/NASS/CDL",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "cropland"
+      ]
+    },
+    "NLCD": {
+      "ok": true,
+      "id": "USGS/NLCD_RELEASES/2021_REL/NLCD",
+      "type": "ImageCollection",
+      "limit5": 1,
+      "bands": [
+        "landcover",
+        "impervious",
+        "impervious_descriptor",
+        "science_products_land_cover_change_count",
+        "science_products_land_cover_change_first_disturbance_date",
+        "science_products_land_cover_change_index",
+        "science_products_land_cover_science_product",
+        "science_products_forest_disturbance_date"
+      ]
+    },
+    "ERA5_waves": {
+      "ok": true,
+      "id": "ECMWF/ERA5_LAND/HOURLY",
+      "type": "ImageCollection",
+      "limit5": 5,
+      "bands": [
+        "dewpoint_temperature_2m",
+        "temperature_2m",
+        "skin_temperature",
+        "soil_temperature_level_1",
+        "soil_temperature_level_2",
+        "soil_temperature_level_3",
+        "soil_temperature_level_4",
+        "lake_bottom_temperature",
+        "lake_ice_depth",
+        "lake_ice_temperature",
+        "lake_mix_layer_depth",
+        "lake_mix_layer_temperature",
+        "lake_shape_factor",
+        "lake_total_layer_temperature",
+        "snow_albedo",
+        "snow_cover",
+        "snow_density",
+        "snow_depth",
+        "snow_depth_water_equivalent",
+        "snowfall",
+        "snowmelt",
+        "temperature_of_snow_layer",
+        "skin_reservoir_content",
+        "volumetric_soil_water_layer_1",
+        "volumetric_soil_water_layer_2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "lat": 43.077,
+  "lng": -78.181,
+  "fetched_at": "2026-08-15T01:56:00Z",
+  "fields": {
+    "is_cultivated": {"value": true, "source": "USDA_NASS_CDL", "status": "ok", "dataset_vintage": "USDA CDL 2025"},
+    "dominant_crop_5y": {"value": "Soybeans", "source": "USDA_NASS_CDL", "status": "ok"},
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "elevation": {"value": 180.0, "unit": "meters", "source": "USGS_3DEP_COG", "status": "ok"}
+  }
+}

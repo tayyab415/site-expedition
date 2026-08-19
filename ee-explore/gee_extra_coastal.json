@@ -1,0 +1,188 @@
+{
+  "ran_at": "2026-08-11T17:17:14.905651+00:00",
+  "datasets": {
+    "murray_intertidal": {
+      "first_hist": {
+        "classification": {
+          "1": 16649.63921568628
+        }
+      },
+      "last_hist": {
+        "classification": {
+          "1": 7904.533333333334
+        }
+      },
+      "first_id": "1984-1986",
+      "last_id": "2014-2016"
+    },
+    "WRI/Aqueduct_Flood_Hazard_Maps/V2": {
+      "size": 648,
+      "sample_ids": [
+        "inuncoast_historical_nosub_hist_rp0002_0",
+        "inuncoast_historical_nosub_hist_rp0005_0",
+        "inuncoast_historical_nosub_hist_rp0010_0",
+        "inuncoast_historical_nosub_hist_rp0025_0",
+        "inuncoast_historical_nosub_hist_rp0050_0",
+        "inuncoast_historical_nosub_hist_rp0100_0",
+        "inuncoast_historical_nosub_hist_rp0250_0",
+        "inuncoast_historical_nosub_hist_rp0500_0"
+      ],
+      "bands": [
+        "inundation_depth"
+      ]
+    },
+    "WRI/GFW_Aqueduct_Flood_Hazard_Maps/V2": {
+      "error": "ImageCollection.load: ImageCollection asset 'WRI/GFW_Aqueduct_Flood_Hazard_Maps/V2' not found (does not exist or caller does not have access).",
+      "error2": "Image.load: Image asset 'WRI/GFW_Aqueduct_Flood_Hazard_Maps/V2' not found (does not exist or caller does not have access)."
+    },
+    "aqueduct_sample_features": [
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0002_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0005_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0010_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0025_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0050_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0100_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0250_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp0500_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_nosub_hist_rp1000_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0002_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0005_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0010_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0025_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0050_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0100_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0250_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp0500_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2030_rp1000_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2050_rp0002_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      },
+      {
+        "id": "inuncoast_historical_wtsub_2050_rp0005_0",
+        "bands": [
+          "inundation_depth"
+        ]
+      }
+    ]
+  },
+  "rising_water_candidates": [
+    {
+      "lon": -95.08909794571038,
+      "lat": 29.281470224452313,
+      "occurrence": 4.074074074074078,
+      "change_abs": 13.998657718120805,
+      "seasonality": 1,
+      "elevation": 3.3822808624402816
+    },
+    {
+      "lon": -94.96653315875905,
+      "lat": 29.475732110989398,
+      "occurrence": 42.358598207008974,
+      "change_abs": 26.441815967994437,
+      "seasonality": 5.246802824966597,
+      "elevation": 2.069194664031621
+    },
+    {
+      "lon": -94.60902695100553,
+      "lat": 29.655513947697735,
+      "occurrence": 5.6356589147286815,
+      "change_abs": 16.07791017415215,
+      "seasonality": null,
+      "elevation": 1.0927067409635585
+    }
+  ],
+  "thumb_gsw_occurrence_url": "https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/thumbnails/22cf6413232c943cb705b5ee5b4b24c5-a29fcfe06d7873122b4d6cafacaa3dac:getPixels"
+}

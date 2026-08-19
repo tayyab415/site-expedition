@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Property vetting — pick a look</title>
+  <style>
+    :root { --bg:#0f0e0c; --ink:#e8e4dc; --muted:#8a847a; --line:#2a2723; --kill:#c0392b; --keep:#7dcea0; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:16px/1.45 "Iowan Old Style", Palatino, Georgia, serif; background:var(--bg); color:var(--ink); }
+    main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    h1 { font-size: 1.75rem; font-weight: 400; letter-spacing: -0.02em; }
+    .lede { color: var(--muted); margin: 0.75rem 0 2rem; }
+    a.card { display:block; text-decoration:none; color:inherit; border:1px solid var(--line); padding:1rem 1.15rem; margin:0 0 0.7rem; border-radius:6px; }
+    a.card:hover { border-color: #5a554c; }
+    .n { font-family: ui-monospace, Menlo, monospace; font-size: 0.75rem; color: var(--muted); }
+    .t { display:block; margin-top:0.15rem; }
+    .pins { font-size: 0.9rem; color: var(--muted); margin-top: 2rem; }
+    .kill { color: var(--kill); } .keep { color: var(--keep); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>The skeptic you send in before you sign</h1>
+    <p class="lede">Seven looks at the same two pins. Open any of them from this laptop. Nothing here spends Mireye credits.</p>
+    <a class="card" data-port="8021" href="http://HOST:8021/"><span class="n">1 · 8021</span><span class="t">Print memorandum</span></a>
+    <a class="card" data-port="8022" href="http://HOST:8022/"><span class="n">2 · 8022</span><span class="t">Courtroom — record vs witnesses</span></a>
+    <a class="card" data-port="8023" href="http://HOST:8023/"><span class="n">3 · 8023</span><span class="t">Agent trace — tool calls as the UI</span></a>
+    <a class="card" data-port="8024" href="http://HOST:8024/"><span class="n">4 · 8024</span><span class="t">Cinematic KILL ↔ KEEP flip</span></a>
+    <a class="card" data-port="8025" href="http://HOST:8025/"><span class="n">5 · 8025</span><span class="t">Analyst workbook — why fights were staged</span></a>
+    <a class="card" data-port="8026" href="http://HOST:8026/"><span class="n">6 · 8026</span><span class="t">Email to the agent</span></a>
+    <a class="card" data-port="8027" href="http://HOST:8027/"><span class="n">7 · 8027</span><span class="t">Photorealistic 3D eyes × Earth Engine witnesses</span></a>
+    <p class="pins"><span class="kill">KILL</span> San Leon, TX · <span class="keep">KEEP</span> 3605 Winfield Cove, Austin</p>
+  </main>
+  <script>
+    const host = location.hostname || "127.0.0.1";
+    document.querySelectorAll("a.card").forEach((a) => {
+      a.href = `http://${host}:${a.dataset.port}/`;
+    });
+  </script>
+</body>
+</html>

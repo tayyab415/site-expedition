@@ -1,0 +1,15 @@
+{
+  "lat": 29.883,
+  "lng": -97.941,
+  "fetched_at": "2026-08-15T02:10:00Z",
+  "fields": {
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "nearest_major_road_distance_m": {"value": 12.1, "unit": "meters", "source": "TIGER", "status": "ok"},
+    "nearest_long_haul_rail_corridor_distance_m": {"value": 350.0, "unit": "meters", "source": "BTS", "status": "ok"},
+    "nearest_substation_distance_m": {"value": 1040.0, "unit": "meters", "source": "HIFLD", "status": "ok"},
+    "fiber_broadband_available": {"value": true, "source": "FCC", "status": "ok"},
+    "within_water_service_area": {"value": true, "source": "EPA", "status": "ok"},
+    "within_sewer_service_area": {"value": true, "source": "EPA", "status": "ok"}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "lat": 47.2343,
+  "lng": -119.8525,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "fields": {
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "nearest_substation_distance_m": {"value": 2100.0, "unit": "meters", "source": "HIFLD", "status": "ok"},
+    "days_above_32c_annual_count": {"value": 45, "source": "GRIDMET", "status": "ok"}
+  }
+}

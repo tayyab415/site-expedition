@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Expedition</title>
+  <link rel="stylesheet" href="/fonts.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.105/Build/Cesium/Cesium.js"></script>
+  <link href="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.105/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/variants.css">
+</head>
+<body>
+  <section id="auth-gate" class="auth-gate hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <form id="auth-form" class="auth-card">
+      <p class="kicker">Protected deployment</p>
+      <h1 id="auth-title">Unlock Site Expedition</h1>
+      <p class="lede">Enter the deployment access token. It is exchanged for an expiring, HttpOnly browser session and is not stored by JavaScript.</p>
+      <label>Access token
+        <input id="auth-token" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit" id="auth-submit">Unlock</button>
+      <p id="auth-status" class="form-status" role="status"></p>
+    </form>
+  </section>
+  <section id="onboard" class="onboard">
+    <p class="kicker">US-only · single user · cited facts</p>
+    <h1>What are you placing?</h1>
+    <p class="lede">Pick a Mission. Confirm the plan. Then the Expedition screens Candidate Sites. This is not a listing service and not a permit.</p>
+    <div class="tiles" id="tiles"></div>
+    <p id="custom-status" class="form-status" role="status"></p>
+
+    <div class="control-deck">
+      <fieldset class="control-section">
+        <legend>01 · Search envelope</legend>
+        <div class="controls">
+          <label>Search Region
+            <select id="search-region">
+              <option value="texas_triangle" selected>Texas Triangle</option>
+              <option value="houston_metro">Houston metro</option>
+              <option value="austin_san_antonio">Austin–San Antonio corridor</option>
+              <option value="dallas_fort_worth">Dallas–Fort Worth</option>
+            </select>
+          </label>
+          <label>Geography permission
+            <select id="geography-band">
+              <option value="selected_region" selected>Stay in selected region</option>
+              <option value="adjacent_regions">May widen to adjacent metros</option>
+              <option value="statewide">May widen statewide</option>
+            </select>
+          </label>
+          <label>Site form
+            <select id="site-form">
+              <option value="either">Existing asset or land</option>
+              <option value="existing_asset">Existing built asset</option>
+              <option value="developable_land">Developable land</option>
+            </select>
+          </label>
+          <label>Site size band
+            <select id="size-band"></select>
+          </label>
+          <label>Acquisition budget band
+            <select id="budget-band">
+              <option value="flexible" selected>Flexible / not supplied</option>
+              <option value="under_2m">Under $2M</option>
+              <option value="2m_10m">$2M–$10M</option>
+              <option value="10m_25m">$10M–$25M</option>
+              <option value="25m_plus">$25M+</option>
+            </select>
+          </label>
+          <label>Scan Budget
+            <select id="scan">
+              <option value="quick">Quick · core screen</option>
+              <option value="standard" selected>Standard · material witnesses</option>
+              <option value="deep">Deep · all permitted investigations</option>
+            </select>
+          </label>
+        </div>
+        <p class="field-note">Bands capture intent without implying appraisal-grade precision. Price and Market Availability remain Verification Gaps without an authorized provider.</p>
+      </fieldset>
+
+      <fieldset class="control-section">
+        <legend>02 · Hard constraints</legend>
+        <div class="check-grid">
+          <label class="check"><input type="checkbox" id="flood" checked> Reject mapped Special Flood Hazard Area</label>
+          <label class="check" id="cult-wrap" hidden><input type="checkbox" id="cultivated" checked> Require cultivated land</label>
+          <label class="check" id="water-wrap"><input type="checkbox" id="water-service"> Require mapped water service area</label>
+          <label class="check" id="sewer-wrap"><input type="checkbox" id="sewer-service"> Require mapped sewer service area</label>
+          <label class="check" id="fiber-wrap"><input type="checkbox" id="fiber-service"> Require observed fiber availability</label>
+        </div>
+        <p class="field-note">Unknown, stale, contradictory, or failed evidence cannot satisfy a hard constraint.</p>
+      </fieldset>
+
+      <fieldset class="control-section">
+        <legend>03 · Preference bands</legend>
+        <div id="preferences" class="preference-grid"></div>
+        <p class="field-note">Preference bands order supported survivors. They never rescue a failed gate and are not a composite score.</p>
+      </fieldset>
+
+      <fieldset class="control-section">
+        <legend>04 · Optional investigations</legend>
+        <div id="investigations" class="check-grid"></div>
+      </fieldset>
+
+      <fieldset class="control-section" id="route-section">
+        <legend>05 · Declared route anchors</legend>
+        <div id="route-anchors" class="route-anchors"></div>
+        <button type="button" id="add-anchor" class="secondary-button">Add route anchor</button>
+        <p id="anchor-status" class="form-status" role="status"></p>
+        <p class="field-note">Routes are measured only to these user-declared destinations. A Candidate Site is never routed to itself.</p>
+      </fieldset>
+
+      <fieldset class="control-section" id="manifest-section" hidden>
+        <legend>06 · Reviewed Custom manifest</legend>
+        <label>Allowed manifest
+          <select id="manifest-id" disabled>
+            <option value="">No reviewed manifests available</option>
+          </select>
+        </label>
+        <p class="field-note">Custom Missions may select a reviewed manifest only. They cannot install code or discover arbitrary sources.</p>
+      </fieldset>
+    </div>
+    <aside class="plan-card" id="plan-card">Select a Mission.</aside>
+    <button type="button" id="confirm" disabled>Confirm Mission Plan</button>
+  </section>
+
+  <div id="app" class="app hidden">
+    <div id="cesium"></div>
+    <div id="quick-map" class="quick-map hidden" aria-label="Site context map"></div>
+    <section id="street-stage" class="street-stage" hidden>
+      <img id="street-image" alt="Street View of this pin">
+      <div class="street-controls">
+        <label>Look <input id="sv-heading" type="range" min="0" max="359" value="70"></label>
+        <p id="street-credit"></p>
+      </div>
+    </section>
+    <section id="earth-stage" class="earth-stage" hidden>
+      <div class="earth-sky" aria-hidden="true"></div>
+      <div class="earth-ground" id="earth-ground"></div>
+      <p class="earth-credit">Google satellite · Earth-style tilt · not Earth Studio · does not score</p>
+    </section>
+    <aside id="layer-rack" class="layer-rack" aria-label="Map layers">
+      <p class="kicker">Layers</p>
+      <button type="button" class="layer on" data-layer="site">Site</button>
+      <button type="button" class="layer" data-layer="flood">Flood</button>
+      <button type="button" class="layer" data-layer="power">Power</button>
+      <button type="button" class="layer" data-layer="roads">Roads</button>
+    </aside>
+    <div id="demand" class="demand" hidden>
+      <div class="demand-meter" data-id="flood"><span>Flood</span><i></i></div>
+      <div class="demand-meter" data-id="power"><span>Power</span><i></i></div>
+      <div class="demand-meter" data-id="roads"><span>Access</span><i></i></div>
+      <div class="demand-meter" data-id="gaps"><span>Gaps</span><i></i></div>
+    </div>
+    <p id="advisory" class="advisory" hidden></p>
+
+    <header class="top">
+      <div>
+        <p class="kicker" id="mission-kicker">Warehouse Expedition</p>
+        <h1>Site Expedition</h1>
+      </div>
+      <div class="era">
+      <div class="modes" role="tablist" aria-label="Scene era">
+        <button type="button" class="mode" data-era="past" data-mode="past" id="mode-past" disabled title="No temporal witness">PAST</button>
+        <button type="button" class="mode on" data-era="today" data-mode="earth" id="mode-today">TODAY</button>
+        <button type="button" class="mode" data-era="future" data-mode="future" id="mode-future" disabled title="Concept Test not claimed">FUTURE</button>
+        <button type="button" class="mode" data-mode="pad" id="mode-pad" hidden>PAD</button>
+      </div>
+      <div class="today-tools" id="today-tools" role="tablist" aria-label="TODAY presentation">
+        <button type="button" class="mode" data-mode="street" id="mode-street">Street</button>
+        <button type="button" class="mode on" data-mode="earth" id="mode-earth" title="Aerial View 3D building orbit — the UChicago look. Warehouse pins overlay that clip when they have no Aerial of their own.">Earth</button>
+        <button type="button" class="mode" data-mode="orbit" id="mode-orbit" title="Aerial View for this pin when Google has one; otherwise a photorealistic 3D orbit of this pin.">Orbit</button>
+        <button type="button" class="mode" data-mode="mesh" id="mode-mesh">3D</button>
+        <button type="button" class="mode" data-mode="aerial" id="mode-aerial">Map</button>
+      </div>
+      </div>
+      <div class="top-actions">
+        <span class="credits" id="credits"></span>
+        <button type="button" id="replan">Change plan</button>
+      </div>
+    </header>
+    <div id="scene-hud" class="scene-hud">
+      <p class="status" id="status"></p>
+      <p class="context-tag" id="context-tag">Google photorealistic 3D — context only. Does not score.</p>
+      <div id="era-panel" class="era-panel" hidden>
+        <div id="past-slider-wrap">
+          <label>Year <input id="past-year" type="range" min="1985" max="2021" value="2001"></label>
+          <span id="past-year-label">—</span>
+        </div>
+        <p id="past-note"></p>
+      </div>
+    </div>
+    <p id="placement-claim" class="placement-claim" hidden data-claim="" data-fit=""></p>
+
+    <aside class="deck">
+      <button type="button" class="collapse" id="toggle-deck">Collapse plan</button>
+      <h2>Confirmed plan</h2>
+      <div id="plan-locked" class="plan"></div>
+      <label class="check"><input type="checkbox" id="live"> Live Mireye (spends credits)</label>
+      <label class="check"><input type="checkbox" id="review"> Force Skeptic Review on Rejects</label>
+      <button type="button" id="run-all">Run Expedition</button>
+      <p class="hint">Pins are POTENTIAL or USER SITE, not listings. The map is the site. Screen runs only when you ask.</p>
+
+      <h2>Check a Site</h2>
+      <div class="address-form">
+        <input id="site-address" type="text" autocomplete="street-address" placeholder="5801 S Ellis Ave, Chicago, IL 60637">
+        <button type="button" id="resolve-address">Resolve address</button>
+      </div>
+      <p id="address-status" class="hint">Live address resolves are retained by Mireye for about 30 days. Coordinates are preferred.</p>
+      <div class="pin-form">
+        <input id="pin-lat" type="text" inputmode="decimal" placeholder="lat">
+        <input id="pin-lng" type="text" inputmode="decimal" placeholder="lng">
+        <button type="button" id="add-pin">Add USER SITE</button>
+      </div>
+      <p class="hint">Replay needs a cache. A new pin screens only with Live Mireye on.</p>
+
+      <h2>Scorecard</h2>
+      <div id="scorecard"></div>
+      <h2>Evidence coverage</h2>
+      <div id="coverage"></div>
+    </aside>
+
+    <aside class="rail" id="rail-panel">
+      <button type="button" class="collapse" id="toggle-rail">Collapse rail</button>
+      <h2>Expedition rail</h2>
+      <ol id="rail"></ol>
+      <h2>Agent actions</h2>
+      <ol id="expedition-log"><li>Confirm the plan, then run the Expedition.</li></ol>
+      <h2>Verdict</h2>
+      <div id="verdict" class="verdict empty">Select a site, then screen it.</div>
+      <div id="skeptic-stamp" class="skeptic-stamp" hidden></div>
+      <button type="button" id="run-one" hidden>Screen this site</button>
+      <h2>TODAY scene</h2>
+      <p id="aerial-status" class="hint">Screen a site to check Aerial View.</p>
+      <button type="button" id="play-aerial" hidden>Play Aerial orbit</button>
+      <h2>Verification gaps</h2>
+      <p id="fit-gap" class="fit-gap" hidden>FIT is deferred: no licensed parcel envelope. The warehouse mass is a visual concept, not a fit test.</p>
+      <ul id="gaps"></ul>
+      <div id="concept-controls" hidden>
+        <h2>Concept heading</h2>
+        <label>Yaw ° <input id="heading" type="range" min="0" max="359" value="0"></label>
+        <p class="hint" id="concept-note"></p>
+      </div>
+      <h2>Brief</h2>
+      <div id="brief"></div>
+    </aside>
+
+    <section class="dock">
+      <div class="cards" id="cards"></div>
+      <div class="compare">
+        <h2>Comparison</h2>
+        <table>
+          <thead>
+            <tr><th>Site</th><th>Label</th><th>Verdict</th><th>Gaps</th><th>Route</th><th>Counterfactual</th></tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="video-panel" class="video-panel" hidden>
+      <button type="button" id="close-video" aria-label="Close Aerial orbit">Close</button>
+      <video id="aerial-video" controls playsinline></video>
+      <p id="aerial-credit">Aerial View is presentation only. It does not score.</p>
+    </section>
+  </div>
+
+  <nav id="look-switcher" class="look-switcher" hidden aria-label="Planning-board looks">
+    <button type="button" id="look-prev" aria-label="Previous look">←</button>
+    <strong id="look-label">A — HUD overlay</strong>
+    <button type="button" id="look-next" aria-label="Next look">→</button>
+  </nav>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+{
+  "water": {
+    "dataset": "JRC/GSW1_4/MonthlyHistory",
+    "baseline_freq_1985_1999": 0.0,
+    "latest_freq_2021": 0.0,
+    "breakpoint_year": null,
+    "timeline": [
+      {
+        "year": 1985,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1986,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1987,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1988,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1989,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1990,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1991,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1992,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1993,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1994,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1995,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1996,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1997,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1998,
+        "water_freq": 0.0
+      },
+      {
+        "year": 1999,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2000,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2001,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2002,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2003,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2004,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2005,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2006,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2007,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2008,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2009,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2010,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2011,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2012,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2013,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2014,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2015,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2016,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2017,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2018,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2019,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2020,
+        "water_freq": 0.0
+      },
+      {
+        "year": 2021,
+        "water_freq": 0.0
+      }
+    ]
+  },
+  "height": {
+    "nasadem_m": 208.3425143168803,
+    "fabdem_m": 208.35069024819654,
+    "datasets": [
+      "NASA/NASADEM_HGT/001",
+      "projects/sat-io/open-datasets/FABDEM"
+    ]
+  }
+}

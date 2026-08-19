@@ -1,0 +1,440 @@
+{
+  "project": "gen-lang-client-0261050164",
+  "ran_at": "2026-08-11T17:16:14.864951+00:00",
+  "dw_galveston_20km": [
+    {
+      "bare": 0.042401099012001016,
+      "built": 0.06954254323581166,
+      "flooded_vegetation": 0.057141063324056926,
+      "water": 0.6033568479035196,
+      "n_scenes": 118,
+      "year": 2017
+    },
+    {
+      "bare": 0.042349575599861244,
+      "built": 0.06877660741016753,
+      "flooded_vegetation": 0.05702306526759252,
+      "water": 0.6034647394046555,
+      "n_scenes": 144,
+      "year": 2019
+    },
+    {
+      "bare": 0.0441195618070222,
+      "built": 0.06958733604300935,
+      "flooded_vegetation": 0.05570003752514593,
+      "water": 0.6037508575435652,
+      "n_scenes": 141,
+      "year": 2021
+    },
+    {
+      "bare": 0.04562481047118601,
+      "built": 0.07098249207921302,
+      "flooded_vegetation": 0.054655263528824924,
+      "water": 0.6058959481222806,
+      "n_scenes": 161,
+      "year": 2023
+    },
+    {
+      "bare": 0.043688717406163494,
+      "built": 0.07108182913866261,
+      "flooded_vegetation": 0.0561288275323156,
+      "water": 0.6033980486335383,
+      "n_scenes": 138,
+      "year": 2024
+    }
+  ],
+  "spots": {
+    "jamaica_beach_tx": {
+      "lon": -95.236,
+      "lat": 29.19,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elev": {
+        "elevation": 3.5576639714713783
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.055890568259318624,
+        "water": 0.046409436156245557
+      },
+      "dw_2018_n": 78,
+      "dw_2024": {
+        "flooded_vegetation": 0.0503878327420903,
+        "water": 0.04294453450929658
+      },
+      "dw_2024_n": 67,
+      "creep_score": {
+        "occurrence": 0,
+        "change_abs": 0,
+        "monthly_freq_delta": 0,
+        "flag_rising_water": false
+      }
+    },
+    "san_leon_tx": {
+      "lon": -94.986,
+      "lat": 29.49,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elev": {
+        "elevation": 4.737982505416902
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.05150732975261788,
+        "water": 0.04247608368288298
+      },
+      "dw_2018_n": 167,
+      "dw_2024": {
+        "flooded_vegetation": 0.053061960576215636,
+        "water": 0.04376498254386517
+      },
+      "dw_2024_n": 138,
+      "creep_score": {
+        "occurrence": 0,
+        "change_abs": 0,
+        "monthly_freq_delta": 0,
+        "flag_rising_water": false
+      }
+    },
+    "texas_city_shore": {
+      "lon": -94.915,
+      "lat": 29.383,
+      "gsw": {
+        "change_abs": null,
+        "occurrence": null,
+        "recurrence": null,
+        "seasonality": null,
+        "transition": null
+      },
+      "elev": {
+        "elevation": 4.185627780523976
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.0377579106868191,
+        "water": 0.03999008196045542
+      },
+      "dw_2018_n": 89,
+      "dw_2024": {
+        "flooded_vegetation": 0.04044561258434445,
+        "water": 0.03962568618639294
+      },
+      "dw_2024_n": 71,
+      "creep_score": {
+        "occurrence": 0,
+        "change_abs": 0,
+        "monthly_freq_delta": 0,
+        "flag_rising_water": false
+      }
+    },
+    "bolivar_peninsula": {
+      "lon": -94.58,
+      "lat": 29.47,
+      "gsw": {
+        "change_abs": 0,
+        "occurrence": 98.96453363468098,
+        "recurrence": 100,
+        "seasonality": 12,
+        "transition": 1
+      },
+      "elev": {
+        "elevation": 0
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0.7291225427342819
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0.8871107166095797
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.03990193340421514,
+        "water": 0.7363854068379259
+      },
+      "dw_2018_n": 47,
+      "dw_2024": {
+        "flooded_vegetation": 0.039411695695891605,
+        "water": 0.7348907210790943
+      },
+      "dw_2024_n": 36,
+      "creep_score": {
+        "occurrence": 98.96453363468098,
+        "change_abs": 0,
+        "monthly_freq_delta": 0.15798817387529784,
+        "flag_rising_water": true
+      }
+    },
+    "crystal_beach_tx": {
+      "lon": -94.62,
+      "lat": 29.457,
+      "gsw": {
+        "change_abs": 0.3018243646891227,
+        "occurrence": 97.64362493401742,
+        "recurrence": 99.67076421120355,
+        "seasonality": 11.66729840293988,
+        "transition": 1.231055558108543
+      },
+      "elev": {
+        "elevation": 0.9122750682359917
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0.36417320646838236
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0.45305752218929723
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.041812647263275396,
+        "water": 0.3984501305477914
+      },
+      "dw_2018_n": 45,
+      "dw_2024": {
+        "flooded_vegetation": 0.04148756094298704,
+        "water": 0.3918581840229824
+      },
+      "dw_2024_n": 36,
+      "creep_score": {
+        "occurrence": 97.64362493401742,
+        "change_abs": 0.3018243646891227,
+        "monthly_freq_delta": 0.08888431572091487,
+        "flag_rising_water": true
+      }
+    },
+    "galveston_seawall": {
+      "lon": -94.79,
+      "lat": 29.285,
+      "gsw": {
+        "change_abs": -1.2853350557539018,
+        "occurrence": 96.45331729296294,
+        "recurrence": 99.56373547594876,
+        "seasonality": 11.330415660881464,
+        "transition": 1.5604278606258912
+      },
+      "elev": {
+        "elevation": 0.773183825439432
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0.5974799913933778
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0.7364394515703805
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.039913681744533705,
+        "water": 0.5803037389848088
+      },
+      "dw_2018_n": 46,
+      "dw_2024": {
+        "flooded_vegetation": 0.041510219853795674,
+        "water": 0.6042652411574422
+      },
+      "dw_2024_n": 36,
+      "creep_score": {
+        "occurrence": 96.45331729296294,
+        "change_abs": -1.2853350557539018,
+        "monthly_freq_delta": 0.13895946017700267,
+        "flag_rising_water": true
+      }
+    },
+    "marsh_edge_west_bay": {
+      "lon": -95.0,
+      "lat": 29.25,
+      "gsw": {
+        "change_abs": 0.5465042965733679,
+        "occurrence": 96.8625593134391,
+        "recurrence": 98.06925523700225,
+        "seasonality": 11.702251948387469,
+        "transition": 1.4067115805580945
+      },
+      "elev": {
+        "elevation": 0.4179278086446486
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0.559326031569048
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0.7353818730416546
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.07433625352544428,
+        "water": 0.6324576874954965
+      },
+      "dw_2018_n": 167,
+      "dw_2024": {
+        "flooded_vegetation": 0.057205855184224365,
+        "water": 0.6521302925743262
+      },
+      "dw_2024_n": 138,
+      "creep_score": {
+        "occurrence": 96.8625593134391,
+        "change_abs": 0.5465042965733679,
+        "monthly_freq_delta": 0.17605584147260656,
+        "flag_rising_water": true
+      }
+    },
+    "clear_lake_edge": {
+      "lon": -95.08,
+      "lat": 29.55,
+      "gsw": {
+        "change_abs": 1.151020216598026,
+        "occurrence": 95.1907654282036,
+        "recurrence": 98.23575862109419,
+        "seasonality": 11.302713741043712,
+        "transition": 1.4745092517629388
+      },
+      "elev": {
+        "elevation": 2.1486087975815904
+      },
+      "water_freq_1984_1999": {
+        "n_months": 190,
+        "w": 0.28999469410922724
+      },
+      "water_freq_2000_2021": {
+        "n_months": 264,
+        "w": 0.4134280260964577
+      },
+      "dw_2018": {
+        "flooded_vegetation": 0.041656715342312536,
+        "water": 0.3758410917366511
+      },
+      "dw_2018_n": 76,
+      "dw_2024": {
+        "flooded_vegetation": 0.04067235053965795,
+        "water": 0.38305823056985977
+      },
+      "dw_2024_n": 67,
+      "creep_score": {
+        "occurrence": 95.1907654282036,
+        "change_abs": 1.151020216598026,
+        "monthly_freq_delta": 0.12343333198723044,
+        "flag_rising_water": true
+      }
+    }
+  },
+  "ocean_transect_aug2023": [
+    {
+      "chlor_a": 6.520080898299111,
+      "sal": 33.65044612068966,
+      "speed": 0.0729919707683361,
+      "sst": 31.107904248768474,
+      "lon": -94.8,
+      "lat": 29.3
+    },
+    {
+      "chlor_a": 1.4883690966537544,
+      "sal": 34.38111726778159,
+      "speed": 0.1021353429982405,
+      "sst": 30.49410046217007,
+      "lon": -94.8,
+      "lat": 29.1
+    },
+    {
+      "chlor_a": 0.22562812251955752,
+      "sal": 35.484461137780244,
+      "speed": 0.10546714457653372,
+      "sst": 30.30472535689153,
+      "lon": -94.8,
+      "lat": 28.8
+    },
+    {
+      "chlor_a": 0.0748920205864454,
+      "sal": 35.65357832102388,
+      "speed": 0.1262534672762103,
+      "sst": 30.338476439194665,
+      "lon": -94.8,
+      "lat": 28.4
+    },
+    {
+      "chlor_a": 0.08638338618610632,
+      "sal": 35.61195795258402,
+      "speed": 0.0844211441225841,
+      "sst": 30.39595186694081,
+      "lon": -94.8,
+      "lat": 28.0
+    },
+    {
+      "chlor_a": 0.06315298040879926,
+      "sal": 36.02897489564008,
+      "speed": 0.393815766370809,
+      "sst": 30.5541343086477,
+      "lon": -94.8,
+      "lat": 27.5
+    },
+    {
+      "chlor_a": 0.046925433950244094,
+      "sal": 36.33373382579651,
+      "speed": 0.3022491172969945,
+      "sst": 30.68911347636177,
+      "lon": -94.8,
+      "lat": 27.0
+    }
+  ],
+  "bloom_compare_aug2023": {
+    "galveston_bay_mean_chl": {
+      "chlor_a": 7.654326182379922
+    },
+    "galveston_bay_p90_chl": {
+      "chlor_a": 11.365047454833984
+    },
+    "open_gulf_mean_chl": {
+      "chlor_a": 0.08400855896678738
+    }
+  },
+  "modis_aqua_bands": [
+    "chlor_a",
+    "nflh",
+    "poc",
+    "Rrs_412",
+    "Rrs_443",
+    "Rrs_469",
+    "Rrs_488",
+    "Rrs_531",
+    "Rrs_547",
+    "Rrs_555",
+    "Rrs_645",
+    "Rrs_667",
+    "Rrs_678",
+    "sst",
+    "nsst",
+    "par",
+    "Kd_490"
+  ]
+}

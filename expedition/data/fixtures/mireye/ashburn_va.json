@@ -1,0 +1,13 @@
+{
+  "lat": 39.0438,
+  "lng": -77.4874,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "fields": {
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "nearest_substation_distance_m": {"value": 1270.0, "unit": "meters", "source": "HIFLD", "status": "ok"},
+    "nearest_substation_max_voltage_kv": {"value": 230.0, "unit": "kV", "source": "HIFLD", "status": "ok"},
+    "days_above_32c_annual_count": {"value": 28, "source": "GRIDMET", "status": "ok"},
+    "fiber_provider_count": {"value": 4, "source": "FCC", "status": "ok"}
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "project": "gen-lang-client-0261050164",
+  "sites": {
+    "san_leon": {
+      "name": "San Leon, TX",
+      "lat": 29.475732,
+      "lng": -94.966533,
+      "files": {
+        "naip_2005": "san_leon_naip_2005.png",
+        "naip_2022": "san_leon_naip_2022.png",
+        "jrc_occurrence": "san_leon_jrc_occurrence.png",
+        "fabdem": "san_leon_fabdem.png",
+        "embed_change": "san_leon_embed_change.png"
+      },
+      "stats": {
+        "naip_years": [
+          2005,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2019,
+          2020,
+          2022
+        ],
+        "jrc_occurrence_mean": 0.9034267912772587,
+        "fabdem_m": 0.7491858462852085,
+        "nasadem_m": 2.821546052631579,
+        "embed_change_2017_2024": 0.1866578505218471,
+        "embed_bands": 64
+      }
+    },
+    "keep_control": {
+      "name": "3605 Winfield Cove, Austin",
+      "lat": 30.2363775,
+      "lng": -97.7807633,
+      "files": {
+        "naip_2005": "keep_control_naip_2005.png",
+        "naip_2022": "keep_control_naip_2022.png",
+        "jrc_occurrence": "keep_control_jrc_occurrence.png",
+        "fabdem": "keep_control_fabdem.png",
+        "embed_change": "keep_control_embed_change.png"
+      },
+      "stats": {
+        "naip_years": [
+          2005,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2019,
+          2020,
+          2022
+        ],
+        "jrc_occurrence_mean": 0,
+        "fabdem_m": 208.18600256095002,
+        "nasadem_m": 207.89814814814815,
+        "embed_change_2017_2024": 0.035625542171528475,
+        "embed_bands": 64
+      }
+    }
+  }
+}

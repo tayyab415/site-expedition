@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-08-13T14:55:44.588268+00:00",
+  "site_key": "keep_control",
+  "site": {
+    "name": "3605 Winfield Cove, Austin TX",
+    "lat": 30.2363775,
+    "lng": -97.7807633
+  },
+  "verdict": "KEEP",
+  "fights": [],
+  "aggravators": [],
+  "total_duration_ms": 5555,
+  "steps": [
+    {
+      "index": 0,
+      "tool": "mireye.fetch",
+      "description": "Load the cited federal record for a pin (cache-only).",
+      "input": {
+        "lat": 30.2363775,
+        "lng": -97.7807633,
+        "preset": "terrain"
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/keep_control/cache/mireye/3605_winfield_cove_austin_tx.json",
+        "record_summary": {
+          "elevation_m": 205.84068298339844,
+          "fema_flood_zone": "X",
+          "surface_water_permanence_pct": 0.0,
+          "intersects_wetland": false
+        },
+        "fields_returned": [
+          "elevation",
+          "slope_degrees",
+          "aspect_cardinal",
+          "coast_distance_m",
+          "soil_drainage_class",
+          "bedrock_depth_cm",
+          "fema_flood_zone",
+          "intersects_wetland",
+          "surface_water_permanence_pct"
+        ]
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 0,
+      "duration_ms": 420,
+      "finished_ms": 420
+    },
+    {
+      "index": 1,
+      "tool": "ee.water_rewind",
+      "description": "JRC Global Surface Water monthly history at 60 m buffer.",
+      "input": {
+        "lat": 30.2363775,
+        "lng": -97.7807633,
+        "years": [
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021
+        ]
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/keep_control/cache/earth/3605_winfield_cove_austin_tx.json",
+        "dataset": "JRC/GSW1_4/MonthlyHistory",
+        "baseline_freq_1985_1999": 0.0,
+        "latest_freq_2021": 0.0,
+        "breakpoint_year": null,
+        "timeline_years": 37
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 540,
+      "duration_ms": 2800,
+      "finished_ms": 3340
+    },
+    {
+      "index": 2,
+      "tool": "ee.height_check",
+      "description": "FABDEM vs NASADEM vs cited elevation.",
+      "input": {
+        "lat": 30.2363775,
+        "lng": -97.7807633,
+        "buffer_m": 60
+      },
+      "output": {
+        "cache_hit": true,
+        "path": "data/keep_control/cache/earth/3605_winfield_cove_austin_tx.json",
+        "fabdem_m": 208.35069024819654,
+        "nasadem_m": 208.3425143168803,
+        "record_elevation_m": 205.84068298339844,
+        "gap_m": 2.51,
+        "datasets": [
+          "NASA/NASADEM_HGT/001",
+          "projects/sat-io/open-datasets/FABDEM"
+        ]
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 3460,
+      "duration_ms": 1100,
+      "finished_ms": 4560
+    },
+    {
+      "index": 3,
+      "tool": "intel.triage",
+      "description": "Record-driven docket \u2014 which witnesses to stage.",
+      "input": {
+        "record_ref": "ctx.record"
+      },
+      "output": {
+        "scheduled_tools": [
+          "ee.water_rewind",
+          "ee.height_check"
+        ],
+        "reasons": [
+          "default docket \u2014 baseline witnesses"
+        ],
+        "signals": {
+          "flood_zone": "X",
+          "coast_m": 188177.8473681091,
+          "water_permanence_pct": 0.0,
+          "drainage": "Well drained"
+        }
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 4680,
+      "duration_ms": 180,
+      "finished_ms": 4860
+    },
+    {
+      "index": 4,
+      "tool": "judge.verdict",
+      "description": "Deterministic KEEP / KILL / HUMAN from fights.",
+      "input": {
+        "record_ref": "ctx.record",
+        "witness_ref": "ctx.witness"
+      },
+      "output": {
+        "verdict": "KEEP",
+        "fights": [],
+        "aggravators": []
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 4980,
+      "duration_ms": 95,
+      "finished_ms": 5075
+    },
+    {
+      "index": 5,
+      "tool": "act.write_packet",
+      "description": "Write verdict.json, evidence, timeline SVG, letter.",
+      "input": {
+        "site_key": "keep_control"
+      },
+      "output": {
+        "output_dir": "data/keep_control",
+        "files": [
+          "verdict.json",
+          "evidence.json",
+          "water_timeline.svg",
+          "advisory.md"
+        ],
+        "verdict": "KEEP",
+        "fight_count": 0
+      },
+      "status": "ok",
+      "error": null,
+      "started_ms": 5195,
+      "duration_ms": 240,
+      "finished_ms": 5435
+    }
+  ],
+  "replay": {
+    "mode": "cached",
+    "live_apis": false,
+    "note": "Timings simulated; payloads from data/*/cache/"
+  }
+}

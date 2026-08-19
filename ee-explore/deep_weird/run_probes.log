@@ -1,0 +1,120 @@
+Initializing EE...
+EE ready
+=== catalog loads ===
+[OK] catalog/methane_s5p_ch4 — load OK
+[OK] catalog/no2_s5p_offl — load OK
+/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/deprecation.py:215: DeprecationWarning: 
+
+Attention required for NASA/TEMPO/NO2_L3! You are using a deprecated asset.
+To make sure your code keeps working, please update it.
+This dataset has been superseded by NASA/TEMPO/NO2_L3_V4
+
+Learn more: https://developers.google.com/earth-engine/datasets/catalog/NASA_TEMPO_NO2_L3
+
+  warnings.warn(warning, category=DeprecationWarning)
+[OK] catalog/no2_tempo — load OK
+[OK] catalog/viirs_ntl_monthly — load OK
+[OK] catalog/viirs_ntl_annual — load OK
+[OK] catalog/dmsp_nightlights — load OK
+[OK] catalog/gpw_pop_density — load OK
+[OK] catalog/ghsl_pop — load OK
+[OK] catalog/landscan_global — load OK
+[OK] catalog/open_buildings_v3 — load OK
+[OK] catalog/open_buildings_temporal — load OK
+[OK] catalog/emit_ch4_plume — load OK
+[OK] catalog/emit_ch4_enh — load OK
+[OK] catalog/emit_reflectance — load OK
+[OK] catalog/soil_grtgroup — load OK
+[OK] catalog/soil_texture — load OK
+[OK] catalog/soil_ph — load OK
+[OK] catalog/gap_wildlife_habitat — load OK
+[OK] catalog/padus_protected — load OK
+[OK] catalog/wdpa_protected — load OK
+[OK] catalog/tiger_roads_2016 — load OK
+[OK] catalog/grace_land_v04 — load OK
+[OK] catalog/grace_mascon — load OK
+[OK] catalog/lithology_ergo — load OK
+[OK] catalog/topo_diversity — load OK
+[OK] catalog/human_modification — load OK
+[OK] catalog/gaia_impervious_change — load OK
+[OK] catalog/ghsl_built_height — load OK
+[OK] catalog/hydroatlas_l6 — load OK
+[OK] catalog/freeflowing_rivers — load OK
+[OK] catalog/s5p_co — load OK
+[OK] catalog/s5p_so2 — load OK
+[OK] catalog/isda_soil_ph_africa — load OK
+[FAIL] catalog/uspvdb_guess — EEException: Collection.loadTable: Collection asset 'USGS/USPVDB/v1' not found.
+[FAIL] catalog/covid_mobility_guess — EEException: ImageCollection.load: ImageCollection asset 'GOOGLE/COVID19/Mobility' not found (does not exist or caller does not have access)
+[FAIL] catalog/landslide_inventory_guess — EEException: Collection.loadTable: Collection asset 'USGS/LANDSLIDES/v1' not found.
+[FAIL] catalog/earthquake_comcat_guess — EEException: Collection.loadTable: Collection asset 'USGS/ANSS_ComCat' not found.
+[FAIL] catalog/methanesat_preview_guess — EEException: ImageCollection.load: ImageCollection asset 'projects/edf-methanesat-ee/assets/publicPreview/L3concentration' not found (does n
+[FAIL] catalog/traffic_guess — EEException: ImageCollection.load: ImageCollection asset 'GOOGLE/Traffic/v1' not found (does not exist or caller does not have access).
+=== catalog thumbs/stats ===
+[OK] catalog_viz/thumb_s5p_ch4_permian
+[OK] catalog_viz/thumb_s5p_no2_houston
+[OK] catalog_viz/thumb_viirs_ntl_houston
+[OK] catalog_viz/thumb_viirs_ntl_change
+[OK] catalog_viz/thumb_gpw_pop
+[OK] catalog_viz/thumb_emit_plume_permian
+[OK] catalog_viz/thumb_soil_ph_iowa
+[OK] catalog_viz/thumb_gap_habitat
+[OK] catalog_viz/thumb_lithology
+[OK] catalog_viz/thumb_open_buildings_temporal
+[OK] catalog_viz/thumb_grace_mascon
+=== platform APIs ===
+[OK] platform_api/getDownloadURL_srtm
+[OK] platform_api/getThumbURL_s2
+[OK] platform_api/reduceRegions_roads_elev
+[OK] platform_api/fastDistanceTransform
+[OK] platform_api/cumulativeCost
+[FAIL] platform_api/kriging — ee.Image.kriging does not exist
+  classifiers...
+    smileRandomForest
+[FAIL] ml/classifiers_rf_nb_svm — Image.load: Asset 'ESA/WorldCover/v200' is not an Image.
+^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.
+  clusterer...
+  thumb fail kmeans_s2_iowa.png: Must specify either one or three bands for PNG or JPEG encoding. Found 4 bands.
+[OK] ml/clusterer_wekaKMeans_s2
+[FAIL] export/export_table_gcs — expect fail: state=READY error=None
+[OK] export/export_image_drive_tasklist
+=== geometry ===
+[OK] geometry/coveringGrid_houston
+[OK] geometry/spatial_join_basins_padus
+[OK] geometry/intersect_large_fc_roads
+=== unmix/array ===
+[OK] array_unmix/image_unmix_landsat
+[OK] array_unmix/emit_toArray_hyperspectral
+=== listImages ===
+[OK] catalog_search/listImages_methane
+[OK] catalog_search/listImages_tropomi
+[OK] catalog_search/listImages_landslide_proxy_emit
+[OK] catalog_search/listImages_building
+[OK] catalog_search/listImages_solar_proxy_viirs
+[OK] catalog_search/listImages_traffic_proxy_ntl
+[OK] catalog_search/getList_emit_ch4plm
+=== stress ===
+[FAIL] stress/reduce_conus_scale1 — Image.reduceRegion: Too many pixels in the region. Found 19405998228952, but maxPixels allows only 10000000.
+Ensure that you are not aggrega
+[FAIL] stress/reduce_texas_scale10 — Image.reduceRegion: Too many pixels in the region. Found 17757215049, but maxPixels allows only 10000000.
+Ensure that you are not aggregatin
+[FAIL] stress/reduce_houston_scale1 — Image.reduceRegion: Too many pixels in the region. Found 1836998434, but maxPixels allows only 10000000.
+Ensure that you are not aggregating
+[OK] stress/reduce_houston_scale30_ok
+[FAIL] stress/reduce_houston_scale1_maxPixels1e9 — Image.reduceRegion: Too many pixels in the region. Found 1836998434, but maxPixels allows only 1000000000.
+Ensure that you are not aggregati
+[OK] stress/reduce_texas_bestEffort
+=== sharpness ===
+[OK] sharpness/sharpness_naip_s2_landsat — thumbs=/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/thumbs/sha
+=== deep dive EMIT ===
+  followup count_and_span: OK
+  followup permian_plume_max: OK
+  followup ch4enh_colocated: OK
+  followup plume_vs_population: OK
+  followup plume_vs_viirs_ntl: OK
+  followup listImages_and_props: OK
+  followup plume_vs_s5p_ch4: OK
+[OK] deep_dive/deep_dive_emit_methane — EMIT CH4PLM deep dive
+
+Wrote /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_weird/deep_weird_results.json  ok=67 fail=13 total=80
+by_category: {"catalog": {"ok": 33, "fail": 6}, "catalog_viz": {"ok": 11, "fail": 0}, "platform_api": {"ok": 5, "fail": 1}, "ml": {"ok": 1, "fail": 1}, "export": {"ok": 1, "fail": 1}, "geometry": {"ok": 3, "fail": 0}, "array_unmix": {"ok": 2, "fail": 0}, "catalog_search": {"ok": 7, "fail": 0}, "stress": {"ok": 2, "fail": 4}, "sharpness": {"ok": 1, "fail": 0}, "deep_dive": {"ok": 1, "fail": 0}}

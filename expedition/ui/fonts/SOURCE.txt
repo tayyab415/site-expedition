@@ -1,0 +1,11 @@
+Official Clash of Clans desktop fonts from the Supercell Fan Kit.
+
+https://fankit.supercell.com/d/vkEdmkUCngKw/font#/basics/clash-of-clans-fonts
+
+Clash_Regular.ttf  Clash Regular (weight 400)
+Clash_Bold.ttf     Clash Bold (weight 700)
+
+Downloaded as Clash_Regular.otf.zip / Clash_Bold.otf.zip; the zip
+payloads are TrueType (internal family name: Clash).
+
+Use is subject to Supercell's Fan Content guidelines on that kit.

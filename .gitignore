@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-ee/
+*.egg-info/
+
+# Secrets and local runtime
+.env
+.env.*
+credentials.json
+**/credentials.json
+
+# Nested explore clones (own git histories / node_modules)
+mcp-explore/*/
+
+# OS
+.DS_Store
+node_modules/

@@ -1,0 +1,3727 @@
+[
+  {
+    "name": "catalog_load_COPERNICUS_S1_GRD",
+    "ok": true,
+    "params": {
+      "asset": "COPERNICUS/S1_GRD",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "HH",
+        "HV",
+        "angle"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['HH', 'HV', 'angle']",
+    "error": null,
+    "ts": "2026-08-12T00:13:34.744364+00:00"
+  },
+  {
+    "name": "catalog_load_COPERNICUS_S1_GRD_FLOAT",
+    "ok": true,
+    "params": {
+      "asset": "COPERNICUS/S1_GRD_FLOAT",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "HH",
+        "HV",
+        "angle"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['HH', 'HV', 'angle']",
+    "error": null,
+    "ts": "2026-08-12T00:13:34.877344+00:00"
+  },
+  {
+    "name": "catalog_load_JAXA_ALOS_PALSAR_YEARLY_SAR",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR/YEARLY/SAR",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "HH",
+        "HV",
+        "angle",
+        "date",
+        "qa"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['HH', 'HV', 'angle', 'date', 'qa']",
+    "error": null,
+    "ts": "2026-08-12T00:13:35.049069+00:00"
+  },
+  {
+    "name": "catalog_load_JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "HH",
+        "HV",
+        "angle",
+        "epoch",
+        "qa"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['HH', 'HV', 'angle', 'epoch', 'qa']",
+    "error": null,
+    "ts": "2026-08-12T00:13:35.196757+00:00"
+  },
+  {
+    "name": "catalog_load_JAXA_ALOS_PALSAR-2_Level2_2_ScanSAR",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "HH",
+        "HV",
+        "LIN",
+        "MSK"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['HH', 'HV', 'LIN', 'MSK']",
+    "error": null,
+    "ts": "2026-08-12T00:13:35.459386+00:00"
+  },
+  {
+    "name": "catalog_load_JAXA_ALOS_PALSAR-2_Level2_1_StripMap_202401",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR-2/Level2_1/StripMap_202401",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "b1"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['b1']",
+    "error": null,
+    "ts": "2026-08-12T00:13:35.731624+00:00"
+  },
+  {
+    "name": "catalog_load_JAXA_ALOS_PALSAR_YEARLY_FNF4",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR/YEARLY/FNF4",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "fnf"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['fnf']",
+    "error": null,
+    "ts": "2026-08-12T00:13:35.925716+00:00"
+  },
+  {
+    "name": "catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_BACKSCATTER",
+    "ok": true,
+    "params": {
+      "asset": "Earth_Big_Data/GLOBAL_SEASONAL_S1/V2019/BACKSCATTER",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "fall_hh_AMP",
+        "fall_hv_AMP",
+        "fall_vh_AMP",
+        "fall_vv_AMP",
+        "spring_hh_AMP",
+        "spring_hv_AMP",
+        "spring_vh_AMP",
+        "spring_vv_AMP",
+        "summer_hh_AMP",
+        "summer_hv_AMP",
+        "summer_vh_AMP",
+        "summer_vv_AMP",
+        "winter_hh_AMP",
+        "winter_hv_AMP",
+        "winter_vh_AMP",
+        "winter_vv_AMP"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['fall_hh_AMP', 'fall_hv_AMP', 'fall_vh_AMP', 'fall_vv_AMP', 'spring_hh_AMP', 'spring_hv_AMP', 'spring_vh_AMP', 'spring_vv_AMP', 'summer_hh_AMP', 'summer_hv_AMP', 'summer_vh_AMP', 'summer_vv_AMP', 'winter_hh_AMP', 'winter_hv_AMP', 'winter_vh_AMP', 'winter_vv_AMP']",
+    "error": null,
+    "ts": "2026-08-12T00:13:36.169899+00:00"
+  },
+  {
+    "name": "catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_COHERENCE",
+    "ok": true,
+    "params": {
+      "asset": "Earth_Big_Data/GLOBAL_SEASONAL_S1/V2019/COHERENCE",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "fall_hh_COH06",
+        "fall_hh_COH12",
+        "fall_hh_COH18",
+        "fall_hh_COH24",
+        "fall_hh_COH36",
+        "fall_hh_COH48",
+        "fall_vv_COH06",
+        "fall_vv_COH12",
+        "fall_vv_COH18",
+        "fall_vv_COH24",
+        "fall_vv_COH36",
+        "fall_vv_COH48",
+        "spring_hh_COH06",
+        "spring_hh_COH12",
+        "spring_hh_COH18",
+        "spring_hh_COH24",
+        "spring_hh_COH36",
+        "spring_hh_COH48",
+        "spring_vv_COH06",
+        "spring_vv_COH12",
+        "spring_vv_COH18",
+        "spring_vv_COH24",
+        "spring_vv_COH36",
+        "spring_vv_COH48",
+        "summer_hh_COH06",
+        "summer_hh_COH12",
+        "summer_hh_COH18",
+        "summer_hh_COH24",
+        "summer_hh_COH36",
+        "summer_hh_COH48",
+        "summer_vv_COH06",
+        "summer_vv_COH12",
+        "summer_vv_COH18",
+        "summer_vv_COH24",
+        "summer_vv_COH36",
+        "summer_vv_COH48",
+        "winter_hh_COH06",
+        "winter_hh_COH12",
+        "winter_hh_COH18",
+        "winter_hh_COH24",
+        "winter_hh_COH36",
+        "winter_hh_COH48",
+        "winter_vv_COH06",
+        "winter_vv_COH12",
+        "winter_vv_COH18",
+        "winter_vv_COH24",
+        "winter_vv_COH36",
+        "winter_vv_COH48"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['fall_hh_COH06', 'fall_hh_COH12', 'fall_hh_COH18', 'fall_hh_COH24', 'fall_hh_COH36', 'fall_hh_COH48', 'fall_vv_COH06', 'fall_vv_COH12', 'fall_vv_COH18', 'fall_vv_COH24', 'fall_vv_COH36', 'fall_vv_COH48', 'spring_hh_COH06', 'spring_hh_COH12', 'spring_hh_COH18', 'spring_hh_COH24', 'spring_hh_COH36', 'spring_hh_COH48', 'spring_vv_COH06', 'spring_vv_COH12', 'spring_vv_COH18', 'spring_vv_COH24', 'spring_vv_COH36', 'spring_vv_COH48', 'summer_hh_COH06', 'summer_hh_COH12', 'summer_hh_COH18', 'summer_hh_COH24', 'summer_hh_COH36', 'summer_hh_COH48', 'summer_vv_COH06', 'summer_vv_COH12', 'summer_vv_COH18', 'summer_vv_COH24', 'summer_vv_COH36', 'summer_vv_COH48', 'winter_hh_COH06', 'winter_hh_COH12', 'winter_hh_COH18', 'winter_hh_COH24', 'winter_hh_COH36', 'winter_hh_COH48', 'winter_vv_COH06', 'winter_vv_COH12', 'winter_vv_COH18', 'winter_vv_COH24', 'winter_vv_COH36', 'winter_vv_COH48']",
+    "error": null,
+    "ts": "2026-08-12T00:13:36.578080+00:00"
+  },
+  {
+    "name": "catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_DECAY_MODEL_PARAMETERS",
+    "ok": true,
+    "params": {
+      "asset": "Earth_Big_Data/GLOBAL_SEASONAL_S1/V2019/DECAY_MODEL_PARAMETERS",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "fall_hh_rho",
+        "fall_hh_rmse",
+        "fall_hh_tau",
+        "fall_vv_rho",
+        "fall_vv_rmse",
+        "fall_vv_tau",
+        "spring_hh_rho",
+        "spring_hh_rmse",
+        "spring_hh_tau",
+        "spring_vv_rho",
+        "spring_vv_rmse",
+        "spring_vv_tau",
+        "summer_hh_rho",
+        "summer_hh_rmse",
+        "summer_hh_tau",
+        "summer_vv_rho",
+        "summer_vv_rmse",
+        "summer_vv_tau",
+        "winter_hh_rho",
+        "winter_hh_rmse",
+        "winter_hh_tau",
+        "winter_vv_rho",
+        "winter_vv_rmse",
+        "winter_vv_tau"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['fall_hh_rho', 'fall_hh_rmse', 'fall_hh_tau', 'fall_vv_rho', 'fall_vv_rmse', 'fall_vv_tau', 'spring_hh_rho', 'spring_hh_rmse', 'spring_hh_tau', 'spring_vv_rho', 'spring_vv_rmse', 'spring_vv_tau', 'summer_hh_rho', 'summer_hh_rmse', 'summer_hh_tau', 'summer_vv_rho', 'summer_vv_rmse', 'summer_vv_tau', 'winter_hh_rho', 'winter_hh_rmse', 'winter_hh_tau', 'winter_vv_rho', 'winter_vv_rmse', 'winter_vv_tau']",
+    "error": null,
+    "ts": "2026-08-12T00:13:36.793401+00:00"
+  },
+  {
+    "name": "catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_INCIDENCE_LAYOVER_SHADOW",
+    "ok": true,
+    "params": {
+      "asset": "Earth_Big_Data/GLOBAL_SEASONAL_S1/V2019/INCIDENCE_LAYOVER_SHADOW",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "inc",
+        "lsmap"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['inc', 'lsmap']",
+    "error": null,
+    "ts": "2026-08-12T00:13:37.088354+00:00"
+  },
+  {
+    "name": "catalog_load_OPERA_RTC_L2_V1_S1",
+    "ok": true,
+    "params": {
+      "asset": "OPERA/RTC/L2_V1/S1",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "VH",
+        "VV",
+        "mask"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['VH', 'VV', 'mask']",
+    "error": null,
+    "ts": "2026-08-12T00:13:37.279647+00:00"
+  },
+  {
+    "name": "catalog_load_OPERA_RTC_L2_V1_S1_STATIC",
+    "ok": true,
+    "params": {
+      "asset": "OPERA/RTC/L2_V1/S1_STATIC",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "local_incidence_angle",
+        "incidence_angle",
+        "number_of_looks",
+        "rtc_anf_gamma0_to_beta0",
+        "rtc_anf_gamma0_to_sigma0",
+        "mask"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['local_incidence_angle', 'incidence_angle', 'number_of_looks', 'rtc_anf_gamma0_to_beta0', 'rtc_anf_gamma0_to_sigma0', 'mask']",
+    "error": null,
+    "ts": "2026-08-12T00:13:37.932651+00:00"
+  },
+  {
+    "name": "catalog_load_OPERA_DSWX_L3_V1_S1",
+    "ok": true,
+    "params": {
+      "asset": "OPERA/DSWX/L3_V1/S1",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "WTR_Water_classification",
+        "BWTR_Binary_water",
+        "CONF_Confidence",
+        "DIAG_diagnostic"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['WTR_Water_classification', 'BWTR_Binary_water', 'CONF_Confidence', 'DIAG_diagnostic']",
+    "error": null,
+    "ts": "2026-08-12T00:13:38.123606+00:00"
+  },
+  {
+    "name": "catalog_load_projects_ee-pkurelab_assets_LHScat",
+    "ok": true,
+    "params": {
+      "asset": "projects/ee-pkurelab/assets/LHScat",
+      "type": "ImageCollection"
+    },
+    "results": {
+      "sample_size": 3,
+      "bands": [
+        "radar_signals"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded IC; bands=['radar_signals']",
+    "error": null,
+    "ts": "2026-08-12T00:13:38.338596+00:00"
+  },
+  {
+    "name": "catalog_load_OSU_GIMP_2000_IMAGERY_MOSAIC",
+    "ok": true,
+    "params": {
+      "asset": "OSU/GIMP/2000_IMAGERY_MOSAIC",
+      "type": "Image"
+    },
+    "results": {
+      "bands": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6_low_gain",
+        "B6_high_gain",
+        "B7",
+        "B8",
+        "B8_radarsat"
+      ]
+    },
+    "paths": [],
+    "notes": "Loaded as Image; bands=['B1', 'B2', 'B3', 'B4', 'B5', 'B6_low_gain', 'B6_high_gain', 'B7', 'B8', 'B8_radarsat']",
+    "error": null,
+    "ts": "2026-08-12T00:13:38.445431+00:00"
+  },
+  {
+    "name": "catalog_load_ASF_UAVSAR",
+    "ok": false,
+    "params": {
+      "asset": "ASF/UAVSAR"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'ASF/UAVSAR' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:38.492208+00:00"
+  },
+  {
+    "name": "catalog_load_ICEYE_SAR",
+    "ok": false,
+    "params": {
+      "asset": "ICEYE/SAR"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'ICEYE/SAR' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:38.678391+00:00"
+  },
+  {
+    "name": "catalog_load_CAPELLA_SAR",
+    "ok": false,
+    "params": {
+      "asset": "CAPELLA/SAR"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'CAPELLA/SAR' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:38.797906+00:00"
+  },
+  {
+    "name": "catalog_load_NASA_NISAR_L2",
+    "ok": false,
+    "params": {
+      "asset": "NASA/NISAR/L2"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'NASA/NISAR/L2' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:38.930242+00:00"
+  },
+  {
+    "name": "catalog_load_COPERNICUS_S1_SLC",
+    "ok": false,
+    "params": {
+      "asset": "COPERNICUS/S1_SLC"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:39.128226+00:00"
+  },
+  {
+    "name": "catalog_load_ESA_S1_SLC",
+    "ok": false,
+    "params": {
+      "asset": "ESA/S1_SLC"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "Not available in public EE catalog (or wrong ID)",
+    "error": "Image.load: Image asset 'ESA/S1_SLC' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:13:39.378433+00:00"
+  },
+  {
+    "name": "s1_coverage_galveston_2023",
+    "ok": true,
+    "params": {
+      "region": "galveston",
+      "year": 2023
+    },
+    "results": {
+      "n_scenes": 114,
+      "ascending": 84,
+      "descending": 30,
+      "orbits": [
+        34,
+        136,
+        143
+      ],
+      "platforms": {
+        "A": 114
+      }
+    },
+    "paths": [],
+    "notes": "114 IW VV+VH scenes; asc=84 desc=30; orbits=[143, 34, 136]",
+    "error": null,
+    "ts": "2026-08-12T00:13:39.879700+00:00"
+  },
+  {
+    "name": "vv_vh_urban_vs_water",
+    "ok": true,
+    "params": {
+      "dates": "2023-06..09",
+      "urban": "houston",
+      "water": "clear_lake"
+    },
+    "results": {
+      "urban_VV_mean": -8.097247897725609,
+      "urban_VH_mean": -15.29217041060062,
+      "water_VV_mean": -12.169799950161044,
+      "water_VH_mean": -19.453902247420245,
+      "delta_VV_urban_minus_water": 4.0725520524354355,
+      "delta_VH_urban_minus_water": 4.161731836819625,
+      "urban_full": {
+        "VH_max": 17.459197690321485,
+        "VH_mean": -15.29217041060062,
+        "VH_min": -27.45276296679662,
+        "VH_p5": -20.120597534337563,
+        "VH_p50": -15.373758138229435,
+        "VH_p95": -10.624779585219803,
+        "VH_stdDev": 2.990368826499818,
+        "VV_max": 25.524671749767748,
+        "VV_mean": -8.097247897725609,
+        "VV_min": -21.04610015217421,
+        "VV_p5": -13.120047560950923,
+        "VV_p50": -8.374197163118511,
+        "VV_p95": -2.3742687410755434,
+        "VV_stdDev": 3.3808501613818023
+      },
+      "water_full": {
+        "VH_max": 11.417623230332838,
+        "VH_mean": -19.453902247420245,
+        "VH_min": -30.994436202096402,
+        "VH_p5": -27.86839505653707,
+        "VH_p50": -17.373699756499683,
+        "VH_p95": -13.381127001260225,
+        "VH_stdDev": 5.426998574263253,
+        "VV_max": 19.475240943645584,
+        "VV_mean": -12.169799950161044,
+        "VV_min": -23.12742348370573,
+        "VV_p5": -19.119128469582815,
+        "VV_p50": -11.125035354485176,
+        "VV_p95": -5.629390569323028,
+        "VV_stdDev": 4.667252027806109
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_area_vv_vh_rgb.png"
+    ],
+    "notes": "Urban VV mean -8.10 dB vs water -12.17 dB; \u0394VV=4.07 dB",
+    "error": null,
+    "ts": "2026-08-12T00:13:48.120895+00:00"
+  },
+  {
+    "name": "asc_vs_desc_galveston",
+    "ok": true,
+    "params": {
+      "year": 2023
+    },
+    "results": {
+      "asc": {
+        "VV_max": 20.058937358969686,
+        "VV_mean": -15.41782057582974,
+        "VV_min": -23.34462309783539,
+        "VV_p5": -20.36586211559975,
+        "VV_p50": -17.88815885518562,
+        "VV_p95": -8.878756724003933,
+        "VV_stdDev": 4.4187124531414605
+      },
+      "desc": {
+        "VV_max": 15.0731314611952,
+        "VV_mean": -12.913281490036196,
+        "VV_min": -51.70266282187878,
+        "VV_p5": -17.22146609740518,
+        "VV_p50": -12.731053295614828,
+        "VV_p95": -8.279268470345542,
+        "VV_stdDev": 3.254341446622738
+      },
+      "diff": {
+        "asc_minus_desc_max": 32.33191208753638,
+        "asc_minus_desc_mean": -1.6315063334523845,
+        "asc_minus_desc_min": -26.14412758376814,
+        "asc_minus_desc_p5": -4.618682860841607,
+        "asc_minus_desc_p50": -1.3714932190791218,
+        "asc_minus_desc_p95": 0.6150574410719748,
+        "asc_minus_desc_stdDev": 1.7904089395528069
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_asc_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_desc_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_asc_minus_desc_VV.png"
+    ],
+    "notes": "Asc VV mean -15.42 vs Desc -12.91; mean |diff| via mean of signed=-1.6315063334523845",
+    "error": null,
+    "ts": "2026-08-12T00:14:35.819700+00:00"
+  },
+  {
+    "name": "dualpol_ratios_galveston",
+    "ok": true,
+    "params": {},
+    "results": {
+      "VV_minus_VH": {
+        "VV_minus_VH_max": 26.011694350017713,
+        "VV_minus_VH_mean": 6.962144481443102,
+        "VV_minus_VH_min": -4.57258228761799,
+        "VV_minus_VH_p5": 4.689516738235823,
+        "VV_minus_VH_p50": 6.812189537992687,
+        "VV_minus_VH_p95": 9.561002916073368,
+        "VV_minus_VH_stdDev": 1.605450108078046
+      },
+      "VH_over_VV": {
+        "VH_over_VV_max": 2.8658814984794945,
+        "VH_over_VV_mean": 0.21468958849780082,
+        "VH_over_VV_min": 0.0025051317140041764,
+        "VH_over_VV_p5": 0.11783710370951735,
+        "VH_over_VV_p50": 0.21094078938034963,
+        "VH_over_VV_p95": 0.3510564551681301,
+        "VH_over_VV_stdDev": 0.07566154662076899
+      },
+      "urban_ratio": {
+        "VV_minus_VH_max": 23.984342012513856,
+        "VV_minus_VH_mean": 7.1981785907751785,
+        "VV_minus_VH_min": -5.555299945394777,
+        "VV_minus_VH_p5": 4.437665781480224,
+        "VV_minus_VH_p50": 6.93791259633692,
+        "VV_minus_VH_p95": 10.68769794331766,
+        "VV_minus_VH_stdDev": 1.9412967454569718
+      },
+      "water_ratio": {
+        "VV_minus_VH_max": 37.1904240369462,
+        "VV_minus_VH_mean": 7.057525947043702,
+        "VV_minus_VH_min": -6.380888873418299,
+        "VV_minus_VH_p5": 4.383030050568938,
+        "VV_minus_VH_p50": 6.623458133081387,
+        "VV_minus_VH_p95": 10.367484306297676,
+        "VV_minus_VH_stdDev": 2.0434787487153714
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_VV_minus_VH.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_VH_over_VV_linear.png"
+    ],
+    "notes": "VV-VH urban mean=7.1981785907751785 water=7.057525947043702 (volume scattering lowers ratio over vegetation)",
+    "error": null,
+    "ts": "2026-08-12T00:14:46.066680+00:00"
+  },
+  {
+    "name": "incidence_angle_vs_VV",
+    "ok": true,
+    "params": {
+      "n_scenes_sampled": 40
+    },
+    "results": {
+      "corr_VV_angle": -0.5188712328726688,
+      "pairs_sample": [
+        {
+          "VV": -14.884904515113925,
+          "angle": 31.475214615887523
+        },
+        {
+          "VV": -17.24511883283608,
+          "angle": 43.899330465971815
+        },
+        {
+          "VV": -13.94061819314335,
+          "angle": 31.938032076426662
+        },
+        {
+          "VV": -12.199225466741197,
+          "angle": 31.87661165002956
+        },
+        {
+          "VV": -11.368761013765583,
+          "angle": 31.480310511556425
+        },
+        {
+          "VV": -16.707385755612947,
+          "angle": 43.891392843555856
+        },
+        {
+          "VV": -12.122253981584397,
+          "angle": 31.95118802691759
+        },
+        {
+          "VV": -11.765576207651192,
+          "angle": 31.889661130194384
+        }
+      ]
+    },
+    "paths": [],
+    "notes": "Corr(VV, incidence angle)\u2248-0.5188712328726688 over Galveston (geometry radiometry)",
+    "error": null,
+    "ts": "2026-08-12T00:14:47.556565+00:00"
+  },
+  {
+    "name": "grd_db_vs_float",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "Image.select: Band pattern 'VV' did not match any bands. Available bands: [constant]",
+    "ts": "2026-08-12T00:14:49.000852+00:00"
+  },
+  {
+    "name": "orbit_mosaic_artifacts",
+    "ok": true,
+    "params": {
+      "orbits": [
+        143,
+        34,
+        136
+      ],
+      "single_orbit": 143
+    },
+    "results": {
+      "mixed": {
+        "VV_max": 19.219580896536453,
+        "VV_mean": -15.361739364783158,
+        "VV_min": -25.53742751194674,
+        "VV_p5": -21.872250373964835,
+        "VV_p50": -16.87835202872614,
+        "VV_p95": -8.380247113043941,
+        "VV_stdDev": 4.995375700896595
+      },
+      "single": {
+        "VV_max": 16.731897013014603,
+        "VV_mean": -12.009466292394714,
+        "VV_min": -51.70266282187878,
+        "VV_p5": -16.733730773175086,
+        "VV_p50": -12.25342969476653,
+        "VV_p95": -7.7697426775961365,
+        "VV_stdDev": 3.0811051565522027
+      },
+      "std_ratio_mixed_over_single": 1.6212934798001137
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/mosaic_mixed_orbits_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/mosaic_orbit143_only_VV.png"
+    ],
+    "notes": "Mixed-orbit median often noisier / seamier than single relative orbit",
+    "error": null,
+    "ts": "2026-08-12T00:14:56.625889+00:00"
+  },
+  {
+    "name": "urban_double_bounce_houston",
+    "ok": true,
+    "params": {
+      "rule": "VV>-8 & VV-VH>7"
+    },
+    "results": {
+      "area_km2": 51.791484735614354,
+      "vv": {
+        "VH_max": 19.186859468153877,
+        "VH_mean": -15.30201326791614,
+        "VH_min": -26.620636919792844,
+        "VH_p5": -19.87395321444786,
+        "VH_p50": -15.124276288523284,
+        "VH_p95": -10.629693707585647,
+        "VH_stdDev": 2.9517765901120083,
+        "VV_max": 26.955617506113963,
+        "VV_mean": -8.075083372181444,
+        "VV_min": -20.481033799141834,
+        "VV_p5": -13.1208458943893,
+        "VV_p50": -8.375320022071806,
+        "VV_p95": -2.3741200404548226,
+        "VV_stdDev": 3.287484212847585
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/houston_double_bounce_proxy.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/houston_double_bounce_mask.png"
+    ],
+    "notes": "Double-bounce proxy area=51.791 km\u00b2 downtown Houston",
+    "error": null,
+    "ts": "2026-08-12T00:15:23.343765+00:00"
+  },
+  {
+    "name": "speckle_filtering_compare",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "'Element' object has no attribute 'select'\nTraceback (most recent call last):\n  File \"/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py\", line 627, in probe_speckle_filtering\n    med_stats = reduce_stats(med, GALVESTON, 20, [\"VV\", \"VH\"])\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.p",
+    "ts": "2026-08-12T00:15:24.284620+00:00"
+  },
+  {
+    "name": "harvey_flood_before_after",
+    "ok": true,
+    "params": {
+      "before": "2017-07-01..08-20",
+      "after": "2017-08-27..09-10",
+      "mask": "VV<-16 & dVV<-3"
+    },
+    "results": {
+      "before": {
+        "VH_max": 18.247043988534642,
+        "VH_mean": -15.484565114984074,
+        "VH_min": -27.923453370409188,
+        "VH_p5": -19.123057503841302,
+        "VH_p50": -15.373391045432475,
+        "VH_p95": -12.630598125789064,
+        "VH_stdDev": 2.2257542728401334,
+        "VV_max": 27.68901712782969,
+        "VV_mean": -8.647069838864297,
+        "VV_min": -23.41989200786294,
+        "VV_p5": -12.621196145623973,
+        "VV_p50": -8.8740902772305,
+        "VV_p95": -3.876840670508017,
+        "VV_stdDev": 2.8486184194801747
+      },
+      "after": {
+        "VH_max": 22.48826723846577,
+        "VH_mean": -15.131050195657036,
+        "VH_min": -29.42426093473425,
+        "VH_p5": -19.37295117924615,
+        "VH_p50": -14.874176099160158,
+        "VH_p95": -11.879191933102499,
+        "VH_stdDev": 2.460126349259111,
+        "VV_max": 31.308872400935186,
+        "VV_mean": -8.06928023571221,
+        "VV_min": -22.206598896529375,
+        "VV_p5": -12.370387057825194,
+        "VV_p50": -8.375393017497144,
+        "VV_p95": -2.626773187200817,
+        "VV_stdDev": 3.1020455101916173
+      },
+      "change": {
+        "dVV_max": 25.385016594618232,
+        "dVV_mean": 0.5777896031519125,
+        "dVV_min": -23.482778489710313,
+        "dVV_p5": -1.8690586786086563,
+        "dVV_p50": 0.6241005679980555,
+        "dVV_p95": 3.1186829623347947,
+        "dVV_stdDev": 1.6241761188136326
+      },
+      "flood_area_m2": 6443807.8423873605,
+      "flood_area_km2": 6.44380784238736
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_before_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_after_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_dVV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_flood_mask.png"
+    ],
+    "notes": "Flood mask area \u2248 6.4 km\u00b2; mean dVV=0.5777896031519125",
+    "error": null,
+    "ts": "2026-08-12T00:15:44.313166+00:00"
+  },
+  {
+    "name": "harvey_followup_vv_vs_vh_flood",
+    "ok": true,
+    "params": {},
+    "results": {
+      "vv_km2": 6.44380784238736,
+      "vh_km2": 10.48025508131654,
+      "agree_km2": 3.8040152485416185
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_vv_vs_vh_flood.png"
+    ],
+    "notes": "Compare VV vs VH flood masks; red=VV-only green=agree blue=VH-only",
+    "error": null,
+    "ts": "2026-08-12T00:15:57.730037+00:00"
+  },
+  {
+    "name": "harvey_followup_same_orbit_change",
+    "ok": true,
+    "params": {
+      "selected_orbit": 143
+    },
+    "results": {
+      "orbit": 143,
+      "n_before": 9,
+      "n_after": 3,
+      "dVV_max": 24.378228226311332,
+      "dVV_mean": 0.08022679085066749,
+      "dVV_min": -28.20902129585081,
+      "dVV_p5": -2.1187187739965276,
+      "dVV_p50": 0.12520151859731607,
+      "dVV_p95": 2.3681132407571037,
+      "dVV_stdDev": 1.5963026206041455
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit143_dVV.png"
+    ],
+    "notes": "Best same-orbit drop on orbit 143: mean dVV=0.08022679085066749",
+    "error": null,
+    "ts": "2026-08-12T00:16:03.566890+00:00"
+  },
+  {
+    "name": "harvey_followup_dualpol_ratio_change",
+    "ok": true,
+    "params": {},
+    "results": {
+      "dRatio_max": 24.195176503354936,
+      "dRatio_mean": 0.22427468382545776,
+      "dRatio_min": -18.565705062623895,
+      "dRatio_p5": -2.1179500664637816,
+      "dRatio_p50": 0.12483983172856482,
+      "dRatio_p95": 2.8703805159594435,
+      "dRatio_stdDev": 1.6051464220744651
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_dRatio_VVmVH.png"
+    ],
+    "notes": "\u0394(VV-VH) mean=0.22427468382545776",
+    "error": null,
+    "ts": "2026-08-12T00:16:04.849060+00:00"
+  },
+  {
+    "name": "harvey_followup_single_scene",
+    "ok": true,
+    "params": {
+      "n_in_window": 3,
+      "dates": [
+        "2017-08-29",
+        "2017-08-29",
+        "2017-08-30"
+      ]
+    },
+    "results": {
+      "VH_max": 26.861493760215556,
+      "VH_mean": -14.612719436586076,
+      "VH_min": -32.49905715726335,
+      "VH_p5": -19.625175859367964,
+      "VH_p50": -14.37389630725143,
+      "VH_p95": -10.38067957254617,
+      "VH_stdDev": 3.0153305772653622,
+      "VV_max": 35.9549487627874,
+      "VV_mean": -6.784438147330508,
+      "VV_min": -21.478846800158916,
+      "VV_p5": -12.12359715654154,
+      "VV_p50": -7.375351463944144,
+      "VV_p95": 0.6244985353051729,
+      "VV_stdDev": 4.0274980705738415
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_single_scene_VV.png"
+    ],
+    "notes": "First post scene 2017-08-29; VV mean=-6.784438147330508",
+    "error": null,
+    "ts": "2026-08-12T00:16:06.920730+00:00"
+  },
+  {
+    "name": "harvey_followup_s1_vs_s2_availability",
+    "ok": true,
+    "params": {
+      "window": "2017-08-27..09-05"
+    },
+    "results": {
+      "s2_scenes": 8,
+      "s2_mean_cloud_pct": 58.974138375,
+      "s1_scenes": 3
+    },
+    "paths": [],
+    "notes": "S2=8 scenes mean cloud=58.974138375; S1=3 usable regardless of weather",
+    "error": null,
+    "ts": "2026-08-12T00:16:07.961012+00:00"
+  },
+  {
+    "name": "ms_river_wet_vs_dry",
+    "ok": true,
+    "params": {
+      "wet": "2023-03..04",
+      "dry": "2023-08..09"
+    },
+    "results": {
+      "dVV": {
+        "dVV_max": 27.56892079473355,
+        "dVV_mean": -1.3658050980212013,
+        "dVV_min": -39.70702186641005,
+        "dVV_p5": -6.738530589055277,
+        "dVV_p50": -1.2477310571883495,
+        "dVV_p95": 3.7377852558314593,
+        "dVV_stdDev": 3.294755288680965
+      },
+      "extra_wet_km2": 200.60699016003585
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/ms_river_wet_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/ms_river_dry_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/ms_river_wet_minus_dry.png"
+    ],
+    "notes": "Extra low-backscatter wet area\u2248200.6 km\u00b2; mean dVV=-1.3658050980212013",
+    "error": null,
+    "ts": "2026-08-12T00:16:16.025894+00:00"
+  },
+  {
+    "name": "port_houston_seasonal_change",
+    "ok": true,
+    "params": {
+      "winter": "2023-01..02",
+      "summer": "2023-07..08"
+    },
+    "results": {
+      "dVV": {
+        "dVV_max": 23.761196600565732,
+        "dVV_mean": -0.534905483798748,
+        "dVV_min": -24.65298887575133,
+        "dVV_p5": -2.8697934717571676,
+        "dVV_p50": -0.6239110504454959,
+        "dVV_p95": 1.6176995652291382,
+        "dVV_stdDev": 1.6506744790936334
+      },
+      "changed_gt3dB_km2": 40.94040070712264
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/port_houston_winter_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/port_houston_summer_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/port_houston_seasonal_dVV.png"
+    ],
+    "notes": "Seasonal |dVV|>3dB area=40.94 km\u00b2",
+    "error": null,
+    "ts": "2026-08-12T00:16:24.796807+00:00"
+  },
+  {
+    "name": "seasonal_composite_galveston",
+    "ok": true,
+    "params": {
+      "yearish": "2022-12..2023-12"
+    },
+    "results": {
+      "DJF": {
+        "n": 26,
+        "VH_max": 4.979948427250259,
+        "VH_mean": -22.77220965177042,
+        "VH_min": -31.761310803765124,
+        "VH_p5": -29.369607515921146,
+        "VH_p50": -26.39328514227852,
+        "VH_p95": -14.627795939611568,
+        "VH_stdDev": 5.430184475886887,
+        "VV_max": 17.149369062797902,
+        "VV_mean": -14.99866740327024,
+        "VV_min": -23.71440479397622,
+        "VV_p5": -20.620048850991193,
+        "VV_p50": -16.8823858032781,
+        "VV_p95": -8.38070100468612,
+        "VV_stdDev": 4.5155997103257475
+      },
+      "MAM": {
+        "n": 32,
+        "VH_max": 5.016275479353613,
+        "VH_mean": -22.59668839963823,
+        "VH_min": -31.00569784097147,
+        "VH_p5": -28.36959941128702,
+        "VH_p50": -26.14612487993197,
+        "VH_p95": -15.128513333672956,
+        "VH_stdDev": 5.126598112331591,
+        "VV_max": 13.521105606704431,
+        "VV_mean": -14.467843757884411,
+        "VV_min": -24.242314059564364,
+        "VV_p5": -19.870550188196287,
+        "VV_p50": -15.88181175288333,
+        "VV_p95": -8.629996224229636,
+        "VV_stdDev": 4.005460519093778
+      },
+      "JJA": {
+        "n": 31,
+        "VH_max": 4.742520192919865,
+        "VH_mean": -22.97243970720481,
+        "VH_min": -31.894608538881393,
+        "VH_p5": -29.622030937178213,
+        "VH_p50": -26.39208143077464,
+        "VH_p95": -15.128560439818905,
+        "VH_stdDev": 5.415122496287951,
+        "VV_max": 14.505556485957957,
+        "VV_mean": -14.818705011662319,
+        "VV_min": -23.799442550238147,
+        "VV_p5": -19.369365191619064,
+        "VV_p50": -16.635741634055766,
+        "VV_p95": -8.62945701515636,
+        "VV_stdDev": 3.7937680787964108
+      },
+      "SON": {
+        "n": 25,
+        "VH_max": 3.7688679448668982,
+        "VH_mean": -24.819926025376425,
+        "VH_min": -38.42709276737324,
+        "VH_p5": -33.12011535503149,
+        "VH_p50": -28.88069256369434,
+        "VH_p95": -15.128850944888795,
+        "VH_stdDev": 7.102023911754626,
+        "VV_max": 16.109132146207116,
+        "VV_mean": -15.009134848224125,
+        "VV_min": -24.957920426495544,
+        "VV_p5": -20.623494113897543,
+        "VV_p50": -16.63060089686164,
+        "VV_p95": -8.879082692543873,
+        "VV_stdDev": 4.180411884820356
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_galveston_DJF_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_galveston_MAM_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_galveston_JJA_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_galveston_SON_VV.png"
+    ],
+    "notes": "JJA VV mean=-14.818705011662319 vs DJF=-14.99866740327024",
+    "error": null,
+    "ts": "2026-08-12T00:16:48.500873+00:00"
+  },
+  {
+    "name": "seasonal_composite_houston_floodplain",
+    "ok": true,
+    "params": {
+      "yearish": "2022-12..2023-12"
+    },
+    "results": {
+      "DJF": {
+        "n": 28,
+        "VH_max": 15.15146541178997,
+        "VH_mean": -15.86803261790517,
+        "VH_min": -28.164635885049115,
+        "VH_p5": -20.37258604047,
+        "VH_p50": -15.623426445064261,
+        "VH_p95": -12.629316137422693,
+        "VH_stdDev": 2.535668390748745,
+        "VV_max": 26.133452080244815,
+        "VV_mean": -8.526859219273014,
+        "VV_min": -22.960405584378947,
+        "VV_p5": -12.870811543741972,
+        "VV_p50": -8.62576179457782,
+        "VV_p95": -3.3743944046009506,
+        "VV_stdDev": 2.9808885728709074
+      },
+      "MAM": {
+        "n": 32,
+        "VH_max": 12.598708182004792,
+        "VH_mean": -15.990201910210954,
+        "VH_min": -27.50907617121095,
+        "VH_p5": -20.370798126351474,
+        "VH_p50": -15.622896007912308,
+        "VH_p95": -12.627575433978164,
+        "VH_stdDev": 2.452043614332377,
+        "VV_max": 21.91840862611565,
+        "VV_mean": -8.576030110645307,
+        "VV_min": -22.77237325799182,
+        "VV_p5": -12.871795121658137,
+        "VV_p50": -8.625790398957674,
+        "VV_p95": -3.6262841437429643,
+        "VV_stdDev": 2.882929220229347
+      },
+      "JJA": {
+        "n": 30,
+        "VH_max": 14.550353680099906,
+        "VH_mean": -15.843665951641418,
+        "VH_min": -28.166262089056673,
+        "VH_p5": -19.872178983463005,
+        "VH_p50": -15.623583148820062,
+        "VH_p95": -12.630109427114244,
+        "VH_stdDev": 2.3865599412240166,
+        "VV_max": 22.029346945244686,
+        "VV_mean": -8.638666340491232,
+        "VV_min": -23.13352725732015,
+        "VV_p5": -12.870223721230028,
+        "VV_p50": -8.625384878099833,
+        "VV_p95": -3.8761563808244297,
+        "VV_stdDev": 2.8786561268889703
+      },
+      "SON": {
+        "n": 28,
+        "VH_max": 13.733319843823626,
+        "VH_mean": -15.895411453400607,
+        "VH_min": -30.56847670469014,
+        "VH_p5": -19.872000638268954,
+        "VH_p50": -15.62352300193582,
+        "VH_p95": -12.628295474058309,
+        "VH_stdDev": 2.446258839439216,
+        "VV_max": 26.422846383719936,
+        "VV_mean": -8.604074489456302,
+        "VV_min": -23.495900103896282,
+        "VV_p5": -12.871373071234064,
+        "VV_p50": -8.874762213465235,
+        "VV_p95": -3.6256029440900965,
+        "VV_stdDev": 2.930555191915758
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_houston_floodplain_DJF_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_houston_floodplain_MAM_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_houston_floodplain_JJA_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_houston_floodplain_SON_VV.png"
+    ],
+    "notes": "JJA VV mean=-8.638666340491232 vs DJF=-8.526859219273014",
+    "error": null,
+    "ts": "2026-08-12T00:17:18.441571+00:00"
+  },
+  {
+    "name": "seasonal_composite_port_houston",
+    "ok": true,
+    "params": {
+      "yearish": "2022-12..2023-12"
+    },
+    "results": {
+      "DJF": {
+        "n": 20,
+        "VH_max": 2.181300531607657,
+        "VH_mean": -17.372754993670824,
+        "VH_min": -28.164635885049115,
+        "VH_p5": -26.561645761682556,
+        "VH_p50": -16.31188636166439,
+        "VH_p95": -11.81210544050179,
+        "VH_stdDev": 4.3688283369591465,
+        "VV_max": 17.305496242223967,
+        "VV_mean": -9.545344615091574,
+        "VV_min": -23.012939919719614,
+        "VV_p5": -18.37414635088688,
+        "VV_p50": -9.372979674195836,
+        "VV_p95": -1.1242688608029936,
+        "VV_stdDev": 4.769652719433624
+      },
+      "MAM": {
+        "n": 24,
+        "VH_max": 1.1224796398683055,
+        "VH_mean": -17.48922445283032,
+        "VH_min": -27.585677133926623,
+        "VH_p5": -26.31306887016282,
+        "VH_p50": -16.43724592448224,
+        "VH_p95": -12.065768304454817,
+        "VH_stdDev": 4.217779479663297,
+        "VV_max": 17.22825410470079,
+        "VV_mean": -9.662320392044313,
+        "VV_min": -23.5894998659588,
+        "VV_p5": -18.122262362700813,
+        "VV_p50": -9.372781601195706,
+        "VV_p95": -1.6276676002182318,
+        "VV_stdDev": 4.617538295134455
+      },
+      "JJA": {
+        "n": 23,
+        "VH_max": 2.915080975999182,
+        "VH_mean": -17.475836586064965,
+        "VH_min": -28.924138197473933,
+        "VH_p5": -26.686072111224316,
+        "VH_p50": -16.43685630063465,
+        "VH_p95": -12.064390875880479,
+        "VH_stdDev": 4.28102722239384,
+        "VV_max": 19.686517568313885,
+        "VV_mean": -9.901569082875422,
+        "VV_min": -24.166271902229287,
+        "VV_p5": -18.122848991889608,
+        "VV_p50": -9.622862520724428,
+        "VV_p95": -1.875146650188835,
+        "VV_stdDev": 4.554650339289936
+      },
+      "SON": {
+        "n": 20,
+        "VH_max": 2.5063355755133396,
+        "VH_mean": -17.705605277734836,
+        "VH_min": -33.60669967420901,
+        "VH_p5": -29.124317865644826,
+        "VH_p50": -16.37384504609718,
+        "VH_p95": -11.876320031188156,
+        "VH_stdDev": 4.964216245300903,
+        "VV_max": 15.721742403740251,
+        "VV_mean": -9.74752808383923,
+        "VV_min": -23.85373469679507,
+        "VV_p5": -18.623082609005262,
+        "VV_p50": -9.372190111427484,
+        "VV_p95": -1.6262132897999342,
+        "VV_stdDev": 4.725445864490459
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_port_houston_DJF_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_port_houston_MAM_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_port_houston_JJA_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_port_houston_SON_VV.png"
+    ],
+    "notes": "JJA VV mean=-9.901569082875422 vs DJF=-9.545344615091574",
+    "error": null,
+    "ts": "2026-08-12T00:17:40.371143+00:00"
+  },
+  {
+    "name": "seasonal_composite_ms_river",
+    "ok": true,
+    "params": {
+      "yearish": "2022-12..2023-12"
+    },
+    "results": {
+      "DJF": {
+        "n": 7,
+        "VH_max": 9.291243226762164,
+        "VH_mean": -19.79218720937831,
+        "VH_min": -29.012821916247727,
+        "VH_p5": -25.874725006746306,
+        "VH_p50": -20.376643533703145,
+        "VH_p95": -13.378310809495296,
+        "VH_stdDev": 4.0165314923106745,
+        "VV_max": 18.811478558253704,
+        "VV_mean": -11.598910162351398,
+        "VV_min": -26.184683884312932,
+        "VV_p5": -21.128574553666414,
+        "VV_p50": -11.126092928995519,
+        "VV_p95": -7.381225542630606,
+        "VV_stdDev": 3.7227009611406006
+      },
+      "MAM": {
+        "n": 7,
+        "VH_max": 9.915160791938844,
+        "VH_mean": -20.555350869754967,
+        "VH_min": -29.026111681021312,
+        "VH_p5": -26.120365440654062,
+        "VH_p50": -21.8765072029103,
+        "VH_p95": -13.628655115242674,
+        "VH_stdDev": 4.2987283691966,
+        "VV_max": 17.795779203875014,
+        "VV_mean": -12.368716380049204,
+        "VV_min": -25.839188496470477,
+        "VV_p5": -20.122705236303357,
+        "VV_p50": -12.376415704801435,
+        "VV_p95": -7.630918015871233,
+        "VV_stdDev": 3.6072923841956586
+      },
+      "JJA": {
+        "n": 2,
+        "VH_max": 11.884119018458826,
+        "VH_mean": -17.074387966596156,
+        "VH_min": -39.13986432699079,
+        "VH_p5": -26.375703872433245,
+        "VH_p50": -15.872648368925317,
+        "VH_p95": -13.131551491246944,
+        "VH_stdDev": 3.8271643389505074,
+        "VV_max": 22.11857022232708,
+        "VV_mean": -10.461265244381192,
+        "VV_min": -29.723878962736972,
+        "VV_p5": -19.374274928471554,
+        "VV_p50": -9.623077560870808,
+        "VV_p95": -7.1312457405438145,
+        "VV_stdDev": 3.52357837102546
+      },
+      "SON": {
+        "n": 7,
+        "VH_max": 10.02131162463013,
+        "VH_mean": -18.499645574674425,
+        "VH_min": -34.33894715500544,
+        "VH_p5": -26.376855238224543,
+        "VH_p50": -18.125468273672464,
+        "VH_p95": -13.881041559227489,
+        "VH_stdDev": 3.549035487245329,
+        "VV_max": 17.782343812541754,
+        "VV_mean": -10.762723349631385,
+        "VV_min": -28.1659250154388,
+        "VV_p5": -17.620927904764162,
+        "VV_p50": -10.124330192223688,
+        "VV_p95": -7.883042079100194,
+        "VV_stdDev": 3.058082752789547
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_ms_river_DJF_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_ms_river_MAM_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_ms_river_JJA_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/seasonal_ms_river_SON_VV.png"
+    ],
+    "notes": "JJA VV mean=-10.461265244381192 vs DJF=-11.598910162351398",
+    "error": null,
+    "ts": "2026-08-12T00:17:54.129493+00:00"
+  },
+  {
+    "name": "gulf_ship_bright_target",
+    "ok": true,
+    "params": {
+      "threshold_dB": -5,
+      "n_scenes_available": 1,
+      "scene": {
+        "system:time_start": 1691238203000,
+        "orbitProperties_pass": "DESCENDING",
+        "relativeOrbitNumber_start": 143,
+        "platform_number": "A",
+        "date": "2023-08-05T12:23:23"
+      }
+    },
+    "results": {
+      "ship_pixels_gt_thr_cleaned": 5375,
+      "vv_percentiles": {
+        "VV_p100": -5.757499200767068,
+        "VV_p50": -15.749295807972828,
+        "VV_p90": -13.264626727437898,
+        "VV_p99": -10.268106449547096
+      },
+      "vv_mean_ocean": -15.570680441199254,
+      "contrast_p99_minus_mean": 5.302573991652158
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_ships_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_ships_mask.png"
+    ],
+    "notes": "Ocean VV mean=-15.570680441199254; p99=-10.268106449547096; bright pixels\u22485375",
+    "error": null,
+    "ts": "2026-08-12T00:18:08.224657+00:00"
+  },
+  {
+    "name": "ship_followup_vv_vs_vh",
+    "ok": true,
+    "params": {
+      "vv_thr": -5,
+      "vh_thr": -12
+    },
+    "results": {
+      "vv_pix": 768,
+      "vh_pix": 911,
+      "both_pix": 171
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_ships_VV_vs_VH.png"
+    ],
+    "notes": "Ships are usually stronger in VV (surface bounce)",
+    "error": null,
+    "ts": "2026-08-12T00:18:10.557351+00:00"
+  },
+  {
+    "name": "ship_followup_persistent_platforms",
+    "ok": true,
+    "params": {
+      "n_scenes": 31,
+      "persist_thr": 0.4
+    },
+    "results": {
+      "persistent_pixels": 64,
+      "transient_pixels": 4559
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_persistent_vs_transient_bright.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_bright_fraction.png"
+    ],
+    "notes": "Red\u2248oil platforms / fixed structures; blue\u2248occasional ships",
+    "error": null,
+    "ts": "2026-08-12T00:18:23.902571+00:00"
+  },
+  {
+    "name": "ship_followup_pass_ascending",
+    "ok": true,
+    "params": {
+      "pass": "ASCENDING",
+      "year": 2023
+    },
+    "results": {
+      "n": 84,
+      "percentiles": {
+        "VV_p50": -18.687742190269823,
+        "VV_p99": -15.942582371556986
+      }
+    },
+    "paths": [],
+    "notes": "ASCENDING: 84 scenes; VV p99=-15.942582371556986",
+    "error": null,
+    "ts": "2026-08-12T00:18:46.759528+00:00"
+  },
+  {
+    "name": "ship_followup_pass_descending",
+    "ok": true,
+    "params": {
+      "pass": "DESCENDING",
+      "year": 2023
+    },
+    "results": {
+      "n": 30,
+      "percentiles": {
+        "VV_p50": -15.124374989092308,
+        "VV_p99": -10.622617177582324
+      }
+    },
+    "paths": [],
+    "notes": "DESCENDING: 30 scenes; VV p99=-10.622617177582324",
+    "error": null,
+    "ts": "2026-08-12T00:18:48.265722+00:00"
+  },
+  {
+    "name": "wind_roughened_sea_contrast",
+    "ok": true,
+    "params": {
+      "calm_date": "2023-07-24T12:23:22",
+      "rough_date": "2023-03-14T12:23:16"
+    },
+    "results": {
+      "calm": {
+        "VV_max": 5.912943180850742,
+        "VV_mean": -22.25073034019012,
+        "VV_min": -60.995409004671856,
+        "VV_p5": -26.729735009963225,
+        "VV_p50": -22.751394156669008,
+        "VV_p95": -15.252598573691527,
+        "VV_stdDev": 3.832594234370852
+      },
+      "rough": {
+        "VV_max": 6.391030785505077,
+        "VV_mean": -11.283561741305704,
+        "VV_min": -34.98184257578791,
+        "VV_p5": -14.621374681786348,
+        "VV_p50": -11.123586736590806,
+        "VV_p95": -8.629206086058128,
+        "VV_stdDev": 1.877421674060588
+      },
+      "delta_mean_dB": 10.967168598884417,
+      "calm_candidates": [
+        {
+          "VV": -22.09251421618234,
+          "t": 1690201402000
+        },
+        {
+          "VV": -20.035397729816022,
+          "t": 1701606204000
+        },
+        {
+          "VV": -19.238226599155293,
+          "t": 1672575798000
+        }
+      ],
+      "rough_candidates": [
+        {
+          "VV": -11.16320109648899,
+          "t": 1678796596000
+        },
+        {
+          "VV": -12.254242233038267,
+          "t": 1694348605000
+        },
+        {
+          "VV": -12.475059217596286,
+          "t": 1676722996000
+        }
+      ]
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_calm_sea_VV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_rough_sea_VV.png"
+    ],
+    "notes": "Rough\u2212calm ocean VV \u0394=10.97 dB",
+    "error": null,
+    "ts": "2026-08-12T00:18:51.216272+00:00"
+  },
+  {
+    "name": "seasonal_s1_coherence_v2019",
+    "ok": true,
+    "params": {
+      "asset": "Earth_Big_Data/GLOBAL_SEASONAL_S1/V2019/COHERENCE"
+    },
+    "results": {
+      "n_images": 24858,
+      "bands": [
+        "fall_hh_COH06",
+        "fall_hh_COH12",
+        "fall_hh_COH18",
+        "fall_hh_COH24",
+        "fall_hh_COH36",
+        "fall_hh_COH48",
+        "fall_vv_COH06",
+        "fall_vv_COH12",
+        "fall_vv_COH18",
+        "fall_vv_COH24",
+        "fall_vv_COH36",
+        "fall_vv_COH48",
+        "spring_hh_COH06",
+        "spring_hh_COH12",
+        "spring_hh_COH18",
+        "spring_hh_COH24",
+        "spring_hh_COH36",
+        "spring_hh_COH48",
+        "spring_vv_COH06",
+        "spring_vv_COH12",
+        "spring_vv_COH18",
+        "spring_vv_COH24",
+        "spring_vv_COH36",
+        "spring_vv_COH48",
+        "summer_hh_COH06",
+        "summer_hh_COH12",
+        "summer_hh_COH18",
+        "summer_hh_COH24",
+        "summer_hh_COH36",
+        "summer_hh_COH48",
+        "summer_vv_COH06",
+        "summer_vv_COH12",
+        "summer_vv_COH18",
+        "summer_vv_COH24",
+        "summer_vv_COH36",
+        "summer_vv_COH48",
+        "winter_hh_COH06",
+        "winter_hh_COH12",
+        "winter_hh_COH18",
+        "winter_hh_COH24",
+        "winter_hh_COH36",
+        "winter_hh_COH48",
+        "winter_vv_COH06",
+        "winter_vv_COH12",
+        "winter_vv_COH18",
+        "winter_vv_COH24",
+        "winter_vv_COH36",
+        "winter_vv_COH48"
+      ],
+      "stats": {
+        "fall_hh_COH06_max": null,
+        "fall_hh_COH06_mean": null,
+        "fall_hh_COH06_min": null,
+        "fall_hh_COH06_p5": null,
+        "fall_hh_COH06_p50": null,
+        "fall_hh_COH06_p95": null,
+        "fall_hh_COH06_stdDev": null,
+        "fall_hh_COH12_max": null,
+        "fall_hh_COH12_mean": null,
+        "fall_hh_COH12_min": null,
+        "fall_hh_COH12_p5": null,
+        "fall_hh_COH12_p50": null,
+        "fall_hh_COH12_p95": null,
+        "fall_hh_COH12_stdDev": null,
+        "fall_hh_COH18_max": null,
+        "fall_hh_COH18_mean": null,
+        "fall_hh_COH18_min": null,
+        "fall_hh_COH18_p5": null,
+        "fall_hh_COH18_p50": null,
+        "fall_hh_COH18_p95": null,
+        "fall_hh_COH18_stdDev": null
+      },
+      "urban_coh": {
+        "fall_hh_COH06": null
+      },
+      "water_coh": {
+        "fall_hh_COH06": null
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_s1_seasonal_coherence.png"
+    ],
+    "notes": "Public seasonal coherence (not raw InSAR). Urban coh={'fall_hh_COH06': None} water={'fall_hh_COH06': None}. Bands=['fall_hh_COH06', 'fall_hh_COH12', 'fall_hh_COH18', 'fall_hh_COH24', 'fall_hh_COH36', 'fall_hh_COH48', 'fall_vv_COH06', 'fall_vv_COH12', 'fall_vv_COH18', 'fall_vv_COH24', 'fall_vv_COH36', 'fall_vv_COH48', 'spring_hh_COH06', 'spring_hh_COH12', 'spring_hh_COH18', 'spring_hh_COH24', 'spring_hh_COH36', 'spring_hh_COH48', 'spring_vv_COH06', 'spring_vv_COH12', 'spring_vv_COH18', 'spring_vv_COH24', 'spring_vv_COH36', 'spring_vv_COH48', 'summer_hh_COH06', 'summer_hh_COH12', 'summer_hh_COH18', 'summer_hh_COH24', 'summer_hh_COH36', 'summer_hh_COH48', 'summer_vv_COH06', 'summer_vv_COH12', 'summer_vv_COH18', 'summer_vv_COH24', 'summer_vv_COH36', 'summer_vv_COH48', 'winter_hh_COH06', 'winter_hh_COH12', 'winter_hh_COH18', 'winter_hh_COH24', 'winter_hh_COH36', 'winter_hh_COH48', 'winter_vv_COH06', 'winter_vv_COH12', 'winter_vv_COH18', 'winter_vv_COH24', 'winter_vv_COH36', 'winter_vv_COH48']",
+    "error": null,
+    "ts": "2026-08-12T00:18:53.358162+00:00"
+  },
+  {
+    "name": "seasonal_s1_backscatter_v2019",
+    "ok": true,
+    "params": {},
+    "results": {
+      "bands": [
+        "fall_hh_AMP",
+        "fall_hv_AMP",
+        "fall_vh_AMP",
+        "fall_vv_AMP",
+        "spring_hh_AMP",
+        "spring_hv_AMP",
+        "spring_vh_AMP",
+        "spring_vv_AMP",
+        "summer_hh_AMP",
+        "summer_hv_AMP",
+        "summer_vh_AMP",
+        "summer_vv_AMP",
+        "winter_hh_AMP",
+        "winter_hv_AMP",
+        "winter_vh_AMP",
+        "winter_vv_AMP"
+      ],
+      "stats": {
+        "fall_hh_AMP_max": null,
+        "fall_hh_AMP_mean": null,
+        "fall_hh_AMP_min": null,
+        "fall_hh_AMP_p5": null,
+        "fall_hh_AMP_p50": null,
+        "fall_hh_AMP_p95": null,
+        "fall_hh_AMP_stdDev": null,
+        "fall_hv_AMP_max": null,
+        "fall_hv_AMP_mean": null,
+        "fall_hv_AMP_min": null,
+        "fall_hv_AMP_p5": null,
+        "fall_hv_AMP_p50": null,
+        "fall_hv_AMP_p95": null,
+        "fall_hv_AMP_stdDev": null
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_s1_seasonal_backscatter.png"
+    ],
+    "notes": "Companion seasonal backscatter mosaic",
+    "error": null,
+    "ts": "2026-08-12T00:18:54.436976+00:00"
+  },
+  {
+    "name": "seasonal_s1_coherence_decay_params",
+    "ok": true,
+    "params": {},
+    "results": {
+      "bands": [
+        "fall_hh_rho",
+        "fall_hh_rmse",
+        "fall_hh_tau",
+        "fall_vv_rho",
+        "fall_vv_rmse",
+        "fall_vv_tau",
+        "spring_hh_rho",
+        "spring_hh_rmse",
+        "spring_hh_tau",
+        "spring_vv_rho",
+        "spring_vv_rmse",
+        "spring_vv_tau",
+        "summer_hh_rho",
+        "summer_hh_rmse",
+        "summer_hh_tau",
+        "summer_vv_rho",
+        "summer_vv_rmse",
+        "summer_vv_tau",
+        "winter_hh_rho",
+        "winter_hh_rmse",
+        "winter_hh_tau",
+        "winter_vv_rho",
+        "winter_vv_rmse",
+        "winter_vv_tau"
+      ],
+      "stats": {
+        "fall_hh_rho_max": null,
+        "fall_hh_rho_mean": null,
+        "fall_hh_rho_min": null,
+        "fall_hh_rho_p5": null,
+        "fall_hh_rho_p50": null,
+        "fall_hh_rho_p95": null,
+        "fall_hh_rho_stdDev": null,
+        "fall_hh_rmse_max": null,
+        "fall_hh_rmse_mean": null,
+        "fall_hh_rmse_min": null,
+        "fall_hh_rmse_p5": null,
+        "fall_hh_rmse_p50": null,
+        "fall_hh_rmse_p95": null,
+        "fall_hh_rmse_stdDev": null,
+        "fall_hh_tau_max": null,
+        "fall_hh_tau_mean": null,
+        "fall_hh_tau_min": null,
+        "fall_hh_tau_p5": null,
+        "fall_hh_tau_p50": null,
+        "fall_hh_tau_p95": null,
+        "fall_hh_tau_stdDev": null
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_s1_coherence_decay.png"
+    ],
+    "notes": "Temporal coherence decay model parameters \u2014 rare InSAR-adjacent public layer",
+    "error": null,
+    "ts": "2026-08-12T00:18:55.696072+00:00"
+  },
+  {
+    "name": "insar_slc_fail_COPERNICUS_S1_SLC",
+    "ok": false,
+    "params": {
+      "asset": "COPERNICUS/S1_SLC"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "S1 SLC / raw interferograms not in public EE \u2014 use ASF HyP3 or COMET for InSAR",
+    "error": "ImageCollection.load: ImageCollection asset 'COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:18:55.867756+00:00"
+  },
+  {
+    "name": "insar_slc_fail_COPERNICUS_S1_SLC",
+    "ok": false,
+    "params": {
+      "asset": "COPERNICUS/S1/SLC"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "S1 SLC / raw interferograms not in public EE \u2014 use ASF HyP3 or COMET for InSAR",
+    "error": "ImageCollection.load: ImageCollection asset 'COPERNICUS/S1/SLC' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:18:55.979171+00:00"
+  },
+  {
+    "name": "insar_slc_fail_ESA_COPERNICUS_S1_SLC",
+    "ok": false,
+    "params": {
+      "asset": "ESA/COPERNICUS/S1_SLC"
+    },
+    "results": {},
+    "paths": [],
+    "notes": "S1 SLC / raw interferograms not in public EE \u2014 use ASF HyP3 or COMET for InSAR",
+    "error": "ImageCollection.load: ImageCollection asset 'ESA/COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).",
+    "ts": "2026-08-12T00:18:56.085033+00:00"
+  },
+  {
+    "name": "opera_rtc_galveston",
+    "ok": true,
+    "params": {
+      "asset": "OPERA/RTC/L2_V1/S1"
+    },
+    "results": {
+      "n": 76,
+      "bands": [
+        "VH",
+        "VV",
+        "mask"
+      ],
+      "stats": {
+        "VH_max": 8.229522705078125,
+        "VH_mean": 0.01252883643334375,
+        "VH_min": 0.00040331148193217814,
+        "VH_p5": 0.01163459842512321,
+        "VH_p50": 0.01163459842512321,
+        "VH_p95": 0.01163459842512321,
+        "VH_stdDev": 0.02263785402025517,
+        "VV_max": 269.0829162597656,
+        "VV_mean": 0.06678002610861157,
+        "VV_min": 0.0043880087323486805,
+        "VV_p5": 0.05948787461247713,
+        "VV_p50": 0.05948787461247713,
+        "VV_p95": 0.05948787461247713,
+        "VV_stdDev": 0.4681734947745306
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/opera_rtc_galveston.png"
+    ],
+    "notes": "OPERA RTC: 76 scenes, bands=['VH', 'VV', 'mask']",
+    "error": null,
+    "ts": "2026-08-12T00:19:24.995834+00:00"
+  },
+  {
+    "name": "opera_dswx_s1_houston",
+    "ok": true,
+    "params": {},
+    "results": {
+      "n": 213,
+      "bands": [
+        "WTR_Water_classification",
+        "BWTR_Binary_water",
+        "CONF_Confidence",
+        "DIAG_diagnostic"
+      ],
+      "stats": {
+        "BWTR_Binary_water_max": 1,
+        "BWTR_Binary_water_mean": 0.008584662279639242,
+        "BWTR_Binary_water_min": 0,
+        "BWTR_Binary_water_p5": 0,
+        "BWTR_Binary_water_p50": 0,
+        "BWTR_Binary_water_p95": 0,
+        "BWTR_Binary_water_stdDev": 0.09231635582534897,
+        "WTR_Water_classification_max": 3,
+        "WTR_Water_classification_mean": 0.013978902818666653,
+        "WTR_Water_classification_min": 0,
+        "WTR_Water_classification_p5": 0,
+        "WTR_Water_classification_p50": 0,
+        "WTR_Water_classification_p95": 0,
+        "WTR_Water_classification_stdDev": 0.17320558389965507
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/opera_dswx_houston.png"
+    ],
+    "notes": "DSWx-S1 water product: 213 scenes",
+    "error": null,
+    "ts": "2026-08-12T00:20:04.896889+00:00"
+  },
+  {
+    "name": "alos_palsar_yearly_galveston",
+    "ok": true,
+    "params": {
+      "asset": "JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH",
+      "year": 2020
+    },
+    "results": {
+      "stats": {
+        "HH_dB_max": 11.726654958971821,
+        "HH_dB_mean": -14.2023317603705,
+        "HH_dB_min": -33.45757490560675,
+        "HH_dB_p5": -25.38026738891935,
+        "HH_dB_p50": -14.877141078906911,
+        "HH_dB_p95": -4.877113990929927,
+        "HH_dB_stdDev": 5.754522153596775,
+        "HV_dB_max": 2.344373532402372,
+        "HV_dB_mean": -25.662005663760098,
+        "HV_dB_min": -38.28943106184903,
+        "HV_dB_p5": -33.867543002969356,
+        "HV_dB_p50": -29.883012011343066,
+        "HV_dB_p95": -12.377204175163468,
+        "HV_dB_stdDev": 7.652297926239338
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_palsar_galveston_HH.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_palsar_galveston_RFDI.png"
+    ],
+    "notes": "L-band HH mean=-14.2023317603705 HV=-25.662005663760098",
+    "error": null,
+    "ts": "2026-08-12T00:20:07.644833+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey",
+    "ok": true,
+    "params": {
+      "n": 11,
+      "n_with_HV": 11,
+      "date": "2017-08-17T06:14:15.370000"
+    },
+    "results": {
+      "HH_dB_max": null,
+      "HH_dB_mean": null,
+      "HH_dB_min": null,
+      "HH_dB_p5": null,
+      "HH_dB_p50": null,
+      "HH_dB_p95": null,
+      "HH_dB_stdDev": null
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_harvey_HH.png"
+    ],
+    "notes": "PALSAR-2 ScanSAR during Harvey window: 2017-08-17T06:14:15.370000",
+    "error": null,
+    "ts": "2026-08-12T00:20:09.217707+00:00"
+  },
+  {
+    "name": "alos_stripmap_202401_galveston",
+    "ok": false,
+    "params": {},
+    "results": {
+      "n": 0
+    },
+    "paths": [],
+    "notes": "Japan-focused emergency StripMap \u2014 expect 0 over Texas",
+    "error": null,
+    "ts": "2026-08-12T00:20:09.337585+00:00"
+  },
+  {
+    "name": "lhscat_scatterometer",
+    "ok": true,
+    "params": {},
+    "results": {
+      "n_sample": 5,
+      "bands": [
+        "radar_signals"
+      ],
+      "stats": {
+        "radar_signals_max": -937.75,
+        "radar_signals_mean": -987.7091405424446,
+        "radar_signals_min": -1053.25,
+        "radar_signals_p5": -1053.25,
+        "radar_signals_p50": -937.75,
+        "radar_signals_p95": -937.75,
+        "radar_signals_stdDev": 56.58321305829163
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/lhscat_galveston.png"
+    ],
+    "notes": "Long-term scatterometer (ERS/QuikSCAT/ASCAT) \u2014 coarse but multi-decadal",
+    "error": null,
+    "ts": "2026-08-12T00:20:10.594766+00:00"
+  },
+  {
+    "name": "gimp_radarsat1_greenland",
+    "ok": true,
+    "params": {
+      "asset": "OSU/GIMP/2000_IMAGERY_MOSAIC"
+    },
+    "results": {
+      "bands": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6_low_gain",
+        "B6_high_gain",
+        "B7",
+        "B8",
+        "B8_radarsat"
+      ],
+      "texas_stats": {
+        "B1": null,
+        "B2": null,
+        "B3": null,
+        "B4": null,
+        "B5": null,
+        "B6_high_gain": null,
+        "B6_low_gain": null,
+        "B7": null,
+        "B8": null,
+        "B8_radarsat": null
+      },
+      "greenland_stats": {
+        "B1": 138.5090082353798,
+        "B2": 149.6431331766237,
+        "B3": 143.3217009235338,
+        "B4": 147.1770301538806,
+        "B5": 19.533690706428192,
+        "B6_high_gain": 69.66500922986138,
+        "B6_low_gain": 192.7383643789348,
+        "B7": 16.250508439499047,
+        "B8": 148.8059098108429,
+        "B8_radarsat": null
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gimp_radarsat_greenland.png"
+    ],
+    "notes": "RADARSAT-1 era Greenland mosaic \u2014 empty/null over Texas, works over Greenland",
+    "error": null,
+    "ts": "2026-08-12T00:20:11.728936+00:00"
+  },
+  {
+    "name": "alos_fnf4_galveston",
+    "ok": true,
+    "params": {
+      "year": 2020
+    },
+    "results": {
+      "histogram": {
+        "fnf": {
+          "1": 16189.647058823486,
+          "2": 28077.25098039218,
+          "3": 248174.43921568812,
+          "4": 376681.184313721
+        }
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_fnf4_galveston.png"
+    ],
+    "notes": "PALSAR-derived forest/non-forest classification over Galveston bay area",
+    "error": null,
+    "ts": "2026-08-12T00:20:12.839843+00:00"
+  },
+  {
+    "name": "cross_sensor_s1_cband_vs_alos_lband",
+    "ok": true,
+    "params": {
+      "s1": "C-band VV",
+      "alos": "L-band HH 2020 mosaic"
+    },
+    "results": {
+      "s1": {
+        "VV_max": 17.632052242784784,
+        "VV_mean": -14.43147945097576,
+        "VV_min": -22.72237920079602,
+        "VV_p5": -19.363427739792535,
+        "VV_p50": -16.13352748337353,
+        "VV_p95": -8.38056070405683,
+        "VV_stdDev": 4.012692948302838
+      },
+      "alos": {
+        "HH_dB_max": 11.726654958971821,
+        "HH_dB_mean": -14.2023317603705,
+        "HH_dB_min": -33.45757490560675,
+        "HH_dB_p5": -25.38026738891935,
+        "HH_dB_p50": -14.877141078906911,
+        "HH_dB_p95": -4.877113990929927,
+        "HH_dB_stdDev": 5.754522153596775
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/cross_s1_VV_vs_alos_HH.png"
+    ],
+    "notes": "C-band VV mean=-14.43 vs L-band HH=-14.20 \u2014 different scattering regimes (esp. vegetation penetration)",
+    "error": null,
+    "ts": "2026-08-12T00:20:32.309951+00:00"
+  },
+  {
+    "name": "timeseries_galveston_point_VV",
+    "ok": true,
+    "params": {
+      "point": [
+        -94.8,
+        29.3
+      ],
+      "period": "2022-2023"
+    },
+    "results": {
+      "n": 116,
+      "mean": -8.267165029335512,
+      "std": 0.95208824732374,
+      "min": -9.761869102555016,
+      "max": -5.455185308269883,
+      "n_outliers_2p5sd": 2,
+      "outlier_sample": [
+        {
+          "VV": -5.8625510921294595,
+          "pass": "ASCENDING",
+          "t": "2022-11-26"
+        },
+        {
+          "VV": -5.455185308269883,
+          "pass": "ASCENDING",
+          "t": "2023-04-07"
+        }
+      ],
+      "first_last": [
+        {
+          "VV": -7.819339964001783,
+          "pass": "ASCENDING",
+          "t": "2022-01-06"
+        },
+        {
+          "VV": -8.769235264070584,
+          "pass": "ASCENDING",
+          "t": "2023-12-20"
+        }
+      ]
+    },
+    "paths": [],
+    "notes": "n=116 VV samples; range [-9.761869102555016,-5.455185308269883] dB; outliers=2",
+    "error": null,
+    "ts": "2026-08-12T00:20:33.213251+00:00"
+  },
+  {
+    "name": "ew_mode_over_houston",
+    "ok": false,
+    "params": {
+      "mode": "EW"
+    },
+    "results": {
+      "n": 0
+    },
+    "paths": [],
+    "notes": "EW is ocean/arctic mode \u2014 expect ~0 over Houston",
+    "error": null,
+    "ts": "2026-08-12T00:20:33.348269+00:00"
+  },
+  {
+    "name": "hh_pol_galveston_iw",
+    "ok": false,
+    "params": {},
+    "results": {
+      "n": 0
+    },
+    "paths": [],
+    "notes": "HH IW rare outside polar \u2014 expect 0",
+    "error": null,
+    "ts": "2026-08-12T00:20:33.491998+00:00"
+  },
+  {
+    "name": "s1_prelaunch_2010",
+    "ok": false,
+    "params": {},
+    "results": {
+      "n": 0
+    },
+    "paths": [],
+    "notes": "Pre-launch should be empty",
+    "error": null,
+    "ts": "2026-08-12T00:20:33.595418+00:00"
+  },
+  {
+    "name": "harvey_scene_inventory",
+    "ok": true,
+    "params": {},
+    "results": {
+      "scenes": [
+        {
+          "VV": -8.326444398175825,
+          "id": "S1A_IW_GRDH_1SDV_20170805T002619_20170805T002644_017781_01DCB4_1716",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-08-05"
+        },
+        {
+          "VV": -8.38836284758557,
+          "id": "S1A_IW_GRDH_1SDV_20170805T002644_20170805T002710_017781_01DCB4_8FDF",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-08-05"
+        },
+        {
+          "VV": -7.998220073333714,
+          "id": "S1B_IW_GRDH_1SDV_20170806T122205_20170806T122235_006819_00C006_6D40",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-08-06"
+        },
+        {
+          "VV": -8.095832339131636,
+          "id": "S1A_IW_GRDH_1SDV_20170812T122247_20170812T122317_017890_01E004_81E4",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-08-12"
+        },
+        {
+          "VV": -8.301500898245592,
+          "id": "S1B_IW_GRDH_1SDV_20170818T122205_20170818T122235_006994_00C525_B566",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-08-18"
+        },
+        {
+          "VV": -8.174200862994596,
+          "id": "S1A_IW_GRDH_1SDV_20170824T122248_20170824T122318_018065_01E54E_A87C",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-08-24"
+        },
+        {
+          "VV": -6.1980879696901345,
+          "id": "S1A_IW_GRDH_1SDV_20170829T002620_20170829T002645_018131_01E74D_D734",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-08-29"
+        },
+        {
+          "VV": -6.436529806420685,
+          "id": "S1A_IW_GRDH_1SDV_20170829T002645_20170829T002710_018131_01E74D_3220",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-08-29"
+        },
+        {
+          "VV": -7.618010672573297,
+          "id": "S1B_IW_GRDH_1SDV_20170830T122203_20170830T122232_007169_00CA2C_E7BF",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-08-30"
+        },
+        {
+          "VV": -7.782979272098859,
+          "id": "S1A_IW_GRDH_1SDV_20170905T001824_20170905T001849_018233_01EA6C_C7C1",
+          "orbit": 136,
+          "pass": "ASCENDING",
+          "t": "2017-09-05"
+        },
+        {
+          "VV": -8.127548968689917,
+          "id": "S1A_IW_GRDH_1SDV_20170905T122248_20170905T122318_018240_01EAA2_7011",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-09-05"
+        },
+        {
+          "VV": -8.4528044140374,
+          "id": "S1A_IW_GRDH_1SDV_20170910T002620_20170910T002645_018306_01ECAF_1E86",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-09-10"
+        },
+        {
+          "VV": -8.618834874922968,
+          "id": "S1A_IW_GRDH_1SDV_20170910T002645_20170910T002710_018306_01ECAF_2E7C",
+          "orbit": 34,
+          "pass": "ASCENDING",
+          "t": "2017-09-10"
+        },
+        {
+          "VV": -8.159596826785654,
+          "id": "S1B_IW_GRDH_1SDV_20170911T122207_20170911T122236_007344_00CF54_9A73",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-09-11"
+        },
+        {
+          "VV": -8.001902207571058,
+          "id": "S1A_IW_GRDH_1SDV_20170917T001825_20170917T001850_018408_01EFE0_B8A1",
+          "orbit": 136,
+          "pass": "ASCENDING",
+          "t": "2017-09-17"
+        },
+        {
+          "VV": -8.335067053431656,
+          "id": "S1A_IW_GRDH_1SDV_20170917T122249_20170917T122319_018415_01F016_79DD",
+          "orbit": 143,
+          "pass": "DESCENDING",
+          "t": "2017-09-17"
+        }
+      ]
+    },
+    "paths": [],
+    "notes": "16 S1 scenes Aug-Sep 2017 Houston",
+    "error": null,
+    "ts": "2026-08-12T00:21:36.374952+00:00"
+  },
+  {
+    "name": "harvey_best_orbit_pair",
+    "ok": true,
+    "params": {},
+    "results": {
+      "orbit": 34,
+      "before": {
+        "VV": -8.38836284758557,
+        "id": "S1A_IW_GRDH_1SDV_20170805T002644_20170805T002710_017781_01DCB4_8FDF",
+        "orbit": 34,
+        "pass": "ASCENDING",
+        "t": "2017-08-05"
+      },
+      "after": {
+        "VV": -6.1980879696901345,
+        "id": "S1A_IW_GRDH_1SDV_20170829T002620_20170829T002645_018131_01E74D_D734",
+        "orbit": 34,
+        "pass": "ASCENDING",
+        "t": "2017-08-29"
+      },
+      "dVV_scene_mean": 2.190274877895436
+    },
+    "paths": [],
+    "notes": "{'orbit': 34, 'before': {'VV': -8.38836284758557, 'id': 'S1A_IW_GRDH_1SDV_20170805T002644_20170805T002710_017781_01DCB4_8FDF', 'orbit': 34, 'pass': 'ASCENDING', 't': '2017-08-05'}, 'after': {'VV': -6.1980879696901345, 'id': 'S1A_IW_GRDH_1SDV_20170829T002620_20170829T002645_018131_01E74D_D734', 'orbit': 34, 'pass': 'ASCENDING', 't': '2017-08-29'}, 'dVV_scene_mean': 2.190274877895436}",
+    "error": null,
+    "ts": "2026-08-12T00:21:36.378142+00:00"
+  },
+  {
+    "name": "harvey_deep",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "Image.load: Image asset 'S1A_IW_GRDH_1SDV_20170829T002620_20170829T002645_018131_01E74D_D734' not found (does not exist or caller does not have access).Traceback (most recent call last):\n  File \"/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py\", line 359, in _execute_cloud_call\n    return call.execute(num_retries=num_retries)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tayyabkhan/Shared/mi",
+    "ts": "2026-08-12T00:21:36.503583+00:00"
+  },
+  {
+    "name": "harvey_threshold_sensitivity",
+    "ok": true,
+    "params": {},
+    "results": {
+      "VV<-12&dVV<-2": 32.081602903987864,
+      "VV<-14&dVV<-2.5": 14.23451508143191,
+      "VV<-16&dVV<-3": 6.44380784238736,
+      "VV<-18&dVV<-4": 2.086450824937768,
+      "VV<-15&dVV<-1": 16.5617473752822
+    },
+    "paths": [],
+    "notes": "Flood area km2 by threshold: {'VV<-12&dVV<-2': 32.081602903987864, 'VV<-14&dVV<-2.5': 14.23451508143191, 'VV<-16&dVV<-3': 6.44380784238736, 'VV<-18&dVV<-4': 2.086450824937768, 'VV<-15&dVV<-1': 16.5617473752822}",
+    "error": null,
+    "ts": "2026-08-12T00:21:56.659088+00:00"
+  },
+  {
+    "name": "wind_followup_ship_detect_calm",
+    "ok": true,
+    "params": {
+      "date": "2023-07-24",
+      "thr": -14.094479086445855,
+      "bg_mean": -22.094479086445855
+    },
+    "results": {
+      "bright_pixels": 56520,
+      "thr_dB": -14.094479086445855
+    },
+    "paths": [],
+    "notes": "calm: thr=-14.1 dB, bright pix=56520",
+    "error": null,
+    "ts": "2026-08-12T00:21:57.768688+00:00"
+  },
+  {
+    "name": "wind_followup_ship_detect_rough",
+    "ok": true,
+    "params": {
+      "date": "2023-03-14",
+      "thr": -3.166855861357627,
+      "bg_mean": -11.166855861357627
+    },
+    "results": {
+      "bright_pixels": 416,
+      "thr_dB": -3.166855861357627
+    },
+    "paths": [],
+    "notes": "rough: thr=-3.2 dB, bright pix=416",
+    "error": null,
+    "ts": "2026-08-12T00:21:58.319108+00:00"
+  },
+  {
+    "name": "wind_followup_monthly_means",
+    "ok": true,
+    "params": {},
+    "results": {
+      "monthly_VV_mean": {
+        "2023-01": -14.839225889668475,
+        "2023-02": -12.473311386713497,
+        "2023-03": -14.84983965190282,
+        "2023-04": -13.594580561616606,
+        "2023-05": -14.718008850648857,
+        "2023-06": -16.673457410638694,
+        "2023-07": -18.477754369589466,
+        "2023-08": -16.052092002508452,
+        "2023-09": -14.318108057092314,
+        "2023-10": -14.1407972161208,
+        "2023-11": -15.689729378243669,
+        "2023-12": -17.39534592203987
+      },
+      "calm": {
+        "VV_mean": -22.094479086445855,
+        "VV_p99": -10.377354057154768,
+        "date": "2023-07-24",
+        "t": 1690201402000
+      },
+      "rough": {
+        "VV_mean": -11.166855861357627,
+        "VV_p99": -8.381930594654772,
+        "date": "2023-03-14",
+        "t": 1678796596000
+      },
+      "range_dB": 10.927623225088228
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_calm_vs_rough_diff.png"
+    ],
+    "notes": "Ocean VV annual range 10.93 dB; monthly={'2023-01': -14.839225889668475, '2023-02': -12.473311386713497, '2023-03': -14.84983965190282, '2023-04': -13.594580561616606, '2023-05': -14.718008850648857, '2023-06': -16.673457410638694, '2023-07': -18.477754369589466, '2023-08': -16.052092002508452, '2023-09': -14.318108057092314, '2023-10': -14.1407972161208, '2023-11': -15.689729378243669, '2023-12': -17.39534592203987}",
+    "error": null,
+    "ts": "2026-08-12T00:21:58.671985+00:00"
+  },
+  {
+    "name": "coherence_landcover_contrast",
+    "ok": true,
+    "params": {
+      "bands_used": [
+        "fall_vv_COH12",
+        "spring_vv_COH12",
+        "summer_vv_COH12",
+        "winter_vv_COH12"
+      ],
+      "tau_bands": [
+        "fall_vv_tau",
+        "spring_vv_tau",
+        "summer_vv_tau",
+        "winter_vv_tau"
+      ]
+    },
+    "results": {
+      "coherence_means": {
+        "urban": {
+          "fall_vv_COH12": null,
+          "spring_vv_COH12": null,
+          "summer_vv_COH12": null,
+          "winter_vv_COH12": null
+        },
+        "water": {
+          "fall_vv_COH12": null,
+          "spring_vv_COH12": null,
+          "summer_vv_COH12": null,
+          "winter_vv_COH12": null
+        },
+        "port": {
+          "fall_vv_COH12": null,
+          "spring_vv_COH12": null,
+          "summer_vv_COH12": null,
+          "winter_vv_COH12": null
+        },
+        "galveston_land": {
+          "fall_vv_COH12": null,
+          "spring_vv_COH12": null,
+          "summer_vv_COH12": null,
+          "winter_vv_COH12": null
+        },
+        "ms_river": {
+          "fall_vv_COH12": null,
+          "spring_vv_COH12": null,
+          "summer_vv_COH12": null,
+          "winter_vv_COH12": null
+        }
+      },
+      "tau_means": {
+        "urban": {
+          "fall_vv_tau": null,
+          "spring_vv_tau": null,
+          "summer_vv_tau": null,
+          "winter_vv_tau": null
+        },
+        "water": {
+          "fall_vv_tau": null,
+          "spring_vv_tau": null,
+          "summer_vv_tau": null,
+          "winter_vv_tau": null
+        },
+        "galveston": {
+          "fall_vv_tau": null,
+          "spring_vv_tau": null,
+          "summer_vv_tau": null,
+          "winter_vv_tau": null
+        }
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/coherence_vv_coh12_galveston.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/coherence_urban_houston.png"
+    ],
+    "notes": "COH12 means urban={'fall_vv_COH12': None, 'spring_vv_COH12': None, 'summer_vv_COH12': None, 'winter_vv_COH12': None} water={'fall_vv_COH12': None, 'spring_vv_COH12': None, 'summer_vv_COH12': None, 'winter_vv_COH12': None}",
+    "error": null,
+    "ts": "2026-08-12T00:22:00.773701+00:00"
+  },
+  {
+    "name": "speckle_enl_fixed",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "unsupported format string passed to NoneType.__format__Traceback (most recent call last):\n  File \"<stdin>\", line 224, in <module>\nTypeError: unsupported format string passed to NoneType.__format__\n",
+    "ts": "2026-08-12T00:22:04.538013+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170817",
+    "ok": true,
+    "params": {
+      "date": "2017-08-17T06:14:15.370000+00:00"
+    },
+    "results": {
+      "HH_dB_max": null,
+      "HH_dB_mean": null,
+      "HH_dB_min": null,
+      "HH_dB_p5": null,
+      "HH_dB_p50": null,
+      "HH_dB_p95": null,
+      "HH_dB_stdDev": null,
+      "HV_dB_max": null,
+      "HV_dB_mean": null,
+      "HV_dB_min": null,
+      "HV_dB_p5": null,
+      "HV_dB_p50": null,
+      "HV_dB_p95": null,
+      "HV_dB_stdDev": null
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170817_HH.png"
+    ],
+    "notes": "ScanSAR 20170817 HH_mean=None",
+    "error": null,
+    "ts": "2026-08-12T00:22:05.516373+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170817",
+    "ok": true,
+    "params": {
+      "date": "2017-08-17T06:14:56.126000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -5.824641451073211,
+      "HH_dB_min": -21.68840570543103,
+      "HH_dB_p5": -11.370556156703538,
+      "HH_dB_p50": -5.873928062487557,
+      "HH_dB_p95": -0.6294531010627754,
+      "HH_dB_stdDev": 3.3606540931976983,
+      "HV_dB_max": 13.005266118527118,
+      "HV_dB_mean": -14.61592986018375,
+      "HV_dB_min": -29.090366470196045,
+      "HV_dB_p5": -20.124136577956815,
+      "HV_dB_p50": -14.374394129673208,
+      "HV_dB_p95": -10.378449456838526,
+      "HV_dB_stdDev": 3.110166658720991
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170817_HH.png"
+    ],
+    "notes": "ScanSAR 20170817 HH_mean=-5.824641451073211",
+    "error": null,
+    "ts": "2026-08-12T00:22:07.586921+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170822",
+    "ok": true,
+    "params": {
+      "date": "2017-08-22T18:16:02.015000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -6.3270190245764555,
+      "HH_dB_min": -20.674488248389117,
+      "HH_dB_p5": -11.62209187819794,
+      "HH_dB_p50": -6.375276331245413,
+      "HH_dB_p95": -1.3789299962455872,
+      "HH_dB_stdDev": 3.167440945807202,
+      "HV_dB_max": 12.173091371540778,
+      "HV_dB_mean": -14.505290356073772,
+      "HV_dB_min": -26.582840211205998,
+      "HV_dB_p5": -19.3726677965418,
+      "HV_dB_p50": -14.374480246645936,
+      "HV_dB_p95": -10.630026115505798,
+      "HV_dB_stdDev": 2.733976967891346
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170822_HH.png"
+    ],
+    "notes": "ScanSAR 20170822 HH_mean=-6.3270190245764555",
+    "error": null,
+    "ts": "2026-08-12T00:22:09.474876+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170822",
+    "ok": true,
+    "params": {
+      "date": "2017-08-22T18:16:42.768000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -6.268956985782767,
+      "HH_dB_min": -20.66120706898488,
+      "HH_dB_p5": -11.87514289030502,
+      "HH_dB_p50": -6.125152147531175,
+      "HH_dB_p95": -0.8760957724195384,
+      "HH_dB_stdDev": 3.34879674697441,
+      "HV_dB_max": 12.292487957019617,
+      "HV_dB_mean": -14.566895058285661,
+      "HV_dB_min": -26.622291708119803,
+      "HV_dB_p5": -19.623374875409702,
+      "HV_dB_p50": -14.374177471754981,
+      "HV_dB_p95": -10.38015073545869,
+      "HV_dB_stdDev": 2.8583058885095856
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170822_HH.png"
+    ],
+    "notes": "ScanSAR 20170822 HH_mean=-6.268956985782767",
+    "error": null,
+    "ts": "2026-08-12T00:22:11.311919+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170827",
+    "ok": true,
+    "params": {
+      "date": "2017-08-27T06:28:10.103000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -3.120793984070428,
+      "HH_dB_min": -83,
+      "HH_dB_p5": -8.238097401941733,
+      "HH_dB_p50": -3.2495193505061786,
+      "HH_dB_p95": 2.242609798157066,
+      "HH_dB_stdDev": 3.152247907816002,
+      "HV_dB_max": 12.17823784795948,
+      "HV_dB_mean": -12.709227323961477,
+      "HV_dB_min": -83,
+      "HV_dB_p5": -17.738739236389193,
+      "HV_dB_p50": -12.247367752816897,
+      "HV_dB_p95": -8.773088635720246,
+      "HV_dB_stdDev": 2.737211206291922
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170827_HH.png"
+    ],
+    "notes": "ScanSAR 20170827 HH_mean=-3.120793984070428",
+    "error": null,
+    "ts": "2026-08-12T00:22:13.302349+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170827",
+    "ok": true,
+    "params": {
+      "date": "2017-08-27T18:22:59.425000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -4.618538460030891,
+      "HH_dB_min": -18.766911988936357,
+      "HH_dB_p5": -9.62212711631602,
+      "HH_dB_p50": -4.624025294035262,
+      "HH_dB_p95": 0.12140027724887507,
+      "HH_dB_stdDev": 3.0557114468778086,
+      "HV_dB_max": 13.329466075304993,
+      "HV_dB_mean": -13.236261366794274,
+      "HV_dB_min": -26.781914386625985,
+      "HV_dB_p5": -18.12322337778904,
+      "HV_dB_p50": -12.87468341006296,
+      "HV_dB_p95": -9.37993622126536,
+      "HV_dB_stdDev": 2.7798414568905034
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170827_HH.png"
+    ],
+    "notes": "ScanSAR 20170827 HH_mean=-4.618538460030891",
+    "error": null,
+    "ts": "2026-08-12T00:22:14.698761+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170827",
+    "ok": true,
+    "params": {
+      "date": "2017-08-27T18:23:40.176000+00:00"
+    },
+    "results": {
+      "HH_dB_max": null,
+      "HH_dB_mean": null,
+      "HH_dB_min": null,
+      "HH_dB_p5": null,
+      "HH_dB_p50": null,
+      "HH_dB_p95": null,
+      "HH_dB_stdDev": null,
+      "HV_dB_max": null,
+      "HV_dB_mean": null,
+      "HV_dB_min": null,
+      "HV_dB_p5": null,
+      "HV_dB_p50": null,
+      "HV_dB_p95": null,
+      "HV_dB_stdDev": null
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170827_HH.png"
+    ],
+    "notes": "ScanSAR 20170827 HH_mean=None",
+    "error": null,
+    "ts": "2026-08-12T00:22:15.634232+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170829",
+    "ok": true,
+    "params": {
+      "date": "2017-08-29T05:33:11.613000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -3.5208367745495983,
+      "HH_dB_min": -17.146019939121402,
+      "HH_dB_p5": -8.186024063764226,
+      "HH_dB_p50": -3.812646956970315,
+      "HH_dB_p95": 1.9369200318026578,
+      "HH_dB_stdDev": 3.1890133136454883,
+      "HV_dB_max": 13.329466075304993,
+      "HV_dB_mean": -12.019185718693464,
+      "HV_dB_min": -24.723722952325666,
+      "HV_dB_p5": -16.87349722153472,
+      "HV_dB_p50": -11.873354666907955,
+      "HV_dB_p95": -7.880710289946969,
+      "HV_dB_stdDev": 2.849662791983516
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170829_HH.png"
+    ],
+    "notes": "ScanSAR 20170829 HH_mean=-3.5208367745495983",
+    "error": null,
+    "ts": "2026-08-12T00:22:17.465250+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170829",
+    "ok": true,
+    "params": {
+      "date": "2017-08-29T05:33:52.046000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -3.564461428087045,
+      "HH_dB_min": -83,
+      "HH_dB_p5": -8.239146096723658,
+      "HH_dB_p50": -3.7504417991863668,
+      "HH_dB_p95": 1.743213594065661,
+      "HH_dB_stdDev": 3.1351151788930403,
+      "HV_dB_max": 13.329466075304993,
+      "HV_dB_mean": -12.008641939908127,
+      "HV_dB_min": -83,
+      "HV_dB_p5": -16.74110908295964,
+      "HV_dB_p50": -11.746023377552568,
+      "HV_dB_p95": -8.267923802394622,
+      "HV_dB_stdDev": 2.805758671032888
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170829_HH.png"
+    ],
+    "notes": "ScanSAR 20170829 HH_mean=-3.564461428087045",
+    "error": null,
+    "ts": "2026-08-12T00:22:19.344404+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170905",
+    "ok": true,
+    "params": {
+      "date": "2017-09-05T06:21:12.651000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -6.7666326970824615,
+      "HH_dB_min": -19.397482496718922,
+      "HH_dB_p5": -12.373084455629636,
+      "HH_dB_p50": -6.623303963019925,
+      "HH_dB_p95": -1.8795966376255417,
+      "HH_dB_stdDev": 3.2256941916272943,
+      "HV_dB_max": 6.882256658517349,
+      "HV_dB_mean": -15.348625344693271,
+      "HV_dB_min": -28.95138927108949,
+      "HV_dB_p5": -21.12065360361877,
+      "HV_dB_p50": -14.873769603980314,
+      "HV_dB_p95": -11.127080273918821,
+      "HV_dB_stdDev": 3.0995746933397417
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170905_HH.png"
+    ],
+    "notes": "ScanSAR 20170905 HH_mean=-6.7666326970824615",
+    "error": null,
+    "ts": "2026-08-12T00:22:20.800222+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_scene_20170905",
+    "ok": true,
+    "params": {
+      "date": "2017-09-05T06:21:53.407000+00:00"
+    },
+    "results": {
+      "HH_dB_max": 13.329466075304993,
+      "HH_dB_mean": -5.55386194358403,
+      "HH_dB_min": -20.02794690387813,
+      "HH_dB_p5": -10.872686195883697,
+      "HH_dB_p50": -5.3755885730641015,
+      "HH_dB_p95": -0.6269062838643036,
+      "HH_dB_stdDev": 3.2330770386730676,
+      "HV_dB_max": 13.329466075304993,
+      "HV_dB_mean": -14.248099395041779,
+      "HV_dB_min": -28.882725754321612,
+      "HV_dB_p5": -19.87207722284662,
+      "HV_dB_p50": -13.873642576448995,
+      "HV_dB_p95": -10.128671862496114,
+      "HV_dB_stdDev": 3.0275883088876405
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_houston_20170905_HH.png"
+    ],
+    "notes": "ScanSAR 20170905 HH_mean=-5.55386194358403",
+    "error": null,
+    "ts": "2026-08-12T00:22:22.715707+00:00"
+  },
+  {
+    "name": "alos_scansar_harvey_change",
+    "ok": true,
+    "params": {
+      "n": 11,
+      "dates": [
+        "2017-08-17T06:14:15.370000+00:00",
+        "2017-08-17T06:14:56.126000+00:00",
+        "2017-08-22T18:16:02.015000+00:00",
+        "2017-08-22T18:16:42.768000+00:00",
+        "2017-08-27T06:28:10.103000+00:00",
+        "2017-08-27T18:22:59.425000+00:00",
+        "2017-08-27T18:23:40.176000+00:00",
+        "2017-08-29T05:33:11.613000+00:00",
+        "2017-08-29T05:33:52.046000+00:00",
+        "2017-09-05T06:21:12.651000+00:00",
+        "2017-09-05T06:21:53.407000+00:00"
+      ]
+    },
+    "results": {
+      "dHH_max": null,
+      "dHH_mean": null,
+      "dHH_min": null,
+      "dHH_p5": null,
+      "dHH_p50": null,
+      "dHH_p95": null,
+      "dHH_stdDev": null
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_scansar_harvey_dHH.png"
+    ],
+    "notes": "L-band dHH mean=None across ScanSAR Harvey pair",
+    "error": null,
+    "ts": "2026-08-12T00:22:23.541082+00:00"
+  },
+  {
+    "name": "ascdesc_followup_ascending",
+    "ok": true,
+    "params": {
+      "pass": "ASCENDING"
+    },
+    "results": {
+      "galveston_bbox": {
+        "VH_max": 8.948368591391457,
+        "VH_mean": -24.056304493924106,
+        "VH_min": -32.75355292198262,
+        "VH_p5": -31.114897033655524,
+        "VH_p50": -28.132338304415768,
+        "VH_p95": -15.127453820872391,
+        "VH_stdDev": 6.296701836219089,
+        "VV_max": 20.058937358969686,
+        "VV_mean": -15.41782057582974,
+        "VV_min": -23.34462309783539,
+        "VV_p5": -20.36586211559975,
+        "VV_p50": -17.88815885518562,
+        "VV_p95": -8.878756724003933,
+        "VV_stdDev": 4.4187124531414605
+      },
+      "clear_lake": {
+        "VH_max": 9.595631401717945,
+        "VH_mean": -19.71903480552338,
+        "VH_min": -31.484487285263878,
+        "VH_p5": -30.120988689109723,
+        "VH_p50": -16.87318877334256,
+        "VH_p95": -13.382878164509881,
+        "VH_stdDev": 6.258329618536062,
+        "VV_max": 17.341464452075847,
+        "VV_mean": -11.991377982872311,
+        "VV_min": -21.554841353058766,
+        "VV_p5": -19.61648974837531,
+        "VV_p50": -10.624906453796628,
+        "VV_p95": -4.629111256451396,
+        "VV_stdDev": 5.178783658636313
+      }
+    },
+    "paths": [],
+    "notes": "ASCENDING Galveston VV=-15.42 ClearLake=-11.99",
+    "error": null,
+    "ts": "2026-08-12T00:22:39.239578+00:00"
+  },
+  {
+    "name": "ascdesc_followup_descending",
+    "ok": true,
+    "params": {
+      "pass": "DESCENDING"
+    },
+    "results": {
+      "galveston_bbox": {
+        "VH_max": 7.437954806542287,
+        "VH_mean": -20.988503068073474,
+        "VH_min": -64.53165575588662,
+        "VH_p5": -26.668082060741533,
+        "VH_p50": -19.232419942338158,
+        "VH_p95": -14.761066696438585,
+        "VH_stdDev": 4.772302039714805,
+        "VV_max": 15.0731314611952,
+        "VV_mean": -12.913281490036196,
+        "VV_min": -51.70266282187878,
+        "VV_p5": -17.22146609740518,
+        "VV_p50": -12.731053295614828,
+        "VV_p95": -8.279268470345542,
+        "VV_stdDev": 3.254341446622738
+      },
+      "clear_lake": {
+        "VH_max": 9.857378767251086,
+        "VH_mean": -18.85841731713997,
+        "VH_min": -27.767618410703193,
+        "VH_p5": -26.61597850236645,
+        "VH_p50": -16.873815156296466,
+        "VH_p95": -12.878528125080528,
+        "VH_stdDev": 5.236048741436708,
+        "VV_max": 22.1213585574157,
+        "VV_mean": -11.435618510533871,
+        "VV_min": -23.122027927615008,
+        "VV_p5": -17.865989343094473,
+        "VV_p50": -10.623891641458007,
+        "VV_p95": -5.122742402583779,
+        "VV_stdDev": 4.437523168196272
+      }
+    },
+    "paths": [],
+    "notes": "DESCENDING Galveston VV=-12.91 ClearLake=-11.44",
+    "error": null,
+    "ts": "2026-08-12T00:22:50.350673+00:00"
+  },
+  {
+    "name": "ascdesc_incidence_ascending",
+    "ok": true,
+    "params": {},
+    "results": {
+      "angle_max": 37.73356246948242,
+      "angle_mean": 36.19012774729685,
+      "angle_min": 34.845123291015625
+    },
+    "paths": [],
+    "notes": "ASCENDING mean incidence=36.19012774729685",
+    "error": null,
+    "ts": "2026-08-12T00:22:51.864858+00:00"
+  },
+  {
+    "name": "ascdesc_incidence_descending",
+    "ok": true,
+    "params": {},
+    "results": {
+      "angle_max": 32.79969787597656,
+      "angle_mean": 31.47204992391419,
+      "angle_min": 30.65151023864746
+    },
+    "paths": [],
+    "notes": "DESCENDING mean incidence=31.47204992391419",
+    "error": null,
+    "ts": "2026-08-12T00:22:52.754769+00:00"
+  },
+  {
+    "name": "opera_dswx_vs_s1_darkwater",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "Image.select: Band pattern 'BWTR_Binary_water' was applied to an Image with no bands. See https://developers.google.com/earth-engine/guides/debugging#no-bandsTraceback (most recent call last):\n  File \"/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py\", line 359, in _execute_cloud_call\n    return call.execute(num_retries=num_retries)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tayyabkhan/Shared/mi",
+    "ts": "2026-08-12T00:22:52.985501+00:00"
+  },
+  {
+    "name": "gulf_oil_platform_objects",
+    "ok": true,
+    "params": {
+      "persist_frac": 0.35,
+      "scale": 40
+    },
+    "results": {
+      "n_persistent_objects": 35,
+      "sample_coords": [
+        [
+          -94.52159258521642,
+          29.18045447553928
+        ],
+        [
+          -94.5466056752387,
+          29.13036270422004
+        ],
+        [
+          -94.60715212538835,
+          29.132005337882433
+        ],
+        [
+          -94.82202914134974,
+          29.126435783120893
+        ],
+        [
+          -94.83083263113411,
+          29.14565973020105
+        ],
+        [
+          -94.97258678296816,
+          29.186263581043253
+        ],
+        [
+          -94.97589258321374,
+          29.1816282741772
+        ],
+        [
+          -94.9810309466389,
+          29.19345010331621
+        ],
+        [
+          -94.98139027275253,
+          29.197223027509512
+        ],
+        [
+          -94.98228858803667,
+          29.193270440259386
+        ]
+      ]
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_oil_platform_candidates.png"
+    ],
+    "notes": "~35 persistent bright objects (platform-like) in Gulf AOI",
+    "error": null,
+    "ts": "2026-08-12T00:23:02.246545+00:00"
+  },
+  {
+    "name": "port_persistent_bright_infra",
+    "ok": true,
+    "params": {},
+    "results": {
+      "bright_both_seasons_km2": 68.76055868531567
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/port_houston_persistent_bright.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/port_houston_seasonal_rgb.png"
+    ],
+    "notes": "Port persistent bright (VV>-6 both seasons)=68.761 km2",
+    "error": null,
+    "ts": "2026-08-12T00:23:11.076566+00:00"
+  },
+  {
+    "name": "grd_db_vs_float_fixed",
+    "ok": false,
+    "params": {},
+    "results": {},
+    "paths": [],
+    "notes": "",
+    "error": "Image.select: Band pattern 'VV' did not match any bands. Available bands: [constant]Traceback (most recent call last):\n  File \"/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py\", line 359, in _execute_cloud_call\n    return call.execute(num_retries=num_retries)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/tayyabkhan/Shared/mi",
+    "ts": "2026-08-12T00:23:11.880943+00:00"
+  },
+  {
+    "name": "ms_river_2019_major_flood",
+    "ok": true,
+    "params": {
+      "wet": "2019-05..06",
+      "dry": "2019-09..10"
+    },
+    "results": {
+      "dVV": {
+        "dVV_max": 29.21638452715497,
+        "dVV_mean": -1.4252620959766298,
+        "dVV_min": -42.99648343065553,
+        "dVV_p5": -7.242357406334445,
+        "dVV_p50": -0.7471407363124252,
+        "dVV_p95": 3.233377566362263,
+        "dVV_stdDev": 3.255842105914848
+      },
+      "flood_km2": 330.984062978145
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/ms_river_2019flood_dVV.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/ms_river_2019flood_mask.png"
+    ],
+    "notes": "2019 MS flood AOI mask=331.0 km2; mean dVV=-1.4252620959766298",
+    "error": null,
+    "ts": "2026-08-12T00:23:18.809511+00:00"
+  },
+  {
+    "name": "harvey_orbit34_pair_deep",
+    "ok": true,
+    "params": {
+      "before": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170805T002644_20170805T002710_017781_01DCB4_8FDF",
+      "after": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170829T002620_20170829T002645_018131_01E74D_D734",
+      "orbit": 34
+    },
+    "results": {
+      "houston": {
+        "before_VV": {
+          "VV_mean": -9.173726157285088,
+          "VV_p5": -14.372216286194465,
+          "VV_p50": -9.375995544436035,
+          "VV_p95": -3.125383348684497,
+          "VV_stdDev": 3.5337280170445844
+        },
+        "after_VV": {
+          "VV_mean": -7.246121457317628,
+          "VV_p5": -13.239332860687021,
+          "VV_p50": -7.751412515078892,
+          "VV_p95": 0.7438053918410175,
+          "VV_stdDev": 4.2709847701714
+        },
+        "dVV": {
+          "dVV_mean": 0.9482099353063408,
+          "dVV_p5": -4.643432774527283,
+          "dVV_p50": 0.8927128978794242,
+          "dVV_p95": 6.105393375464104,
+          "dVV_stdDev": 3.4582712725905425
+        },
+        "dVH": {
+          "dVH_mean": 0.4033581197669494,
+          "dVH_p5": -4.701485933629152,
+          "dVH_p50": 0.5620145760386076,
+          "dVH_p95": 5.3258472480883965,
+          "dVH_stdDev": 3.1329807580856426
+        },
+        "flood_km2": 0.028077563837387985
+      },
+      "addicks": {
+        "before_VV": {
+          "VV_mean": -9.555043102090679,
+          "VV_p5": -14.625061084597595,
+          "VV_p50": -9.373416419889013,
+          "VV_p95": -4.882608113211963,
+          "VV_stdDev": 3.1216151278089037
+        },
+        "after_VV": {
+          "VV_mean": -8.273214476025055,
+          "VV_p5": -15.129120062385548,
+          "VV_p50": -8.373808364895597,
+          "VV_p95": -1.12867444250619,
+          "VV_stdDev": 4.109865728622448
+        },
+        "dVV": {
+          "dVV_mean": -0.03336426728440441,
+          "dVV_p5": -5.998303070712614,
+          "dVV_p50": 0.2905979052024112,
+          "dVV_p95": 4.333399652624125,
+          "dVV_stdDev": 3.220891402602227
+        },
+        "dVH": {
+          "dVH_mean": -0.13018748842291983,
+          "dVH_p5": -5.683324922098811,
+          "dVH_p50": 0.168838114217584,
+          "dVH_p95": 4.729297252944349,
+          "dVH_stdDev": 3.249900541300767
+        },
+        "flood_km2": 0.018785201385498048
+      },
+      "barker": {
+        "before_VV": {
+          "VV_mean": null,
+          "VV_p5": null,
+          "VV_p50": null,
+          "VV_p95": null,
+          "VV_stdDev": null
+        },
+        "after_VV": {
+          "VV_mean": -8.168603688330123,
+          "VV_p5": -15.12353460490895,
+          "VV_p50": -8.37431962375101,
+          "VV_p95": -1.1239330505627287,
+          "VV_stdDev": 4.189262673299246
+        },
+        "dVV": {
+          "dVV_mean": null,
+          "dVV_p5": null,
+          "dVV_p50": null,
+          "dVV_p95": null,
+          "dVV_stdDev": null
+        },
+        "dVH": {
+          "dVH_mean": null,
+          "dVH_p5": null,
+          "dVH_p50": null,
+          "dVH_p95": null,
+          "dVH_stdDev": null
+        },
+        "flood_km2": 0.0
+      },
+      "west_hou": {
+        "before_VV": {
+          "VV_mean": -9.444183278398128,
+          "VV_p5": -14.625862233996653,
+          "VV_p50": -9.374468536357899,
+          "VV_p95": -4.381067155349282,
+          "VV_stdDev": 3.2945532132487862
+        },
+        "after_VV": {
+          "VV_mean": -7.9360163627933265,
+          "VV_p5": -14.623729128492629,
+          "VV_p50": -8.124309378482518,
+          "VV_p95": -0.8714026703958075,
+          "VV_stdDev": 4.134812680092853
+        },
+        "dVV": {
+          "dVV_mean": 0.4607719036637659,
+          "dVV_p5": -5.624549401751533,
+          "dVV_p50": 0.8795934790645511,
+          "dVV_p95": 5.86486564002035,
+          "dVV_stdDev": 3.4522984748830705
+        },
+        "dVH": {
+          "dVH_mean": -0.03836031056647551,
+          "dVH_p5": -5.683324922098811,
+          "dVH_p50": 0.29026961693436965,
+          "dVH_p95": 4.696011279473696,
+          "dVH_stdDev": 3.239860785815012
+        },
+        "flood_km2": 0.019584653350830077
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit34_before.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit34_after.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit34_dVV_westhou.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit34_flood_westhou.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_orbit34_dVH.png"
+    ],
+    "notes": "West Houston dVV mean=0.4607719036637659; flood_km2=0.0; Addicks dVV=-0.03336426728440441, flood=0.0 km2",
+    "error": null,
+    "ts": "2026-08-12T00:24:25.908488+00:00"
+  },
+  {
+    "name": "lband_vs_cband_harvey_flooded_veg",
+    "ok": true,
+    "params": {
+      "region": "west_houston_addicks"
+    },
+    "results": {
+      "alos_series": [
+        {
+          "date": "2017-08-17",
+          "HH": null,
+          "HV": null
+        },
+        {
+          "date": "2017-08-17",
+          "HH": -4.905532405416529,
+          "HV": -13.780764842760963
+        },
+        {
+          "date": "2017-08-22",
+          "HH": -6.097214828059109,
+          "HV": -14.093070308517406
+        },
+        {
+          "date": "2017-08-22",
+          "HH": -5.928620545251491,
+          "HV": -14.032689044795031
+        },
+        {
+          "date": "2017-08-27",
+          "HH": -3.351394305623934,
+          "HV": -12.489611893205154
+        },
+        {
+          "date": "2017-08-27",
+          "HH": -4.772931972032448,
+          "HV": -13.057185853942418
+        },
+        {
+          "date": "2017-08-27",
+          "HH": null,
+          "HV": null
+        },
+        {
+          "date": "2017-08-29",
+          "HH": -3.869578012022752,
+          "HV": -12.05178971942093
+        },
+        {
+          "date": "2017-08-29",
+          "HH": -4.034628673816436,
+          "HV": -12.067026509650514
+        },
+        {
+          "date": "2017-09-05",
+          "HH": null,
+          "HV": null
+        },
+        {
+          "date": "2017-09-05",
+          "HH": -5.380097899589403,
+          "HV": -14.141866211714744
+        }
+      ],
+      "alos_pre_HH": -5.643789259575709,
+      "alos_peak_HH": -4.007133240873893,
+      "alos_post_HH": -5.380097899589403,
+      "alos_peak_minus_pre_dB": 1.6366560187018164,
+      "s1_cband": {
+        "pre": {
+          "VV_mean": -8.787890610087295,
+          "VV_p5": -12.871060629643354,
+          "VV_p50": -8.624852995154598,
+          "VV_p95": -4.627867751589612,
+          "VV_stdDev": 2.6583155828215546
+        },
+        "peak": {
+          "VV_mean": -8.182932374426358,
+          "VV_p5": -14.119700257904325,
+          "VV_p50": -8.125611392825316,
+          "VV_p95": -2.6264887023157892,
+          "VV_stdDev": 3.3448223131135646
+        },
+        "dVV": {
+          "dVV_mean": 0.6049582356611207,
+          "dVV_p5": -3.3727377386956765,
+          "dVV_p50": 0.624911832568505,
+          "dVV_p95": 4.372382135176056,
+          "dVV_stdDev": 2.403576845668612
+        }
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_lband_harvey_pre_HH.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_lband_harvey_peak_HH.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/alos_lband_harvey_peak_minus_pre.png"
+    ],
+    "notes": "L-band HH WestHouston pre=-5.643789259575709 peak=-4.007133240873893 \u0394=1.64 dB; C-band VV dVV mean=0.6049582356611207 \u2014 L-band may BRIGHTEN (flooded veg double-bounce) while C-band darkens",
+    "error": null,
+    "ts": "2026-08-12T00:24:33.759089+00:00"
+  },
+  {
+    "name": "coherence_point_samples",
+    "ok": true,
+    "params": {
+      "band": "winter_vv_COH12"
+    },
+    "results": {
+      "point_samples": {
+        "houston": 0.89,
+        "galveston": 0.7000000000000001,
+        "clear_lake": 0.56,
+        "open_gulf": 0.03,
+        "ms_river": 0.74,
+        "denver_control": 0.42
+      },
+      "galveston_reduce": {
+        "winter_vv_COH12_count": 207576,
+        "winter_vv_COH12_mean": 0.19600951144746
+      },
+      "valid_mask_sum": {
+        "winter_vv_COH12": 206565.53725489986
+      },
+      "all_bands_n": 48
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/coherence_winter_vv_coh12_texas.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/s1_incidence_layover_galveston.png"
+    ],
+    "notes": "Point COH12 samples: {'houston': 0.89, 'galveston': 0.7000000000000001, 'clear_lake': 0.56, 'open_gulf': 0.03, 'ms_river': 0.74, 'denver_control': 0.42}; galveston reduce={'winter_vv_COH12_count': 207576, 'winter_vv_COH12_mean': 0.19600951144746}",
+    "error": null,
+    "ts": "2026-08-12T00:24:37.328635+00:00"
+  },
+  {
+    "name": "speckle_enl_open_gulf",
+    "ok": true,
+    "params": {},
+    "results": {
+      "raw": {
+        "lin_mean": null,
+        "lin_std": null,
+        "ENL": null,
+        "dB_std": 1.9412382714091554
+      },
+      "focalMedian50m": {
+        "lin_mean": null,
+        "lin_std": null,
+        "ENL": null,
+        "dB_std": 1.1923992212039347
+      },
+      "boxcar7px": {
+        "lin_mean": null,
+        "lin_std": null,
+        "ENL": null,
+        "dB_std": 1.165336012847393
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/speckle3_raw.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/speckle3_focalMedian50m.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/speckle3_boxcar7px.png"
+    ],
+    "notes": "ENL raw=None median=None boost=None",
+    "error": null,
+    "ts": "2026-08-12T00:25:08.196082+00:00"
+  },
+  {
+    "name": "opera_dswx_band_inspect",
+    "ok": true,
+    "params": {
+      "bands": [
+        "WTR_Water_classification",
+        "BWTR_Binary_water",
+        "CONF_Confidence",
+        "DIAG_diagnostic"
+      ],
+      "n_2024": 90,
+      "n_apr": 0
+    },
+    "results": {
+      "hist_year": {
+        "WTR_Water_classification": {
+          "0": 461043.06274509314,
+          "1": 2508.1411764705886,
+          "3": 1170.501960784314
+        }
+      },
+      "hist_apr": null,
+      "first_props": {
+        "system:time_start": 1724415823000,
+        "system:index": "T15RTN_20240823T122343Z_20251107T021113Z_S1A"
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/opera_dswx_wtr_houston_2024.png"
+    ],
+    "notes": "DSWx bands=['WTR_Water_classification', 'BWTR_Binary_water', 'CONF_Confidence', 'DIAG_diagnostic']; 2024 n=90; hist={'WTR_Water_classification': {'0': 461043.06274509314, '1': 2508.1411764705886, '3': 1170.501960784314}}",
+    "error": null,
+    "ts": "2026-08-12T00:25:29.470913+00:00"
+  },
+  {
+    "name": "ship_cfar_local_contrast",
+    "ok": true,
+    "params": {
+      "rule": "VV - focalMedian800m > 8 dB"
+    },
+    "results": {
+      "ship_pixels": 1536,
+      "n_objects": 138,
+      "contrast_stats": {
+        "contrast_mean": -0.0020365364002991816,
+        "contrast_p5": -2.1192445058272265,
+        "contrast_p50": 0.12403277952042797,
+        "contrast_p95": 2.11773833319005,
+        "contrast_stdDev": 1.4145266735543838
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_cfar_contrast.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/gulf_cfar_ships.png"
+    ],
+    "notes": "CFAR-like ships: 138 objects, 1536 pixels; contrast p95=2.11773833319005",
+    "error": null,
+    "ts": "2026-08-12T00:35:04.992379+00:00"
+  },
+  {
+    "name": "polarimetric_VH_VV_ratio_classes",
+    "ok": true,
+    "params": {},
+    "results": {
+      "urban": {
+        "pol_ratio_mean": 0.20947583975555897,
+        "pol_ratio_p5": 0.08018083025298624,
+        "pol_ratio_p50": 0.20301957304869245,
+        "pol_ratio_p95": 0.35771565376269476,
+        "pol_ratio_stdDev": 0.09666118661639081
+      },
+      "water": {
+        "pol_ratio_mean": 0.2082939668405589,
+        "pol_ratio_p5": 0.08682579939735237,
+        "pol_ratio_p50": 0.21112186541109546,
+        "pol_ratio_p95": 0.35104696161149657,
+        "pol_ratio_stdDev": 0.0906784291502406
+      },
+      "galveston": {
+        "pol_ratio_mean": 0.1768866776503891,
+        "pol_ratio_p5": 0.07137642106305099,
+        "pol_ratio_p50": 0.1479108454938038,
+        "pol_ratio_p95": 0.33550211071905106,
+        "pol_ratio_stdDev": 0.09111056277945007
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/pol_ratio_VH_VV_houston.png"
+    ],
+    "notes": "VH/VV urban=0.20947583975555897 water=0.2082939668405589",
+    "error": null,
+    "ts": "2026-08-12T00:35:15.340631+00:00"
+  },
+  {
+    "name": "orbit_detail_34",
+    "ok": true,
+    "params": {
+      "orbit": 34,
+      "pass": "ASCENDING",
+      "n": 30
+    },
+    "results": {
+      "angle": {
+        "angle_max": 45.188446044921875,
+        "angle_mean": 43.904383004187146,
+        "angle_min": 42.58545684814453
+      },
+      "backscatter": {
+        "VH_mean": -24.792555441748355,
+        "VH_p5": -32.118554826563695,
+        "VH_p50": -28.878418139742077,
+        "VH_p95": -15.37797027537172,
+        "VH_stdDev": 6.615522473401579,
+        "VV_mean": -17.23866455032874,
+        "VV_p5": -23.113744733853334,
+        "VV_p50": -20.886393511596943,
+        "VV_p95": -9.129415600876102,
+        "VV_stdDev": 5.604823111633485
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_orbit34_VV.png"
+    ],
+    "notes": "Orbit 34 ASCENDING: n=30, angle_mean=43.904383004187146, VV=-17.23866455032874",
+    "error": null,
+    "ts": "2026-08-12T00:35:28.849691+00:00"
+  },
+  {
+    "name": "orbit_detail_136",
+    "ok": true,
+    "params": {
+      "orbit": 136,
+      "pass": "ASCENDING",
+      "n": 54
+    },
+    "results": {
+      "angle": {
+        "angle_max": 33.592185974121094,
+        "angle_mean": 31.914551053030088,
+        "angle_min": 30.545658111572266
+      },
+      "backscatter": {
+        "VH_mean": -22.29386096113662,
+        "VH_p5": -27.223102108841974,
+        "VH_p50": -26.312181037088976,
+        "VH_p95": -14.762090399554747,
+        "VH_stdDev": 5.154581686818728,
+        "VV_mean": -13.432547525998988,
+        "VV_p5": -16.864493375971005,
+        "VV_p50": -15.138541153456345,
+        "VV_p95": -8.380588070265379,
+        "VV_stdDev": 3.3038318623229244
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_orbit136_VV.png"
+    ],
+    "notes": "Orbit 136 ASCENDING: n=54, angle_mean=31.914551053030088, VV=-13.432547525998988",
+    "error": null,
+    "ts": "2026-08-12T00:35:42.049241+00:00"
+  },
+  {
+    "name": "orbit_detail_143",
+    "ok": true,
+    "params": {
+      "orbit": 143,
+      "pass": "DESCENDING",
+      "n": 30
+    },
+    "results": {
+      "angle": {
+        "angle_max": 32.79766082763672,
+        "angle_mean": 31.470230903640353,
+        "angle_min": 30.65089988708496
+      },
+      "backscatter": {
+        "VH_mean": -20.989829391316466,
+        "VH_p5": -26.669078853753952,
+        "VH_p50": -19.23207557062305,
+        "VH_p95": -14.763037573007578,
+        "VH_stdDev": 4.773289453067575,
+        "VV_mean": -12.913391914694033,
+        "VV_p5": -17.118335284967642,
+        "VV_p50": -12.870380132098795,
+        "VV_p95": -8.381402631221436,
+        "VV_stdDev": 3.2537882559368363
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/galveston_orbit143_VV.png"
+    ],
+    "notes": "Orbit 143 DESCENDING: n=30, angle_mean=31.470230903640353, VV=-12.913391914694033",
+    "error": null,
+    "ts": "2026-08-12T00:35:49.692993+00:00"
+  },
+  {
+    "name": "harvey_urban_brighten_vs_rural_darken",
+    "ok": true,
+    "params": {
+      "pair": "2017-08-05 vs 2017-08-29 orbit34"
+    },
+    "results": {
+      "west_hou": {
+        "brighten_gt3_km2": 0.08039008429744944,
+        "darken_lt3_km2": 0.06115285247802734,
+        "dVV": {
+          "dVV_mean": 0.4607719036637659,
+          "dVV_p10": -3.8686906797477416,
+          "dVV_p50": 0.879593479064551,
+          "dVV_p90": 4.12973339907294
+        }
+      },
+      "urban_downtown": {
+        "brighten_gt3_km2": 0.0,
+        "darken_lt3_km2": 0.0,
+        "dVV": {
+          "dVV_mean": null,
+          "dVV_p10": null,
+          "dVV_p50": null,
+          "dVV_p90": null
+        }
+      },
+      "rural_katy": {
+        "brighten_gt3_km2": 0.1540112424775965,
+        "darken_lt3_km2": 0.07101053930664063,
+        "dVV": {
+          "dVV_mean": 0.9998610621992703,
+          "dVV_p10": -3.7881212106149222,
+          "dVV_p50": 1.466472631962951,
+          "dVV_p90": 5.067267867304917
+        }
+      },
+      "houston_box": {
+        "brighten_gt3_km2": 0.22307870513916014,
+        "darken_lt3_km2": 0.10538169134928385,
+        "dVV": {
+          "dVV_mean": 0.9482099353063408,
+          "dVV_p10": -3.14060083230155,
+          "dVV_p50": 0.8927128978794242,
+          "dVV_p90": 4.875841364495364
+        }
+      }
+    },
+    "paths": [
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_brighten_vs_darken.png",
+      "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/thumbs/harvey_dVV_wide.png"
+    ],
+    "notes": "Urban brighten=0.0 km2 darken=0.0; Rural brighten=0.2 darken=0.1",
+    "error": null,
+    "ts": "2026-08-12T00:37:03.500548+00:00"
+  },
+  {
+    "name": "speckle_dbstd_and_enl",
+    "ok": true,
+    "params": {
+      "patch": "open_gulf"
+    },
+    "results": {
+      "dB_stats": {
+        "raw": {
+          "VV_mean": -15.112076815174115,
+          "VV_stdDev": 1.9414088060630643
+        },
+        "focalMedian": {
+          "VV_mean": -15.1658314783162,
+          "VV_stdDev": 1.1887255851015155
+        },
+        "boxcar": {
+          "VV_mean": -15.394503446031223,
+          "VV_stdDev": 1.174305595221634
+        }
+      },
+      "ENL": {
+        "raw": {
+          "lin_mean": null,
+          "lin_var": null,
+          "ENL": null
+        },
+        "focalMedian50m": {
+          "lin_mean": null,
+          "lin_var": null,
+          "ENL": null
+        },
+        "boxcar7px": {
+          "lin_mean": null,
+          "lin_var": null,
+          "ENL": null
+        }
+      },
+      "dB_std_reduction_median": 1.6331850095556502
+    },
+    "paths": [],
+    "notes": "dB std raw=1.941 \u2192 median=1.189; ENL raw=None median=None",
+    "error": null,
+    "ts": "2026-08-12T00:37:14.686625+00:00"
+  },
+  {
+    "name": "coherence_tau_point_samples",
+    "ok": true,
+    "params": {
+      "bands": [
+        "fall_vv_tau",
+        "spring_vv_tau",
+        "summer_vv_tau",
+        "winter_vv_tau"
+      ]
+    },
+    "results": {
+      "houston": {
+        "fall_vv_tau": 7.615,
+        "spring_vv_tau": 15.879,
+        "summer_vv_tau": 0.41600000000000004,
+        "winter_vv_tau": 0.406
+      },
+      "galveston": {
+        "fall_vv_tau": 9.597,
+        "spring_vv_tau": 6.154,
+        "summer_vv_tau": 3.632,
+        "winter_vv_tau": 8.678
+      },
+      "open_gulf": {
+        "fall_vv_tau": 2.8000000000000003,
+        "spring_vv_tau": 0.454,
+        "summer_vv_tau": 2.625,
+        "winter_vv_tau": 0.214
+      },
+      "denver": {
+        "fall_vv_tau": 12.23,
+        "spring_vv_tau": 12.409,
+        "summer_vv_tau": 7.384,
+        "winter_vv_tau": 0.47400000000000003
+      }
+    },
+    "paths": [],
+    "notes": "Coherence decay tau samples: {'houston': 7.615, 'galveston': 9.597, 'open_gulf': 2.8000000000000003, 'denver': 12.23}",
+    "error": null,
+    "ts": "2026-08-12T00:37:16.048177+00:00"
+  }
+]

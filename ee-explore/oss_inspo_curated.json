@@ -1,0 +1,98 @@
+[
+  {
+    "repo": "jlov7/TerraRisk-Agent",
+    "why": "Closest product twin: underwriting agent + FEMA + EE/BQ + provenance/OPA + act/report",
+    "stars": 0,
+    "url": "https://github.com/jlov7/TerraRisk-Agent"
+  },
+  {
+    "repo": "csaybar/ee-fastapi",
+    "why": "Pattern: FastAPI wraps UN-SPIDER S1 flood model on EE \u2014 reason\u2192API\u2192act shape",
+    "stars": 88,
+    "url": "https://github.com/csaybar/ee-fastapi"
+  },
+  {
+    "repo": "mapaction/flood-mapping-tool",
+    "why": "Streamlit + UN-SPIDER GEE flood extent \u2014 clean demo UX for ops users",
+    "stars": 26,
+    "url": "https://github.com/mapaction/flood-mapping-tool"
+  },
+  {
+    "repo": "PratyushTripathy/global_flood_mapper",
+    "why": "GFM: rapid S1 flood mapping app in EE Code Editor + impact portal",
+    "stars": 136,
+    "url": "https://github.com/PratyushTripathy/global_flood_mapper"
+  },
+  {
+    "repo": "Deltares/aqua-monitor",
+    "why": "Long-term surface water change viz (Landsat) \u2014 closest to Waterline Creep narrative",
+    "stars": 60,
+    "url": "https://github.com/Deltares/aqua-monitor"
+  },
+  {
+    "repo": "thapawan/NRTFIM-GEE",
+    "why": "S1+S2+JRC occurrence+DEM slope fusion \u2014 exact stack for creep/flood screening",
+    "stars": 4,
+    "url": "https://github.com/thapawan/NRTFIM-GEE"
+  },
+  {
+    "repo": "kvos/CoastSat",
+    "why": "Shoreline extraction from Landsat/S2 \u2014 coastal change beyond JRC water pixels",
+    "stars": 887,
+    "url": "https://github.com/kvos/CoastSat"
+  },
+  {
+    "repo": "UN-SPIDER/radar-based-flood-mapping",
+    "why": "Canonical SAR flood recipe (notebook) everyone forks",
+    "stars": 44,
+    "url": "https://github.com/UN-SPIDER/radar-based-flood-mapping"
+  },
+  {
+    "repo": "opengeos/GeoAgent",
+    "why": "Agent UX: NL geospatial tools + viz (from geemap author)",
+    "stars": 458,
+    "url": "https://github.com/opengeos/GeoAgent"
+  },
+  {
+    "repo": "gee-community/geemap",
+    "why": "EE Python DX + water app notebook (#41)",
+    "stars": 4009,
+    "url": "https://github.com/gee-community/geemap"
+  },
+  {
+    "repo": "aws-samples/sample-geospatial-agent-on-aws",
+    "why": "NL\u2192Sentinel indices agent with map UI (Bedrock)",
+    "stars": 87,
+    "url": "https://github.com/aws-samples/sample-geospatial-agent-on-aws"
+  },
+  {
+    "repo": "mbzuai-oryx/OpenEarthAgent",
+    "why": "Research framework for tool-augmented geo agents",
+    "stars": 92,
+    "url": "https://github.com/mbzuai-oryx/OpenEarthAgent"
+  },
+  {
+    "repo": "JordanGunn/gdal-mcp",
+    "why": "MCP pattern for geospatial tools (agent-facing)",
+    "stars": 72,
+    "url": "https://github.com/JordanGunn/gdal-mcp"
+  },
+  {
+    "repo": "deluair/bd_gis",
+    "why": "Modular EE Python: water change, coastal, DW built, JRC",
+    "stars": 3,
+    "url": "https://github.com/deluair/bd_gis"
+  },
+  {
+    "repo": "UCI-CHRS/GEE-Training-2025",
+    "why": "Tutorial02: JRC MonthlyHistory water area time series",
+    "stars": 1,
+    "url": "https://github.com/UCI-CHRS/GEE-Training-2025"
+  },
+  {
+    "repo": "spatialthoughts/courses",
+    "why": "Dynamic World monitoring workshops",
+    "stars": 65,
+    "url": "https://github.com/spatialthoughts/courses"
+  }
+]

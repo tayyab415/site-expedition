@@ -1,0 +1,418 @@
+start 2026-08-12T00:12:39.130520+00:00
+s2_amp_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_doy_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_coef_iowa_corn EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9994082116062598, 0.9994082116062598>.
+  Actual type: Float<0.9963032375991965, 0.9963032375991965>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+thumb s2_seasonal_amp_iowa_corn: HTTP Error 400: Bad Request
+s2_amp_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_doy_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_coef_sonoran EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9986686402879997, 0.9986686402879997>.
+  Actual type: Float<0.9905453876091833, 0.9905453876091833>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+thumb s2_seasonal_amp_sonoran: HTTP Error 400: Bad Request
+s2_amp_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_doy_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+s2_coef_atlanta EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 359, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/gen-lang-client-0261050164/value:compute?prettyPrint=false&alt=json returned "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.". Details: "Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/run_deep_timeseries.py", line 31, in gi
+    return True, obj.getInfo()
+                 ^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/computedobject.py", line 108, in getInfo
+    return data.computeValue(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 1080, in computeValue
+    return _execute_cloud_call(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/data.py", line 361, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Expected a homogeneous image collection, but an image with an incompatible band was encountered. Mismatched type for band 'cos':
+Expected type: Float<0.9963032375991965, 0.9963032375991965>.
+  Actual type: Float<0.9927586335250793, 0.9927586335250793>.
+     Image ID: null
+This band might require an explicit cast.
+
+---
+thumb s2_seasonal_amp_atlanta: HTTP Error 400: Bad Request

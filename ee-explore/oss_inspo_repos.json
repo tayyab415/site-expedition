@@ -1,0 +1,345 @@
+[
+  {
+    "full_name": "gee-community/geemap",
+    "stars": 4009,
+    "desc": "A Python package for interactive geospatial analysis and visualization with Google Earth Engine.",
+    "url": "https://github.com/gee-community/geemap",
+    "lang": "Python",
+    "updated": "2026-08-11T12:50:00Z",
+    "topics": [
+      "colab",
+      "data-science",
+      "dataviz",
+      "earth-engine",
+      "earthengine",
+      "folium",
+      "geospatial",
+      "gis",
+      "google-earth-engine",
+      "image-processing",
+      "ipyleaflet",
+      "ipywidgets",
+      "jupyter",
+      "jupyter-notebook",
+      "landsat",
+      "mapping",
+      "python",
+      "remote-sensing",
+      "streamlit",
+      "streamlit-webapp"
+    ],
+    "queries": [
+      "geemap stars:>1000"
+    ]
+  },
+  {
+    "full_name": "opengeos/GeoAgent",
+    "stars": 458,
+    "desc": "A multimodal AI agent for geospatial data analysis and interactive visualization",
+    "url": "https://github.com/opengeos/GeoAgent",
+    "lang": "Python",
+    "updated": "2026-08-11T10:18:06Z",
+    "topics": [
+      "ai-agent",
+      "geospatial",
+      "open-source",
+      "python",
+      "qgis",
+      "qgis-plugin"
+    ],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "MEKXH/golem",
+    "stars": 200,
+    "desc": "Golem \u2014 The self-evolving GeoAI Agent for the geospatial industry \u2014 natural-language GDAL/PostGIS workflows, learned pipeline reuse, fabricated tool  scaffolding, approval & audit ",
+    "url": "https://github.com/MEKXH/golem",
+    "lang": "Go",
+    "updated": "2026-08-11T06:23:58Z",
+    "topics": [],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "PratyushTripathy/global_flood_mapper",
+    "stars": 136,
+    "desc": "This repository contains links to the Global Flood Mapper (GFM). Usage instructions are given here. For more details, please check the journal article titled \"Global Flood Mapper: ",
+    "url": "https://github.com/PratyushTripathy/global_flood_mapper",
+    "lang": "JavaScript",
+    "updated": "2026-08-04T03:03:33Z",
+    "topics": [],
+    "queries": [
+      "google earth engine flood stars:>50",
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "mbzuai-oryx/OpenEarthAgent",
+    "stars": 92,
+    "desc": "[ECCV 2026 \ud83d\udd25] OpenEarthAgent is a unified framework for tool-augmented geospatial agents.",
+    "url": "https://github.com/mbzuai-oryx/OpenEarthAgent",
+    "lang": "Python",
+    "updated": "2026-08-05T06:01:24Z",
+    "topics": [],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "csaybar/ee-fastapi",
+    "stars": 88,
+    "desc": "Flood Detection with Google Earth Engine",
+    "url": "https://github.com/csaybar/ee-fastapi",
+    "lang": "Python",
+    "updated": "2026-07-17T19:20:21Z",
+    "topics": [],
+    "queries": [
+      "google earth engine flood stars:>50"
+    ]
+  },
+  {
+    "full_name": "aws-samples/sample-geospatial-agent-on-aws",
+    "stars": 87,
+    "desc": "An AI agent that analyzes satellite imagery for any location on Earth using natural language. Ask about vegetation health, water bodies, or wildfire damage \u2014 get real results from ",
+    "url": "https://github.com/aws-samples/sample-geospatial-agent-on-aws",
+    "lang": "TypeScript",
+    "updated": "2026-08-08T11:25:38Z",
+    "topics": [],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "GeoRetina/Arion",
+    "stars": 83,
+    "desc": "Arion is the first agentic AI desktop app for geospatial analysis, developed by GeoRetina Inc.",
+    "url": "https://github.com/GeoRetina/Arion",
+    "lang": "TypeScript",
+    "updated": "2026-07-26T19:38:01Z",
+    "topics": [
+      "ai",
+      "ai-agents",
+      "geoai",
+      "geospatial",
+      "geospatial-analysis",
+      "gis",
+      "llm",
+      "mapping",
+      "remote-sensing"
+    ],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "Mahyarona/Flood-Detection-Algorithm-using-GEE",
+    "stars": 78,
+    "desc": "A JavaScript code developed in Google Earth Engine (GEE) Platform to Detect Flooded Area along with Affected Population",
+    "url": "https://github.com/Mahyarona/Flood-Detection-Algorithm-using-GEE",
+    "lang": "JavaScript",
+    "updated": "2026-07-13T05:55:58Z",
+    "topics": [
+      "flood-detection",
+      "flood-mapping",
+      "gee",
+      "javascript",
+      "otsu-algorithm",
+      "sar",
+      "sentinel"
+    ],
+    "queries": [
+      "google earth engine flood stars:>50"
+    ]
+  },
+  {
+    "full_name": "Dogiye12/Flood-Mapping-Automation-in-Google-Earth-Engine",
+    "stars": 77,
+    "desc": "Time-series flood map generator using Sentinel-1 and GEE scripting.",
+    "url": "https://github.com/Dogiye12/Flood-Mapping-Automation-in-Google-Earth-Engine",
+    "lang": "Python",
+    "updated": "2026-03-13T16:22:40Z",
+    "topics": [],
+    "queries": [
+      "google earth engine flood stars:>50",
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "JordanGunn/gdal-mcp",
+    "stars": 72,
+    "desc": "Model Context Protocol server that packages GDAL-style geospatial workflows through Python-native libraries (Rasterio, GeoPandas, PyProj, etc.) to give AI agents catalog discovery,",
+    "url": "https://github.com/JordanGunn/gdal-mcp",
+    "lang": "Python",
+    "updated": "2026-07-24T04:17:10Z",
+    "topics": [
+      "earth-observation",
+      "gdal",
+      "geospatial",
+      "gis",
+      "mcp",
+      "mcp-server",
+      "raster",
+      "remote-sensing"
+    ],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "Deltares/aqua-monitor",
+    "stars": 60,
+    "desc": "Monitoring surface water changes from space at global scale",
+    "url": "https://github.com/Deltares/aqua-monitor",
+    "lang": "JavaScript",
+    "updated": "2026-06-19T15:16:35Z",
+    "topics": [],
+    "queries": [
+      "Aqua Monitor surface water"
+    ]
+  },
+  {
+    "full_name": "mohammadhashemii/awesome-agentic-AI-for-Geospatial-Data",
+    "stars": 34,
+    "desc": "Papers about agentic AI geospatial data.",
+    "url": "https://github.com/mohammadhashemii/awesome-agentic-AI-for-Geospatial-Data",
+    "lang": null,
+    "updated": "2026-08-10T16:16:18Z",
+    "topics": [
+      "agentic-ai",
+      "ai-agents",
+      "geospatial-data"
+    ],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "Solirinai/GeoBenchX",
+    "stars": 31,
+    "desc": "LLM-agents benchmark set of geospatial tasks requiring multi-step tool use; and LLM-as-Judge based evaluation framework.",
+    "url": "https://github.com/Solirinai/GeoBenchX",
+    "lang": "Jupyter Notebook",
+    "updated": "2026-07-12T14:07:56Z",
+    "topics": [],
+    "queries": [
+      "geospatial agent MCP OR LLM flood OR earth-engine"
+    ]
+  },
+  {
+    "full_name": "EngIyasu/Flood_Mapping_using_Google_Earth_Engine_and_SAR_Data",
+    "stars": 6,
+    "desc": "#FloodMapping #Google_Colab #GoogleEarthEnginePythonAPI #Sentinel_1 #SAR",
+    "url": "https://github.com/EngIyasu/Flood_Mapping_using_Google_Earth_Engine_and_SAR_Data",
+    "lang": "Jupyter Notebook",
+    "updated": "2025-06-06T21:06:30Z",
+    "topics": [],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "omidemam/Flood-mapping-of-2019-Gorgan-flood",
+    "stars": 5,
+    "desc": "In this repository, I share a class project in which I explored the Google Earth engine sentinel 1 SAR dataset potential to be used for flood mapping of the 2019 Gorgan flood.",
+    "url": "https://github.com/omidemam/Flood-mapping-of-2019-Gorgan-flood",
+    "lang": "Jupyter Notebook",
+    "updated": "2025-02-04T19:19:52Z",
+    "topics": [
+      "flood-mapping",
+      "flooding",
+      "ghs-pop",
+      "google-earth-engine",
+      "java",
+      "landsat-7",
+      "ndvi",
+      "night-light",
+      "sentinel-1"
+    ],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "thapawan/NRTFIM-GEE",
+    "stars": 4,
+    "desc": "flood mapping methodology that combines Sentinel-1 radar data, Sentinel-2 optical data, historical water occurrence data (JRC), and DEM-derived slope within the Google Earth Engine",
+    "url": "https://github.com/thapawan/NRTFIM-GEE",
+    "lang": "Python",
+    "updated": "2026-06-22T18:17:02Z",
+    "topics": [
+      "flood",
+      "gee",
+      "landsat",
+      "mapping",
+      "sentinel-2",
+      "sentinel1"
+    ],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "imabubakr/Flood-Mapping",
+    "stars": 2,
+    "desc": "A Google Earth Engine recipe for mapping floods and their extent using Sentinel-1 data",
+    "url": "https://github.com/imabubakr/Flood-Mapping",
+    "lang": "Jupyter Notebook",
+    "updated": "2023-08-01T09:09:19Z",
+    "topics": [],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "Aishani2005/flood-SAR",
+    "stars": 1,
+    "desc": "Flood inundation mapping using Sentinel-1 SAR data and Google Earth Engine",
+    "url": "https://github.com/Aishani2005/flood-SAR",
+    "lang": "JavaScript",
+    "updated": "2026-05-16T15:49:07Z",
+    "topics": [],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "kpallavi-2401/Flood-Mapping-Using-QGIS-and-Google-Earth-Engine",
+    "stars": 1,
+    "desc": "Developed a flood mapping application using Sentinel-1 SAR imagery and Google Earth Engine to detect flood-affected areas through pre- and post-flood image analysis.",
+    "url": "https://github.com/kpallavi-2401/Flood-Mapping-Using-QGIS-and-Google-Earth-Engine",
+    "lang": null,
+    "updated": "2026-08-01T20:44:01Z",
+    "topics": [],
+    "queries": [
+      "Sentinel-1 flood mapping earth engine"
+    ]
+  },
+  {
+    "full_name": "marcusnobrega-eng/HydroBathyDEM",
+    "stars": 0,
+    "desc": "Raster DEM conditioning, D4 river geometry, and optional bathymetry lowering for flood-model workflows.",
+    "url": "https://github.com/marcusnobrega-eng/HydroBathyDEM",
+    "lang": "Python",
+    "updated": "2026-07-20T15:45:53Z",
+    "topics": [
+      "d4-routing",
+      "dem",
+      "dem-conditioning",
+      "fabdem",
+      "flood-modeling",
+      "geospatial",
+      "hydraulic-geometry",
+      "hydrology",
+      "python",
+      "raster-dem",
+      "rasterio",
+      "river-bathymetry"
+    ],
+    "queries": [
+      "FABDEM flood language:Python"
+    ]
+  }
+]

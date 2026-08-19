@@ -1,0 +1,101 @@
+/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py:435: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  date_strs = [datetime.utcfromtimestamp(t / 1000).strftime("%Y-%m-%d") for t in (dates or [])]
+/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py:513: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  props["date"] = datetime.utcfromtimestamp(props["system:time_start"] / 1000).isoformat()
+/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py:1244: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  "calm_date": datetime.utcfromtimestamp(calm_t / 1000).isoformat(),
+/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py:1245: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  "rough_date": datetime.utcfromtimestamp(wind_t / 1000).isoformat(),
+/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py:1031: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  date = datetime.utcfromtimestamp(img.get("system:time_start").getInfo() / 1000).isoformat()
+=== Phase 1: catalog loads ===
+[OK] catalog_load_COPERNICUS_S1_GRD — Loaded IC; bands=['HH', 'HV', 'angle']
+[OK] catalog_load_COPERNICUS_S1_GRD_FLOAT — Loaded IC; bands=['HH', 'HV', 'angle']
+[OK] catalog_load_JAXA_ALOS_PALSAR_YEARLY_SAR — Loaded IC; bands=['HH', 'HV', 'angle', 'date', 'qa']
+[OK] catalog_load_JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH — Loaded IC; bands=['HH', 'HV', 'angle', 'epoch', 'qa']
+[OK] catalog_load_JAXA_ALOS_PALSAR-2_Level2_2_ScanSAR — Loaded IC; bands=['HH', 'HV', 'LIN', 'MSK']
+[OK] catalog_load_JAXA_ALOS_PALSAR-2_Level2_1_StripMap_202401 — Loaded IC; bands=['b1']
+[OK] catalog_load_JAXA_ALOS_PALSAR_YEARLY_FNF4 — Loaded IC; bands=['fnf']
+[OK] catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_BACKSCATTER — Loaded IC; bands=['fall_hh_AMP', 'fall_hv_AMP', 'fall_vh_AMP', 'fall_vv_AMP', 'spring_hh_AMP', 'spring_hv_AMP', 'spring_
+[OK] catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_COHERENCE — Loaded IC; bands=['fall_hh_COH06', 'fall_hh_COH12', 'fall_hh_COH18', 'fall_hh_COH24', 'fall_hh_COH36', 'fall_hh_COH48', 
+[OK] catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_DECAY_MODEL_PARAMETERS — Loaded IC; bands=['fall_hh_rho', 'fall_hh_rmse', 'fall_hh_tau', 'fall_vv_rho', 'fall_vv_rmse', 'fall_vv_tau', 'spring_hh
+[OK] catalog_load_Earth_Big_Data_GLOBAL_SEASONAL_S1_V2019_INCIDENCE_LAYOVER_SHADOW — Loaded IC; bands=['inc', 'lsmap']
+[OK] catalog_load_OPERA_RTC_L2_V1_S1 — Loaded IC; bands=['VH', 'VV', 'mask']
+[OK] catalog_load_OPERA_RTC_L2_V1_S1_STATIC — Loaded IC; bands=['local_incidence_angle', 'incidence_angle', 'number_of_looks', 'rtc_anf_gamma0_to_beta0', 'rtc_anf_gam
+[OK] catalog_load_OPERA_DSWX_L3_V1_S1 — Loaded IC; bands=['WTR_Water_classification', 'BWTR_Binary_water', 'CONF_Confidence', 'DIAG_diagnostic']
+[OK] catalog_load_projects_ee-pkurelab_assets_LHScat — Loaded IC; bands=['radar_signals']
+[OK] catalog_load_OSU_GIMP_2000_IMAGERY_MOSAIC — Loaded as Image; bands=['B1', 'B2', 'B3', 'B4', 'B5', 'B6_low_gain', 'B6_high_gain', 'B7', 'B8', 'B8_radarsat']
+[FAIL] catalog_load_ASF_UAVSAR — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'ASF/UAVSAR' not found (does not exist or caller does not have access).
+[FAIL] catalog_load_ICEYE_SAR — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'ICEYE/SAR' not found (does not exist or caller does not have access).
+[FAIL] catalog_load_CAPELLA_SAR — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'CAPELLA/SAR' not found (does not exist or caller does not have access).
+[FAIL] catalog_load_NASA_NISAR_L2 — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'NASA/NISAR/L2' not found (does not exist or caller does not have access).
+[FAIL] catalog_load_COPERNICUS_S1_SLC — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).
+[FAIL] catalog_load_ESA_S1_SLC — Not available in public EE catalog (or wrong ID)
+       ERR: Image.load: Image asset 'ESA/S1_SLC' not found (does not exist or caller does not have access).
+=== Phase 2: core S1 ===
+[OK] s1_coverage_galveston_2023 — 114 IW VV+VH scenes; asc=84 desc=30; orbits=[143, 34, 136]
+[OK] vv_vh_urban_vs_water — Urban VV mean -8.10 dB vs water -12.17 dB; ΔVV=4.07 dB
+[OK] asc_vs_desc_galveston — Asc VV mean -15.42 vs Desc -12.91; mean |diff| via mean of signed=-1.6315063334523845
+[OK] dualpol_ratios_galveston — VV-VH urban mean=7.1981785907751785 water=7.057525947043702 (volume scattering lowers ratio over vegetation)
+[OK] incidence_angle_vs_VV — Corr(VV, incidence angle)≈-0.5188712328726688 over Galveston (geometry radiometry)
+[FAIL] grd_db_vs_float
+       ERR: Image.select: Band pattern 'VV' did not match any bands. Available bands: [constant]
+[OK] orbit_mosaic_artifacts — Mixed-orbit median often noisier / seamier than single relative orbit
+[OK] urban_double_bounce_houston — Double-bounce proxy area=51.791 km² downtown Houston
+[FAIL] speckle_filtering_compare
+       ERR: 'Element' object has no attribute 'select'
+Traceback (most recent call last):
+  File "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/scripts/deep_radar_explore.py", line 627, in probe_speckle_filtering
+    med_stats = reduce
+=== Phase 3: flood / change ===
+[OK] harvey_flood_before_after — Flood mask area ≈ 6.4 km²; mean dVV=0.5777896031519125
+[OK] harvey_followup_vv_vs_vh_flood — Compare VV vs VH flood masks; red=VV-only green=agree blue=VH-only
+[OK] harvey_followup_same_orbit_change — Best same-orbit drop on orbit 143: mean dVV=0.08022679085066749
+[OK] harvey_followup_dualpol_ratio_change — Δ(VV-VH) mean=0.22427468382545776
+[OK] harvey_followup_single_scene — First post scene 2017-08-29; VV mean=-6.784438147330508
+[OK] harvey_followup_s1_vs_s2_availability — S2=8 scenes mean cloud=58.974138375; S1=3 usable regardless of weather
+[OK] ms_river_wet_vs_dry — Extra low-backscatter wet area≈200.6 km²; mean dVV=-1.3658050980212013
+[OK] port_houston_seasonal_change — Seasonal |dVV|>3dB area=40.94 km²
+[OK] seasonal_composite_galveston — JJA VV mean=-14.818705011662319 vs DJF=-14.99866740327024
+[OK] seasonal_composite_houston_floodplain — JJA VV mean=-8.638666340491232 vs DJF=-8.526859219273014
+[OK] seasonal_composite_port_houston — JJA VV mean=-9.901569082875422 vs DJF=-9.545344615091574
+[OK] seasonal_composite_ms_river — JJA VV mean=-10.461265244381192 vs DJF=-11.598910162351398
+=== Phase 4: ships / ocean ===
+[OK] gulf_ship_bright_target — Ocean VV mean=-15.570680441199254; p99=-10.268106449547096; bright pixels≈5375
+[OK] ship_followup_vv_vs_vh — Ships are usually stronger in VV (surface bounce)
+[OK] ship_followup_persistent_platforms — Red≈oil platforms / fixed structures; blue≈occasional ships
+[OK] ship_followup_pass_ascending — ASCENDING: 84 scenes; VV p99=-15.942582371556986
+[OK] ship_followup_pass_descending — DESCENDING: 30 scenes; VV p99=-10.622617177582324
+[OK] wind_roughened_sea_contrast — Rough−calm ocean VV Δ=10.97 dB
+=== Phase 5: interferometry-adjacent + other SAR ===
+[OK] seasonal_s1_coherence_v2019 — Public seasonal coherence (not raw InSAR). Urban coh={'fall_hh_COH06': None} water={'fall_hh_COH06': None}. Bands=['fall
+[OK] seasonal_s1_backscatter_v2019 — Companion seasonal backscatter mosaic
+[OK] seasonal_s1_coherence_decay_params — Temporal coherence decay model parameters — rare InSAR-adjacent public layer
+[FAIL] insar_slc_fail_COPERNICUS_S1_SLC — S1 SLC / raw interferograms not in public EE — use ASF HyP3 or COMET for InSAR
+       ERR: ImageCollection.load: ImageCollection asset 'COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).
+[FAIL] insar_slc_fail_COPERNICUS_S1_SLC — S1 SLC / raw interferograms not in public EE — use ASF HyP3 or COMET for InSAR
+       ERR: ImageCollection.load: ImageCollection asset 'COPERNICUS/S1/SLC' not found (does not exist or caller does not have access).
+[FAIL] insar_slc_fail_ESA_COPERNICUS_S1_SLC — S1 SLC / raw interferograms not in public EE — use ASF HyP3 or COMET for InSAR
+       ERR: ImageCollection.load: ImageCollection asset 'ESA/COPERNICUS/S1_SLC' not found (does not exist or caller does not have access).
+[OK] opera_rtc_galveston — OPERA RTC: 76 scenes, bands=['VH', 'VV', 'mask']
+[OK] opera_dswx_s1_houston — DSWx-S1 water product: 213 scenes
+[OK] alos_palsar_yearly_galveston — L-band HH mean=-14.2023317603705 HV=-25.662005663760098
+[OK] alos_scansar_harvey — PALSAR-2 ScanSAR during Harvey window: 2017-08-17T06:14:15.370000
+[FAIL] alos_stripmap_202401_galveston — Japan-focused emergency StripMap — expect 0 over Texas
+[OK] lhscat_scatterometer — Long-term scatterometer (ERS/QuikSCAT/ASCAT) — coarse but multi-decadal
+[OK] gimp_radarsat1_greenland — RADARSAT-1 era Greenland mosaic — empty/null over Texas, works over Greenland
+[OK] alos_fnf4_galveston — PALSAR-derived forest/non-forest classification over Galveston bay area
+[OK] cross_sensor_s1_cband_vs_alos_lband — C-band VV mean=-14.43 vs L-band HH=-14.20 — different scattering regimes (esp. vegetation penetration)
+[OK] timeseries_galveston_point_VV — n=116 VV samples; range [-9.761869102555016,-5.455185308269883] dB; outliers=2
+=== Phase 6: intentional fails ===
+[FAIL] ew_mode_over_houston — EW is ocean/arctic mode — expect ~0 over Houston
+[FAIL] hh_pol_galveston_iw — HH IW rare outside polar — expect 0
+[FAIL] s1_prelaunch_2010 — Pre-launch should be empty
+
+Wrote /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/logs/experiments.json and /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_radar/FINDINGS.md (68 experiments)
+Elapsed: 7.0 min

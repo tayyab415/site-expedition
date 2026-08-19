@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Vetting Agent — Courtroom Exhibit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="docket-bar">
+    <div class="docket-brand">
+      <span class="seal">⚖</span>
+      <div>
+        <h1>Property Vetting Agent</h1>
+        <p class="subtitle">Cross-examination of the cited record vs. satellite witnesses</p>
+      </div>
+    </div>
+    <nav class="pin-switcher" id="pin-switcher" aria-label="Select pin"></nav>
+  </header>
+
+  <main class="courtroom" id="courtroom">
+    <section class="exhibit exhibit-record" aria-labelledby="record-heading">
+      <header class="exhibit-header">
+        <span class="exhibit-label">Exhibit A</span>
+        <h2 id="record-heading">The Record</h2>
+        <p class="exhibit-sub">Mireye cited facts — federal sources, as retrieved</p>
+      </header>
+      <div class="site-meta" id="site-meta"></div>
+      <table class="record-table" id="record-table">
+        <thead>
+          <tr>
+            <th>Fact</th>
+            <th>Value</th>
+            <th>Source</th>
+            <th>Vintage</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="aggravators" id="aggravators"></div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <span class="vs">vs</span>
+    </div>
+
+    <section class="exhibit exhibit-witnesses" aria-labelledby="witness-heading">
+      <header class="exhibit-header">
+        <span class="exhibit-label">Exhibit B</span>
+        <h2 id="witness-heading">The Witnesses</h2>
+        <p class="exhibit-sub">Earth Engine — time + height, independent archive</p>
+      </header>
+
+      <div class="witness-block">
+        <h3 class="witness-title">TIME — JRC Global Surface Water</h3>
+        <p class="witness-dataset" id="water-dataset"></p>
+        <div class="timeline-wrap" id="timeline-wrap"></div>
+        <dl class="witness-stats" id="water-stats"></dl>
+      </div>
+
+      <div class="witness-block">
+        <h3 class="witness-title">HEIGHT — elevation models</h3>
+        <div class="height-bars" id="height-bars"></div>
+        <dl class="witness-stats" id="height-stats"></dl>
+      </div>
+
+      <div class="fights-panel" id="fights-panel"></div>
+    </section>
+  </main>
+
+  <footer class="verdict-dock">
+    <div class="verdict-stamp" id="verdict-stamp" aria-live="polite">
+      <span class="stamp-text">—</span>
+    </div>
+    <p class="verdict-tagline" id="verdict-tagline"></p>
+    <div class="verdict-meta">
+      <span id="fight-count"></span>
+      <span id="verdict-coords"></span>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

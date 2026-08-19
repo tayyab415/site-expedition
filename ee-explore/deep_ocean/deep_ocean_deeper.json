@@ -1,0 +1,1124 @@
+{
+  "ran_at": "2026-08-12T00:18:04.899609+00:00",
+  "digs": {
+    "D1_globcolour_sliding_window": {
+      "ok": true,
+      "plankton_multi": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/PLANKTON_MULTI_4KM",
+        "span": [
+          "2025-02-10",
+          "2026-08-08"
+        ],
+        "bands": [
+          "CHL",
+          "CHL_uncertainty",
+          "flags"
+        ],
+        "n_recent_30d": 30,
+        "sample_recent": {
+          "CHL": {
+            "galv": {
+              "CHL": 10.997842968657345
+            },
+            "open": {
+              "CHL": 0.09971869022652828
+            }
+          },
+          "CHL_uncertainty": {
+            "galv": {
+              "CHL_uncertainty": 3904.6807511886027
+            },
+            "open": {
+              "CHL_uncertainty": 3982.280716184121
+            }
+          },
+          "flags": {
+            "galv": {
+              "flags": 0.9222834358584588
+            },
+            "open": {
+              "flags": 0.8272693503200625
+            }
+          }
+        }
+      },
+      "plankton_olci300": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/PLANKTON_OLCI_300M",
+        "span": [
+          "2025-03-01",
+          "2026-07-01"
+        ],
+        "bands": [
+          "CHL",
+          "CHL_uncertainty",
+          "flags"
+        ],
+        "n_recent_30d": 2,
+        "sample_recent": {
+          "CHL": {
+            "galv": {
+              "CHL": 23.118187935124354
+            },
+            "open": {
+              "CHL": 0.1108912903679207
+            }
+          },
+          "CHL_uncertainty": {
+            "galv": {
+              "CHL_uncertainty": 1649.9168967098958
+            },
+            "open": {
+              "CHL_uncertainty": 1310.9520235245063
+            }
+          },
+          "flags": {
+            "galv": {
+              "flags": 0.5111071274848802
+            },
+            "open": {
+              "flags": 0
+            }
+          }
+        }
+      },
+      "optics": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/OPTICS_MULTI_4KM",
+        "span": [
+          "2025-03-01",
+          "2026-07-01"
+        ],
+        "bands": [
+          "BBP",
+          "BBP_uncertainty",
+          "CDM",
+          "CDM_uncertainty",
+          "flags"
+        ],
+        "n_recent_30d": 2,
+        "sample_recent": {
+          "BBP": {
+            "galv": {
+              "BBP": 0.061474567398694155
+            },
+            "open": {
+              "BBP": 0.0011533057070564623
+            }
+          },
+          "BBP_uncertainty": {
+            "galv": {
+              "BBP_uncertainty": null
+            },
+            "open": {
+              "BBP_uncertainty": null
+            }
+          },
+          "CDM": {
+            "galv": {
+              "CDM": 0.8044972264489241
+            },
+            "open": {
+              "CDM": 0.006266984995440486
+            }
+          }
+        }
+      },
+      "transparency": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/TRANSPARENCY_MULTI_4KM",
+        "span": [
+          "2025-02-10",
+          "2026-08-08"
+        ],
+        "bands": [
+          "KD490",
+          "KD490_uncertainty",
+          "flags",
+          "ZSD",
+          "ZSD_uncertainty"
+        ],
+        "n_recent_30d": 30,
+        "sample_recent": {
+          "KD490": {
+            "galv": {
+              "KD490": 0.39017743293970203
+            },
+            "open": {
+              "KD490": 0.03223613118231427
+            }
+          },
+          "KD490_uncertainty": {
+            "galv": {
+              "KD490_uncertainty": 3866.6435387092324
+            },
+            "open": {
+              "KD490_uncertainty": 3283.776519350916
+            }
+          },
+          "flags": {
+            "galv": {
+              "flags": 0.9222834358584588
+            },
+            "open": {
+              "flags": 0.8272693503200625
+            }
+          }
+        }
+      },
+      "reflectance": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/REFLECTANCE_MULTI_4KM",
+        "span": [
+          "2025-03-01",
+          "2026-07-01"
+        ],
+        "bands": [
+          "RRS412",
+          "RRS412_uncertainty",
+          "RRS443",
+          "RRS443_uncertainty",
+          "RRS490",
+          "RRS490_uncertainty",
+          "RRS555",
+          "RRS555_uncertainty",
+          "RRS670",
+          "RRS670_uncertainty",
+          "flags"
+        ],
+        "n_recent_30d": 2,
+        "sample_recent": {
+          "RRS412": {
+            "galv": {
+              "RRS412": 0.0031918920458229943
+            },
+            "open": {
+              "RRS412": 0.009247733883926829
+            }
+          },
+          "RRS412_uncertainty": {
+            "galv": {
+              "RRS412_uncertainty": 101.37299514256219
+            },
+            "open": {
+              "RRS412_uncertainty": 168.61773396889757
+            }
+          },
+          "RRS443": {
+            "galv": {
+              "RRS443": 0.004904456614641503
+            },
+            "open": {
+              "RRS443": 0.008101324310807222
+            }
+          }
+        }
+      },
+      "pp": {
+        "id": "COPERNICUS/MARINE/OC_GLO_BGC/PRIMARY_PRODUCTION_MULTI_4KM",
+        "span": [
+          "2025-03-01",
+          "2026-07-01"
+        ],
+        "bands": [
+          "PP",
+          "PP_uncertainty",
+          "flags"
+        ],
+        "n_recent_30d": 2,
+        "sample_recent": {
+          "PP": {
+            "galv": {
+              "PP": 6355.135303413589
+            },
+            "open": {
+              "PP": 535.079220140676
+            }
+          },
+          "PP_uncertainty": {
+            "galv": {
+              "PP_uncertainty": 5077
+            },
+            "open": {
+              "PP_uncertainty": 5077
+            }
+          },
+          "flags": {
+            "galv": {
+              "flags": 0.5162894630636362
+            },
+            "open": {
+              "flags": 0
+            }
+          }
+        }
+      }
+    },
+    "D2_jaxa_scale": {
+      "ok": true,
+      "window": [
+        "2024-08-01",
+        "2024-08-15"
+      ],
+      "jaxa_raw": {
+        "galv": {
+          "CHLA_AVE": 5129.809142428925
+        },
+        "open": {
+          "CHLA_AVE": 111.82496236716165
+        }
+      },
+      "modis": {
+        "galv": {
+          "chlor_a": 14.61123552351542
+        },
+        "open": {
+          "chlor_a": 0.1918006412583727
+        }
+      },
+      "decoded": {
+        "0.0015": {
+          "galv": 7.694713713643388,
+          "open": 0.16773744355074247,
+          "ratio_to_modis_galv": 0.5266299144421747
+        },
+        "0.001": {
+          "galv": 5.129809142428925,
+          "open": 0.11182496236716165,
+          "ratio_to_modis_galv": 0.3510866096281164
+        },
+        "0.01": {
+          "galv": 51.298091424289254,
+          "open": 1.1182496236716164,
+          "ratio_to_modis_galv": 3.510866096281164
+        }
+      },
+      "best_scale": "0.0015"
+    },
+    "D3_murray_loss_proper": {
+      "ok": true,
+      "galveston_bay": {
+        "first_km2": 43.692093303649905,
+        "last_km2": 27.179668134653863,
+        "lost_km2": 0.0,
+        "gained_km2": 0.0,
+        "persist_km2": 10.206852113693417,
+        "pct_change": -37.79270783443246
+      },
+      "sf_bay": {
+        "first_km2": 148.66996809069823,
+        "last_km2": 118.68670739568613,
+        "lost_km2": 0.0,
+        "gained_km2": 0.0,
+        "persist_km2": 77.70920666314697,
+        "pct_change": -20.167664714046612
+      },
+      "chesapeake": {
+        "first_km2": 331.10988494551094,
+        "last_km2": 171.16466491184494,
+        "lost_km2": 0.0,
+        "gained_km2": 0.0,
+        "persist_km2": 128.96680407888306,
+        "pct_change": -48.30578225110596
+      },
+      "tx_coast": {
+        "first_km2": 652.665431860764,
+        "last_km2": 672.3412808353729,
+        "lost_km2": 0.0,
+        "gained_km2": 0.0,
+        "persist_km2": 293.92542777112993,
+        "pct_change": 3.0146914504898175
+      }
+    },
+    "D4_pathfinder_units": {
+      "ok": true,
+      "oisst_c": 31.497938758321972,
+      "candidates": {
+        "raw": 3022.5815741020683,
+        "raw/10_K_to_C": 29.108157410206843,
+        "raw/100": 30.225815741020682,
+        "raw_minus_27315_div_100": -242.92418425897932,
+        "raw_scale_0_01": 30.225815741020682
+      },
+      "best": "raw/100"
+    },
+    "D5_ice_units_seasonality": {
+      "ok": true,
+      "monthly_oisst_ice_frac": {
+        "2024-01": {
+          "beaufort_frac": 0.9395817684945555,
+          "bering_frac": 0.6993983133583495
+        },
+        "2024-03": {
+          "beaufort_frac": 0.9777683961378215,
+          "bering_frac": 0.7498783500962317
+        },
+        "2024-05": {
+          "beaufort_frac": 0.9642031217061859,
+          "bering_frac": 0.5125098746923946
+        },
+        "2024-07": {
+          "beaufort_frac": 0.6307056297989123,
+          "bering_frac": null
+        },
+        "2024-09": {
+          "beaufort_frac": null,
+          "bering_frac": null
+        },
+        "2024-11": {
+          "beaufort_frac": 0.8054917799356726,
+          "bering_frac": 0.2934750851426284
+        }
+      },
+      "phy": {
+        "mar": {
+          "siconc_beaufort": {
+            "siconc": 0.9933546259664486
+          },
+          "sithick_beaufort": {
+            "sithick": 1.2887955438722951
+          },
+          "siconc_bering": {
+            "siconc": 0.47963039454481465
+          },
+          "sithick_bering": {
+            "sithick": 0.18020731609143306
+          }
+        },
+        "sep": {
+          "siconc_beaufort": {
+            "siconc": 0
+          },
+          "sithick_beaufort": {
+            "sithick": 0
+          },
+          "siconc_bering": {
+            "siconc": 0
+          },
+          "sithick_bering": {
+            "sithick": 0
+          }
+        }
+      },
+      "whoa": "Beaufort OISST ice fraction: Mar\u22480.9777683961378215 \u2192 Sep\u2248None; Copernicus sithick Mar=1.2887955438722951 Sep=0; Bering Mar ice=0.7498783500962317 Sep=None."
+    },
+    "D6_wave_bathy_cap": {
+      "ok": true,
+      "transect_lon90W": [
+        {
+          "lat": 29.3,
+          "etopo": {
+            "bedrock": -1
+          },
+          "gebco": {
+            "gebco": -1
+          },
+          "wave_deptho": {
+            "deptho": null
+          }
+        },
+        {
+          "lat": 28.5,
+          "etopo": {
+            "bedrock": -101
+          },
+          "gebco": {
+            "gebco": -97
+          },
+          "wave_deptho": {
+            "deptho": 123.99738527001222
+          }
+        },
+        {
+          "lat": 27.5,
+          "etopo": {
+            "bedrock": -1186
+          },
+          "gebco": {
+            "gebco": -1173
+          },
+          "wave_deptho": {
+            "deptho": 278.99959789571227
+          }
+        },
+        {
+          "lat": 26.5,
+          "etopo": {
+            "bedrock": -2924
+          },
+          "gebco": {
+            "gebco": -2927
+          },
+          "wave_deptho": {
+            "deptho": 278.99959789571227
+          }
+        },
+        {
+          "lat": 25.5,
+          "etopo": {
+            "bedrock": -3371
+          },
+          "gebco": {
+            "gebco": -3371
+          },
+          "wave_deptho": {
+            "deptho": 278.99959789571227
+          }
+        },
+        {
+          "lat": 24.5,
+          "etopo": {
+            "bedrock": -3629
+          },
+          "gebco": {
+            "gebco": -3594
+          },
+          "wave_deptho": {
+            "deptho": 278.99959789571227
+          }
+        }
+      ]
+    },
+    "D7_chesapeake_hab_series": {
+      "ok": true,
+      "monthly_2023": [
+        {
+          "month": 1,
+          "modis_chl": {
+            "chlor_a": 14.568749340530726
+          },
+          "modis_nflh": {
+            "nflh": 0.2891189165791781
+          },
+          "copernicus_chl": {
+            "chlor_a": 7.934935920365476
+          },
+          "atl_chl": {
+            "chlor_a": 0.18931959511263038
+          }
+        },
+        {
+          "month": 2,
+          "modis_chl": {
+            "chlor_a": 12.814283960953718
+          },
+          "modis_nflh": {
+            "nflh": 0.2175439149737915
+          },
+          "copernicus_chl": {
+            "chlor_a": 8.3339374820975
+          },
+          "atl_chl": {
+            "chlor_a": 0.1943333738964588
+          }
+        },
+        {
+          "month": 3,
+          "modis_chl": {
+            "chlor_a": 13.11457658843796
+          },
+          "modis_nflh": {
+            "nflh": 0.19893112344527333
+          },
+          "copernicus_chl": {
+            "chlor_a": 7.2643896128814225
+          },
+          "atl_chl": {
+            "chlor_a": 0.20487979074512308
+          }
+        },
+        {
+          "month": 4,
+          "modis_chl": {
+            "chlor_a": 17.493678171061422
+          },
+          "modis_nflh": {
+            "nflh": 0.23199110676923468
+          },
+          "copernicus_chl": {
+            "chlor_a": 7.203545736412256
+          },
+          "atl_chl": {
+            "chlor_a": 0.142098413318028
+          }
+        },
+        {
+          "month": 5,
+          "modis_chl": {
+            "chlor_a": 17.21246160727006
+          },
+          "modis_nflh": {
+            "nflh": 0.262739039694061
+          },
+          "copernicus_chl": {
+            "chlor_a": 6.408060872098066
+          },
+          "atl_chl": {
+            "chlor_a": 0.10471016675279733
+          }
+        },
+        {
+          "month": 6,
+          "modis_chl": {
+            "chlor_a": 12.595509189312702
+          },
+          "modis_nflh": {
+            "nflh": 0.26839008292382616
+          },
+          "copernicus_chl": {
+            "chlor_a": 6.871633558171873
+          },
+          "atl_chl": {
+            "chlor_a": 0.05703727658615953
+          }
+        },
+        {
+          "month": 7,
+          "modis_chl": {
+            "chlor_a": 17.852516410308844
+          },
+          "modis_nflh": {
+            "nflh": 0.3488041196546917
+          },
+          "copernicus_chl": {
+            "chlor_a": 8.076774569279179
+          },
+          "atl_chl": {
+            "chlor_a": 0.05007260506433044
+          }
+        },
+        {
+          "month": 8,
+          "modis_chl": {
+            "chlor_a": 15.552866495211179
+          },
+          "modis_nflh": {
+            "nflh": 0.36223855887978845
+          },
+          "copernicus_chl": {
+            "chlor_a": 7.3937947018145085
+          },
+          "atl_chl": {
+            "chlor_a": 0.04935480794748756
+          }
+        },
+        {
+          "month": 9,
+          "modis_chl": {
+            "chlor_a": 16.482080883262554
+          },
+          "modis_nflh": {
+            "nflh": 0.41029837832525967
+          },
+          "copernicus_chl": {
+            "chlor_a": 7.645841398784299
+          },
+          "atl_chl": {
+            "chlor_a": 0.04609626779616749
+          }
+        },
+        {
+          "month": 10,
+          "modis_chl": {
+            "chlor_a": 14.05452720817042
+          },
+          "modis_nflh": {
+            "nflh": 0.41583115900964124
+          },
+          "copernicus_chl": {
+            "chlor_a": 6.244737326590655
+          },
+          "atl_chl": {
+            "chlor_a": 0.10043138480927086
+          }
+        },
+        {
+          "month": 11,
+          "modis_chl": {
+            "chlor_a": 12.030088532621063
+          },
+          "modis_nflh": {
+            "nflh": 0.3967219790969458
+          },
+          "copernicus_chl": {
+            "chlor_a": 5.523878134562309
+          },
+          "atl_chl": {
+            "chlor_a": 0.14777685798377027
+          }
+        },
+        {
+          "month": 12,
+          "modis_chl": {
+            "chlor_a": 16.31314227205884
+          },
+          "modis_nflh": {
+            "nflh": 0.32023108489023316
+          },
+          "copernicus_chl": {
+            "chlor_a": 6.770542185273815
+          },
+          "atl_chl": {
+            "chlor_a": 0.21605258901672392
+          }
+        }
+      ],
+      "peak": {
+        "month": 7,
+        "modis_chl": {
+          "chlor_a": 17.852516410308844
+        },
+        "modis_nflh": {
+          "nflh": 0.3488041196546917
+        },
+        "copernicus_chl": {
+          "chlor_a": 8.076774569279179
+        },
+        "atl_chl": {
+          "chlor_a": 0.05007260506433044
+        }
+      }
+    },
+    "D8_aca_seagrass": {
+      "ok": true,
+      "legend_assumed": {
+        "11": "Seagrass",
+        "12": "Macroalgae",
+        "13": "Coral/Algae",
+        "14": "Rubble",
+        "15": "Rock",
+        "16": "Sand",
+        "17": "Rubble/Sand?",
+        "18": "Microalgal mats"
+      },
+      "keys_seagrass_km2": 173.94457300529444,
+      "oahu_seagrass_km2": 47.87788916730145
+    },
+    "D9_dem_flood_math": {
+      "ok": true,
+      "stats": {
+        "mean_diff": {
+          "d": -0.7441018328653765
+        },
+        "pct_diff": {
+          "d_p10": -3.2456061230951616,
+          "d_p50": 0.01512512586981523,
+          "d_p90": 0.7282380706597615
+        },
+        "flip_area_m2": {
+          "flip": 13694986.993220543
+        },
+        "fab_below_1m_km2": {
+          "fab": 706428066.0545168
+        },
+        "nasa_below_1m_km2": {
+          "nasa": 694011575.1250333
+        }
+      },
+      "flip_km2": 13.694986993220544,
+      "fab_below_1_km2": 706.4280660545168,
+      "nasa_below_1_km2": 694.0115751250332
+    },
+    "D10_hycom_loop_seasonality": {
+      "ok": true,
+      "series_2023": [
+        {
+          "month": 1,
+          "speed": {
+            "velocity_u_0": 0.5670031504077577
+          }
+        },
+        {
+          "month": 4,
+          "speed": {
+            "velocity_u_0": 0.5202011207993488
+          }
+        },
+        {
+          "month": 7,
+          "speed": {
+            "velocity_u_0": 0.519161888976425
+          }
+        },
+        {
+          "month": 10,
+          "speed": {
+            "velocity_u_0": 0.5155612005545729
+          }
+        }
+      ]
+    },
+    "D11_ndti_ndssi_ranking": {
+      "ok": true,
+      "by_ndti_mean": [
+        {
+          "name": "galveston",
+          "ndti_mean": -0.24899064089845693,
+          "ndti_p90": -0.17385644729884422,
+          "ndssi_mean": 0.493927447255543,
+          "ndssi_p90": 0.5661649700788245
+        },
+        {
+          "name": "sf_bay",
+          "ndti_mean": -0.2639156391279383,
+          "ndti_p90": -0.10549138703918341,
+          "ndssi_mean": 0.5884823008613426,
+          "ndssi_p90": 0.7261117317547601
+        },
+        {
+          "name": "chesapeake",
+          "ndti_mean": -0.27426846474561134,
+          "ndti_p90": -0.18557916899621366,
+          "ndssi_mean": 0.5126865543867883,
+          "ndssi_p90": 0.6366345725876675
+        }
+      ],
+      "by_ndssi_mean": [
+        {
+          "name": "sf_bay",
+          "ndti_mean": -0.2639156391279383,
+          "ndti_p90": -0.10549138703918341,
+          "ndssi_mean": 0.5884823008613426,
+          "ndssi_p90": 0.7261117317547601
+        },
+        {
+          "name": "chesapeake",
+          "ndti_mean": -0.27426846474561134,
+          "ndti_p90": -0.18557916899621366,
+          "ndssi_mean": 0.5126865543867883,
+          "ndssi_p90": 0.6366345725876675
+        },
+        {
+          "name": "galveston",
+          "ndti_mean": -0.24899064089845693,
+          "ndti_p90": -0.17385644729884422,
+          "ndssi_mean": 0.493927447255543,
+          "ndssi_p90": 0.5661649700788245
+        }
+      ],
+      "by_ndti_p90": [
+        {
+          "name": "sf_bay",
+          "ndti_mean": -0.2639156391279383,
+          "ndti_p90": -0.10549138703918341,
+          "ndssi_mean": 0.5884823008613426,
+          "ndssi_p90": 0.7261117317547601
+        },
+        {
+          "name": "galveston",
+          "ndti_mean": -0.24899064089845693,
+          "ndti_p90": -0.17385644729884422,
+          "ndssi_mean": 0.493927447255543,
+          "ndssi_p90": 0.5661649700788245
+        },
+        {
+          "name": "chesapeake",
+          "ndti_mean": -0.27426846474561134,
+          "ndti_p90": -0.18557916899621366,
+          "ndssi_mean": 0.5126865543867883,
+          "ndssi_p90": 0.6366345725876675
+        }
+      ]
+    },
+    "D12_more_asset_ids": {
+      "ok": true,
+      "copernicus_sss_nrt": {
+        "id": "COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_PHY_SSS_SSD_NRT",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_PHY_SSS_SSD_NRT' not found (does ",
+          "Image:Image.load: Image asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_PHY_SSS_SSD_NRT' not found (does not exist or caller ",
+          "FeatureCollection:Collection.loadTable: Collection asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_PHY_SSS_SSD_NRT' not found."
+        ]
+      },
+      "copernicus_sss_my_alt": {
+        "id": "COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_MY_DAILY",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_MY_DAILY' not found (does no",
+          "Image:Image.load: Image asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_MY_DAILY' not found (does not exist or caller do",
+          "FeatureCollection:Collection.loadTable: Collection asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_MY_DAILY' not found."
+        ]
+      },
+      "copernicus_sss_nrt2": {
+        "id": "COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_NRT_DAILY",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_NRT_DAILY' not found (does n",
+          "Image:Image.load: Image asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_NRT_DAILY' not found (does not exist or caller d",
+          "FeatureCollection:Collection.loadTable: Collection asset 'COPERNICUS/MARINE/MULTIOBSERVATION_PHY_SSS_SSD_NRT_DAILY' not found."
+        ]
+      },
+      "murray_tidal_wetland": {
+        "id": "UQ/murray/Intertidal/v1_1/global_intertidal",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "classification"
+        ],
+        "n": 2
+      },
+      "murray_tidal_wetland_change": {
+        "id": "UQ/Murray/TidalWetland/v1_0/global_change",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'UQ/Murray/TidalWetland/v1_0/global_change' not found (does not exist or cal",
+          "Image:Image.load: Image asset 'UQ/Murray/TidalWetland/v1_0/global_change' not found (does not exist or caller does not have ac",
+          "FeatureCollection:Collection.loadTable: Collection asset 'UQ/Murray/TidalWetland/v1_0/global_change' not found."
+        ]
+      },
+      "murray_tidal_wetland_extent": {
+        "id": "UQ/Murray/TidalWetland/v1_0/global_extent",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'UQ/Murray/TidalWetland/v1_0/global_extent' not found (does not exist or cal",
+          "Image:Image.load: Image asset 'UQ/Murray/TidalWetland/v1_0/global_extent' not found (does not exist or caller does not have ac",
+          "FeatureCollection:Collection.loadTable: Collection asset 'UQ/Murray/TidalWetland/v1_0/global_extent' not found."
+        ]
+      },
+      "giri_mangrove_alt": {
+        "id": "LANDSAT/MANGROVE_FORESTS/2000",
+        "errors": [
+          "ImageCollection:ImageCollection.load: Expected asset 'LANDSAT/MANGROVE_FORESTS/2000' to be an ImageCollection, found 'Image'."
+        ],
+        "ok": true,
+        "type": "Image",
+        "bands": [
+          "1"
+        ]
+      },
+      "wdpa": {
+        "id": "WCMC/WDPA/current/polygons",
+        "errors": [
+          "ImageCollection:ImageCollection.load: Expected asset 'WCMC/WDPA/current/polygons' to be an ImageCollection, found 'EECollection'.",
+          "Image:Image.load: Asset 'WCMC/WDPA/current/polygons' is not an Image."
+        ],
+        "ok": true,
+        "type": "FeatureCollection",
+        "n": 2
+      },
+      "gfw_public": {
+        "id": "projects/globalfishingwatch/public-vessels",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'projects/globalfishingwatch/public-vessels' not found (does not exist or ca",
+          "Image:Image.load: Image asset 'projects/globalfishingwatch/public-vessels' not found (does not exist or caller does not have a",
+          "FeatureCollection:Collection.loadTable: Collection asset 'projects/globalfishingwatch/public-vessels' not found."
+        ]
+      },
+      "era5_waves": {
+        "id": "ECMWF/ERA5_LAND/HOURLY",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "dewpoint_temperature_2m",
+          "temperature_2m",
+          "skin_temperature",
+          "soil_temperature_level_1",
+          "soil_temperature_level_2",
+          "soil_temperature_level_3",
+          "soil_temperature_level_4",
+          "lake_bottom_temperature",
+          "lake_ice_depth",
+          "lake_ice_temperature",
+          "lake_mix_layer_depth",
+          "lake_mix_layer_temperature",
+          "lake_shape_factor",
+          "lake_total_layer_temperature",
+          "snow_albedo",
+          "snow_cover",
+          "snow_density",
+          "snow_depth",
+          "snow_depth_water_equivalent",
+          "snowfall",
+          "snowmelt",
+          "temperature_of_snow_layer",
+          "skin_reservoir_content",
+          "volumetric_soil_water_layer_1",
+          "volumetric_soil_water_layer_2",
+          "volumetric_soil_water_layer_3",
+          "volumetric_soil_water_layer_4",
+          "forecast_albedo",
+          "surface_latent_heat_flux",
+          "surface_net_solar_radiation",
+          "surface_net_thermal_radiation",
+          "surface_sensible_heat_flux",
+          "surface_solar_radiation_downwards",
+          "surface_thermal_radiation_downwards",
+          "evaporation_from_bare_soil",
+          "evaporation_from_open_water_surfaces_excluding_oceans",
+          "evaporation_from_the_top_of_canopy",
+          "evaporation_from_vegetation_transpiration",
+          "potential_evaporation",
+          "runoff",
+          "snow_evaporation",
+          "sub_surface_runoff",
+          "surface_runoff",
+          "total_evaporation",
+          "u_component_of_wind_10m",
+          "v_component_of_wind_10m",
+          "surface_pressure",
+          "total_precipitation",
+          "leaf_area_index_high_vegetation",
+          "leaf_area_index_low_vegetation",
+          "snowfall_hourly",
+          "snowmelt_hourly",
+          "surface_latent_heat_flux_hourly",
+          "surface_net_solar_radiation_hourly",
+          "surface_net_thermal_radiation_hourly",
+          "surface_sensible_heat_flux_hourly",
+          "surface_solar_radiation_downwards_hourly",
+          "surface_thermal_radiation_downwards_hourly",
+          "evaporation_from_bare_soil_hourly",
+          "evaporation_from_open_water_surfaces_excluding_oceans_hourly",
+          "evaporation_from_the_top_of_canopy_hourly",
+          "evaporation_from_vegetation_transpiration_hourly",
+          "potential_evaporation_hourly",
+          "runoff_hourly",
+          "snow_evaporation_hourly",
+          "sub_surface_runoff_hourly",
+          "surface_runoff_hourly",
+          "total_evaporation_hourly",
+          "total_precipitation_hourly"
+        ],
+        "n": 2
+      },
+      "noaa_ncei_dem": {
+        "id": "NOAA/NGDC/ETOPO1",
+        "errors": [
+          "ImageCollection:ImageCollection.load: Expected asset 'NOAA/NGDC/ETOPO1' to be an ImageCollection, found 'Image'."
+        ],
+        "ok": true,
+        "type": "Image",
+        "bands": [
+          "bedrock",
+          "ice_surface"
+        ]
+      },
+      "gebco_2024": {
+        "id": "projects/sat-io/open-datasets/gebco/gebco_2024",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'projects/sat-io/open-datasets/gebco/gebco_2024' not found (does not exist o",
+          "Image:Image.load: Image asset 'projects/sat-io/open-datasets/gebco/gebco_2024' not found (does not exist or caller does not ha",
+          "FeatureCollection:Collection.loadTable: Collection asset 'projects/sat-io/open-datasets/gebco/gebco_2024' not found."
+        ]
+      },
+      "gebco_2023": {
+        "id": "projects/sat-io/open-datasets/gebco/GEBCO_2023",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'projects/sat-io/open-datasets/gebco/GEBCO_2023' not found (does not exist o",
+          "Image:Image.load: Image asset 'projects/sat-io/open-datasets/gebco/GEBCO_2023' not found (does not exist or caller does not ha",
+          "FeatureCollection:Collection.loadTable: Collection asset 'projects/sat-io/open-datasets/gebco/GEBCO_2023' not found."
+        ]
+      },
+      "copernicus_bio": {
+        "id": "COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_DAILY",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_DAILY' not found (does not ex",
+          "Image:Image.load: Image asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_DAILY' not found (does not exist or caller does n",
+          "FeatureCollection:Collection.loadTable: Collection asset 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_DAILY' not found."
+        ]
+      },
+      "hycom_ssh2": {
+        "id": "HYCOM/sea_surface_elevation",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "surface_elevation"
+        ],
+        "n": 2
+      },
+      "goes_sst": {
+        "id": "NOAA/GOES/16/FDCF",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "Area",
+          "Temp",
+          "Mask",
+          "Power",
+          "DQF"
+        ],
+        "n": 2
+      },
+      "avhrr_sst_cdr": {
+        "id": "NOAA/CDR/SST_WHOI/V2",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "sea_surface_temperature",
+          "fill_missing_qc"
+        ],
+        "n": 2
+      },
+      "ocean_heat_flux": {
+        "id": "NOAA/CDR/HEAT_FLUXES/V2",
+        "ok": true,
+        "type": "ImageCollection",
+        "bands": [
+          "surface_upward_latent_heat_flux",
+          "surface_upward_sensible_heat_flux",
+          "fill_missing_qc"
+        ],
+        "n": 2
+      },
+      "ocean_atmos": {
+        "id": "NOAA/CDR/OCEAN_ATMOS/V2",
+        "errors": [
+          "ImageCollection:ImageCollection.load: ImageCollection asset 'NOAA/CDR/OCEAN_ATMOS/V2' not found (does not exist or caller does not have ",
+          "Image:Image.load: Image asset 'NOAA/CDR/OCEAN_ATMOS/V2' not found (does not exist or caller does not have access).",
+          "FeatureCollection:Collection.loadTable: Collection asset 'NOAA/CDR/OCEAN_ATMOS/V2' not found."
+        ]
+      }
+    }
+  },
+  "thumbs": {
+    "globcolour_plankton_multi_recent_chl": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/globcolour_plankton_multi_recent_chl.png"
+    },
+    "globcolour_plankton_olci300_recent_chl": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/globcolour_plankton_olci300_recent_chl.png"
+    },
+    "globcolour_transparency_ZSD": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/globcolour_transparency_ZSD.png"
+    },
+    "gulf_jaxa_chla_scaled_aug2024": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/gulf_jaxa_chla_scaled_aug2024.png"
+    },
+    "galv_murray_loss_gain_fixed": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/galv_murray_loss_gain_fixed.png"
+    },
+    "sfbay_murray_loss_gain": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/sfbay_murray_loss_gain.png"
+    },
+    "alaska_phy_siconc_sep2024": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/alaska_phy_siconc_sep2024.png"
+    },
+    "chesapeake_modis_chl_aug2023": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/chesapeake_modis_chl_aug2023.png"
+    },
+    "florida_keys_seagrass_aca": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/florida_keys_seagrass_aca.png"
+    },
+    "oahu_seagrass_aca": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/oahu_seagrass_aca.png"
+    },
+    "galv_dem_flip_zone": {
+      "ok": true,
+      "path": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/thumbs/galv_dem_flip_zone.png"
+    }
+  },
+  "whoa": [
+    "Copernicus GlobColour BGC in EE is a sliding ~2y NRT window (plankton_multi span ['2025-02-10', '2026-08-08']) \u2014 historical Aug2023 pulls are empty by design.",
+    "JAXA GCOM-C CHLA_AVE is scaled: raw Galv\u22485130; best match to MODIS uses scale 0.0015 \u2192 7.69 vs MODIS 14.61.",
+    "Murray tidal flats 1984\u201386\u21922014\u201316: chesapeake changed -48.3% (331.1\u2192171.2 km\u00b2).",
+    "Pathfinder SST raw\u22483022.6; decode 'raw/100'\u219230.23C closest to OISST 31.50C.",
+    "Copernicus wave 'deptho' is wave-model bathymetry (caps ~hundreds of m), NOT full-ocean GEBCO/ETOPO \u2014 at 25.5N Gulf: ETOPO=-3371 vs deptho=278.99959789571227.",
+    "Chesapeake 2023 MODIS chl peaks in month 7 at 17.9 mg/m\u00b3 (nflh=0.349); coastal eutrophic signal, not just Florida.",
+    "ACA class 11 (Seagrass): Florida Keys \u2248173.9 km\u00b2 vs south Oahu \u224847.9 km\u00b2 \u2014 working seagrass layer in EE.",
+    "West Galveston Bay shore: FABDEM<1m covers 706.4 km\u00b2 vs NASADEM<1m 694.0 km\u00b2; flip zone (FAB<1 & NASA>2) \u224813.69 km\u00b2.",
+    "HYCOM Loop Current box 2023 monthly speeds: m1=0.5670031504077577, m4=0.5202011207993488, m7=0.519161888976425, m10=0.5155612005545729",
+    "Turbidity proxies diverge: NDTI-mean ranks ['galveston', 'sf_bay', 'chesapeake']; NDSSI-mean ranks ['sf_bay', 'chesapeake', 'galveston'] (SF Bay highest NDSSI \u2014 different optical soup).",
+    "Beaufort OISST ice fraction: Mar\u22480.9777683961378215 \u2192 Sep\u2248None; Copernicus sithick Mar=1.2887955438722951 Sep=0; Bering Mar ice=0.7498783500962317 Sep=None."
+  ]
+}

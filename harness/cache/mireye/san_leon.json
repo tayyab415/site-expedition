@@ -1,0 +1,18 @@
+{
+  "lat": 29.475732,
+  "lng": -94.966533,
+  "fetched_at": "2026-08-12T07:18:43.605083+00:00",
+  "fields": {
+    "elevation": {"value": 2.3652405738830566, "unit": "meters", "source": "USGS_3DEP_COG", "source_url": "https://www.usgs.gov/3d-elevation-program", "confidence": "medium", "fetched_at": "2026-08-11T17:23:35.801598+00:00", "dataset_vintage": "3DEP 1/3 arc-second seamless DEM", "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "slope_degrees": {"value": 0.8650037050247192, "unit": "degrees", "source": "USGS_3DEP_COG", "source_url": "https://www.usgs.gov/3d-elevation-program", "confidence": "medium", "fetched_at": "2026-08-11T18:52:29.602283+00:00", "dataset_vintage": null, "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "aspect_cardinal": {"value": "SE", "unit": null, "source": "USGS_3DEP_COG", "source_url": "https://www.usgs.gov/3d-elevation-program", "confidence": "medium", "fetched_at": "2026-08-11T18:52:29.602348+00:00", "dataset_vintage": null, "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "coast_distance_m": {"value": 742.9429269466059, "unit": "meters", "source": "NOAA_CUSP", "source_url": "https://shoreline.noaa.gov/data/datasheets/cusp.html", "confidence": "high", "fetched_at": "2026-08-11T17:23:35.258266+00:00", "dataset_vintage": null, "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "soil_drainage_class": {"value": "Somewhat poorly drained", "unit": null, "source": "NRCS_gNATSGO", "source_url": "https://storage.googleapis.com/mireye-earth-data/soils/gnatsgo_mukey_conus_fy2025.tif", "confidence": "high", "fetched_at": "2026-08-12T07:18:43.590705+00:00", "dataset_vintage": null, "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "bedrock_depth_cm": {"value": 5000.0, "unit": "centimeters", "source": "PELLETIER_DTB", "source_url": "https://www.nrcs.usda.gov/resources/data-and-reports/u-s-general-soil-map-statsgo2", "confidence": "low", "fetched_at": "2026-08-12T07:18:43.592656+00:00", "dataset_vintage": "Pelletier et al. 2016", "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "fema_flood_zone": {"value": "AE", "unit": null, "source": "FEMA_NFHL", "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28", "confidence": "high", "fetched_at": "2026-08-11T17:23:35.315834+00:00", "dataset_vintage": "48167C_STUDY1", "ttl_seconds": 2592000, "notes": "FEMA NFHL flood zone AE.", "status": "ok"},
+    "intersects_wetland": {"value": true, "unit": null, "source": "USFWS_NWI", "source_url": "https://www.fws.gov/program/national-wetlands-inventory", "confidence": "high", "fetched_at": "2026-08-11T17:23:38.448973+00:00", "dataset_vintage": null, "ttl_seconds": 31536000, "notes": null, "status": "ok"},
+    "surface_water_permanence_pct": {"value": 5.0, "unit": "percent", "source": "JRC_GSW", "source_url": "https://global-surface-water.appspot.com/", "confidence": "medium", "fetched_at": "2026-08-11T17:23:35.325975+00:00", "dataset_vintage": null, "ttl_seconds": 2592000, "notes": null, "status": "ok"}
+  },
+  "partial_failures": [],
+  "resolved_location": {"lat": 29.475732, "lng": -94.966533, "source": "coordinate"}
+}

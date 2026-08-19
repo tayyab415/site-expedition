@@ -1,0 +1,89 @@
+/* Five structurally different planning-board looks. Prototype switcher: ?variant=A..E */
+
+body[data-look="A"] .look-switcher strong::after { content: none; }
+
+/* A — HUD overlay: city fills the screen, glass corners, lot chips at the bottom */
+body[data-look="A"] .app .deck,
+body[data-look="A"] .app .rail {
+  top: 70px; bottom: auto; max-height: 42vh; width: 230px;
+  background: rgba(10, 12, 11, .55); backdrop-filter: blur(14px);
+}
+body[data-look="A"] .app .dock {
+  left: 12%; right: 12%; height: 118px;
+  background: rgba(10, 12, 11, .5);
+}
+body[data-look="A"] .app .top {
+  background: linear-gradient(180deg, rgba(8,10,9,.72), transparent);
+}
+body[data-look="A"] .app .layer-rack { display: none; }
+body[data-look="A"] .app .demand { display: none; }
+body[data-look="A"] .app .street-controls { bottom: 132px; }
+body[data-look="A"] .app .video-panel { inset: 64px 8% 130px; }
+
+/* B — Layer rack: SimCity 2000 map-mode column, inspector on the right */
+body[data-look="B"] .app .layer-rack {
+  display: block; top: 78px; bottom: 12px; left: 0; width: 84px;
+}
+body[data-look="B"] .app .deck { display: none; }
+body[data-look="B"] .app .dock {
+  left: 84px; right: 300px; height: 96px;
+}
+body[data-look="B"] .app .rail {
+  width: 300px; background: rgba(16, 18, 16, .88);
+}
+body[data-look="B"] .app .demand { display: none; }
+body[data-look="B"] .app .street-controls { left: calc(50% + 42px); bottom: 112px; }
+body[data-look="B"] .app .video-panel { inset: 72px 308px 104px 92px; }
+
+/* C — Table: Cities: Skylines toolbar, demand meters, fat bottom console */
+body[data-look="C"] .app .demand { display: grid; bottom: 188px; left: 252px; right: 268px; }
+body[data-look="C"] .app .dock { height: 180px; }
+body[data-look="C"] .app .deck,
+body[data-look="C"] .app .rail { bottom: 180px; }
+body[data-look="C"] .app .layer-rack { display: none; }
+body[data-look="C"] .app .street-controls { bottom: 276px; }
+body[data-look="C"] .app .cards { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+body[data-look="C"] .app .video-panel { inset: 72px 276px 268px 260px; }
+body[data-look="C"] .app .compare { font-size: 11px; }
+
+/* D — Cinema: street/orbit is the movie; cards as a filmstrip; side panels gone */
+body[data-look="D"] .app .deck,
+body[data-look="D"] .app .rail { display: none; }
+body[data-look="D"] .app .dock {
+  left: 0; right: 0; height: 108px;
+  grid-template-columns: 1.6fr .8fr;
+  background: rgba(0,0,0,.72);
+}
+body[data-look="D"] .app .layer-rack { display: none; }
+body[data-look="D"] .app .demand { display: none; }
+body[data-look="D"] .app .street-stage,
+body[data-look="D"] .app .earth-stage { z-index: 1; }
+body[data-look="D"] .app .street-controls { bottom: 124px; }
+body[data-look="D"] .app .video-panel {
+  inset: 0 0 108px; padding: 0; border: 0; background: #000;
+}
+body[data-look="D"] .app .video-panel video { height: 100%; }
+body[data-look="D"] .app .video-panel p,
+body[data-look="D"] .app #close-video { display: none; }
+body[data-look="D"] .app .top h1 { font-size: 18px; }
+body[data-look="D"] .app .advisory { display: block; }
+
+/* E — Street inspector: Street View is the city; 3D is a picture-in-picture */
+body[data-look="E"] .app .street-stage,
+body[data-look="E"] .app .earth-stage { z-index: 3; }
+body[data-look="E"] .app #cesium {
+  position: absolute; z-index: 6; right: 286px; bottom: 152px;
+  width: 280px; height: 180px; inset: auto;
+  border: 2px solid #ece8e0; box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  background: #0c0d0e;
+}
+body[data-look="E"] .app .quick-map { display: none !important; }
+body[data-look="E"] .app .deck {
+  top: auto; bottom: 148px; left: 12px; width: 240px; max-height: 46vh;
+}
+body[data-look="E"] .app .rail { background: rgba(14,15,16,.9); }
+body[data-look="E"] .app .layer-rack { display: none; }
+body[data-look="E"] .app .demand { display: none; }
+body[data-look="E"] .app .advisory { display: block; top: auto; bottom: 148px; left: 268px; transform: none; }
+body[data-look="E"] .app .street-controls { left: 36%; bottom: 152px; }
+body[data-look="E"] .app .video-panel { inset: 0 276px 148px 0; }

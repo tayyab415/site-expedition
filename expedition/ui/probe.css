@@ -1,0 +1,38 @@
+:root {
+  --ink: #1b1f1c;
+  --paper: #f4efe4;
+  --panel: #fffdf7;
+  --line: #c9c1b0;
+  --reject: #8b1e1e;
+  --conditional: #8a5a12;
+  --fit: #1f5c3a;
+  --muted: #5c5a54;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; font: 14px/1.4 "Iowan Old Style", Palatino, serif; background: var(--paper); color: var(--ink); }
+.top { display: flex; justify-content: space-between; align-items: end; padding: 16px 20px 8px; border-bottom: 1px solid var(--line); }
+.kicker { margin: 0; letter-spacing: 0.12em; text-transform: uppercase; font-size: 11px; color: var(--muted); }
+h1, h2 { margin: 0; font-weight: 600; }
+h1 { font-size: 28px; }
+h2 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.credits { font-family: ui-monospace, monospace; font-size: 12px; }
+.missions { display: flex; gap: 8px; padding: 12px 20px; }
+.missions button { border: 1px solid var(--line); background: var(--panel); padding: 8px 12px; cursor: pointer; }
+.missions button.on { background: var(--ink); color: var(--paper); }
+.board { display: grid; grid-template-columns: 260px 1fr 300px; height: calc(100vh - 130px); }
+.deck, .rail { padding: 16px; overflow: auto; background: var(--panel); border-left: 1px solid var(--line); }
+.deck { border-left: 0; border-right: 1px solid var(--line); }
+label, .check { display: block; margin: 8px 0; }
+#map { height: 58%; border-bottom: 1px solid var(--line); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; padding: 10px; overflow: auto; height: 42%; }
+.card { border: 1px solid var(--line); padding: 10px; background: #fff; cursor: pointer; }
+.card .label { font-size: 10px; letter-spacing: 0.1em; }
+.card.reject { border-color: var(--reject); }
+.card.conditional { border-color: var(--conditional); }
+.hint, .plan { color: var(--muted); font-size: 12px; }
+.verdict { padding: 10px; border: 1px dashed var(--line); }
+.verdict.reject { border-color: var(--reject); color: var(--reject); }
+.verdict.conditional { border-color: var(--conditional); color: var(--conditional); }
+.verdict.strong_fit { border-color: var(--fit); color: var(--fit); }
+#gaps, #rail { padding-left: 18px; margin: 0 0 16px; }
+#brief { font-size: 13px; }

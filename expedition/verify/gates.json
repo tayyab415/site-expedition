@@ -1,0 +1,84 @@
+{
+  "version": "0.1.0",
+  "note": "HELD OUT. Never import from expedition.engine or serve to the UI.",
+  "gates": [
+    {
+      "id": "F-bad",
+      "mission": "farm",
+      "candidate_id": "manhattan_midtown",
+      "expect_verdict": "reject",
+      "must_include_reason": "not_cultivated"
+    },
+    {
+      "id": "F-good-NY",
+      "mission": "farm",
+      "candidate_id": "elba_ny",
+      "forbid_verdict": "reject",
+      "forbid_reason": "state_is_new_york"
+    },
+    {
+      "id": "F-good-IA",
+      "mission": "farm",
+      "candidate_id": "iowa_corn",
+      "forbid_verdict": "reject",
+      "expect_inform": "cultivated"
+    },
+    {
+      "id": "F-good-TX",
+      "mission": "farm",
+      "candidate_id": "lubbock_cotton",
+      "forbid_verdict": "reject",
+      "expect_inform": "cultivated"
+    },
+    {
+      "id": "W-kill",
+      "mission": "warehouse",
+      "candidate_id": "san_leon",
+      "expect_verdict": "reject",
+      "must_include_reason": "mapped_sfha"
+    },
+    {
+      "id": "W-sm",
+      "mission": "warehouse",
+      "candidate_id": "san_marcos_tx",
+      "forbid_verdict": "reject",
+      "expect_verdict_in": ["conditional", "strong_fit"]
+    },
+    {
+      "id": "W-il",
+      "mission": "warehouse",
+      "candidate_id": "joliet_il",
+      "forbid_verdict": "reject",
+      "expect_verdict_in": ["conditional", "strong_fit"]
+    },
+    {
+      "id": "H-keep",
+      "mission": "home",
+      "candidate_id": "austin_winfield",
+      "forbid_verdict": "reject",
+      "controls": { "flood_intolerant": true }
+    },
+    {
+      "id": "H-flood",
+      "mission": "home",
+      "candidate_id": "san_leon",
+      "expect_verdict": "reject",
+      "must_include_reason": "mapped_sfha",
+      "controls": { "flood_intolerant": true }
+    },
+    {
+      "id": "D-cool",
+      "mission": "data_center",
+      "candidate_id": "ashburn_va",
+      "forbid_verdict": "strong_fit",
+      "must_include_gap": "electrical_capacity"
+    },
+    {
+      "id": "D-hot",
+      "mission": "data_center",
+      "candidate_id": "quincy_wa",
+      "forbid_verdict": "strong_fit",
+      "must_include_gap": "electrical_capacity"
+    }
+  ]
+}

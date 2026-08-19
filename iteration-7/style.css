@@ -1,0 +1,95 @@
+:root {
+  --bg: #070605;
+  --ink: #e8e4dc;
+  --muted: #8a847a;
+  --kill: #c0392b;
+  --keep: #7dcea0;
+  --line: rgba(232, 228, 220, 0.14);
+  --serif: "Instrument Serif", Georgia, serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: var(--mono); }
+#cesiumContainer { position: fixed; inset: 0; }
+
+.cesium-viewer-bottom { left: 12px !important; bottom: auto !important; top: 86px; }
+.cesium-credit-logoContainer, .cesium-viewer-toolbar,
+.cesium-viewer-animationContainer, .cesium-viewer-timelineContainer,
+.cesium-viewer-fullscreenContainer { display: none !important; }
+.cesium-credit-textContainer { font-size: 10px; }
+
+.hud-top {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 4;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 1.1rem 1.4rem 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(7,6,5,.72), transparent);
+}
+.hud-top kbd {
+  display: block; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+}
+.hud-top h1 {
+  margin: 0.25rem 0 0; font-family: var(--serif); font-size: 1.15rem; font-weight: 400; font-style: italic;
+  text-shadow: 0 2px 18px #000;
+}
+.pins { display: flex; gap: 0.4rem; pointer-events: auto; }
+.pin, .mode {
+  background: rgba(12,10,8,.72); color: var(--ink); border: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.72rem; padding: 0.45rem 0.7rem; cursor: pointer;
+}
+.pin.on, .mode.on { border-color: var(--ink); background: rgba(232,228,220,.12); }
+
+.verdict-hud {
+  position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 3; text-align: center; pointer-events: none;
+  text-shadow: 0 8px 40px #000;
+}
+.stamp {
+  font-family: var(--serif); font-size: clamp(4.2rem, 14vw, 9rem); line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+.stamp.kill { color: var(--kill); }
+.stamp.keep { color: var(--keep); }
+.liner {
+  margin: 0.4rem 0 0; font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--ink);
+}
+
+.context-tag {
+  position: fixed; top: 5.6rem; left: 1.4rem; z-index: 4;
+  margin: 0; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.04em;
+  max-width: 22rem;
+}
+
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 4;
+  background: linear-gradient(180deg, transparent, rgba(7,6,5,.92) 18%);
+  padding: 2.2rem 1.4rem 0.9rem;
+}
+.modes { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.55rem; }
+.mode-note { margin: 0 0 0.8rem; font-size: 0.7rem; color: var(--muted); min-height: 1.1em; }
+.dock-body { display: grid; grid-template-columns: 1.1fr 1.4fr; gap: 1rem; align-items: start; }
+.film { display: flex; gap: 0.45rem; overflow-x: auto; padding-bottom: 0.3rem; }
+.film figure { margin: 0; flex: 0 0 140px; }
+.film img { width: 140px; height: 88px; object-fit: cover; display: block; border: 1px solid var(--line); background: #111; }
+.film figcaption { font-size: 0.58rem; color: var(--muted); margin-top: 0.2rem; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem 0.8rem; font-size: 0.72rem; }
+.facts b { display: block; color: var(--muted); font-weight: 400; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.facts .alert { color: var(--kill); }
+.fights { margin-top: 0.55rem; font-size: 0.7rem; color: var(--ink); }
+.fight { margin: 0.2rem 0; }
+.fight em { color: var(--muted); font-style: normal; }
+.timeline { display: flex; align-items: flex-end; gap: 2px; height: 42px; margin-top: 0.6rem; }
+.timeline .bar { flex: 1; background: #3d3a36; min-height: 2px; }
+.timeline .bar.wet { background: var(--kill); }
+.credits { margin: 0.75rem 0 0; font-size: 0.58rem; color: var(--muted); }
+
+.status {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, 4.5rem);
+  z-index: 5; font-size: 0.75rem; color: var(--muted); margin: 0;
+}
+
+@media (max-width: 900px) {
+  .dock-body { grid-template-columns: 1fr; }
+  .hud-top { flex-direction: column; gap: 0.6rem; }
+  .stamp { font-size: 4rem; }
+}

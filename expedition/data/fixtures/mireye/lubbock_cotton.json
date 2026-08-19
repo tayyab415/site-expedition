@@ -1,0 +1,12 @@
+{
+  "lat": 33.5,
+  "lng": -101.75,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "fields": {
+    "is_cultivated": {"value": true, "source": "USDA_NASS_CDL", "status": "ok"},
+    "dominant_crop_5y": {"value": "Cotton", "source": "USDA_NASS_CDL", "status": "ok"},
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "drought_category": {"value": "D0", "source": "USDM", "status": "ok"}
+  }
+}

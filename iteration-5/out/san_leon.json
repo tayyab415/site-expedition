@@ -1,0 +1,167 @@
+{
+  "site": {
+    "name": "San Leon, TX (Galveston Bay shore)",
+    "lat": 29.475732,
+    "lng": -94.966533
+  },
+  "layer": 2,
+  "triage": {
+    "staged": [
+      {
+        "fight": "TIME",
+        "because": [
+          "coastal (743 m to shore)",
+          "zone AE",
+          "poor drainage (Somewhat poorly drained)",
+          "water permanence 5%"
+        ]
+      },
+      {
+        "fight": "HEIGHT",
+        "because": [
+          "low elevation (2.37 m)",
+          "zone AE"
+        ]
+      }
+    ],
+    "skipped": [],
+    "stage_time": true,
+    "stage_height": true
+  },
+  "vintage": {
+    "applies": true,
+    "label": "map_aged_out",
+    "sentence": "The FEMA panel (48167C_STUDY1, ~1995 vintage) predates the 2001 wetting breakpoint \u2014 label map_aged_out: water history moved after a static study froze the AE zone.",
+    "dataset_vintage": "48167C_STUDY1",
+    "breakpoint_year": 2001,
+    "inferred_study_year": 1995
+  },
+  "ruling": {
+    "verdict": "KILL",
+    "fights": [
+      {
+        "fight": "TIME",
+        "claim": "record says water 5% of the time",
+        "witness": "JRC monthly history: dry 1985-2000 (baseline 0.03% of months), wetting since 2001, 10.8% of months by 2021",
+        "numbers": {
+          "recorded_permanence_pct": 5.0,
+          "observed_2021_pct": 10.8,
+          "baseline_pct": 0.03,
+          "breakpoint_year": 2001
+        }
+      },
+      {
+        "fight": "HEIGHT",
+        "claim": "record says ground at 2.37 m (USGS_3DEP_COG)",
+        "witness": "FABDEM says 0.75 m \u2014 1.62 m lower; NASADEM says 2.68 m. Flood-depth math flips on a 1.6 m disagreement this close to the shore (743 m).",
+        "numbers": {
+          "record_m": 2.3652405738830566,
+          "fabdem_m": 0.75,
+          "nasadem_m": 2.68,
+          "gap_m": 1.62,
+          "height_gated": true
+        }
+      }
+    ],
+    "not_fought": [],
+    "aggravators": [
+      "already zone AE (48167C_STUDY1) and intersects a mapped wetland"
+    ],
+    "keep_explanation": null
+  },
+  "docket": [
+    {
+      "number": 1,
+      "fight": "TIME",
+      "staged": true,
+      "because": [
+        "coastal (743 m to shore)",
+        "zone AE",
+        "poor drainage (Somewhat poorly drained)",
+        "water permanence 5%"
+      ]
+    },
+    {
+      "number": 2,
+      "fight": "HEIGHT",
+      "staged": true,
+      "because": [
+        "low elevation (2.37 m)",
+        "zone AE"
+      ]
+    }
+  ],
+  "record": {
+    "elevation_m": {
+      "value": 2.3652405738830566,
+      "unit": "meters",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "vintage": "3DEP 1/3 arc-second seamless DEM",
+      "fetched_at": "2026-08-11T17:23:35.801598+00:00"
+    },
+    "fema_flood_zone": {
+      "value": "AE",
+      "unit": null,
+      "source": "FEMA_NFHL",
+      "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "confidence": "high",
+      "vintage": "48167C_STUDY1",
+      "fetched_at": "2026-08-11T17:23:35.315834+00:00"
+    },
+    "intersects_wetland": {
+      "value": true,
+      "unit": null,
+      "source": "USFWS_NWI",
+      "source_url": "https://www.fws.gov/program/national-wetlands-inventory",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-11T17:23:38.448973+00:00"
+    },
+    "surface_water_permanence_pct": {
+      "value": 5.0,
+      "unit": "percent",
+      "source": "JRC_GSW",
+      "source_url": "https://global-surface-water.appspot.com/",
+      "confidence": "medium",
+      "vintage": null,
+      "fetched_at": "2026-08-11T17:23:35.325975+00:00"
+    },
+    "coast_distance_m": {
+      "value": 742.9429269466059,
+      "unit": "meters",
+      "source": "NOAA_CUSP",
+      "source_url": "https://shoreline.noaa.gov/data/datasheets/cusp.html",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-11T17:23:35.258266+00:00"
+    },
+    "soil_drainage_class": {
+      "value": "Somewhat poorly drained",
+      "unit": null,
+      "source": "NRCS_gNATSGO",
+      "source_url": "https://storage.googleapis.com/mireye-earth-data/soils/gnatsgo_mukey_conus_fy2025.tif",
+      "confidence": "high",
+      "vintage": null,
+      "fetched_at": "2026-08-12T07:18:43.590705+00:00"
+    },
+    "fetched_at": "2026-08-12T07:18:43.605083+00:00"
+  },
+  "witness_summary": {
+    "water": {
+      "dataset": "JRC/GSW1_4/MonthlyHistory",
+      "baseline_freq_1985_1999": 0.0003,
+      "latest_freq_2021": 0.1084,
+      "breakpoint_year": 2001
+    },
+    "height": {
+      "nasadem_m": 2.6759945130315503,
+      "fabdem_m": 0.7473415573274482,
+      "datasets": [
+        "NASA/NASADEM_HGT/001",
+        "projects/sat-io/open-datasets/FABDEM"
+      ]
+    }
+  }
+}

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdict — Move the pin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0908;
+      --surface: #141210;
+      --text: #e8e4dc;
+      --muted: #6b6560;
+      --kill: #c0392b;
+      --kill-glow: rgba(192, 57, 43, 0.35);
+      --keep: #7dcea0;
+      --keep-glow: rgba(125, 206, 160, 0.25);
+      --gray-bar: #3d3a36;
+      --red-bar: #c0392b;
+      --rail: #1e1c19;
+      --pin-size: 18px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-flip: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    html { font-size: 16px; }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Mono", ui-monospace, monospace;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Film grain */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    .stage {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3rem;
+      position: relative;
+    }
+
+    /* ── Header ── */
+    .masthead {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .masthead kbd {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .masthead h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Pin rail ── */
+    .pin-section {
+      margin-bottom: 2rem;
+    }
+    .pin-rail {
+      position: relative;
+      height: 72px;
+      background: var(--rail);
+      border-radius: 2px;
+      cursor: pointer;
+      overflow: visible;
+      border: 1px solid #252220;
+    }
+    .pin-rail::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--muted) 12%,
+        var(--muted) 88%,
+        transparent 100%
+      );
+      transform: translateY(-50%);
+    }
+    /* Abstract coastline hint — San Leon is coastal */
+    .coast-gradient {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 22%;
+      background: linear-gradient(90deg, rgba(192,57,43,0.08) 0%, transparent 100%);
+      pointer-events: none;
+      border-radius: 2px 0 0 2px;
+    }
+    .pin-labels {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: calc(50% + 14px);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .pin-labels span.active { color: var(--text); }
+    .pin-marker {
+      position: absolute;
+      top: 50%;
+      width: var(--pin-size);
+      height: var(--pin-size);
+      transform: translate(-50%, -50%);
+      transition: left 0.55s var(--ease-flip);
+      z-index: 2;
+    }
+    .pin-marker::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--pin-glow, var(--kill-glow)) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .pin-marker.visible::before { opacity: 1; }
+    .pin-marker::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: var(--pin-color, var(--kill));
+      box-shadow: 0 0 20px var(--pin-glow, var(--kill-glow));
+    }
+    .pin-marker.at-san-leon { left: 12%; --pin-color: var(--kill); --pin-glow: var(--kill-glow); }
+    .pin-marker.at-austin   { left: 88%; --pin-color: var(--keep);  --pin-glow: var(--keep-glow); }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .ctrl-btn {
+      font-family: inherit;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      background: transparent;
+      border: 1px solid #2a2724;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .ctrl-btn:hover { color: var(--text); border-color: #444; }
+    .ctrl-btn.on {
+      color: var(--text);
+      border-color: var(--text);
+      background: rgba(232, 228, 220, 0.04);
+    }
+
+    /* ── Verdict hero ── */
+    .verdict-hero {
+      text-align: center;
+      padding: 1.5rem 0 2rem;
+      position: relative;
+    }
+    .verdict-word {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(5rem, 18vw, 13rem);
+      font-weight: 400;
+      line-height: 0.85;
+      letter-spacing: -0.03em;
+      transition: color 0.6s var(--ease-flip), text-shadow 0.6s;
+      user-select: none;
+    }
+    .verdict-word.kill {
+      color: var(--kill);
+      text-shadow: 0 0 80px var(--kill-glow), 0 0 160px rgba(192,57,43,0.15);
+    }
+    .verdict-word.keep {
+      color: var(--keep);
+      text-shadow: 0 0 80px var(--keep-glow), 0 0 160px rgba(125,206,160,0.1);
+    }
+    .verdict-word.compare-mode {
+      font-size: clamp(3rem, 10vw, 7rem);
+    }
+    .one-liner {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 1.25rem;
+      max-width: 36em;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+      transition: opacity 0.35s var(--ease-out);
+    }
+    .one-liner.fade { opacity: 0; }
+
+    /* Compare: split verdict */
+    .verdict-split {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+    }
+    .verdict-split.visible { display: grid; }
+    .verdict-split .verdict-col { text-align: center; }
+    .verdict-split .verdict-word { font-size: clamp(3rem, 8vw, 6rem); }
+    .verdict-split .one-liner { font-size: clamp(0.85rem, 1.6vw, 1.05rem); margin-top: 0.75rem; }
+    .verdict-single.hidden { display: none; }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      gap: 1.5rem;
+      transition: grid-template-columns 0.5s var(--ease-out);
+    }
+    .cards.single { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; width: 100%; }
+    .cards.compare { grid-template-columns: 1fr 1fr; max-width: 100%; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid #1f1d1a;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out), border-color 0.4s;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent, var(--muted));
+      transition: background 0.4s;
+    }
+    .card.kill-card { --accent: var(--kill); }
+    .card.keep-card { --accent: var(--keep); }
+    .card.dimmed { opacity: 0.35; transform: scale(0.98); }
+    .card.hidden-card { display: none; }
+    .cards.compare .card.hidden-card { display: block; opacity: 1; transform: none; }
+    .cards.compare .card.dimmed { opacity: 1; transform: none; }
+
+    .card-site {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .card-name {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .card-verdict-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid currentColor;
+    }
+    .kill-card .card-verdict-badge { color: var(--kill); }
+    .keep-card .card-verdict-badge { color: var(--keep); }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .fact-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+    .fact-value {
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+    .fact-value.alert { color: var(--kill); }
+
+    /* ── Water timeline ── */
+    .timeline-block { margin-top: 0.5rem; }
+    .timeline-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .timeline-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 64px;
+      padding-bottom: 18px;
+      position: relative;
+    }
+    .timeline-bars::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 16px;
+      height: 1px;
+      background: #2a2724;
+    }
+    .bar {
+      flex: 1;
+      min-width: 0;
+      background: var(--gray-bar);
+      border-radius: 1px 1px 0 0;
+      transition: height 0.6s var(--ease-out), background 0.4s;
+      height: 2px;
+    }
+    .bar.wet { background: var(--red-bar); }
+    .kill-card .bar.wet { background: var(--red-bar); box-shadow: 0 0 8px rgba(192,57,43,0.4); }
+    .keep-card .bar { background: var(--gray-bar) !important; box-shadow: none !important; }
+
+    .timeline-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.5rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* Fights (San Leon only) */
+    .fights {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #1f1d1a;
+    }
+    .fight {
+      margin-bottom: 0.85rem;
+    }
+    .fight-tag {
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      color: var(--kill);
+      margin-bottom: 0.2rem;
+    }
+    .fight-claim {
+      font-size: 0.75rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .stage { padding: 1.5rem 1rem 2rem; }
+      .cards.compare { grid-template-columns: 1fr; }
+      .verdict-split { grid-template-columns: 1fr; gap: 1rem; }
+      .facts { grid-template-columns: 1fr; }
+    }
+
+    /* Entrance */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .stage > * { animation: rise 0.8s var(--ease-out) both; }
+    .masthead { animation-delay: 0s; }
+    .pin-section { animation-delay: 0.08s; }
+    .verdict-hero { animation-delay: 0.16s; }
+    .cards { animation-delay: 0.24s; }
+    .footer { animation-delay: 0.32s; }
+  </style>
+</head>
+<body>
+  <div class="stage" id="app">
+    <header class="masthead">
+      <kbd>Property vetting agent · iteration 4</kbd>
+      <h1>Move the pin. The robot changes its mind.</h1>
+    </header>
+
+    <section class="pin-section">
+      <div class="pin-rail" id="pin-rail" role="slider" aria-label="Choose property pin" aria-valuemin="0" aria-valuemax="1" tabindex="0">
+        <div class="coast-gradient"></div>
+        <div class="pin-marker at-san-leon visible" id="pin-marker"></div>
+        <div class="pin-labels">
+          <span class="active" id="label-san-leon">San Leon · Bay shore</span>
+          <span id="label-austin">Austin · Inland</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn on" id="btn-single" type="button">Single focus</button>
+        <button class="ctrl-btn" id="btn-compare" type="button">Side by side</button>
+      </div>
+    </section>
+
+    <section class="verdict-hero">
+      <div class="verdict-single" id="verdict-single">
+        <div class="verdict-word kill" id="verdict-word">KILL</div>
+        <p class="one-liner" id="one-liner">You're buying 2021 dirt at a 1995 feeling.</p>
+      </div>
+      <div class="verdict-split" id="verdict-split">
+        <div class="verdict-col">
+          <div class="verdict-word kill">KILL</div>
+          <p class="one-liner">You're buying 2021 dirt at a 1995 feeling.</p>
+        </div>
+        <div class="verdict-col">
+          <div class="verdict-word keep">KEEP</div>
+          <p class="one-liner">No material contradiction.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards single" id="cards">
+      <article class="card kill-card" id="card-san-leon"></article>
+      <article class="card keep-card hidden-card" id="card-austin"></article>
+    </section>
+
+    <footer class="footer">Packet data from harness · JRC · FEMA · USGS · verdict in code</footer>
+  </div>
+
+  <script>
+    const SITES = {
+      san_leon: {
+        key: "san_leon",
+        dataPath: "data/san_leon",
+        cardId: "card-san-leon",
+        pinClass: "at-san-leon",
+        labelId: "label-san-leon",
+        verdict: "KILL",
+        oneLiner: "You're buying 2021 dirt at a 1995 feeling.",
+        cardClass: "kill-card",
+      },
+      austin: {
+        key: "keep_control",
+        dataPath: "data/keep_control",
+        cardId: "card-austin",
+        pinClass: "at-austin",
+        labelId: "label-austin",
+        verdict: "KEEP",
+        oneLiner: "No material contradiction.",
+        cardClass: "keep-card",
+      },
+    };
+
+    const ONELINERS = {
+      KILL: "You're buying 2021 dirt at a 1995 feeling.",
+      KEEP: "No material contradiction.",
+    };
+
+    let activeSite = "san_leon";
+    let compareMode = false;
+    let loaded = {};
+
+    async function loadSite(siteKey) {
+      const site = SITES[siteKey === "san_leon" ? "san_leon" : "austin"];
+      if (loaded[siteKey]) return loaded[siteKey];
+      const [verdict, evidence] = await Promise.all([
+        fetch(`${site.dataPath}/verdict.json`).then(r => r.json()),
+        fetch(`${site.dataPath}/evidence.json`).then(r => r.json()),
+      ]);
+      loaded[siteKey] = { verdict, evidence, meta: site };
+      return loaded[siteKey];
+    }
+
+    function fmtPct(v) {
+      if (v == null) return "—";
+      return (v * 100).toFixed(1) + "%";
+    }
+
+    function fmtElev(m) {
+      if (m == null) return "—";
+      return m.toFixed(2) + " m";
+    }
+
+    function fmtDist(m) {
+      if (m == null) return "—";
+      if (m > 1000) return (m / 1000).toFixed(0) + " km";
+      return Math.round(m) + " m";
+    }
+
+    function renderTimeline(container, timeline, isKill) {
+      const maxFreq = Math.max(...timeline.map(t => t.water_freq), 0.01);
+      const bars = timeline.map(t => {
+        const h = Math.max(2, (t.water_freq / maxFreq) * 100);
+        const wet = isKill && t.water_freq > 0.005;
+        return `<div class="bar${wet ? " wet" : ""}" style="height:${h}%" title="${t.year}: ${fmtPct(t.water_freq)}"></div>`;
+      }).join("");
+      const years = [1985, 1995, 2005, 2015, 2021];
+      const axis = years.map(y => `<span>${y}</span>`).join("");
+      container.innerHTML = `
+        <div class="timeline-label">Standing water · JRC monthly history</div>
+        <div class="timeline-bars">${bars}</div>
+        <div class="timeline-axis">${axis}</div>
+      `;
+    }
+
+    function renderCard(el, data) {
+      const { verdict, evidence, meta } = data;
+      const rec = verdict.record;
+      const ruling = verdict.ruling;
+      const isKill = ruling.verdict === "KILL";
+
+      const fightsHtml = (ruling.fights || []).map(f => `
+        <div class="fight">
+          <div class="fight-tag">${f.fight}</div>
+          <div class="fight-claim">${f.claim}</div>
+        </div>
+      `).join("");
+
+      el.innerHTML = `
+        <div class="card-site">${isKill ? "Galveston Bay · Coastal" : "Travis County · Inland"}</div>
+        <div class="card-name">${verdict.site.name}</div>
+        <div class="card-verdict-badge">${ruling.verdict}</div>
+        <div class="facts">
+          <div>
+            <div class="fact-label">FEMA zone</div>
+            <div class="fact-value${rec.fema_flood_zone.value === "AE" ? " alert" : ""}">${rec.fema_flood_zone.value}</div>
+          </div>
+          <div>
+            <div class="fact-label">Elevation (record)</div>
+            <div class="fact-value">${fmtElev(rec.elevation_m.value)}</div>
+          </div>
+          <div>
+            <div class="fact-label">Water permanence</div>
+            <div class="fact-value${rec.surface_water_permanence_pct.value > 0 ? " alert" : ""}">${rec.surface_water_permanence_pct.value}%</div>
+          </div>
+          <div>
+            <div class="fact-label">Coast distance</div>
+            <div class="fact-value">${fmtDist(rec.coast_distance_m.value)}</div>
+          </div>
+          <div>
+            <div class="fact-label">Wetland</div>
+            <div class="fact-value${rec.intersects_wetland.value ? " alert" : ""}">${rec.intersects_wetland.value ? "Yes" : "No"}</div>
+          </div>
+          <div>
+            <div class="fact-label">Drainage</div>
+            <div class="fact-value">${rec.soil_drainage_class.value}</div>
+          </div>
+        </div>
+        <div class="timeline-block"></div>
+        ${fightsHtml ? `<div class="fights">${fightsHtml}</div>` : ""}
+      `;
+
+      const tl = el.querySelector(".timeline-block");
+      renderTimeline(tl, evidence.water.timeline, isKill);
+    }
+
+    function setActive(siteKey) {
+      activeSite = siteKey;
+      const isSanLeon = siteKey === "san_leon";
+      const pin = document.getElementById("pin-marker");
+      pin.className = `pin-marker ${isSanLeon ? "at-san-leon" : "at-austin"} visible`;
+
+      document.getElementById("label-san-leon").classList.toggle("active", isSanLeon);
+      document.getElementById("label-austin").classList.toggle("active", !isSanLeon);
+
+      if (!compareMode) {
+        updateSingleVerdict(isSanLeon ? "KILL" : "KEEP");
+        updateCardVisibility(isSanLeon);
+      }
+    }
+
+    function updateSingleVerdict(verdict) {
+      const word = document.getElementById("verdict-word");
+      const liner = document.getElementById("one-liner");
+      const isKill = verdict === "KILL";
+
+      liner.classList.add("fade");
+      setTimeout(() => {
+        word.textContent = verdict;
+        word.className = `verdict-word ${isKill ? "kill" : "keep"}`;
+        liner.textContent = ONELINERS[verdict];
+        liner.classList.remove("fade");
+      }, 180);
+    }
+
+    function updateCardVisibility(isSanLeon) {
+      const sanCard = document.getElementById("card-san-leon");
+      const ausCard = document.getElementById("card-austin");
+      sanCard.classList.toggle("hidden-card", !isSanLeon);
+      ausCard.classList.toggle("hidden-card", isSanLeon);
+      sanCard.classList.remove("dimmed");
+      ausCard.classList.remove("dimmed");
+    }
+
+    function setCompareMode(on) {
+      compareMode = on;
+      document.getElementById("btn-single").classList.toggle("on", !on);
+      document.getElementById("btn-compare").classList.toggle("on", on);
+
+      const cards = document.getElementById("cards");
+      cards.classList.toggle("single", !on);
+      cards.classList.toggle("compare", on);
+
+      document.getElementById("verdict-single").classList.toggle("hidden", on);
+      document.getElementById("verdict-split").classList.toggle("visible", on);
+
+      const sanCard = document.getElementById("card-san-leon");
+      const ausCard = document.getElementById("card-austin");
+      sanCard.classList.remove("hidden-card", "dimmed");
+      ausCard.classList.remove("hidden-card", "dimmed");
+
+      if (!on) {
+        setActive(activeSite);
+      }
+    }
+
+    function handleRailClick(e) {
+      const rail = document.getElementById("pin-rail");
+      const rect = rail.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const siteKey = x < 0.5 ? "san_leon" : "austin";
+      setActive(siteKey);
+    }
+
+    async function init() {
+      const [sanData, ausData] = await Promise.all([
+        loadSite("san_leon"),
+        loadSite("austin"),
+      ]);
+
+      renderCard(document.getElementById("card-san-leon"), sanData);
+      renderCard(document.getElementById("card-austin"), ausData);
+
+      document.getElementById("pin-rail").addEventListener("click", handleRailClick);
+      document.getElementById("pin-rail").addEventListener("keydown", e => {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          setActive(e.key === "ArrowLeft" ? "san_leon" : "austin");
+        }
+      });
+
+      document.getElementById("btn-single").addEventListener("click", () => setCompareMode(false));
+      document.getElementById("btn-compare").addEventListener("click", () => setCompareMode(true));
+
+      setActive("san_leon");
+    }
+
+    init().catch(err => {
+      document.getElementById("app").innerHTML = `<p style="color:#c0392b;padding:2rem">Failed to load packet data. Run from iteration-4 with a local server.<br><small>${err.message}</small></p>`;
+    });
+  </script>
+</body>
+</html>

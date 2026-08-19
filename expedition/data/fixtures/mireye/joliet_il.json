@@ -1,0 +1,11 @@
+{
+  "lat": 41.525,
+  "lng": -88.083,
+  "fetched_at": "2026-08-15T02:10:00Z",
+  "fields": {
+    "fema_flood_zone": {"value": "X", "source": "FEMA_NFHL", "status": "ok"},
+    "within_floodplain_polygon": {"value": false, "source": "FEMA_NFHL", "status": "ok"},
+    "nearest_major_road_distance_m": {"value": 0.7, "unit": "meters", "source": "TIGER", "status": "ok"},
+    "nearest_long_haul_rail_corridor_distance_m": {"value": 166.2, "unit": "meters", "source": "BTS", "status": "ok"}
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "mireye-earth": {
+      "command": "/home/tayyabkhan/.local/bin/uvx",
+      "args": [
+        "mireye-mcp"
+      ],
+      "env": {
+        "MIREYE_BASE_URL": "https://api.mireye.com"
+      }
+    },
+    "doordash": {
+      "command": "node",
+      "args": [
+        "/home/tayyabkhan/Shared/mireye-challenge/mcp-explore/doordash-mcp-server/build/index.js"
+      ],
+      "env": {
+        "DOORDASH_API_MODE": "mock"
+      }
+    }
+  }
+}

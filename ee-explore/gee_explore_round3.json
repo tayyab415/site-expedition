@@ -1,0 +1,633 @@
+{
+  "ran_at": "2026-08-11T17:19:33.740663+00:00",
+  "rising_detail": {
+    "san_leon_rising": {
+      "lon": -94.96653315875905,
+      "lat": 29.475732110989398,
+      "gsw": {
+        "change_abs": 26.81872549019608,
+        "max_extent": 0.08226204493765825,
+        "occurrence": 58.579106114614724,
+        "recurrence": 87.0136274509804,
+        "seasonality": 6.429411764705883,
+        "transition": 5.09921568627451
+      },
+      "elev_nasadem": {
+        "elevation": 2.6961994693933504
+      },
+      "elev_srtm": {
+        "elevation": 4.150825013306664
+      },
+      "bathymetry_etopo_m": {
+        "bedrock": 0
+      },
+      "worldcover_frac": {
+        "trees": 0.083537746751932,
+        "grass": 0.6827330536945821,
+        "crop": 0.009823490730172496,
+        "built": 0.012362457691349775,
+        "bare": 0.015683541151153644,
+        "water": 0.05619950510749847,
+        "wetland": 0.13966020487331146
+      },
+      "mangrove_2000_present": {
+        "1": null
+      },
+      "ndwi_2019": {
+        "n": 40,
+        "ndwi_median": {
+          "ndwi": -0.5092283977820872
+        },
+        "ndwi_p90": {
+          "ndwi": -0.3937440514564514
+        }
+      },
+      "ndwi_2024": {
+        "n": 31,
+        "ndwi_median": {
+          "ndwi": -0.43860158854246994
+        },
+        "ndwi_p90": {
+          "ndwi": -0.24534431804713813
+        }
+      },
+      "dw_2018": {
+        "bare": 0.05110122978519027,
+        "built": 0.08651057713350029,
+        "flooded_vegetation": 0.08193513624647308,
+        "water": 0.08409127433942848,
+        "n": 167
+      },
+      "dw_2024": {
+        "bare": 0.13901446188871242,
+        "built": 0.09748292885851527,
+        "flooded_vegetation": 0.06704271340695962,
+        "water": 0.07286126012858951,
+        "n": 138
+      },
+      "yearly_2000": {
+        "1": 0.05714285714285714,
+        "2": 0.8072829131652662,
+        "3": 0.13557422969187674
+      },
+      "yearly_2021": {
+        "1": 0.05,
+        "2": 0.7445098039215686,
+        "3": 0.20549019607843136
+      },
+      "ghsl_indexes_sample": [
+        "1975",
+        "1980",
+        "1985",
+        "1990",
+        "1995",
+        "2000",
+        "2005",
+        "2010"
+      ],
+      "ghsl_built_1975": {
+        "built_surface": 36.74497681607419
+      },
+      "ghsl_built_1990": {
+        "built_surface": 53.14703760947966
+      },
+      "ghsl_built_2000": {
+        "built_surface": 98.38176197836168
+      },
+      "ghsl_built_2015": {
+        "built_surface": 147.74992272024733
+      },
+      "ghsl_built_2020": {
+        "built_surface": 170.58804739824836
+      },
+      "ghsl_built_2025": {
+        "built_surface": 179.36393611540447
+      },
+      "smap_sm_surface_jja2023": {
+        "sm_surface": null
+      },
+      "prism_ppt_2023": {
+        "ppt": 968.9326775474183
+      },
+      "prism_ppt_clim_annual": {
+        "ppt": 1469.8057675608202
+      },
+      "prism_ppt_anom_2023": {
+        "ppt_anom": -500.8730900134019
+      },
+      "aq_coast_hist_100": {
+        "inundation_depth": 0
+      },
+      "aq_coast_rcp85_2050_100": {
+        "inundation_depth": 0
+      },
+      "aq_riv_hist_100_err": "Image.load: Image asset 'WRI/Aqueduct_Flood_Hazard_Maps/V2/inunriver_historical_000000000WATCH_1980_rp0100' not found (does not exist or caller does not have ac"
+    },
+    "east_bay_rising": {
+      "lon": -94.60902695100553,
+      "lat": 29.655513947697735,
+      "gsw": {
+        "change_abs": 14.126729138777332,
+        "max_extent": 0.07215764561934508,
+        "occurrence": 5.337448559670783,
+        "recurrence": 92.40829986613119,
+        "seasonality": null,
+        "transition": 10
+      },
+      "elev_nasadem": {
+        "elevation": 0.7140350312318893
+      },
+      "elev_srtm": {
+        "elevation": 3.5412078181349806
+      },
+      "bathymetry_etopo_m": {
+        "bedrock": 2
+      },
+      "worldcover_frac": {
+        "grass": 0.7130348776585708,
+        "wetland": 0.2869651223414292
+      },
+      "mangrove_2000_present": {
+        "1": null
+      },
+      "ndwi_2019": {
+        "n": 16,
+        "ndwi_median": {
+          "ndwi": -0.5852951377154854
+        },
+        "ndwi_p90": {
+          "ndwi": -0.529764938111208
+        }
+      },
+      "ndwi_2024": {
+        "n": 12,
+        "ndwi_median": {
+          "ndwi": -0.5825571972520587
+        },
+        "ndwi_p90": {
+          "ndwi": -0.5258087771279472
+        }
+      },
+      "dw_2018": {
+        "bare": 0.062400353934702155,
+        "built": 0.03342711745107748,
+        "flooded_vegetation": 0.08287649616999283,
+        "water": 0.07677840597815812,
+        "n": 47
+      },
+      "dw_2024": {
+        "bare": 0.044226221357173294,
+        "built": 0.03490408934475321,
+        "flooded_vegetation": 0.0747152423828238,
+        "water": 0.04486608466951608,
+        "n": 37
+      },
+      "yearly_2000": {
+        "1": 1.0
+      },
+      "yearly_2021": {
+        "1": 1.0
+      },
+      "ghsl_indexes_sample": [
+        "1975",
+        "1980",
+        "1985",
+        "1990",
+        "1995",
+        "2000",
+        "2005",
+        "2010"
+      ],
+      "ghsl_built_1975": {
+        "built_surface": 0
+      },
+      "ghsl_built_1990": {
+        "built_surface": 0
+      },
+      "ghsl_built_2000": {
+        "built_surface": 0
+      },
+      "ghsl_built_2015": {
+        "built_surface": 0
+      },
+      "ghsl_built_2020": {
+        "built_surface": 0
+      },
+      "ghsl_built_2025": {
+        "built_surface": 0
+      },
+      "smap_sm_surface_jja2023": {
+        "sm_surface": null
+      },
+      "prism_ppt_2023": {
+        "ppt": 1004.548748361102
+      },
+      "prism_ppt_clim_annual": {
+        "ppt": 1537.7158387375803
+      },
+      "prism_ppt_anom_2023": {
+        "ppt_anom": -533.1670903764781
+      },
+      "aq_coast_hist_100": {
+        "inundation_depth": 0
+      },
+      "aq_coast_rcp85_2050_100": {
+        "inundation_depth": 0
+      },
+      "aq_riv_hist_100_err": "Image.load: Image asset 'WRI/Aqueduct_Flood_Hazard_Maps/V2/inunriver_historical_000000000WATCH_1980_rp0100' not found (does not exist or caller does not have ac"
+    },
+    "west_bay_rising": {
+      "lon": -95.08909794571038,
+      "lat": 29.281470224452313,
+      "gsw": {
+        "change_abs": 14.539939352830865,
+        "max_extent": 0.40496695697135204,
+        "occurrence": 4.899693721286376,
+        "recurrence": 60.21284363404221,
+        "seasonality": 1,
+        "transition": 9.65985715995691
+      },
+      "elev_nasadem": {
+        "elevation": 3.1382492202776295
+      },
+      "elev_srtm": {
+        "elevation": 5.494639726613937
+      },
+      "bathymetry_etopo_m": {
+        "bedrock": 4.344827586206897
+      },
+      "worldcover_frac": {
+        "grass": 0.003510526192959559,
+        "crop": 0.6903708716983908,
+        "wetland": 0.3061186021086495
+      },
+      "mangrove_2000_present": {
+        "1": null
+      },
+      "ndwi_2019": {
+        "n": 19,
+        "ndwi_median": {
+          "ndwi": -0.5615381330589302
+        },
+        "ndwi_p90": {
+          "ndwi": -0.4908151552081108
+        }
+      },
+      "ndwi_2024": {
+        "n": 17,
+        "ndwi_median": {
+          "ndwi": -0.5849255432823793
+        },
+        "ndwi_p90": {
+          "ndwi": -0.5346398947339405
+        }
+      },
+      "dw_2018": {
+        "bare": 0.06484049228850279,
+        "built": 0.03505890074939076,
+        "flooded_vegetation": 0.20557715827259845,
+        "water": 0.1475021584927024,
+        "n": 78
+      },
+      "dw_2024": {
+        "bare": 0.05255414549642581,
+        "built": 0.032891238266389185,
+        "flooded_vegetation": 0.1112906561547753,
+        "water": 0.06269603734414847,
+        "n": 67
+      },
+      "yearly_2000": {
+        "1": 0.9834417268483422,
+        "2": 0.016558273151657824
+      },
+      "yearly_2021": {
+        "1": 0.9319714319913817,
+        "2": 0.06802856800861828
+      },
+      "ghsl_indexes_sample": [
+        "1975",
+        "1980",
+        "1985",
+        "1990",
+        "1995",
+        "2000",
+        "2005",
+        "2010"
+      ],
+      "ghsl_built_1975": {
+        "built_surface": 0
+      },
+      "ghsl_built_1990": {
+        "built_surface": 0
+      },
+      "ghsl_built_2000": {
+        "built_surface": 0
+      },
+      "ghsl_built_2015": {
+        "built_surface": 0
+      },
+      "ghsl_built_2020": {
+        "built_surface": 0
+      },
+      "ghsl_built_2025": {
+        "built_surface": 0
+      },
+      "smap_sm_surface_jja2023": {
+        "sm_surface": 0.2756308913230896
+      },
+      "prism_ppt_2023": {
+        "ppt": 1021.3457766566717
+      },
+      "prism_ppt_clim_annual": {
+        "ppt": 1406.8618864324003
+      },
+      "prism_ppt_anom_2023": {
+        "ppt_anom": -385.51610977572864
+      },
+      "aq_coast_hist_100": {
+        "inundation_depth": 0
+      },
+      "aq_coast_rcp85_2050_100": {
+        "inundation_depth": 0
+      },
+      "aq_riv_hist_100_err": "Image.load: Image asset 'WRI/Aqueduct_Flood_Hazard_Maps/V2/inunriver_historical_000000000WATCH_1980_rp0100' not found (does not exist or caller does not have ac"
+    }
+  },
+  "extra_sites": {
+    "galveston_island": {
+      "lon": -94.7977,
+      "lat": 29.3013,
+      "gsw_change_abs": {
+        "change_abs": 4
+      },
+      "gsw_occurrence": {
+        "occurrence": 2.1999999999999997
+      },
+      "worldcover": {
+        "trees": 0.010527963611642944,
+        "grass": 0.09597191722211625,
+        "built": 0.8512220476014166,
+        "bare": 0.041605287990945136,
+        "water": 0.000672783573879112
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 5.365912446025795
+      },
+      "bathymetry": {
+        "bedrock": -2.9375
+      }
+    },
+    "mississippi_delta": {
+      "lon": -89.25,
+      "lat": 29.15,
+      "gsw_change_abs": {
+        "change_abs": -0.6826649636091968
+      },
+      "gsw_occurrence": {
+        "occurrence": 98.06183639371396
+      },
+      "worldcover": {
+        "trees": 0.0004852977248696588,
+        "grass": 0.0016844499071020371,
+        "water": 0.9434764668035658,
+        "wetland": 0.054353785564462465
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 0.44200822027482817
+      },
+      "bathymetry": {
+        "bedrock": 0
+      }
+    },
+    "florida_keys_mangrove": {
+      "lon": -81.55,
+      "lat": 24.7,
+      "gsw_change_abs": {
+        "change_abs": 0
+      },
+      "gsw_occurrence": {
+        "occurrence": 98.87582512872291
+      },
+      "worldcover": {
+        "water": 1.0
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 0.002490351947752087
+      },
+      "bathymetry": {
+        "bedrock": -1
+      }
+    },
+    "new_orleans": {
+      "lon": -90.07,
+      "lat": 29.95,
+      "gsw_change_abs": {
+        "change_abs": 11.12202222114405
+      },
+      "gsw_occurrence": {
+        "occurrence": 40.41117166212538
+      },
+      "worldcover": {
+        "trees": 0.02161357788817826,
+        "grass": 0.001559742734198431,
+        "crop": 0.0003342305858996638,
+        "built": 0.9728159123468273,
+        "bare": 0.0011141019529988792,
+        "water": 0.0025624344918974223
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 16.39005678243362
+      },
+      "bathymetry": {
+        "bedrock": 8.163636363636366
+      }
+    },
+    "miami": {
+      "lon": -80.19,
+      "lat": 25.76,
+      "gsw_change_abs": {
+        "change_abs": 1.0139944681552582
+      },
+      "gsw_occurrence": {
+        "occurrence": 96.24884319321849
+      },
+      "worldcover": {
+        "trees": 0.034909294688833574,
+        "grass": 0.013722848238050412,
+        "crop": 0.00011580271032837564,
+        "built": 0.5190014082517832,
+        "bare": 0.002895067758209391,
+        "water": 0.41184893332079947,
+        "wetland": 0.017506645031995612
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 7.878720125567651
+      },
+      "bathymetry": {
+        "bedrock": 2.8867924528301887
+      }
+    },
+    "la_harbor": {
+      "lon": -118.24,
+      "lat": 33.75,
+      "gsw_change_abs": {
+        "change_abs": -4.2674478953262875
+      },
+      "gsw_occurrence": {
+        "occurrence": 94.21168981844333
+      },
+      "worldcover": {
+        "trees": 0.00010691039441550411,
+        "grass": 0.00021382078883100823,
+        "built": 0.11559738803232465,
+        "bare": 0.16814196023352582,
+        "water": 0.7159399205509029
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 0.580201957691524
+      },
+      "bathymetry": {
+        "bedrock": -4.736842105263158
+      }
+    },
+    "sf_bay": {
+      "lon": -122.42,
+      "lat": 37.78,
+      "gsw_change_abs": {
+        "change_abs": 10.45
+      },
+      "gsw_occurrence": {
+        "occurrence": 29.97730956239869
+      },
+      "worldcover": {
+        "trees": 0.02174072456328848,
+        "grass": 0.022444532298637642,
+        "built": 0.9433020299632395,
+        "bare": 0.009787949026146889,
+        "water": 0.002724764148687552
+      },
+      "mangrove": {
+        "1": null
+      },
+      "elev": {
+        "elevation": 33.310140363085864
+      },
+      "bathymetry": {
+        "bedrock": 25.65625
+      }
+    }
+  },
+  "regional": {
+    "galveston_bay_chl_2023_monthly": {
+      "1": {
+        "chlor_a": 9.933401571921543
+      },
+      "2": {
+        "chlor_a": 10.623993011630908
+      },
+      "3": {
+        "chlor_a": 7.821303468107858
+      },
+      "4": {
+        "chlor_a": 6.915639854370006
+      },
+      "5": {
+        "chlor_a": 9.075338404421803
+      },
+      "6": {
+        "chlor_a": 7.714524065901495
+      },
+      "7": {
+        "chlor_a": 6.946052129145875
+      },
+      "8": {
+        "chlor_a": 7.729571254546317
+      },
+      "9": {
+        "chlor_a": 8.243099187730667
+      },
+      "10": {
+        "chlor_a": 7.9590601081718795
+      },
+      "11": {
+        "chlor_a": 7.131603616354799
+      },
+      "12": {
+        "chlor_a": 9.659704379898528
+      }
+    },
+    "gulf_oisst_aug2023": {
+      "sst": {
+        "sst": 3056.159506844582
+      },
+      "clim": {
+        "sst": 2976.4186172647587
+      },
+      "anom": {
+        "sst_anom": 79.74088957982468
+      }
+    },
+    "hycom_ssh_transect": [
+      {
+        "lat": 29.3,
+        "surface_elevation": -230.7204223794781
+      },
+      {
+        "lat": 29.0,
+        "surface_elevation": -232.69196428571428
+      },
+      {
+        "lat": 28.5,
+        "surface_elevation": -234.46218302786846
+      },
+      {
+        "lat": 28.0,
+        "surface_elevation": -235.58114359733534
+      },
+      {
+        "lat": 27.5,
+        "surface_elevation": -168.397916138036
+      },
+      {
+        "lat": 27.0,
+        "surface_elevation": -57.36826851159311
+      }
+    ],
+    "nlcd_bands": [
+      "landcover",
+      "impervious",
+      "impervious_descriptor",
+      "science_products_land_cover_change_count",
+      "science_products_land_cover_change_first_disturbance_date",
+      "science_products_land_cover_change_index",
+      "science_products_land_cover_science_product",
+      "science_products_forest_disturbance_date"
+    ],
+    "viirs_ntl": {
+      "2015": {
+        "avg_rad": 11.536106048509895
+      },
+      "2023": {
+        "avg_rad": 12.971219534903911
+      }
+    }
+  }
+}

@@ -1,0 +1,679 @@
+{
+  "ran_at": "2026-08-12T00:15:22.904346+00:00",
+  "seconds": 201.2,
+  "n": 27,
+  "n_ok": 24,
+  "catalog_ok": 54,
+  "catalog_fail": 10,
+  "log": [
+    {
+      "name": "catalog_blast",
+      "ok": true,
+      "detail": {
+        "n": 64,
+        "ok": 54,
+        "fail": 10
+      },
+      "note": "Bulk asset existence scan",
+      "thumb": null,
+      "t": 12.0
+    },
+    {
+      "name": "s5p_NO2_cities",
+      "ok": true,
+      "detail": {
+        "band": "tropospheric_NO2_column_number_density",
+        "bands": [
+          "NO2_column_number_density",
+          "tropospheric_NO2_column_number_density",
+          "stratospheric_NO2_column_number_density",
+          "NO2_slant_column_number_density",
+          "tropopause_pressure",
+          "absorbing_aerosol_index",
+          "cloud_fraction",
+          "sensor_altitude",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle"
+        ],
+        "vals": {
+          "la": {
+            "tropospheric_NO2_column_number_density": 8.607654134622588e-05
+          },
+          "houston": {
+            "tropospheric_NO2_column_number_density": 5.006407422396369e-05
+          },
+          "bakken": {
+            "tropospheric_NO2_column_number_density": 1.807240011832557e-05
+          }
+        },
+        "stretch": {
+          "tropospheric_NO2_column_number_density_p2": 9.803111970315765e-06,
+          "tropospheric_NO2_column_number_density_p98": 3.5550426425826036e-05
+        }
+      },
+      "note": "TROPOMI NO2 summer 2023 city compare",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/s5p_NO2_houston_summer2023.png",
+      "t": 32.6
+    },
+    {
+      "name": "s5p_CH4_cities",
+      "ok": true,
+      "detail": {
+        "band": "CH4_column_volume_mixing_ratio_dry_air",
+        "bands": [
+          "CH4_column_volume_mixing_ratio_dry_air",
+          "aerosol_height",
+          "aerosol_optical_depth",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle",
+          "CH4_column_volume_mixing_ratio_dry_air_bias_corrected",
+          "CH4_column_volume_mixing_ratio_dry_air_uncertainty"
+        ],
+        "vals": {
+          "la": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1894.4170701275477
+          },
+          "houston": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1892.8069763309072
+          },
+          "bakken": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1879.252288939949
+          }
+        },
+        "stretch": {
+          "CH4_column_volume_mixing_ratio_dry_air_p2": 1842.6005561091267,
+          "CH4_column_volume_mixing_ratio_dry_air_p98": 1929.490444655643
+        }
+      },
+      "note": "TROPOMI CH4 summer 2023 city compare",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/s5p_CH4_houston_summer2023.png",
+      "t": 55.0
+    },
+    {
+      "name": "s5p_CO_cities",
+      "ok": true,
+      "detail": {
+        "band": "CO_column_number_density",
+        "bands": [
+          "CO_column_number_density",
+          "H2O_column_number_density",
+          "cloud_height",
+          "sensor_altitude",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle"
+        ],
+        "vals": {
+          "la": {
+            "CO_column_number_density": 0.02889522560209948
+          },
+          "houston": {
+            "CO_column_number_density": 0.029727999643315437
+          },
+          "bakken": {
+            "CO_column_number_density": 0.03533674555025129
+          }
+        },
+        "stretch": {
+          "CO_column_number_density_p2": 0.02714684872844123,
+          "CO_column_number_density_p98": 0.030746283446353013
+        }
+      },
+      "note": "TROPOMI CO summer 2023 city compare",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/s5p_CO_houston_summer2023.png",
+      "t": 79.7
+    },
+    {
+      "name": "s5p_AER_cities",
+      "ok": true,
+      "detail": {
+        "band": "absorbing_aerosol_index",
+        "bands": [
+          "absorbing_aerosol_index",
+          "sensor_altitude",
+          "sensor_azimuth_angle",
+          "sensor_zenith_angle",
+          "solar_azimuth_angle",
+          "solar_zenith_angle"
+        ],
+        "vals": {
+          "la": {
+            "absorbing_aerosol_index": 0.2532940823653288
+          },
+          "houston": {
+            "absorbing_aerosol_index": -0.13108455177768255
+          },
+          "bakken": {
+            "absorbing_aerosol_index": -0.21446207343028967
+          }
+        },
+        "stretch": {
+          "absorbing_aerosol_index_p2": -0.6757152987672218,
+          "absorbing_aerosol_index_p98": -0.05127300536976734
+        }
+      },
+      "note": "TROPOMI AER summer 2023 city compare",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/s5p_AER_houston_summer2023.png",
+      "t": 101.8
+    },
+    {
+      "name": "sat_embedding_meta",
+      "ok": true,
+      "detail": {
+        "n": 1,
+        "bands_n": 64,
+        "bands_head": [
+          "A00",
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07"
+        ]
+      },
+      "note": "",
+      "thumb": null,
+      "t": 102.0
+    },
+    {
+      "name": "sat_embedding_sample_vector",
+      "ok": true,
+      "detail": {
+        "type": "Feature",
+        "geometry": null,
+        "id": "0",
+        "properties": {
+          "A00": 0.10340638216070744,
+          "A01": -0.2761399461745483,
+          "A02": 0.041584006151480196,
+          "A03": 0.04822760476739715,
+          "A04": 0.044844290657439445,
+          "A05": -0.22145328719723184,
+          "A06": -0.024605920799692427,
+          "A07": -0.11909265667051133,
+          "A08": -0.34602076124567477,
+          "A09": 0.06698961937716265,
+          "A10": 0.06698961937716265,
+          "A11": 0.08882737408688965,
+          "A12": -0.14173010380622836,
+          "A13": -0.14769703960015382,
+          "A14": -0.22145328719723184,
+          "A15": -0.2069357939254133,
+          "A16": 0.21413302575932336,
+          "A17": 0.03543252595155709,
+          "A18": -0.06698961937716265,
+          "A19": 0.11374086889657825,
+          "A20": -0.05173394848135333,
+          "A21": 0.017777777777777778,
+          "A22": -0.186082276047674,
+          "A23": -0.0629911572472126,
+          "A24": 0.010396001537870049,
+          "A25": 0.16000000000000003,
+          "A26": -0.0271280276816609,
+          "A27": 0.1085121107266436,
+          "A28": -0.0271280276816609,
+          "A29": 0.010396001537870049,
+          "A30": 0.1929104190695886,
+          "A31": -0.019930795847750864,
+          "A32": -0.003936947327950788,
+          "A33": -0.07972318339100345,
+          "A34": 0.09842368319876971,
+          "A35": 0.024605920799692427,
+          "A36": -0.21413302575932336,
+          "A37": -0.0629911572472126,
+          "A38": 0.029773164167627833,
+          "A39": 0.08421376393694734,
+          "A40": -0.03543252595155709,
+          "A41": -0.11909265667051133,
+          "A42": 0.07535563244905807,
+          "A43": -0.012056901191849288,
+          "A44": 0.09356401384083046,
+          "A45": 0.15378700499807765,
+          "A46": -0.07111111111111111,
+          "A47": 0.044844290657439445,
+          "A48": 0.13016532103037293,
+          "A49": -0.03543252595155709,
+          "A50": -0.1085121107266436,
+          "A51": 0.16633602460592078,
+          "A52": -0.13016532103037293,
+          "A53": 0.14769703960015382,
+          "A54": 0.13588619761630144,
+          "A55": -0.2364628988850442,
+          "A56": 0.10340638216070744,
+          "A57": -0.019930795847750864,
+          "A58": 0.09356401384083046,
+          "A59": -0.12456747404844293,
+          "A60": 0.10340638216070744,
+          "A61": -0.024605920799692427,
+          "A62": -0.17937716262975778,
+          "A63": 0.08421376393694734
+        }
+      },
+      "note": "64-D? annual embedding at Houston",
+      "thumb": null,
+      "t": 102.1
+    },
+    {
+      "name": "sat_embedding_years",
+      "ok": true,
+      "detail": {
+        "2018": {
+          "ok": true,
+          "nbands": 64
+        },
+        "2020": {
+          "ok": true,
+          "nbands": 64
+        },
+        "2023": {
+          "ok": true,
+          "nbands": 64
+        }
+      },
+      "note": "",
+      "thumb": null,
+      "t": 102.3
+    },
+    {
+      "name": "sat_embedding_change_l2",
+      "ok": true,
+      "detail": {
+        "d": 0.33038091760109317
+      },
+      "note": "How much did annual satellite embedding shift 2018\u21922023?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/houston_embedding_change_18_23.png",
+      "t": 145.2
+    },
+    {
+      "name": "gfd_houston_events",
+      "ok": true,
+      "detail": {
+        "n": 37,
+        "ids": [
+          1829,
+          1840,
+          1972,
+          2056,
+          2063,
+          2066,
+          2076,
+          2115,
+          2167,
+          2225,
+          2366,
+          2476,
+          2482,
+          2584,
+          2597,
+          2606,
+          2719,
+          2735,
+          3070,
+          3083
+        ],
+        "began": []
+      },
+      "note": "Historic MODIS flood events near Houston",
+      "thumb": null,
+      "t": 145.5
+    },
+    {
+      "name": "gfd_latest_thumb",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "flooded",
+          "duration",
+          "clear_views",
+          "clear_perc",
+          "jrc_perm_water"
+        ]
+      },
+      "note": "Latest flood event layer",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/houston_gfd_latest.png",
+      "t": 145.8
+    },
+    {
+      "name": "gridmet_july2023_tx",
+      "ok": false,
+      "detail": {
+        "n": 30,
+        "vals": "EEException: reduce.mean: Error in map(ID=20230701):\nImage.select: Band pattern 'spi14d' did not match any bands. Available bands: [pr, rmax, rmin, sph, srad, th, tmmn, tmmx, vs, erc, eto, bi, fm100, fm1000, etr, vpd]"
+      },
+      "note": "Max temp / SPI / burning index West-Central TX",
+      "thumb": null,
+      "t": 146.4
+    },
+    {
+      "name": "worldpop_la",
+      "ok": true,
+      "detail": {
+        "population": 44.226398167869114
+      },
+      "note": "",
+      "thumb": null,
+      "t": 146.5
+    },
+    {
+      "name": "worldpop_nevada_empty",
+      "ok": true,
+      "detail": {
+        "population": 0
+      },
+      "note": "",
+      "thumb": null,
+      "t": 146.6
+    },
+    {
+      "name": "worldpop_manhattan",
+      "ok": true,
+      "detail": {
+        "population": 215.84242239895235
+      },
+      "note": "",
+      "thumb": null,
+      "t": 146.8
+    },
+    {
+      "name": "naip_spectral_unmix",
+      "ok": true,
+      "detail": {
+        "soil": 0.853409068763152,
+        "veg": 0.08091586019135952,
+        "water": 0.06567507104548981
+      },
+      "note": "Split aerial pixels into water/veg/soil fractions",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/austin_naip_unmix.png",
+      "t": 150.3
+    },
+    {
+      "name": "cumulative_cost_path",
+      "ok": true,
+      "detail": {
+        "cumulative_cost": 58097.11874354346
+      },
+      "note": "Least-cost-ish surface from a trailhead",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/yosemite_cumulative_cost.png",
+      "t": 153.0
+    },
+    {
+      "name": "weka_kmeans_s2",
+      "ok": true,
+      "detail": {
+        "cluster": {
+          "0": 30268.223529411764,
+          "1": 61809.952941176394,
+          "2": 97345.19607843155,
+          "3": 18113.603921568625,
+          "4": 53075.16470588229,
+          "5": 4377.160784313726
+        }
+      },
+      "note": "Unsupervised 6-class map from Sentinel-2",
+      "thumb": "fail:Must specify either one or three bands for PNG or JPEG encoding. Found 4 bands.",
+      "t": 160.3
+    },
+    {
+      "name": "stress_maxpixels_1e6",
+      "ok": false,
+      "detail": "EEException: Image.reduceRegion: Too many pixels in the region. Found 1016151372797, but maxPixels allows only 1000000.\nEnsure that you are not aggregating at a higher resolution than you intended; that is a frequent cause of this error. If not, then you may set the 'maxPixels' argument to a limit suitable for your computation; set 'bestEffort' to true to aggre",
+      "note": "Expect fail or truncated \u2014 map limits",
+      "thumb": null,
+      "t": 160.4
+    },
+    {
+      "name": "stress_besteffort_ok",
+      "ok": true,
+      "detail": {
+        "constant": 101529324.8784314
+      },
+      "note": "",
+      "thumb": null,
+      "t": 161.5
+    },
+    {
+      "name": "fast_distance_to_permanent_water",
+      "ok": true,
+      "detail": {
+        "m": 21993.43653840029
+      },
+      "note": "How far to permanent water?",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/tx_distance_to_water.png",
+      "t": 162.6
+    },
+    {
+      "name": "ch4_bakken_monthly_2023",
+      "ok": true,
+      "detail": [
+        {
+          "month": 1,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1879.600149408973
+          }
+        },
+        {
+          "month": 2,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1866.779358162848
+          }
+        },
+        {
+          "month": 3,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1868.6556492986394
+          }
+        },
+        {
+          "month": 4,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1867.12512386308
+          }
+        },
+        {
+          "month": 5,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1873.7731830486941
+          }
+        },
+        {
+          "month": 6,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1878.6689064967936
+          }
+        },
+        {
+          "month": 7,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1875.2056495106829
+          }
+        },
+        {
+          "month": 8,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1890.7703962202372
+          }
+        },
+        {
+          "month": 9,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1892.4073067699185
+          }
+        },
+        {
+          "month": 10,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1887.097226509971
+          }
+        },
+        {
+          "month": 11,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1897.7212377671826
+          }
+        },
+        {
+          "month": 12,
+          "ok": true,
+          "v": {
+            "CH4_column_volume_mixing_ratio_dry_air": 1899.5686982272357
+          }
+        }
+      ],
+      "note": "Seasonal methane over oil field",
+      "thumb": null,
+      "t": 196.3
+    },
+    {
+      "name": "dem_disagreement_alos_nasa",
+      "ok": false,
+      "detail": "EEException: Image.load: Asset 'JAXA/ALOS/AW3D30/V3_2' is not an Image.",
+      "note": "Where two elevation models disagree",
+      "thumb": "fail:Image.load: Asset 'JAXA/ALOS/AW3D30/V3_2' is not an Image.",
+      "t": 196.5
+    },
+    {
+      "name": "imerg_harvey",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "precipitation"
+        ],
+        "maxish": {
+          "precipitation": 1627.9499680623412
+        },
+        "n": 240
+      },
+      "note": "Rain during Harvey window",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/harvey_imerg_aug2017.png",
+      "t": 199.9
+    },
+    {
+      "name": "open_buildings_temporal_ic",
+      "ok": true,
+      "detail": {
+        "n": 0,
+        "bands": null
+      },
+      "note": "",
+      "thumb": null,
+      "t": 200.2
+    },
+    {
+      "name": "viirs_annual_meta",
+      "ok": true,
+      "detail": {
+        "asset": "NOAA/VIIRS/DNB/ANNUAL_V21",
+        "n": 9,
+        "bands": [
+          "average",
+          "average_masked",
+          "cf_cvg",
+          "cvg",
+          "maximum",
+          "median",
+          "median_masked",
+          "minimum"
+        ]
+      },
+      "note": "",
+      "thumb": null,
+      "t": 200.3
+    },
+    {
+      "name": "viirs_annual_change_la",
+      "ok": true,
+      "detail": {
+        "d": 0.46944838724933746
+      },
+      "note": "Night lights brightening/dimming",
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_local/thumbs/la_viirs_annual_change.png",
+      "t": 201.2
+    }
+  ],
+  "alive_assets": [
+    "COPERNICUS/S5P/OFFL/L3_NO2",
+    "COPERNICUS/S5P/NRTI/L3_NO2",
+    "COPERNICUS/S5P/OFFL/L3_CH4",
+    "COPERNICUS/S5P/OFFL/L3_CO",
+    "COPERNICUS/S5P/OFFL/L3_AER_AI",
+    "COPERNICUS/S5P/OFFL/L3_SO2",
+    "COPERNICUS/S5P/OFFL/L3_O3",
+    "COPERNICUS/S5P/OFFL/L3_HCHO",
+    "TOMS/MERGED",
+    "NOAA/VIIRS/DNB/ANNUAL_V21",
+    "NOAA/VIIRS/DNB/ANNUAL_V22",
+    "NOAA/DMSP-OLS/NIGHTTIME_LIGHTS",
+    "WorldPop/GP/100m/pop",
+    "CIESIN/GPWv411/GPW_Population_Density",
+    "JRC/GHSL/P2016/POP_GPW_GLOBE_V1",
+    "GOOGLE/Research/open-buildings/v3/polygons",
+    "GOOGLE/Research/open-buildings-temporal/v1",
+    "DLR/WSF/WSF2015/v1",
+    "ECMWF/ERA5_LAND/DAILY_AGGR",
+    "NASA/GDDP-CMIP6",
+    "IDAHO_EPSCOR/GRIDMET",
+    "IDAHO_EPSCOR/TERRACLIMATE",
+    "NASA/NEX-DCP30",
+    "GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL",
+    "GOOGLE/DYNAMICWORLD/V1",
+    "ESA/WorldCover/v200",
+    "MODIS/061/MCD12Q1",
+    "USGS/NLCD_RELEASES/2021_REL/NLCD",
+    "CSP/HM/GlobalHumanModification",
+    "JRC/CEMS_GLOFAS/FloodHazard/v2_1",
+    "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1",
+    "JAXA/GPM_L3/GSMaP/v6/operational",
+    "NASA/GPM_L3/IMERG_V07",
+    "UMD/hansen/global_forest_change_2025_v1_13",
+    "LARSE/GEDI/GEDI02_A_002_MONTHLY",
+    "NASA/ORNL/biomass_carbon_density/v1",
+    "Oxford/MAP/accessibility_to_healthcare_2019",
+    "OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02",
+    "OpenLandMap/SOL/SOL_CLAY-WFRACTION_USDA-3A1A1A_M/v02",
+    "USGS/3DEP/10m",
+    "AHN/AHN2_05M_RUW",
+    "NASA/OCEANDATA/MODIS-Aqua/L3SMI",
+    "NASA/OCEANDATA/MODIS-Terra/L3SMI",
+    "HYCOM/sea_temp_salinity",
+    "HYCOM/sea_water_velocity",
+    "NOAA/CDR/OISST/V2_1",
+    "JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH",
+    "JAXA/ALOS/PALSAR/YEARLY/SAR",
+    "JAXA/ALOS/AW3D30/V3_2",
+    "COPERNICUS/S1_GRD",
+    "COPERNICUS/S1_GRD_FLOAT",
+    "TIGER/2020/TABBLOCK20",
+    "NASA/GSFC/MERRA/slv/2",
+    "GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL"
+  ],
+  "dead_assets": [
+    "NASA/OMI/Aura/NO2_DAILY",
+    "JRC/GHSL/P2023A/GHS_POP_E2020",
+    "OSCAR/OSCAR_L4_OC_third_deg",
+    "NOAA/NSIDC_ERA5/SNOW_WATER_EQUIVALENT",
+    "NSIDC/MOD10A1",
+    "EDF/MethaneSAT/MethaneAIR",
+    "EDF/MethaneSAT",
+    "TIGER/2010/Roads",
+    "projects/sat-io/open-datasets/uspvdb",
+    "JRC/GWIS/Global/V1/Daily"
+  ]
+}

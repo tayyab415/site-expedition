@@ -1,0 +1,423 @@
+[
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_NO2",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/NRTI/L3_NO2",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_CH4",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_CO",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_AER_AI",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_SO2",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_O3",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S5P/OFFL/L3_HCHO",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "TOMS/MERGED",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/OMI/Aura/NO2_DAILY",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'NASA/OMI/Aura/NO2_DAILY' not found."
+  },
+  {
+    "asset": "NOAA/VIIRS/DNB/ANNUAL_V21",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NOAA/VIIRS/DNB/ANNUAL_V22",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NOAA/DMSP-OLS/NIGHTTIME_LIGHTS",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "WorldPop/GP/100m/pop",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "CIESIN/GPWv411/GPW_Population_Density",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "JRC/GHSL/P2023A/GHS_POP_E2020",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'JRC/GHSL/P2023A/GHS_POP_E2020' not found."
+  },
+  {
+    "asset": "JRC/GHSL/P2016/POP_GPW_GLOBE_V1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "GOOGLE/Research/open-buildings/v3/polygons",
+    "ok": true,
+    "kind": "FC",
+    "detail": 1
+  },
+  {
+    "asset": "GOOGLE/Research/open-buildings-temporal/v1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "DLR/WSF/WSF2015/v1",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "WSF"
+    ]
+  },
+  {
+    "asset": "ECMWF/ERA5_LAND/DAILY_AGGR",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/GDDP-CMIP6",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "IDAHO_EPSCOR/GRIDMET",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "IDAHO_EPSCOR/TERRACLIMATE",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/NEX-DCP30",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "GOOGLE/DYNAMICWORLD/V1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "ESA/WorldCover/v200",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "MODIS/061/MCD12Q1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "USGS/NLCD_RELEASES/2021_REL/NLCD",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "CSP/HM/GlobalHumanModification",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "JRC/CEMS_GLOFAS/FloodHazard/v2_1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "GLOBAL_FLOOD_DB/MODIS_EVENTS/V1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "JAXA/GPM_L3/GSMaP/v6/operational",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/GPM_L3/IMERG_V07",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "UMD/hansen/global_forest_change_2025_v1_13",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "treecover2000",
+      "loss",
+      "gain",
+      "lossyear",
+      "first_b30",
+      "first_b40",
+      "first_b50",
+      "first_b70",
+      "last_b30",
+      "last_b40",
+      "last_b50",
+      "last_b70",
+      "datamask"
+    ]
+  },
+  {
+    "asset": "LARSE/GEDI/GEDI02_A_002_MONTHLY",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/ORNL/biomass_carbon_density/v1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "Oxford/MAP/accessibility_to_healthcare_2019",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "accessibility",
+      "accessibility_walking_only"
+    ]
+  },
+  {
+    "asset": "OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "b0",
+      "b10",
+      "b30",
+      "b60",
+      "b100",
+      "b200"
+    ]
+  },
+  {
+    "asset": "OpenLandMap/SOL/SOL_CLAY-WFRACTION_USDA-3A1A1A_M/v02",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "b0",
+      "b10",
+      "b30",
+      "b60",
+      "b100",
+      "b200"
+    ]
+  },
+  {
+    "asset": "USGS/3DEP/10m",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "elevation"
+    ]
+  },
+  {
+    "asset": "AHN/AHN2_05M_RUW",
+    "ok": true,
+    "kind": "IMG",
+    "detail": [
+      "elevation"
+    ]
+  },
+  {
+    "asset": "NASA/OCEANDATA/MODIS-Aqua/L3SMI",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NASA/OCEANDATA/MODIS-Terra/L3SMI",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "HYCOM/sea_temp_salinity",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "HYCOM/sea_water_velocity",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "OSCAR/OSCAR_L4_OC_third_deg",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'OSCAR/OSCAR_L4_OC_third_deg' not found."
+  },
+  {
+    "asset": "NOAA/CDR/OISST/V2_1",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "NOAA/NSIDC_ERA5/SNOW_WATER_EQUIVALENT",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'NOAA/NSIDC_ERA5/SNOW_WATER_EQUIVALENT' not found."
+  },
+  {
+    "asset": "NSIDC/MOD10A1",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'NSIDC/MOD10A1' not found."
+  },
+  {
+    "asset": "JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "JAXA/ALOS/PALSAR/YEARLY/SAR",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "JAXA/ALOS/AW3D30/V3_2",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S1_GRD",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "COPERNICUS/S1_GRD_FLOAT",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "EDF/MethaneSAT/MethaneAIR",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Expected asset 'EDF/MethaneSAT/MethaneAIR' to be a Collection, found 'IndexedFolder'."
+  },
+  {
+    "asset": "EDF/MethaneSAT",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Expected asset 'EDF/MethaneSAT' to be a Collection, found 'IndexedFolder'."
+  },
+  {
+    "asset": "TIGER/2010/Roads",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'TIGER/2010/Roads' not found."
+  },
+  {
+    "asset": "TIGER/2020/TABBLOCK20",
+    "ok": true,
+    "kind": "FC",
+    "detail": 1
+  },
+  {
+    "asset": "projects/sat-io/open-datasets/uspvdb",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'projects/sat-io/open-datasets/uspvdb' not found."
+  },
+  {
+    "asset": "JRC/GWIS/Global/V1/Daily",
+    "ok": false,
+    "kind": null,
+    "detail": "EEException: Collection.loadTable: Collection asset 'JRC/GWIS/Global/V1/Daily' not found."
+  },
+  {
+    "asset": "NASA/GSFC/MERRA/slv/2",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  },
+  {
+    "asset": "GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL",
+    "ok": true,
+    "kind": "IC",
+    "detail": 1
+  }
+]

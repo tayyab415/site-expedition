@@ -1,0 +1,181 @@
+{
+  "lat": 29.475732,
+  "lng": -94.966533,
+  "fetched_at": "2026-08-15T03:35:36.280478+00:00",
+  "fields": {
+    "nearest_major_road_distance_m": {
+      "value": 467.4158408410263,
+      "unit": "meters",
+      "source": "OVERTURE_TRANSPORTATION",
+      "source_url": "https://overturemaps.org/documentation/transportation/",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T18:52:35.731143+00:00",
+      "dataset_vintage": "2026-07-22.0",
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    },
+    "nearest_major_road_class": {
+      "value": "secondary",
+      "unit": null,
+      "source": "OVERTURE_TRANSPORTATION",
+      "source_url": "https://overturemaps.org/documentation/transportation/",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T18:52:35.731098+00:00",
+      "dataset_vintage": "2026-07-22.0",
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    },
+    "nearest_hazardous_facility_distance_m": {
+      "value": 3342.405029521458,
+      "unit": "m",
+      "source": "EPA_FRS_RMP",
+      "source_url": "https://www.epa.gov/frs",
+      "confidence": "medium",
+      "fetched_at": "2026-08-15T02:12:30.182265+00:00",
+      "dataset_vintage": "EPA Facility Registry Service, RMP interest layer (local gpkg mirror of the EPA hosted FeatureServer)",
+      "ttl_seconds": 2592000,
+      "notes": "distance to the nearest RMP-registered facility geocode \u2014 registration means regulated chemicals on site, not danger; verify what the facility is",
+      "status": "ok"
+    },
+    "elevation": {
+      "value": 2.3652405738830566,
+      "unit": "meters",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "fetched_at": "2026-08-11T17:23:35.801598+00:00",
+      "dataset_vintage": "3DEP 1/3 arc-second seamless DEM",
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "slope_degrees": {
+      "value": 0.8650037050247192,
+      "unit": "degrees",
+      "source": "USGS_3DEP_COG",
+      "source_url": "https://www.usgs.gov/3d-elevation-program",
+      "confidence": "medium",
+      "fetched_at": "2026-08-11T18:52:29.602283+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "fema_flood_zone": {
+      "value": "AE",
+      "unit": null,
+      "source": "FEMA_NFHL",
+      "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T17:23:35.315834+00:00",
+      "dataset_vintage": "48167C_STUDY1",
+      "ttl_seconds": 2592000,
+      "notes": "FEMA NFHL flood zone AE.",
+      "status": "ok"
+    },
+    "within_floodplain_polygon": {
+      "value": true,
+      "unit": null,
+      "source": "FEMA_NFHL",
+      "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T17:23:35.315944+00:00",
+      "dataset_vintage": "48167C_STUDY1",
+      "ttl_seconds": 2592000,
+      "notes": "FEMA NFHL Flood Hazard Zones indicate Special Flood Hazard Area: Zone AE; SFHA_TF=T; FLD_AR_ID=48167C_792; SOURCE_CIT=48167C_STUDY1.",
+      "status": "ok"
+    },
+    "intersects_wetland": {
+      "value": true,
+      "unit": null,
+      "source": "USFWS_NWI",
+      "source_url": "https://www.fws.gov/program/national-wetlands-inventory",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T17:23:38.448973+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "coast_distance_m": {
+      "value": 742.9429269466059,
+      "unit": "meters",
+      "source": "NOAA_CUSP",
+      "source_url": "https://shoreline.noaa.gov/data/datasheets/cusp.html",
+      "confidence": "high",
+      "fetched_at": "2026-08-11T17:23:35.258266+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 31536000,
+      "notes": null,
+      "status": "ok"
+    },
+    "nearest_long_haul_rail_corridor_distance_m": {
+      "value": 7014.51447585327,
+      "unit": "meters",
+      "source": "BTS_RAIL",
+      "source_url": "https://geodata.bts.gov/datasets/usdot::north-american-rail-network-lines",
+      "confidence": "high",
+      "fetched_at": "2026-08-15T02:12:32.375007+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    },
+    "nearest_substation_distance_m": {
+      "value": 2020.0,
+      "unit": "meters",
+      "source": "EIA_POWER",
+      "source_url": "https://atlas.eia.gov/",
+      "confidence": "high",
+      "fetched_at": "2026-08-15T02:12:05.280445+00:00",
+      "dataset_vintage": null,
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    },
+    "fiber_broadband_available": {
+      "value": null,
+      "unit": null,
+      "source": "FCC_BDC_FIXED",
+      "source_url": "https://broadbandmap.fcc.gov/",
+      "confidence": "medium",
+      "fetched_at": "2026-08-11T18:52:30.638705+00:00",
+      "dataset_vintage": "FCC BDC fixed availability (ArcGIS Living Atlas; biannual collection)",
+      "ttl_seconds": 2592000,
+      "notes": "True when >=1 ISP reports FTTP in the containing hex; an availability floor, not an interconnect-ecosystem signal",
+      "status": "ok"
+    },
+    "within_water_service_area": {
+      "value": false,
+      "unit": null,
+      "source": "EPA_CWS_SERVICE_AREAS",
+      "source_url": "https://www.epa.gov/waterdata",
+      "confidence": "medium",
+      "fetched_at": "2026-08-11T18:52:31.664662+00:00",
+      "dataset_vintage": "EPA Public Water System Service Areas V3.0 (2026-03-17), CWS layer \u2014 local GeoPackage mirror, simplified + make_valid'd",
+      "ttl_seconds": 2592000,
+      "notes": "no EPA community water system service-area polygon contains the point",
+      "status": "ok"
+    },
+    "within_sewer_service_area": {
+      "value": true,
+      "unit": null,
+      "source": "EPA_SEWERSHEDS",
+      "source_url": "https://www.epa.gov/cwns/sewersheds",
+      "confidence": "medium",
+      "fetched_at": "2026-08-11T18:52:30.786654+00:00",
+      "dataset_vintage": "EPA Sewersheds v1.1 (local GeoPackage mirror, simplified + make_valid'd)",
+      "ttl_seconds": 2592000,
+      "notes": null,
+      "status": "ok"
+    }
+  },
+  "partial_failures": [],
+  "resolved_location": {
+    "lat": 29.475732,
+    "lng": -94.966533,
+    "source": "coordinate"
+  }
+}

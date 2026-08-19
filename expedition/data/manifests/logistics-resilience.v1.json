@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "manifest_id": "logistics-resilience",
+  "manifest_version": "1.0.0",
+  "title": "Logistics Resilience",
+  "description": "Review flood exposure and existing logistics and utility proximity without claiming availability, capacity, zoning, or ingress.",
+  "skills": [
+    "resolve-site",
+    "screen-site-core",
+    "flood-rewind",
+    "grid-readiness",
+    "route-reality",
+    "skeptic-review",
+    "compare-candidates",
+    "scene-context"
+  ],
+  "fields": [
+    "elevation",
+    "slope_degrees",
+    "fema_flood_zone",
+    "within_floodplain_polygon",
+    "intersects_wetland",
+    "nearest_major_road_distance_m",
+    "nearest_major_road_class",
+    "nearest_long_haul_rail_corridor_distance_m",
+    "nearest_substation_distance_m",
+    "fiber_broadband_available"
+  ],
+  "hard_constraints": [
+    "not_mapped_sfha"
+  ],
+  "preferences": [
+    "nearest_major_road_class",
+    "nearest_major_road_distance_m",
+    "nearest_substation_distance_m"
+  ],
+  "gaps": [
+    "market_availability",
+    "electrical_capacity",
+    "truck_ingress",
+    "zoning_permission",
+    "route_time"
+  ]
+}

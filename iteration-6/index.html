@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Draft to the buyer’s agent</title>
+  <style>
+    body { margin: 0; background: #e8eaed; font-family: "Segoe UI", system-ui, sans-serif; color: #202124; }
+    .app { max-width: 720px; margin: 24px auto; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.15); overflow: hidden; }
+    .bar { background: #f1f3f4; padding: 10px 16px; font-size: 12px; display: flex; gap: 8px; }
+    .bar button { border: 1px solid #dadce0; background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+    .bar button.on { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+    .row { padding: 8px 20px; border-bottom: 1px solid #eee; font-size: 14px; }
+    .row b { display: inline-block; width: 64px; color: #5f6368; font-weight: 500; }
+    .body { padding: 24px 20px 40px; }
+    .verdict { font-size: 13px; letter-spacing: .12em; font-weight: 700; }
+    .KILL { color: #c5221f; }
+    .KEEP { color: #137333; }
+    h1 { font-size: 22px; margin: 8px 0 16px; }
+    li { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="bar">
+      <button data-site="san_leon" class="on">San Leon</button>
+      <button data-site="keep_control">Winfield Cove</button>
+    </div>
+    <div id="mail"></div>
+  </div>
+  <script>
+    const el = document.getElementById("mail");
+    async function show(site) {
+      const m = await (await fetch("out/" + site + ".json")).json();
+      el.innerHTML = `
+        <div class="row"><b>To</b> ${m.to}</div>
+        <div class="row"><b>Subject</b> ${m.subject}</div>
+        <div class="body">
+          <div class="verdict ${m.verdict}">${m.verdict}</div>
+          <h1>${m.tagline}</h1>
+          <p>${m.site}</p>
+          <ol>${(m.consequences || []).map(c => `<li><strong>${c.fight}.</strong> ${c.instruction}</li>`).join("") || "<p>No fight instructions. Record stands.</p>"}</ol>
+          <p>${m.closing}</p>
+        </div>`;
+    }
+    document.querySelectorAll(".bar button").forEach(b => {
+      b.onclick = () => {
+        document.querySelectorAll(".bar button").forEach(x => x.classList.toggle("on", x === b));
+        show(b.dataset.site);
+      };
+    });
+    show("san_leon");
+  </script>
+</body>
+</html>

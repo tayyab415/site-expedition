@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expedition probe</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/probe.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="kicker">Test harness · not the product UI</p>
+      <h1>Expedition probe board</h1>
+    </div>
+    <div class="credits" id="credits">credits…</div>
+  </header>
+  <section class="missions" id="missions"></section>
+  <div class="board">
+    <aside class="deck">
+      <h2>Mission Plan</h2>
+      <label>Scan
+        <select id="scan">
+          <option value="quick">Quick</option>
+          <option value="standard" selected>Standard</option>
+          <option value="deep">Deep</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="live"> Live Mireye (spends credits)</label>
+      <label class="check"><input type="checkbox" id="review"> Skeptic Review (Vertex)</label>
+      <p class="hint">Held-out gates are not on this board.</p>
+      <div id="plan-preview" class="plan"></div>
+    </aside>
+    <main>
+      <div id="map"></div>
+      <div class="cards" id="cards"></div>
+    </main>
+    <aside class="rail">
+      <h2>Expedition rail</h2>
+      <ol id="rail"></ol>
+      <h2>Verdict</h2>
+      <div id="verdict" class="verdict empty">No run yet</div>
+      <h2>Verification gaps</h2>
+      <ul id="gaps"></ul>
+      <h2>Brief</h2>
+      <div id="brief"></div>
+    </aside>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/probe.js"></script>
+</body>
+</html>

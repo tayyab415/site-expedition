@@ -1,0 +1,77 @@
+[
+  {
+    "name": "san_leon_rising",
+    "lon": -94.96653315875905,
+    "lat": 29.475732110989398,
+    "gsw": {
+      "change_abs": 27.163674033149167,
+      "occurrence": 49.87044745057236
+    },
+    "elev": {
+      "elevation": 2.362373138575358
+    },
+    "wf_early": {
+      "water": 0.007040697572853087
+    },
+    "wf_late": {
+      "water": 0.03383622454771041
+    },
+    "aqueduct_100yr_depth_m": {
+      "inundation_depth": 0
+    },
+    "aqueduct_2050_sample_id": "inuncoast_historical_wtsub_2050_rp0100_0",
+    "aqueduct_2050_depth_m": {
+      "inundation_depth": 0
+    }
+  },
+  {
+    "name": "east_bay_rising",
+    "lon": -94.60902695100553,
+    "lat": 29.655513947697735,
+    "gsw": {
+      "change_abs": 13.572026143790849,
+      "occurrence": 5.105527638190956
+    },
+    "elev": {
+      "elevation": 1.0194262088120187
+    },
+    "wf_early": {
+      "water": 0
+    },
+    "wf_late": {
+      "water": 0.00293130586371143
+    },
+    "aqueduct_100yr_depth_m": {
+      "inundation_depth": 0
+    },
+    "aqueduct_2050_sample_id": "inuncoast_historical_wtsub_2050_rp0100_0",
+    "aqueduct_2050_depth_m": {
+      "inundation_depth": 0
+    }
+  },
+  {
+    "name": "west_bay_rising",
+    "lon": -95.08909794571038,
+    "lat": 29.281470224452313,
+    "gsw": {
+      "change_abs": 13.720800524934381,
+      "occurrence": 4.080656185919346
+    },
+    "elev": {
+      "elevation": 3.25609601621382
+    },
+    "wf_early": {
+      "water": 0
+    },
+    "wf_late": {
+      "water": 0.03450692548825388
+    },
+    "aqueduct_100yr_depth_m": {
+      "inundation_depth": 0
+    },
+    "aqueduct_2050_sample_id": "inuncoast_historical_wtsub_2050_rp0100_0",
+    "aqueduct_2050_depth_m": {
+      "inundation_depth": 0
+    }
+  }
+]

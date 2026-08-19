@@ -1,0 +1,68 @@
+
+=== DIG D1_globcolour_sliding_window ===
+  ok
+
+=== DIG D2_jaxa_scale ===
+  ok
+
+=== DIG D3_murray_loss_proper ===
+  ok
+
+=== DIG D4_pathfinder_units ===
+  ok
+
+=== DIG D5_ice_units_seasonality ===
+  FAIL unsupported format string passed to NoneType.__format__
+
+=== DIG D6_wave_bathy_cap ===
+  ok
+
+=== DIG D7_chesapeake_hab_series ===
+  ok
+
+=== DIG D8_aca_seagrass ===
+  ok
+
+=== DIG D9_dem_flood_math ===
+  ok
+
+=== DIG D10_hycom_loop_seasonality ===
+  ok
+
+=== DIG D11_ndti_ndssi_ranking ===
+  ok
+
+=== DIG D12_more_asset_ids ===
+  FAIL copernicus_sss_nrt
+  FAIL copernicus_sss_my_alt
+  FAIL copernicus_sss_nrt2
+  OK murray_tidal_wetland
+  FAIL murray_tidal_wetland_change
+  FAIL murray_tidal_wetland_extent
+  OK giri_mangrove_alt
+  OK wdpa
+  FAIL gfw_public
+  OK era5_waves
+  OK noaa_ncei_dem
+  FAIL gebco_2024
+  FAIL gebco_2023
+  FAIL copernicus_bio
+  OK hycom_ssh2
+  OK goes_sst
+  OK avhrr_sst_cdr
+  OK ocean_heat_flux
+  FAIL ocean_atmos
+  ok
+
+WHOA:
+ - Copernicus GlobColour BGC in EE is a sliding ~2y NRT window (plankton_multi span ['2025-02-10', '2026-08-08']) — historical Aug2023 pulls are empty by design.
+ - JAXA GCOM-C CHLA_AVE is scaled: raw Galv≈5130; best match to MODIS uses scale 0.0015 → 7.69 vs MODIS 14.61.
+ - Murray tidal flats 1984–86→2014–16: chesapeake changed -48.3% (331.1→171.2 km²).
+ - Pathfinder SST raw≈3022.6; decode 'raw/100'→30.23C closest to OISST 31.50C.
+ - Copernicus wave 'deptho' is wave-model bathymetry (caps ~hundreds of m), NOT full-ocean GEBCO/ETOPO — at 25.5N Gulf: ETOPO=-3371 vs deptho=278.99959789571227.
+ - Chesapeake 2023 MODIS chl peaks in month 7 at 17.9 mg/m³ (nflh=0.349); coastal eutrophic signal, not just Florida.
+ - ACA class 11 (Seagrass): Florida Keys ≈173.9 km² vs south Oahu ≈47.9 km² — working seagrass layer in EE.
+ - West Galveston Bay shore: FABDEM<1m covers 706.4 km² vs NASADEM<1m 694.0 km²; flip zone (FAB<1 & NASA>2) ≈13.69 km².
+ - HYCOM Loop Current box 2023 monthly speeds: m1=0.5670031504077577, m4=0.5202011207993488, m7=0.519161888976425, m10=0.5155612005545729
+ - Turbidity proxies diverge: NDTI-mean ranks ['galveston', 'sf_bay', 'chesapeake']; NDSSI-mean ranks ['sf_bay', 'chesapeake', 'galveston'] (SF Bay highest NDSSI — different optical soup).
+Wrote /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_ocean/deep_ocean_deeper.json

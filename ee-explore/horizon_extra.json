@@ -1,0 +1,133 @@
+{
+  "ran_at": "2026-08-11T23:42:09.541451+00:00",
+  "extra": [
+    {
+      "name": "ghsl_GHS_POP_E2020_GLOBE_R2023A_54009_100_V1_",
+      "ok": false,
+      "detail": {
+        "bands": "Image.load: Image asset 'JRC/GHSL/P2023A/GHS_POP/GHS_POP_E2020_GLOBE_R2023A_54009_100_V1_0' not found (does not exist or caller does not have access).",
+        "val": "Image.load: Image asset 'JRC/GHSL/P2023A/GHS_POP/GHS_POP_E2020_GLOBE_R2023A_54009_100_V1_0' not found (does not exist or caller does not have access)."
+      }
+    },
+    {
+      "name": "ghsl_GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100",
+      "ok": false,
+      "detail": {
+        "bands": "Image.load: Image asset 'JRC/GHSL/P2023A/GHS_BUILT_S/GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100_V1_0' not found (does not exist or caller does not have access).",
+        "val": "Image.load: Image asset 'JRC/GHSL/P2023A/GHS_BUILT_S/GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100_V1_0' not found (does not exist or caller does not have access)."
+      }
+    },
+    {
+      "name": "ghsl_2015",
+      "ok": true,
+      "detail": {
+        "bands": [
+          "population_count"
+        ],
+        "val": {
+          "v": 134.30163742811794
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/ashburn_ghsl.png"
+    },
+    {
+      "name": "glofas_flood",
+      "ok": true,
+      "detail": {
+        "n": 264,
+        "bands": [
+          "RP10_depth",
+          "RP20_depth",
+          "RP50_depth",
+          "RP75_depth",
+          "RP100_depth",
+          "RP200_depth",
+          "RP500_depth",
+          "RP10_depth_category",
+          "RP20_depth_category",
+          "RP50_depth_category",
+          "RP75_depth_category",
+          "RP100_depth_category",
+          "RP200_depth_category",
+          "RP500_depth_category",
+          "permanent_water_class",
+          "spurious_depth_category"
+        ],
+        "val": {
+          "v": null
+        }
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/nola_glofas.png"
+    },
+    {
+      "name": "era5_wind_speed",
+      "ok": true,
+      "detail": {
+        "w": 5.649269756382409
+      },
+      "note": "Wind speed from weather model"
+    },
+    {
+      "name": "goes16_fire",
+      "ok": true,
+      "detail": {
+        "n": 144
+      }
+    },
+    {
+      "name": "sample_500_points",
+      "ok": true,
+      "detail": {
+        "n": 500,
+        "crops_stats": {
+          "max": 0.6199016192196203,
+          "mean": 0.4083707390577585,
+          "min": 0.03663065434167428,
+          "sample_sd": 0.15096109660902135,
+          "sample_var": 0.02278925268939828,
+          "sum": 204.18536952887925,
+          "sum_sq": 94.75516735129969,
+          "total_count": 500,
+          "total_sd": 0.150810059956289,
+          "total_var": 0.022743674184019482,
+          "valid_count": 500,
+          "weight_sum": 500,
+          "weighted_sum": 204.18536952887925
+        }
+      },
+      "note": "Pull 500 random pixel samples in one call"
+    },
+    {
+      "name": "landsat_ndvi_linearfit",
+      "ok": true,
+      "detail": {
+        "offset": -0.018068599071298475,
+        "scale": 0.0012660688692267043
+      },
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/iowa_landsat_ndvi_trend.png",
+      "note": "10-year greening/browning slope"
+    },
+    {
+      "name": "paint_vectors_on_image",
+      "ok": true,
+      "thumb": "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/paint_vectors.png",
+      "note": "Draw shapes onto an image"
+    },
+    {
+      "name": "server_if",
+      "ok": true,
+      "detail": "big"
+    },
+    {
+      "name": "s1_season_frames",
+      "ok": true,
+      "detail": [
+        "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/galveston_s1_jan.png",
+        "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/galveston_s1_apr.png",
+        "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/galveston_s1_jul.png",
+        "/home/tayyabkhan/Shared/mireye-challenge/ee-explore/horizon_thumbs/galveston_s1_oct.png"
+      ],
+      "note": "Radar seasons over Galveston"
+    }
+  ]
+}

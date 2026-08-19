@@ -1,0 +1,180 @@
+=== Deep timeseries exploration ===
+
+--- landsat ---
+[OK] landsat_trend      landsat_linfit_central_valley_ag_NDVI
+[OK] landsat_trend      landsat_linfit_central_valley_ag_NDWI
+[OK] landsat_trend      landsat_linfit_central_valley_ag_NBR
+[OK] landsat_trend      landsat_sensSlope_central_valley_ag_NDVI
+[OK] landsat_trend      landsat_sensSlope_central_valley_ag_NBR
+[OK] landsat_breakpoint landsat_breakpoint_ndvi_central_valley_ag
+[OK] landsat_trend      landsat_linfit_colorado_pine_NDVI
+[OK] landsat_trend      landsat_linfit_colorado_pine_NDWI
+[OK] landsat_trend      landsat_linfit_colorado_pine_NBR
+[OK] landsat_trend      landsat_sensSlope_colorado_pine_NDVI
+[OK] landsat_trend      landsat_sensSlope_colorado_pine_NBR
+[OK] landsat_breakpoint landsat_breakpoint_ndvi_colorado_pine
+[OK] landsat_trend      landsat_linfit_louisiana_wetland_NDVI
+[OK] landsat_trend      landsat_linfit_louisiana_wetland_NDWI
+[OK] landsat_trend      landsat_linfit_louisiana_wetland_NBR
+[OK] landsat_trend      landsat_sensSlope_louisiana_wetland_NDVI
+[OK] landsat_trend      landsat_sensSlope_louisiana_wetland_NBR
+[OK] landsat_breakpoint landsat_breakpoint_ndvi_louisiana_wetland
+[OK] landsat_trend      landsat_linfit_texas_hill_country_NDVI
+[OK] landsat_trend      landsat_linfit_texas_hill_country_NDWI
+[OK] landsat_trend      landsat_linfit_texas_hill_country_NBR
+[OK] landsat_trend      landsat_sensSlope_texas_hill_country_NDVI
+[OK] landsat_trend      landsat_sensSlope_texas_hill_country_NBR
+[OK] landsat_breakpoint landsat_breakpoint_ndvi_texas_hill_country
+[OK] landsat_trend      landsat_linfit_cascades_clearcut_NDVI
+[OK] landsat_trend      landsat_linfit_cascades_clearcut_NDWI
+[OK] landsat_trend      landsat_linfit_cascades_clearcut_NBR
+[OK] landsat_trend      landsat_sensSlope_cascades_clearcut_NDVI
+[OK] landsat_trend      landsat_sensSlope_cascades_clearcut_NBR
+[OK] landsat_breakpoint landsat_breakpoint_ndvi_cascades_clearcut
+
+--- sentinel2 ---
+[FAIL] sentinel2_phenology s2_harmonic_phenology_iowa_corn
+[OK] sentinel2_phenology s2_monthly_2023_iowa_corn
+[FAIL] sentinel2_phenology s2_harmonic_phenology_sonoran
+[OK] sentinel2_phenology s2_monthly_2023_sonoran
+[FAIL] sentinel2_phenology s2_harmonic_phenology_atlanta
+[OK] sentinel2_phenology s2_monthly_2023_atlanta
+
+--- modis ---
+[OK] modis_biome        modis_biome_curves_sonoran_desert
+[OK] modis_biome        modis_biome_curves_iowa_corn
+[OK] modis_biome        modis_biome_curves_el_yunque_pr
+[OK] modis_biome        modis_biome_curves_manhattan
+[OK] modis_biome        modis_biome_curves_olympic_rainforest
+
+--- jrc ---
+[OK] jrc_water          jrc_decade_delta_salton_sea_south
+[OK] jrc_water          jrc_decade_delta_lake_mead
+[OK] jrc_water          jrc_decade_delta_louisiana_delta
+[OK] jrc_water          jrc_decade_delta_florida_everglades
+[OK] jrc_water          jrc_decade_delta_great_salt_lake
+[OK] jrc_water          jrc_decade_delta_chesapeake
+[OK] jrc_water          jrc_decade_delta_columbia_gorge
+[OK] jrc_water          jrc_decade_delta_plains_playa_tx
+[OK] jrc_water          jrc_decade_delta_minnesota_lakes
+[OK] jrc_water          jrc_decade_delta_sacramento_delta
+[OK] jrc_water          jrc_decade_delta_cape_hatteras
+[OK] jrc_water          jrc_decade_delta_mobile_bay
+[OK] jrc_water          jrc_decade_delta_puerto_rico_coast
+[OK] jrc_water          jrc_decade_delta_nevada_reservoir
+[OK] jrc_water          jrc_decade_delta_arizona_ag_canals
+[OK] jrc_water          jrc_decade_delta_north_dakota_bakken
+[OK] jrc_water          jrc_decade_delta_ohio_river_paducah
+[OK] jrc_water          jrc_decade_delta_galveston_control
+[OK] jrc_water          jrc_conus_grid_top15_rising
+[OK] jrc_water          jrc_zoom_rising_louisiana_delta
+[OK] jrc_water          jrc_zoom_rising_ohio_river_paducah
+[OK] jrc_water          jrc_zoom_rising_chesapeake
+[OK] jrc_water          jrc_zoom_falling_lake_mead
+[OK] jrc_water          jrc_zoom_falling_salton_sea_south
+
+--- dynamic_world ---
+[OK] dynamic_world      dw_built_phoenix_fringe_2016
+[OK] dynamic_world      dw_built_phoenix_fringe_2018
+[OK] dynamic_world      dw_built_phoenix_fringe_2020
+[OK] dynamic_world      dw_built_phoenix_fringe_2022
+[OK] dynamic_world      dw_built_phoenix_fringe_2024
+[OK] dynamic_world      dw_built_surge_phoenix_fringe
+[OK] dynamic_world      dw_built_austin_nw_2016
+[OK] dynamic_world      dw_built_austin_nw_2018
+[OK] dynamic_world      dw_built_austin_nw_2020
+[OK] dynamic_world      dw_built_austin_nw_2022
+[OK] dynamic_world      dw_built_austin_nw_2024
+[OK] dynamic_world      dw_built_surge_austin_nw
+[OK] dynamic_world      dw_built_atlanta_suburbs_2016
+[OK] dynamic_world      dw_built_atlanta_suburbs_2018
+[OK] dynamic_world      dw_built_atlanta_suburbs_2020
+[OK] dynamic_world      dw_built_atlanta_suburbs_2022
+[OK] dynamic_world      dw_built_atlanta_suburbs_2024
+[OK] dynamic_world      dw_built_surge_atlanta_suburbs
+[OK] dynamic_world      dw_built_dallas_north_2016
+[OK] dynamic_world      dw_built_dallas_north_2018
+[OK] dynamic_world      dw_built_dallas_north_2020
+[OK] dynamic_world      dw_built_dallas_north_2022
+[OK] dynamic_world      dw_built_dallas_north_2024
+[OK] dynamic_world      dw_built_surge_dallas_north
+[OK] dynamic_world      dw_zoom_dallas_north_2km
+[OK] dynamic_world      dw_zoom_dallas_north_500m
+
+--- hansen_firms ---
+/home/tayyabkhan/Shared/mireye-challenge/.venv-ee/lib/python3.12/site-packages/ee/deprecation.py:215: DeprecationWarning: 
+
+Attention required for UMD/hansen/global_forest_change_2023_v1_11! You are using a deprecated asset.
+To make sure your code keeps working, please update it.
+This dataset has been superseded by UMD/hansen/global_forest_change_2025_v1_13
+
+Learn more: https://developers.google.com/earth-engine/datasets/catalog/UMD_hansen_global_forest_change_2023_v1_11
+
+  warnings.warn(warning, category=DeprecationWarning)
+[OK] hansen             hansen_lossyear_cascades_or
+[OK] hansen             hansen_lossyear_nocal_sierra
+[OK] hansen             hansen_lossyear_appalachia_tn
+[OK] hansen             hansen_lossyear_pnw_olympic
+[OK] hansen             hansen_lossyear_southeast_ga
+[OK] hansen             hansen_lossyear_maine
+[OK] firms              firms_density_socal_2020
+[OK] firms              firms_density_oregon_2020
+[OK] firms              firms_density_texas_panhandle
+[OK] firms              firms_density_florida_2022
+[OK] firms              firms_density_canada_border_mn
+
+--- climate ---
+[OK] chirps             chirps_drought_2012_california_cv
+[OK] chirps             chirps_drought_2012_texas_hill
+[OK] chirps             chirps_drought_2012_iowa
+[OK] chirps             chirps_drought_2012_arizona
+[OK] chirps             chirps_drought_2012_florida
+[OK] chirps             chirps_drought_2012_louisiana
+[OK] chirps             chirps_drought_2021_california_cv
+[OK] chirps             chirps_drought_2021_texas_hill
+[OK] chirps             chirps_drought_2021_iowa
+[OK] chirps             chirps_drought_2021_arizona
+[OK] chirps             chirps_drought_2021_florida
+[OK] chirps             chirps_drought_2021_louisiana
+[OK] chirps             chirps_wet_2019_california_cv
+[OK] chirps             chirps_wet_2019_texas_hill
+[OK] chirps             chirps_wet_2019_iowa
+[OK] chirps             chirps_wet_2019_arizona
+[OK] chirps             chirps_wet_2019_florida
+[OK] chirps             chirps_wet_2019_louisiana
+[OK] chirps             chirps_elnino_2015_california_cv
+[OK] chirps             chirps_elnino_2015_texas_hill
+[OK] chirps             chirps_elnino_2015_iowa
+[OK] chirps             chirps_elnino_2015_arizona
+[OK] chirps             chirps_elnino_2015_florida
+[OK] chirps             chirps_elnino_2015_louisiana
+[OK] chirps             chirps_normalish_2017_california_cv
+[OK] chirps             chirps_normalish_2017_texas_hill
+[OK] chirps             chirps_normalish_2017_iowa
+[OK] chirps             chirps_normalish_2017_arizona
+[OK] chirps             chirps_normalish_2017_florida
+[OK] chirps             chirps_normalish_2017_louisiana
+[OK] era5               era5_jja_anom_hot_2012_california_cv
+[OK] era5               era5_jja_anom_hot_2012_texas_hill
+[OK] era5               era5_jja_anom_hot_2012_iowa
+[OK] era5               era5_jja_anom_hot_2012_arizona
+[OK] era5               era5_jja_anom_hot_2021_california_cv
+[OK] era5               era5_jja_anom_hot_2021_texas_hill
+[OK] era5               era5_jja_anom_hot_2021_iowa
+[OK] era5               era5_jja_anom_hot_2021_arizona
+[OK] era5               era5_jja_anom_cool_2019_california_cv
+[OK] era5               era5_jja_anom_cool_2019_texas_hill
+[OK] era5               era5_jja_anom_cool_2019_iowa
+[OK] era5               era5_jja_anom_cool_2019_arizona
+
+--- edge ---
+[OK] edge               landsat_paradise_fire_recovery_ndvi
+[OK] edge               houston_ndwi_pre_harvey
+[OK] edge               houston_ndwi_harvey_2017
+[OK] edge               houston_ndwi_post
+[FAIL] dead_end           bfast_reducer
+[OK] edge               landtrendr_algo
+[FAIL] dead_end           landtrendr_algo
+[OK] dead_end           s2_cs_join_mismatch_dates
+
+Wrote /home/tayyabkhan/Shared/mireye-challenge/ee-explore/deep_timeseries/results.json (152 probes, 147 ok, 5 fail)
