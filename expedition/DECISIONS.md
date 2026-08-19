@@ -40,9 +40,19 @@ This addendum does not reopen product vision. It records the decisions that unbl
 
 ## Concept Studio
 
-- One parametric, rights-cleared warehouse asset generated in-repo (`assets/warehouse.gltf`).
+- Parametric, rights-cleared warehouse asset generated in-repo (`assets/warehouse.gltf`).
 - Three-case Concept Test passed 2026-08-15 with no Google tiles and no parcel fetch (`concept.py`).
 - `FUTURE` may appear as a labeled visual concept. `FIT` stays deferred (no independently licensed parcel envelope).
+- **Correction 2026-08-19 (user reversal):** extra architectural presets, schematic interiors, and conceptual CAD were never a user cut. Grilling/MVP-contract language deferred them. The product ships parametric presets (warehouse programs, farm packing shed, house massing, data-hall shell), schematic interiors, and DXF/IFC labeled CONCEPTUAL NOT FOR PERMIT. Interiors are a program diagram, not a survey and not existing-building reconstruction from tiles or uploaded drawings. CAD is for coordination. It is not stamped, not permit-ready, and not FIT. Stamped permit certification stays out.
+
+## Stretch skills (INFORM)
+
+Shipped 2026-08-19 as deepen workstreams on Standard/Deep. They never score. Unknown stays Conditional.
+
+- `land-change`: Dynamic World thresholded top-1 built fraction plus an NLCD developed-fraction check when the fixture carries one. INFORM only. Disagreement is a Verification Gap, not a chosen truth. Mean class-probability scores stay invalid.
+- `labor-access`: warehouse/data-center county context only. Never Home. Never a hiring-availability claim. `workers_available` is always null.
+- `climate-trajectory`: GRIDMET historical June–August tmax plus a NASA GDDP-CMIP6 multi-model range (ACCESS-CM2, MIROC6, NorESM2-LM, GFDL-ESM4 × SSP2-4.5 / SSP5-8.5). Regional (~28 km), not a parcel prediction. Not a single-model forecast.
+- `source-scout`: constrained official follow-up URLs (FEMA MSC, EPA ECHO, USGS 3DEP, NWI, CropScape). Not arbitrary web discovery and not package installation.
 
 ## Flood / height
 

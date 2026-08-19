@@ -1,0 +1,32 @@
+{
+  "candidate_id": "quincy_wa",
+  "lat": 47.2343,
+  "lng": -119.8525,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "land_change": {
+    "dynamic_world": {
+      "early_mode": {"code": 4, "label": "crops"},
+      "late_mode": {"code": 4, "label": "crops"},
+      "early_built_frac": 0.08,
+      "late_built_frac": 0.24,
+      "neighbor_built_frac": 0.14,
+      "scale_m": 10,
+      "windows": {"early": "2016-01-01/2018-12-31", "late": "2022-01-01/2024-12-31"}
+    },
+    "nlcd": {
+      "early_developed_frac": 0.07,
+      "late_developed_frac": 0.11,
+      "early_mode": 82,
+      "late_mode": 82,
+      "scale_m": 30,
+      "years": [2016, 2021]
+    },
+    "site_radius_m": 60,
+    "neighborhood_radius_m": 250,
+    "change_type": "built_gain",
+    "agreement": "partial",
+    "dw_built_delta": 0.16,
+    "nlcd_developed_delta": 0.04,
+    "score_used": false
+  }
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import secrets
 import socket
 import sys
@@ -383,7 +384,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             self._send(200, body, "image/jpeg")
             return
         if path == "/api/config":
-            from expedition.concept import run_concept_test
+            from expedition.concept import list_presets, run_concept_test
 
             concept = run_concept_test()
             self._json(
@@ -394,6 +395,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                     "satellite": "/g2d/{z}/{x}/{y}",
                     "warehouse_gltf": "/assets/warehouse.gltf",
                     "concept": concept,
+                    "presets": list_presets(),
                     "note": "Google tiles are presentation only. They do not score.",
                 },
             )
@@ -405,6 +407,41 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             return
         if path == "/assets/warehouse.gltf":
             self._send(200, (PKG / "assets" / "warehouse.gltf").read_bytes(), "model/gltf+json")
+            return
+        if path.startswith("/assets/presets/"):
+            from expedition import studio
+
+            match = re.fullmatch(
+                r"/assets/presets/([a-z0-9_]+)(-interiors)?\.(gltf|dxf|ifc)",
+                path,
+            )
+            if not match:
+                self._json(404, {"error": "unknown concept asset"})
+                return
+            studio_id, interiors, kind = match.group(1), bool(match.group(2)), match.group(3)
+            try:
+                if kind == "gltf":
+                    body = studio.gltf_bytes(studio_id, interiors=interiors)
+                    ctype = "model/gltf+json"
+                elif interiors:
+                    self._json(404, {"error": "unknown concept asset"})
+                    return
+                elif kind == "dxf":
+                    body = studio.dxf_bytes(studio_id)
+                    ctype = "application/dxf"
+                else:
+                    body = studio.ifc_bytes(studio_id)
+                    ctype = "application/x-step"
+            except KeyError:
+                self._json(404, {"error": "unknown concept preset"})
+                return
+            filename = path.rsplit("/", 1)[-1]
+            self._send(
+                200,
+                body,
+                ctype,
+                headers={"Content-Disposition": f'attachment; filename="{filename}"'} if kind != "gltf" else None,
+            )
             return
         if path.startswith("/v1/3dtiles"):
             status, body, ctype = proxy_google(path, urlparse(self.path).query)

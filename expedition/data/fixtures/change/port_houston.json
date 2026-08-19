@@ -1,0 +1,32 @@
+{
+  "candidate_id": "port_houston",
+  "lat": 29.73,
+  "lng": -95.12,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "land_change": {
+    "dynamic_world": {
+      "early_mode": {"code": 6, "label": "built"},
+      "late_mode": {"code": 6, "label": "built"},
+      "early_built_frac": 0.55,
+      "late_built_frac": 0.57,
+      "neighbor_built_frac": 0.49,
+      "scale_m": 10,
+      "windows": {"early": "2016-01-01/2018-12-31", "late": "2022-01-01/2024-12-31"}
+    },
+    "nlcd": {
+      "early_developed_frac": 0.6,
+      "late_developed_frac": 0.61,
+      "early_mode": 24,
+      "late_mode": 24,
+      "scale_m": 30,
+      "years": [2016, 2021]
+    },
+    "site_radius_m": 60,
+    "neighborhood_radius_m": 250,
+    "change_type": "stable",
+    "agreement": "stable",
+    "dw_built_delta": 0.02,
+    "nlcd_developed_delta": 0.01,
+    "score_used": false
+  }
+}

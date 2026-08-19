@@ -1,0 +1,23 @@
+{
+  "candidate_id": "port_houston",
+  "lat": 29.73,
+  "lng": -95.12,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "labor_access": {
+    "geoid": "48201",
+    "county_name": "Harris County, Texas",
+    "state_fips": "48",
+    "county_fips": "201",
+    "civilian_labor_force": 2410800,
+    "civilian_employed": 2276500,
+    "mean_commute_minutes": 29,
+    "lodes": {
+      "vintage": "2022",
+      "workplace_jobs": 2560000,
+      "residence_jobs": 2214000,
+      "note": "County-scale LODES-style context from a reviewed fixture. Not worker availability."
+    },
+    "scale": "county",
+    "workers_available": null
+  }
+}

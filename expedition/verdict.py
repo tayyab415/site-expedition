@@ -294,7 +294,7 @@ def judge(
 def _inform(atoms: list[EvidenceAtom]) -> dict:
     out = {}
     for atom in atoms:
-        if atom.decision_effect == "INFORM" and atom.kind in {"FACT", "PROXY"}:
+        if atom.decision_effect == "INFORM" and atom.kind in {"FACT", "PROXY", "MODEL"}:
             out[atom.field_id] = atom.value
         if atom.field_id == "is_cultivated" and atom.value is True:
             out["cultivated"] = True

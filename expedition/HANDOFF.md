@@ -105,6 +105,8 @@ Checkable as of 2026-08-15. Re-run the commands rather than trusting this paragr
 | Models | `adapters/model.py` | Vertex `gemini-3.5-flash-lite` + `MINIMAL`, then `gemini-3.7-flash` + `LOW`. Azure Luna returns HTTP 400 |
 | Held-out gates | `verify/gates.json` + `verify/score.py` | 11/11. Engine/UI must never import this file |
 | Concept Test | `concept.py` | 3 cases, no Google, no parcel fetch. `FUTURE=visual_concept`, `FIT=deferred` |
+| Concept Studio | `concept.py`, `studio.py` | Mission-scoped presets, schematic interiors, conceptual DXF/IFC. Not stamped, not FIT |
+| Stretch INFORM skills | `adapters/extended.py` plus `change.py` / `labor.py` / `climate.py` / `scout.py` | land-change, labor-access, climate-trajectory, constrained source-scout. Never score. Home never labor-access |
 | Product board | `ui/index.html`, `ui/app.js`, `ui/styles.css`, `ui/serve.py` | `/` onboarding → confirm plan → Cesium TODAY 3D (key proxied) / aerial / OSM. FUTURE box overlay. Check-a-Site lat/lng |
 | Protected HTTP boundary | `security.py`, `ui/serve.py` | Mandatory bearer-to-HttpOnly session exchange, same-origin enforcement behind trusted HTTPS proxy, body/rate/connection bounds, five-second pre-header timeout |
 | Environmental drill-down | `adapters/epa.py` | Official ECHO/FRS facility detail only after a Mireye RMP hit; same EPA independence group; Phase I ESA remains required |
@@ -230,13 +232,15 @@ Mission membership: `data/mission_sites.json`.
 | `expedition/verdict.py` | Only place a verdict is decided |
 | `expedition/evidence.py` | Atom + gap constructors |
 | `expedition/credits.py` | Ceilings |
-| `expedition/concept.py` | Concept Test. FIT stays deferred |
+| `expedition/concept.py` | Concept Test and mission-scoped presets. FIT stays deferred |
+| `expedition/studio.py` | Parametric glTF / DXF / IFC. Conceptual, not permit-ready |
 | `expedition/adapters/mireye.py` | Present-state `/fetch` |
 | `expedition/adapters/earth.py` | Flood-rewind witness |
 | `expedition/adapters/temporal.py` | Farm CDL/CHIRPS and Data Center MODIS witnesses |
 | `expedition/adapters/routes.py` | Drive time. Call from engine |
 | `expedition/adapters/epa.py` | Official EPA ECHO/FRS drill-down after a Mireye RMP hit |
 | `expedition/adapters/model.py` | Skeptic / narration |
+| `expedition/adapters/extended.py` | INFORM facade: land-change, labor-access, climate-trajectory, source-scout |
 | `expedition/ui/serve.py` | Protected board + tile proxy + APIs; bounded sockets/threads. Keys stay on the server |
 | `expedition/ui/app.js` | Product board client |
 | `expedition/ui/probe.js` | Harness only |
@@ -315,8 +319,8 @@ into chat, logs, URLs, screenshots, or documentation.
 - Home Mission: no demographic ranking, no labor facts.
 - Data Center: never claim deliverable MW, redundant enterprise fiber, or water capacity.
 - Farm: water right is always a Verification Gap. Elba NY is cultivated; Manhattan is not.
-- FUTURE is a labeled visual concept after `concept.py`. FIT stays deferred until independently licensed parcel/constraint geometry exists without a default-path parcel spend.
-- Out of this build: accounts, collab, uploads, notifications, SaaS persistence, marketplace scraping, licensed national inventory, permit-ready CAD, Azure Luna debugging unless asked.
+- FUTURE is a labeled visual concept after `concept.py`. Schematic interiors and conceptual CAD are in. FIT stays deferred until independently licensed parcel/constraint geometry exists without a default-path parcel spend.
+- Out of this build: accounts, collab, uploads, notifications, SaaS persistence, marketplace scraping, licensed national inventory, **stamped** permit CAD, existing-building interior reconstruction from tiles, Azure Luna debugging unless asked.
 
 ---
 

@@ -262,10 +262,58 @@ select, input[type="text"], input[type="number"] { width: 100%; margin-top: 4px;
   transform: rotateY(90deg);
   background: #9aa8b6;
 }
-.dock-overlay {
-  background: rgba(72, 68, 62, 0.72);
-  border: 1px solid rgba(220, 214, 204, .45);
+.interior-plan {
+  position: absolute;
+  inset: 4%;
+  z-index: 5;
+  transform: translateZ(calc(var(--wh-h) + 6px));
+  pointer-events: none;
 }
+.interior-room {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid rgba(215, 243, 255, .7);
+  background: rgba(20, 48, 62, .55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.interior-room span {
+  font: 700 9px var(--mono);
+  color: #eef8ff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+  text-align: center;
+  padding: 2px;
+}
+.future-box[data-family="home"] .wh-apron,
+.future-box[data-family="home"] .wh-doors,
+.future-box[data-family="home"] .wh-canopy { display: none; }
+.future-box[data-family="home"] .wh-roof {
+  background: linear-gradient(180deg, #c45a3a 0%, #8b3a28 100%);
+}
+.future-box[data-family="farm"] .wh-roof {
+  background: linear-gradient(180deg, #b8c4a8 0%, #7d8a6e 100%);
+}
+.future-box[data-family="data_center"] .wh-roof {
+  background: linear-gradient(180deg, #d8dde4 0%, #8a93a0 100%);
+}
+#concept-controls {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+#concept-controls label {
+  display: grid;
+  gap: 4px;
+  font: 11px var(--mono);
+  color: var(--muted);
+}
+#concept-controls select,
+#concept-controls input[type="range"] { width: 100%; }
+#concept-controls .cad-links { display: flex; gap: 12px; margin: 0; }
+#concept-controls .cad-links[hidden] { display: none; }
+#concept-controls .cad-links a { color: #f2d27a; font: 700 11px var(--mono); }
 .scene-hud {
   position: absolute; top: 64px; left: 50%; transform: translateX(-50%);
   z-index: 7; width: min(420px, calc(100% - 560px)); pointer-events: none;

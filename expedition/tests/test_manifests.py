@@ -42,13 +42,17 @@ class CustomManifestTests(unittest.TestCase):
 
     def test_rejects_unknown_skill_and_source_discovery(self):
         payload = reviewed_payload()
-        payload["skills"].append("source-scout")
+        self.assertIn("source-scout", payload["skills"])
+        validate_manifest(payload)
+
+        payload = reviewed_payload()
+        payload["skills"].append("web-crawl")
         with self.assertRaisesRegex(ManifestValidationError, "arbitrary source discovery"):
             validate_manifest(payload)
 
         payload = reviewed_payload()
         payload["skills"].append("install-python-package")
-        with self.assertRaisesRegex(ManifestValidationError, "reviewed catalog"):
+        with self.assertRaisesRegex(ManifestValidationError, "arbitrary source discovery"):
             validate_manifest(payload)
 
     def test_rejects_unknown_field_and_non_mireye_preference(self):

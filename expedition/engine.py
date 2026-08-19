@@ -6,7 +6,7 @@ import json
 import urllib.error
 from pathlib import Path
 
-from expedition.adapters import aerial, earth, epa, mireye, routes, temporal
+from expedition.adapters import aerial, earth, epa, extended, mireye, routes, temporal
 from expedition.adapters.model import skeptic_review
 from expedition.candidates import (
     CandidatePool,
@@ -45,6 +45,10 @@ WORKSTREAM_QUESTIONS = {
     "farm-history": "Has this land been cultivated, and what is the crop and rain history?",
     "observed-heat": "How hot has this site actually been in observed summers?",
     "today-scene": "What does the site look like from the air?",
+    "land-change": "Has nearby built cover changed in recent years?",
+    "labor-access": "What labor-shed context exists without claiming workers are available?",
+    "climate-trajectory": "What does a labeled climate scenario say at regional scale?",
+    "source-scout": "Which official follow-up sources apply to this evidence?",
     "skeptic-review": "What would disqualify the apparent finalist?",
 }
 WORKSTREAM_PHASE = {
@@ -56,6 +60,10 @@ WORKSTREAM_PHASE = {
     "flood-rewind": "deepen",
     "farm-history": "deepen",
     "observed-heat": "deepen",
+    "land-change": "deepen",
+    "labor-access": "deepen",
+    "climate-trajectory": "deepen",
+    "source-scout": "deepen",
     "today-scene": "context",
     "skeptic-review": "skeptic",
 }
@@ -540,6 +548,174 @@ def run_site(
                 ActivationDecision.run()
                 if plan.scan_budget in {"standard", "deep"}
                 else ActivationDecision.skip(f"{plan.scan_budget} Scan Budget excludes temporal witness")
+            ),
+        ))
+
+    if "land-change" in plan.skills and (
+        not investigations_specified or "land_change" in selected_investigations
+    ):
+        def run_land(_ctx):
+            atoms_out, payload = extended.land_change(
+                candidate_id=candidate_id,
+                lat=site["lat"],
+                lng=site["lng"],
+                live=live,
+            )
+            facts = sum(atom.kind == "FACT" for atom in atoms_out)
+            change = payload.get("land_change") or {}
+            note = (
+                f"Built fraction {change.get('early_built_frac')} → {change.get('late_built_frac')} "
+                f"in a {change.get('buffer_m') or 'neighborhood'} m buffer. INFORM only. Not scored."
+                if facts
+                else (atoms_out[0].notes if atoms_out else "land-change unavailable")
+            )
+            result = {
+                "atoms": atoms_out,
+                "display": {
+                    "id": "land-change",
+                    "status": "done" if facts else "unknown",
+                    "mode": "replay",
+                    "note": note,
+                },
+            }
+            if payload.get("witness"):
+                result["witness"] = payload["witness"]
+            return WorkstreamOutcome.success(result)
+
+        specs.append(Workstream(
+            workstream_id="land-change",
+            question_id="land.change",
+            run=run_land,
+            depends_on=("core-gate",),
+            cancel_on_veto=False,
+            activate_when=lambda _snapshot: (
+                ActivationDecision.run()
+                if plan.scan_budget in {"standard", "deep"}
+                else ActivationDecision.skip(f"{plan.scan_budget} Scan Budget excludes land-change")
+            ),
+        ))
+
+    if "labor-access" in plan.skills and mission != "home" and (
+        not investigations_specified or "labor_access" in selected_investigations
+    ):
+        def run_labor(_ctx):
+            atoms_out, payload = extended.labor_access(
+                candidate_id=candidate_id,
+                lat=site["lat"],
+                lng=site["lng"],
+                mission=mission,
+                live=live,
+            )
+            usable = sum(atom.kind in {"FACT", "PROXY"} for atom in atoms_out)
+            context = payload.get("labor") or {}
+            county = context.get("county") or "undeclared labor shed"
+            return WorkstreamOutcome.success({
+                "atoms": atoms_out,
+                "display": {
+                    "id": "labor-access",
+                    "status": "done" if usable else "unknown",
+                    "mode": "replay",
+                    "note": f"{county}. Does not claim workers are available.",
+                },
+            })
+
+        specs.append(Workstream(
+            workstream_id="labor-access",
+            question_id="labor.access",
+            run=run_labor,
+            depends_on=("core-gate",),
+            activate_when=lambda _snapshot: (
+                ActivationDecision.run()
+                if plan.scan_budget in {"standard", "deep"}
+                else ActivationDecision.skip(f"{plan.scan_budget} Scan Budget excludes labor-access")
+            ),
+        ))
+
+    if "climate-trajectory" in plan.skills and (
+        not investigations_specified or "climate_trajectory" in selected_investigations
+    ):
+        def run_climate(_ctx):
+            atoms_out, payload = extended.climate_trajectory(
+                candidate_id=candidate_id,
+                lat=site["lat"],
+                lng=site["lng"],
+                live=live,
+            )
+            climate = payload.get("climate_trajectory") or {}
+            modeled = sum(atom.kind == "MODEL" for atom in atoms_out)
+            delta = climate.get("delta_c")
+            delta_text = f"{float(delta):+0.2f} C" if isinstance(delta, (int, float)) else "UNKNOWN"
+            note = (
+                f"{climate.get('model')} {climate.get('ssp')} JJA tasmax "
+                f"{climate.get('baseline')} → {climate.get('horizon')}: "
+                f"{delta_text}. Regional, not a parcel prediction."
+                if modeled
+                else (atoms_out[0].notes if atoms_out else "climate-trajectory unavailable")
+            )
+            return WorkstreamOutcome.success({
+                "atoms": atoms_out,
+                "display": {
+                    "id": "climate-trajectory",
+                    "status": "done" if modeled else "unknown",
+                    "mode": "replay",
+                    "note": note,
+                },
+            })
+
+        specs.append(Workstream(
+            workstream_id="climate-trajectory",
+            question_id="climate.trajectory",
+            run=run_climate,
+            depends_on=("core-gate",),
+            cancel_on_veto=False,
+            activate_when=lambda _snapshot: (
+                ActivationDecision.run()
+                if plan.scan_budget in {"standard", "deep"}
+                else ActivationDecision.skip(f"{plan.scan_budget} Scan Budget excludes climate-trajectory")
+            ),
+        ))
+
+    if "source-scout" in plan.skills and (
+        not investigations_specified or "source_scout" in selected_investigations
+    ):
+        def run_scout(ctx):
+            core_outcome = ctx.snapshot.outcome("screen-site-core")
+            core_payload = (
+                core_outcome.payload
+                if core_outcome and isinstance(core_outcome.payload, dict)
+                else {}
+            )
+            atoms_out, payload = extended.source_scout(
+                candidate_id=candidate_id,
+                lat=site["lat"],
+                lng=site["lng"],
+                mission=mission,
+                core_atoms=list(core_payload.get("atoms") or []),
+                live=live,
+                anticipated_gaps=list(plan.gaps_always),
+            )
+            followups = payload.get("followups") or []
+            titles = ", ".join(row["title"] for row in followups[:3]) or "no official follow-up"
+            return WorkstreamOutcome.success({
+                "atoms": atoms_out,
+                "display": {
+                    "id": "source-scout",
+                    "status": "done",
+                    "mode": "replay",
+                    "note": f"Constrained official follow-up: {titles}. Not web discovery.",
+                },
+            })
+
+        specs.append(Workstream(
+            workstream_id="source-scout",
+            question_id="source.scout",
+            run=run_scout,
+            depends_on=("core-gate",),
+            cancel_on_veto=False,
+            activate_when=lambda _snapshot: (
+                ActivationDecision.run()
+                if plan.scan_budget in {"standard", "deep"}
+                else ActivationDecision.skip(f"{plan.scan_budget} Scan Budget excludes source-scout")
             ),
         ))
 
@@ -1038,6 +1214,38 @@ def scorecard(plan: MissionPlan, verdict: dict, atoms: list[EvidenceAtom]) -> li
         ))
     if plan.mission == "farm":
         rows.append(_meter_row("water_right", "Water right", "unknown"))
+    land = by_field.get("dw_built_fraction_change")
+    if land is not None and land.kind == "FACT":
+        change = land.value if isinstance(land.value, dict) else {}
+        rows.append(_meter_row(
+            "land-change",
+            "Neighborhood built cover",
+            "inform",
+            value=f"{change.get('early_built_frac')} → {change.get('late_built_frac')}",
+        ))
+    labor = by_field.get("labor_shed_context")
+    if labor is not None and labor.kind == "PROXY":
+        ctx = labor.value if isinstance(labor.value, dict) else {}
+        rows.append(_meter_row(
+            "labor-access",
+            "Labor-shed context",
+            "inform",
+            value=f"{ctx.get('county') or 'undeclared'} · not a hiring claim",
+        ))
+    climate = by_field.get("climate_scenario_tasmax")
+    if climate is not None and climate.kind == "MODEL":
+        val = climate.value if isinstance(climate.value, dict) else {}
+        delta = val.get("delta_c")
+        rows.append(_meter_row(
+            "climate-trajectory",
+            "Regional climate range",
+            "inform",
+            value=(
+                f"Δ {float(delta):+.1f} C · not a parcel prediction"
+                if isinstance(delta, (int, float))
+                else "labeled ensemble range"
+            ),
+        ))
     return rows
 
 

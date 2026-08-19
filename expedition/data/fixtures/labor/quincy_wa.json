@@ -1,0 +1,23 @@
+{
+  "candidate_id": "quincy_wa",
+  "lat": 47.2343,
+  "lng": -119.8525,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "labor_access": {
+    "geoid": "53025",
+    "county_name": "Grant County, Washington",
+    "state_fips": "53",
+    "county_fips": "025",
+    "civilian_labor_force": 44800,
+    "civilian_employed": 41600,
+    "mean_commute_minutes": 19,
+    "lodes": {
+      "vintage": "2022",
+      "workplace_jobs": 39200,
+      "residence_jobs": 36800,
+      "note": "County-scale LODES-style context from a reviewed fixture. Not worker availability."
+    },
+    "scale": "county",
+    "workers_available": null
+  }
+}

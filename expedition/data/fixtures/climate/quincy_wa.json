@@ -1,0 +1,32 @@
+{
+  "candidate_id": "quincy_wa",
+  "lat": 47.2343,
+  "lng": -119.8525,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "climate_trajectory": {
+    "historical_summer_tmax_c": 31.8,
+    "historical_source": "IDAHO_EPSCOR/GRIDMET",
+    "historical_window": "2010-06-01/2014-08-31",
+    "future_window": "2035-06-01/2039-08-31",
+    "models": ["ACCESS-CM2", "MIROC6", "NorESM2-LM", "GFDL-ESM4"],
+    "scenarios": ["ssp245", "ssp585"],
+    "members": [
+      {"model": "GFDL-ESM4", "scenario": "ssp245", "summer_tmax_c": 33.0},
+      {"model": "NorESM2-LM", "scenario": "ssp245", "summer_tmax_c": 33.2},
+      {"model": "ACCESS-CM2", "scenario": "ssp245", "summer_tmax_c": 33.4},
+      {"model": "MIROC6", "scenario": "ssp245", "summer_tmax_c": 33.6},
+      {"model": "GFDL-ESM4", "scenario": "ssp585", "summer_tmax_c": 34.2},
+      {"model": "NorESM2-LM", "scenario": "ssp585", "summer_tmax_c": 34.5},
+      {"model": "ACCESS-CM2", "scenario": "ssp585", "summer_tmax_c": 34.7},
+      {"model": "MIROC6", "scenario": "ssp585", "summer_tmax_c": 35.1}
+    ],
+    "range_c": {"min_c": 33.0, "median_c": 33.6, "max_c": 35.1},
+    "by_scenario": {
+      "ssp245": {"min_c": 33.0, "median_c": 33.3, "max_c": 33.6},
+      "ssp585": {"min_c": 34.2, "median_c": 34.6, "max_c": 35.1}
+    },
+    "delta_from_historical_c": {"min_c": 1.2, "median_c": 1.8, "max_c": 3.3},
+    "nominal_scale_km": 28,
+    "prediction": false
+  }
+}

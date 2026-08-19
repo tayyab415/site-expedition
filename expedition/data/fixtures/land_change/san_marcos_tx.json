@@ -1,0 +1,17 @@
+{
+  "candidate_id": "san_marcos_tx",
+  "lat": 29.883,
+  "lng": -97.941,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "land_change": {
+    "method": "modal_top1_built_fraction",
+    "buffer_m": 1000,
+    "early_window": "2018-01-01/2020-12-31",
+    "late_window": "2023-01-01/2025-12-31",
+    "early_built_frac": 0.9409,
+    "late_built_frac": 0.9434,
+    "scale_m": 10,
+    "validated_against_nlcd": false
+  },
+  "replay_provenance": "SKILL_COMBINATION_TEST_RESEARCH.md Dynamic World modal built fraction"
+}

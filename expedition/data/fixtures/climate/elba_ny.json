@@ -1,0 +1,32 @@
+{
+  "candidate_id": "elba_ny",
+  "lat": 43.077,
+  "lng": -78.181,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "climate_trajectory": {
+    "historical_summer_tmax_c": 26.2,
+    "historical_source": "IDAHO_EPSCOR/GRIDMET",
+    "historical_window": "2010-06-01/2014-08-31",
+    "future_window": "2035-06-01/2039-08-31",
+    "models": ["ACCESS-CM2", "MIROC6", "NorESM2-LM", "GFDL-ESM4"],
+    "scenarios": ["ssp245", "ssp585"],
+    "members": [
+      {"model": "NorESM2-LM", "scenario": "ssp245", "summer_tmax_c": 27.0},
+      {"model": "GFDL-ESM4", "scenario": "ssp245", "summer_tmax_c": 27.2},
+      {"model": "ACCESS-CM2", "scenario": "ssp245", "summer_tmax_c": 27.4},
+      {"model": "MIROC6", "scenario": "ssp245", "summer_tmax_c": 27.6},
+      {"model": "NorESM2-LM", "scenario": "ssp585", "summer_tmax_c": 28.1},
+      {"model": "GFDL-ESM4", "scenario": "ssp585", "summer_tmax_c": 28.3},
+      {"model": "ACCESS-CM2", "scenario": "ssp585", "summer_tmax_c": 28.6},
+      {"model": "MIROC6", "scenario": "ssp585", "summer_tmax_c": 28.9}
+    ],
+    "range_c": {"min_c": 27.0, "median_c": 27.6, "max_c": 28.9},
+    "by_scenario": {
+      "ssp245": {"min_c": 27.0, "median_c": 27.3, "max_c": 27.6},
+      "ssp585": {"min_c": 28.1, "median_c": 28.45, "max_c": 28.9}
+    },
+    "delta_from_historical_c": {"min_c": 0.8, "median_c": 1.4, "max_c": 2.7},
+    "nominal_scale_km": 28,
+    "prediction": false
+  }
+}

@@ -50,6 +50,9 @@ class SceneReconstructionTests(unittest.TestCase):
         self.assertEqual(10, pad["setback_m"])
         self.assertEqual("visual_concept", packet["scene"]["future"]["claim"])
         self.assertIn("not a permit", packet["scene"]["future"]["note"].lower())
+        self.assertEqual("warehouse-cross-dock", packet["scene"]["future"]["preset_id"])
+        self.assertTrue(packet["scene"]["future"]["interior"])
+        self.assertEqual("schematic_program", packet["scene"]["future"]["interior_claim"])
 
     def test_farm_past_is_rotation_summary_not_invented_yearly_water(self):
         packet = run_site(
@@ -62,8 +65,12 @@ class SceneReconstructionTests(unittest.TestCase):
         self.assertFalse(past["scores"])
         self.assertEqual([], past["series"])
         self.assertEqual(9, past["years_observed"])
-        self.assertIsNone(packet["scene"]["assumed_pad"])
-        self.assertEqual("deferred", packet["scene"]["future"]["claim"])
+        self.assertEqual("assumption", packet["scene"]["assumed_pad"]["claim"])
+        self.assertEqual("farm-packing", packet["scene"]["assumed_pad"]["preset_id"])
+        self.assertEqual(48, packet["scene"]["assumed_pad"]["length_m"])
+        self.assertEqual(24, packet["scene"]["assumed_pad"]["width_m"])
+        self.assertEqual("visual_concept", packet["scene"]["future"]["claim"])
+        self.assertEqual("schematic_program", packet["scene"]["future"]["interior_claim"])
         self.assertEqual("deferred", packet["scene"]["fit"]["claim"])
 
     def test_scorecard_meters_are_status_fills_not_a_composite_score(self):

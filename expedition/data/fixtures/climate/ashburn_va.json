@@ -1,0 +1,32 @@
+{
+  "candidate_id": "ashburn_va",
+  "lat": 39.0438,
+  "lng": -77.4874,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "climate_trajectory": {
+    "historical_summer_tmax_c": 30.6,
+    "historical_source": "IDAHO_EPSCOR/GRIDMET",
+    "historical_window": "2010-06-01/2014-08-31",
+    "future_window": "2035-06-01/2039-08-31",
+    "models": ["ACCESS-CM2", "MIROC6", "NorESM2-LM", "GFDL-ESM4"],
+    "scenarios": ["ssp245", "ssp585"],
+    "members": [
+      {"model": "NorESM2-LM", "scenario": "ssp245", "summer_tmax_c": 31.3},
+      {"model": "GFDL-ESM4", "scenario": "ssp245", "summer_tmax_c": 31.4},
+      {"model": "ACCESS-CM2", "scenario": "ssp245", "summer_tmax_c": 31.6},
+      {"model": "MIROC6", "scenario": "ssp245", "summer_tmax_c": 31.7},
+      {"model": "NorESM2-LM", "scenario": "ssp585", "summer_tmax_c": 32.2},
+      {"model": "GFDL-ESM4", "scenario": "ssp585", "summer_tmax_c": 32.4},
+      {"model": "ACCESS-CM2", "scenario": "ssp585", "summer_tmax_c": 32.6},
+      {"model": "MIROC6", "scenario": "ssp585", "summer_tmax_c": 32.8}
+    ],
+    "range_c": {"min_c": 31.3, "median_c": 31.7, "max_c": 32.8},
+    "by_scenario": {
+      "ssp245": {"min_c": 31.3, "median_c": 31.5, "max_c": 31.7},
+      "ssp585": {"min_c": 32.2, "median_c": 32.5, "max_c": 32.8}
+    },
+    "delta_from_historical_c": {"min_c": 0.7, "median_c": 1.1, "max_c": 2.2},
+    "nominal_scale_km": 28,
+    "prediction": false
+  }
+}

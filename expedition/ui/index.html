@@ -234,11 +234,21 @@
       <p id="aerial-status" class="hint">Screen a site to check Aerial View.</p>
       <button type="button" id="play-aerial" hidden>Play Aerial orbit</button>
       <h2>Verification gaps</h2>
-      <p id="fit-gap" class="fit-gap" hidden>FIT is deferred: no licensed parcel envelope. The warehouse mass is a visual concept, not a fit test.</p>
+      <p id="fit-gap" class="fit-gap" hidden>FIT is deferred: no licensed parcel envelope. Presets and schematic interiors are visual concepts, not a survey and not a permit.</p>
       <ul id="gaps"></ul>
+      <ul id="scout-followups"></ul>
       <div id="concept-controls" hidden>
-        <h2>Concept heading</h2>
+        <h2>Concept Studio</h2>
+        <label>Preset
+          <select id="concept-preset"></select>
+        </label>
         <label>Yaw ° <input id="heading" type="range" min="0" max="359" value="0"></label>
+        <label class="check"><input type="checkbox" id="show-interior"> Schematic interior</label>
+        <p class="cad-links" id="concept-cad" hidden>
+          <a id="cad-gltf" href="#" download>glTF</a>
+          <a id="cad-dxf" href="#" download>DXF</a>
+          <a id="cad-ifc" href="#" download>IFC</a>
+        </p>
         <p class="hint" id="concept-note"></p>
       </div>
       <h2>Brief</h2>

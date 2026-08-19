@@ -68,19 +68,33 @@ const INVESTIGATION_OPTIONS = {
     ["flood_rewind", "Flood rewind when material", true],
     ["environmental_record", "EPA ECHO facility record after an environmental hit", true],
     ["route_reality", "Routes to declared anchors", true],
+    ["land_change", "Neighborhood built-cover change (INFORM, not scored)", true],
+    ["labor_access", "Labor-shed context (never a hiring claim)", true],
+    ["source_scout", "Official follow-up sources (not web discovery)", true],
+    ["climate_trajectory", "Regional climate scenario range", true],
     ["scene_context", "Aerial / 3D presentation context", true],
   ],
   farm: [
     ["farm_history", "Annual crop and rainfall history", true],
+    ["climate_trajectory", "Regional climate scenario range", true],
+    ["land_change", "Neighborhood built-cover change (INFORM, not scored)", true],
+    ["source_scout", "Official follow-up sources (not web discovery)", true],
     ["flood_rewind", "Flood rewind when material", false],
     ["scene_context", "Aerial / 3D presentation context", true],
   ],
   home: [
     ["flood_rewind", "Flood rewind when material", true],
+    ["climate_trajectory", "Regional climate scenario range", true],
+    ["source_scout", "Official follow-up sources (not web discovery)", true],
+    ["land_change", "Neighborhood built-cover change (INFORM, not scored)", false],
     ["scene_context", "Aerial / 3D presentation context", true],
   ],
   data_center: [
     ["observed_heat", "Observed-heat temporal witness", true],
+    ["climate_trajectory", "Regional climate scenario range", true],
+    ["land_change", "Neighborhood built-cover change (INFORM, not scored)", true],
+    ["labor_access", "Labor-shed context (never a hiring claim)", true],
+    ["source_scout", "Official follow-up sources (not web discovery)", true],
     ["flood_rewind", "Flood rewind when material", true],
     ["route_reality", "Routes to declared anchors", false],
     ["scene_context", "Aerial / 3D presentation context", true],
@@ -125,6 +139,10 @@ const WORKSTREAM_QUESTIONS = {
   "farm-history": "Has this land been cultivated, and what is the crop and rain history?",
   "observed-heat": "How hot has this site actually been in observed summers?",
   "today-scene": "What does the site look like from the air?",
+  "land-change": "Has nearby built cover changed in recent years?",
+  "labor-access": "What labor-shed context exists without claiming workers are available?",
+  "climate-trajectory": "What does a labeled climate scenario say at regional scale?",
+  "source-scout": "Which official follow-up sources apply to this evidence?",
   "skeptic-review": "What would disqualify the apparent finalist?",
 };
 
@@ -298,15 +316,32 @@ async function boot() {
     "budget-band", "manifest-id",
   ].forEach((id) => { $(id).onchange = previewPlan; });
   const conceptOk = config.concept && config.concept.claim && config.concept.claim.FUTURE === "visual_concept";
-  if (conceptOk) {
+  if (conceptOk || (config.presets || []).length) {
     const fb = $("mode-future");
     fb.onclick = () => applyMode("future");
-    $("concept-note").textContent = (config.concept.footprint.assumptions || []).join(" · ");
   }
-  $("heading").oninput = () => {
-    if (!selectedId) return;
-    refreshPlacement(findSite(selectedId), packets[selectedId]);
-  };
+  renderConceptPresets();
+  updateConceptNote();
+  if ($("heading")) {
+    $("heading").oninput = () => {
+      if (!selectedId) return;
+      refreshPlacement(findSite(selectedId), packets[selectedId]);
+    };
+  }
+  if ($("concept-preset")) {
+    $("concept-preset").onchange = () => {
+      updateConceptNote();
+      if (!selectedId) return;
+      refreshPlacement(findSite(selectedId), packets[selectedId]);
+    };
+  }
+  if ($("show-interior")) {
+    $("show-interior").onchange = () => {
+      updateConceptNote();
+      if (!selectedId) return;
+      refreshPlacement(findSite(selectedId), packets[selectedId]);
+    };
+  }
   $("past-year").oninput = () => applyPastYear(packets[selectedId]);
   document.querySelectorAll(".mode").forEach((btn) => {
     btn.onclick = () => applyMode(btn.dataset.mode);
@@ -326,6 +361,99 @@ async function boot() {
   loadCustomManifests();
 }
 
+function missionConceptKey() {
+  return mission === "custom" ? "warehouse" : mission;
+}
+
+function missionPresets() {
+  const key = missionConceptKey();
+  return (config.presets || []).filter((row) => row.mission === key);
+}
+
+function missionHasConcept() {
+  if (!missionPresets().length) return false;
+  if (mission === "warehouse" || mission === "custom") {
+    return Boolean(config.concept && config.concept.claim && config.concept.claim.FUTURE === "visual_concept");
+  }
+  return true;
+}
+
+function renderConceptPresets() {
+  const sel = $("concept-preset");
+  if (!sel) return;
+  const rows = missionPresets();
+  const previous = sel.value;
+  sel.innerHTML = rows.map((row) => `<option value="${row.id}">${row.title}</option>`).join("");
+  if (rows.some((row) => row.id === previous)) sel.value = previous;
+  else if (rows[0]) sel.value = rows[0].id;
+  updateConceptNote();
+}
+
+function updateConceptNote() {
+  const note = $("concept-note");
+  const preset = activePreset();
+  const assumptions = (preset && preset.assumptions) || (config.concept && config.concept.footprint && config.concept.footprint.assumptions) || [];
+  if (note) {
+    note.textContent = assumptions.length
+      ? `${assumptions.join(" · ")} Schematic interiors are not a survey.`
+      : "Visual concept. Not a permit. Schematic interiors are not a survey.";
+  }
+  const cad = $("concept-cad");
+  const gltf = $("cad-gltf");
+  const dxf = $("cad-dxf");
+  const ifc = $("cad-ifc");
+  if (cad && dxf && ifc) {
+    const files = preset && preset.cad;
+    const show = Boolean(files && files.dxf && files.ifc);
+    cad.hidden = !show;
+    if (show) {
+      const studioId = files.studio_id || "concept";
+      const interiors = interiorOn();
+      if (gltf) {
+        gltf.href = interiors && files.gltf_interiors ? files.gltf_interiors : files.gltf;
+        gltf.download = `${studioId}${interiors ? "-interiors" : ""}.gltf`;
+      }
+      dxf.href = files.dxf;
+      ifc.href = files.ifc;
+      dxf.download = `${studioId}.dxf`;
+      ifc.download = `${studioId}.ifc`;
+    }
+  }
+}
+
+function activePreset(packet) {
+  const sel = $("concept-preset");
+  const rows = missionPresets();
+  const fromPacket = packet && packet.scene && packet.scene.future && packet.scene.future.preset_id;
+  const id = (sel && sel.value) || fromPacket;
+  return rows.find((row) => row.id === id) || rows[0] || null;
+}
+
+function activePad(packet) {
+  const preset = activePreset(packet);
+  const pad = packet && packet.scene && packet.scene.assumed_pad;
+  if (!preset && !pad) return null;
+  return {
+    claim: "assumption",
+    fit_status: "deferred",
+    preset_id: (preset && preset.id) || (pad && pad.preset_id),
+    title: (preset && preset.title) || (pad && pad.title) || "Concept",
+    length_m: (preset && preset.length_m) || (pad && pad.length_m),
+    width_m: (preset && preset.width_m) || (pad && pad.width_m),
+    height_m: (preset && preset.height_m) || (pad && pad.height_m) || 10,
+    setback_m: (preset && preset.setback_m) || (pad && pad.setback_m) || 10,
+    dock_m: (preset && Object.prototype.hasOwnProperty.call(preset, "dock_m") ? preset.dock_m : pad && pad.dock_m) || null,
+    bays: (preset && preset.bays) || 0,
+    interior: (preset && preset.interior) || (packet && packet.scene && packet.scene.future && packet.scene.future.interior) || [],
+    cad: (preset && preset.cad) || (pad && pad.cad) || null,
+    family: (preset && preset.family) || missionConceptKey(),
+  };
+}
+
+function interiorOn() {
+  return Boolean($("show-interior") && $("show-interior").checked);
+}
+
 function pickMission(id) {
   mission = id;
   plan = null;
@@ -341,6 +469,7 @@ function pickMission(id) {
   renderPreferences(id);
   renderInvestigations(id);
   resetRouteAnchors(id);
+  renderConceptPresets();
   previewPlan();
 }
 
@@ -625,19 +754,16 @@ async function confirmPlan() {
     `${plan.mission} · ${plan.scan_budget} · ${plan.hard_constraints.join(", ") || "no hard gates"}`;
   await ensureViewer();
   const futureButton = $("mode-future");
-  const futureOk = mission === "warehouse"
-    && config.concept
-    && config.concept.claim
-    && config.concept.claim.FUTURE === "visual_concept";
+  const futureOk = missionHasConcept();
   futureButton.disabled = !futureOk;
   futureButton.classList.toggle("off", !futureOk);
   futureButton.title = futureOk
-    ? "Warehouse visual concept after Concept Test. Not a permit."
-    : "Warehouse Concept Studio is unavailable for this Mission.";
-  $("mode-pad").disabled = mission !== "warehouse";
-  $("mode-pad").title = mission === "warehouse"
-    ? "Parametric pad and dock. Assumption, not FIT."
-    : "Warehouse assumed pad is the only PAD overlay in this MVP.";
+    ? "Visual concept after Concept Studio. Schematic interiors. Not a permit."
+    : "No concept preset is available for this Mission.";
+  $("mode-pad").disabled = !futureOk;
+  $("mode-pad").title = futureOk
+    ? "Parametric pad. Assumption, not FIT."
+    : "No assumed pad for this Mission.";
   $("mode-past").disabled = true;
   $("mode-past").title = "Screen a site to attach a temporal witness.";
   applyMode("earth");
@@ -753,9 +879,27 @@ function el(className, tag) {
   return node;
 }
 
-function buildWarehouseMass(pad, padW, padH, heightPx) {
+function buildInteriorPlan(rooms) {
+  const plan = el("interior-plan");
+  (rooms || []).forEach((room) => {
+    const cell = el("interior-room");
+    cell.style.left = `${(room.x || 0) * 100}%`;
+    cell.style.top = `${(room.y || 0) * 100}%`;
+    cell.style.width = `${(room.w || 0) * 100}%`;
+    cell.style.height = `${(room.h || 0) * 100}%`;
+    const label = document.createElement("span");
+    label.textContent = room.label || room.id;
+    cell.append(label);
+    plan.append(cell);
+  });
+  return plan;
+}
+
+function buildConceptMass(pad, padW, padH, heightPx) {
   const box = el("future-box");
   box.dataset.claim = "visual_concept";
+  box.dataset.preset = pad.preset_id || "";
+  box.dataset.family = pad.family || "warehouse";
   box.style.width = `${padW}px`;
   box.style.height = `${padH}px`;
   box.style.setProperty("--wh-h", `${heightPx}px`);
@@ -768,14 +912,24 @@ function buildWarehouseMass(pad, padW, padH, heightPx) {
   roof.append(el("wh-seam"), el("wh-hvac"), el("wh-hvac wh-hvac-b"));
   const south = el("wh-face wh-south");
   const doors = el("wh-doors");
-  const bays = Math.max(4, Math.min(8, Math.round(pad.length_m / 12)));
-  for (let i = 0; i < bays; i += 1) doors.append(el("wh-door"));
+  const bays = Number(pad.bays);
+  const doorCount = Number.isFinite(bays)
+    ? bays
+    : Math.max(0, Math.min(8, Math.round((pad.length_m || 80) / 12)));
+  for (let i = 0; i < doorCount; i += 1) doors.append(el("wh-door"));
   south.append(doors, el("wh-canopy"));
   const office = el("wh-office");
   office.append(el("wh-face wh-office-roof"), el("wh-face wh-office-south"), el("wh-face wh-office-east"));
   mass.append(roof, south, el("wh-face wh-east"), el("wh-face wh-west"), el("wh-face wh-north"), office);
   box.append(shadow, apron, mass);
+  if (interiorOn() && (pad.interior || []).length) {
+    box.append(buildInteriorPlan(pad.interior));
+  }
   return box;
+}
+
+function buildWarehouseMass(pad, padW, padH, heightPx) {
+  return buildConceptMass(pad, padW, padH, heightPx);
 }
 
 function metersToPixels(lat, meters, zoom) {
@@ -797,7 +951,7 @@ function paintMapOverlays(map, site, packet) {
   pastEl.hidden = sceneMode !== "past";
   map.appendChild(pastEl);
   if (sceneMode === "past") applyPastYear(packet, pastEl);
-  const pad = packet && packet.scene && packet.scene.assumed_pad;
+  const pad = activePad(packet);
   const showPad = ["pad", "future"].includes(sceneMode) && pad && pad.claim === "assumption";
   if (!showPad) return;
   const zoom = mapZoom();
@@ -821,7 +975,7 @@ function paintMapOverlays(map, site, packet) {
   map.appendChild(padEl);
   if (sceneMode === "future") {
     const heightPx = Math.max(28, metersToPixels(site.lat, pad.height_m || 10, zoom) * 1.55);
-    const box = buildWarehouseMass(pad, padW, padH, heightPx);
+    const box = buildConceptMass(pad, padW, padH, heightPx);
     box.style.left = `calc(50% - ${padW / 2}px)`;
     box.style.top = `calc(50% - ${padH / 2}px)`;
     box.style.transform = `rotateZ(${yaw}deg)`;
@@ -900,7 +1054,7 @@ function applyPastYear(packet, overlay) {
 
 function updatePlacementClaim(packet) {
   const el = $("placement-claim");
-  const pad = packet && packet.scene && packet.scene.assumed_pad;
+  const pad = activePad(packet);
   const fit = packet && packet.scene && packet.scene.fit;
   if (!pad) {
     el.hidden = true;
@@ -911,7 +1065,8 @@ function updatePlacementClaim(packet) {
   el.hidden = !["pad", "future"].includes(sceneMode);
   el.dataset.claim = pad.claim || "";
   el.dataset.fit = (fit && fit.claim) || "";
-  el.textContent = `${pad.length_m}×${pad.width_m} m concept · assumption, not FIT`;
+  const interior = interiorOn() ? " · schematic interior" : "";
+  el.textContent = `${pad.title || "Concept"} · ${pad.length_m}×${pad.width_m} m${interior} · assumption, not FIT`;
 }
 
 function syncEraButtons(packet) {
@@ -923,13 +1078,14 @@ function syncEraButtons(packet) {
       ? "JRC water-frequency rewind. Does not score."
       : "Bounded temporal witness. Does not score.")
     : "No temporal witness attached to this packet.";
-  const padOk = Boolean(packet && packet.scene && packet.scene.assumed_pad && packet.scene.assumed_pad.claim === "assumption");
+  const padOk = Boolean(activePad(packet) && activePad(packet).claim === "assumption");
   if ($("mode-pad")) {
     $("mode-pad").disabled = !padOk;
   }
-  if ($("mode-future") && mission === "warehouse") {
+  if ($("mode-future")) {
     const futureOk = Boolean(
-      packet
+      missionHasConcept()
+      && packet
       && packet.verdict
       && packet.verdict.verdict !== "reject"
       && packet.scene
@@ -939,8 +1095,8 @@ function syncEraButtons(packet) {
     $("mode-future").disabled = !futureOk;
     $("mode-future").classList.toggle("off", !futureOk);
     $("mode-future").title = futureOk
-      ? "Warehouse visual concept. Not a permit. FIT is a named gap."
-      : "FUTURE is for a surviving warehouse candidate.";
+      ? "Visual concept. Schematic interiors. Not a permit. FIT is a named gap."
+      : "FUTURE is for a surviving candidate with a concept preset.";
   }
 }
 
@@ -955,6 +1111,7 @@ function pastContext(packet) {
   }
   if (past.kind === "farm_history") return "PAST farm history — CDL/CHIRPS summary, no invented yearly map. Does not score.";
   if (past.kind === "observed_heat") return "PAST observed heat — not a climate forecast. Does not score.";
+  if (past.kind === "land_change") return "PAST land change — Dynamic World modal built fraction. INFORM only. Does not score.";
   return "PAST temporal witness. Does not score.";
 }
 
@@ -974,9 +1131,9 @@ function clearPadEntities() {
   padEntities = [];
 }
 
-function placeAssumedPad(site, scene) {
+function placeAssumedPad(site, scene, packet) {
   clearPadEntities();
-  const pad = scene && scene.assumed_pad;
+  const pad = activePad(packet || { scene });
   if (!viewer || !site || !pad || pad.claim !== "assumption") return;
   if (!["pad", "future"].includes(sceneMode)) return;
   const heading = headingRad();
@@ -1013,10 +1170,13 @@ function placeAssumedPad(site, scene) {
       extrudedHeight: 1.6,
     },
   }));
+  const futureLabel = interiorOn()
+    ? `${(pad.title || "CONCEPT").toUpperCase()} · schematic interior · not a permit`
+    : `${(pad.title || "CONCEPT").toUpperCase()} · not a permit`;
   padEntities.push(viewer.entities.add({
     position: Cesium.Cartesian3.fromDegrees(site.lng, site.lat, 18),
     label: {
-      text: sceneMode === "future" ? "INDUSTRIAL CONCEPT · not a permit" : "ASSUMED PAD · not FIT",
+      text: sceneMode === "future" ? futureLabel : "ASSUMED PAD · not FIT",
       font: "14px Clash, sans-serif",
       fillColor: Cesium.Color.fromCssColorString("#ffe0cc"),
       outlineColor: Cesium.Color.BLACK,
@@ -1041,12 +1201,52 @@ function placeAssumedPad(site, scene) {
       },
     }));
   }
+  if (sceneMode === "future" && interiorOn()) {
+    (pad.interior || []).forEach((room) => {
+      const west = -hw + (room.x || 0) * pad.width_m;
+      const east = west + (room.w || 0) * pad.width_m;
+      const north = hl - (room.y || 0) * pad.length_m;
+      const south = north - (room.h || 0) * pad.length_m;
+      const roomCorners = [
+        enuPoint(site.lng, site.lat, west, south, heading),
+        enuPoint(site.lng, site.lat, east, south, heading),
+        enuPoint(site.lng, site.lat, east, north, heading),
+        enuPoint(site.lng, site.lat, west, north, heading),
+      ];
+      padEntities.push(viewer.entities.add({
+        polygon: {
+          hierarchy: new Cesium.PolygonHierarchy(roomCorners),
+          material: Cesium.Color.fromCssColorString("#7ec8e3").withAlpha(0.35),
+          outline: true,
+          outlineColor: Cesium.Color.fromCssColorString("#d7f3ff"),
+          height: (pad.height_m || 10) + 0.4,
+          extrudedHeight: (pad.height_m || 10) + 0.6,
+        },
+        position: enuPoint(
+          site.lng,
+          site.lat,
+          (west + east) / 2,
+          (north + south) / 2,
+          heading
+        ),
+        label: {
+          text: room.label || room.id,
+          font: "11px Clash, sans-serif",
+          fillColor: Cesium.Color.WHITE,
+          outlineColor: Cesium.Color.BLACK,
+          outlineWidth: 2,
+          pixelOffset: new Cesium.Cartesian2(0, -8),
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        },
+      }));
+    });
+  }
 }
 
 function refreshPlacement(site, packet) {
   if (!site) return;
-  if (sceneMode === "future") placeConcept(site);
-  if (["pad", "future"].includes(sceneMode)) placeAssumedPad(site, packet && packet.scene);
+  if (sceneMode === "future") placeConcept(site, packet);
+  if (["pad", "future"].includes(sceneMode)) placeAssumedPad(site, packet && packet.scene, packet);
   const map = $("quick-map");
   if (map && !map.classList.contains("hidden")) paintMapOverlays(map, site, packet);
   updatePlacementClaim(packet);
@@ -1239,10 +1439,7 @@ function markModeChrome(mode) {
 
 function applyMode(mode) {
   if (mode === "fit") return;
-  const futureOk = mission === "warehouse"
-    && config.concept
-    && config.concept.claim
-    && config.concept.claim.FUTURE === "visual_concept";
+  const futureOk = missionHasConcept();
   if (mode === "future" && !futureOk) return;
   if (mode === "past" && $("mode-past").disabled) return;
   if (mode === "pad" && $("mode-pad") && $("mode-pad").disabled) return;
@@ -1355,24 +1552,39 @@ function clearConcept() {
   }
 }
 
-function placeConcept(site) {
+function placeConcept(site, packet) {
   if (!viewer || !site) return;
   clearConcept();
+  const pad = activePad(packet);
+  const preset = activePreset(packet);
+  const cad = preset && preset.cad;
+  const interiors = interiorOn();
+  const studioUrl = cad && (interiors ? cad.gltf_interiors : cad.gltf);
+  const url = studioUrl || config.warehouse_gltf || "/assets/warehouse.gltf";
+  const nativeW = (cad && cad.native_width_m) || 40;
+  const nativeH = (cad && cad.native_height_m) || 10;
+  const nativeL = (cad && cad.native_length_m) || 80;
   const heading = headingRad();
   const hpr = new Cesium.HeadingPitchRoll(heading, 0, 0);
   const origin = Cesium.Cartesian3.fromDegrees(site.lng, site.lat, 1.4);
-  const modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(origin, hpr);
+  let modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(origin, hpr);
+  const scale = new Cesium.Cartesian3(
+    ((pad && pad.width_m) || nativeW) / nativeW,
+    ((pad && pad.height_m) || nativeH) / nativeH,
+    ((pad && pad.length_m) || nativeL) / nativeL
+  );
+  modelMatrix = Cesium.Matrix4.multiply(modelMatrix, Cesium.Matrix4.fromScale(scale), new Cesium.Matrix4());
   conceptModel = viewer.scene.primitives.add(Cesium.Model.fromGltf({
-    url: config.warehouse_gltf || "/assets/warehouse.gltf",
+    url,
     modelMatrix,
     scale: 1,
     minimumPixelSize: 160,
     maximumScale: 6,
-    color: Cesium.Color.fromCssColorString("#ff6a12").withAlpha(1),
-    colorBlendMode: Cesium.ColorBlendMode.REPLACE,
-    colorBlendAmount: 1,
+    color: interiors ? Cesium.Color.WHITE : Cesium.Color.fromCssColorString("#ff6a12").withAlpha(1),
+    colorBlendMode: interiors ? Cesium.ColorBlendMode.MIX : (studioUrl ? Cesium.ColorBlendMode.MIX : Cesium.ColorBlendMode.REPLACE),
+    colorBlendAmount: interiors ? 0 : (studioUrl ? 0.12 : 1),
     silhouetteColor: Cesium.Color.fromCssColorString("#ffe6c8"),
-    silhouetteSize: 2.4,
+    silhouetteSize: interiors ? 1.2 : 2.4,
   }));
   if (conceptModel && conceptModel.readyPromise) {
     conceptModel.readyPromise.then(() => {
@@ -1591,6 +1803,7 @@ function selectSite(id, opts) {
     $("verdict").textContent = `${site.label} · not screened`;
     $("rail").innerHTML = "<li>idle</li>";
     $("gaps").innerHTML = "";
+    if ($("scout-followups")) $("scout-followups").innerHTML = "";
     $("brief").innerHTML = "";
     $("scorecard").innerHTML = "";
     $("coverage").innerHTML = "";
@@ -1666,6 +1879,7 @@ function clearDetail() {
   $("verdict").className = "verdict empty";
   $("verdict").textContent = "Select a site, then screen it.";
   $("gaps").innerHTML = "";
+  if ($("scout-followups")) $("scout-followups").innerHTML = "";
   $("brief").innerHTML = "";
   $("skeptic-stamp").hidden = true;
   $("aerial-status").textContent = "Screen a site to check Aerial View.";
@@ -1703,6 +1917,20 @@ function showPacket(packet, opts) {
       const q = GAP_QUESTIONS[g.question_id] || g.question_id;
       return `<li data-gap="${escapeHtml(g.question_id)}">${escapeHtml(q)} — ${escapeHtml(g.action)}</li>`;
     }).join("");
+  const scoutAtom = (packet.atoms || []).find((atom) => atom.field_id === "official_followup_sources");
+  const followups = (scoutAtom && scoutAtom.value && scoutAtom.value.followups) || [];
+  const scoutList = $("scout-followups");
+  if (scoutList) {
+    scoutList.innerHTML = followups.map((row) => {
+      const title = row.title || row.authority || "Official follow-up";
+      const reason = row.reason || row.action || "Constrained official source. Not web discovery.";
+      const href = row.url || (row.urls && row.urls[0]);
+      const label = href
+        ? `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`
+        : escapeHtml(title);
+      return `<li data-scout="${escapeHtml(row.id || "")}">${label} — ${escapeHtml(reason)}</li>`;
+    }).join("");
+  }
   const fitGap = $("fit-gap");
   if (fitGap) {
     const named = (packet.verdict.gaps || []).some((g) => g.question_id === "concept_fit");

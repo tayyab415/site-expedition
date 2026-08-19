@@ -2,22 +2,30 @@
 
 from __future__ import annotations
 
-from expedition.concept import load_footprint, run_concept_test
+from expedition.concept import (
+    INTERIOR_NOTE,
+    PERMIT_NOTE,
+    default_preset_id,
+    list_presets,
+    load_preset,
+    run_concept_test,
+)
 
 
 def build_scene(*, mission: str, witnesses: list[dict]) -> dict:
-    concept = run_concept_test() if mission == "warehouse" else None
+    preset = load_preset(default_preset_id(mission), mission=mission)
+    concept = run_concept_test() if mission in {"warehouse", "custom"} else None
     return {
         "google_tiles_used": False,
         "parcel_fields_used": False,
         "past": _past(mission, witnesses),
-        "assumed_pad": _assumed_pad(mission),
-        "future": _future(mission, concept),
+        "assumed_pad": _assumed_pad(preset),
+        "future": _future(mission, concept, preset),
         "fit": {
             "claim": "deferred",
             "reason": (
                 "No independently licensed parcel or constraint polygon on the default path. "
-                "The warehouse pad is an assumption, not FIT."
+                "The pad is an assumption, not FIT."
             ),
         },
     }
@@ -27,6 +35,7 @@ def _past(mission: str, witnesses: list[dict]) -> dict:
     flood = next((row for row in witnesses if row.get("kind") == "flood_rewind"), None)
     farm = next((row for row in witnesses if row.get("kind") == "farm_history"), None)
     heat = next((row for row in witnesses if row.get("kind") == "observed_heat"), None)
+    land = next((row for row in witnesses if row.get("kind") == "land_change"), None)
     if flood and flood.get("series"):
         return {
             "kind": "flood_rewind",
@@ -76,6 +85,29 @@ def _past(mission: str, witnesses: list[dict]) -> dict:
             "series": [],
             "note": "Observed summer heat window. Not a climate forecast.",
         }
+    if land:
+        return {
+            "kind": "land_change",
+            "scores": False,
+            "independence_group": land.get("independence_group") or "DYNAMIC_WORLD",
+            "source": land.get("source") or "GOOGLE/DYNAMICWORLD/V1",
+            "early_built_frac": land.get("early_built_frac"),
+            "late_built_frac": land.get("late_built_frac"),
+            "early_window": land.get("early_window"),
+            "late_window": land.get("late_window"),
+            "buffer_m": land.get("buffer_m"),
+            "method": land.get("method"),
+            "series": [],
+            "note": (
+                "Dynamic World thresholded top-1 built fraction"
+                + (
+                    f" in a {land.get('buffer_m')} m buffer. "
+                    if land.get("buffer_m")
+                    else ". "
+                )
+                + "INFORM only. Not scored. Not a construction permit or listing proof."
+            ),
+        }
     return {
         "kind": "none",
         "scores": False,
@@ -84,41 +116,43 @@ def _past(mission: str, witnesses: list[dict]) -> dict:
     }
 
 
-def _assumed_pad(mission: str) -> dict | None:
-    if mission != "warehouse":
-        return None
-    foot = load_footprint()
+def _assumed_pad(preset: dict) -> dict:
+    dock = preset.get("dock_m")
     return {
         "claim": "assumption",
         "fit_status": "deferred",
-        "length_m": foot["length_m"],
-        "width_m": foot["width_m"],
-        "height_m": foot["height_m"],
-        "setback_m": 10,
-        "dock_m": {"length": 24, "width": 12, "height": 1.4},
-        "assumptions": list(foot.get("assumptions") or []),
-        "note": "Parametric pad and dock. Not a licensed parcel and not FIT.",
+        "preset_id": preset["id"],
+        "title": preset["title"],
+        "length_m": preset["length_m"],
+        "width_m": preset["width_m"],
+        "height_m": preset["height_m"],
+        "setback_m": preset.get("setback_m") or 10,
+        "dock_m": dict(dock) if dock else None,
+        "cad": preset.get("cad"),
+        "assumptions": list(preset.get("assumptions") or []),
+        "note": "Parametric pad. Not a licensed parcel and not FIT.",
     }
 
 
-def _future(mission: str, concept: dict | None) -> dict:
-    if mission != "warehouse":
-        return {
-            "claim": "deferred",
-            "reason": "Warehouse Concept Studio is the only FUTURE visual concept in this MVP.",
-        }
-    claim = (concept or {}).get("claim") or {}
-    if claim.get("FUTURE") != "visual_concept":
-        return {
-            "claim": "deferred",
-            "reason": claim.get("future_note") or "Concept Test did not claim FUTURE.",
-        }
-    foot = load_footprint()
+def _future(mission: str, concept: dict | None, preset: dict) -> dict:
+    if mission in {"warehouse", "custom"}:
+        claim = (concept or {}).get("claim") or {}
+        if claim.get("FUTURE") != "visual_concept":
+            return {
+                "claim": "deferred",
+                "reason": claim.get("future_note") or "Concept Test did not claim FUTURE.",
+            }
     return {
         "claim": "visual_concept",
-        "asset": "/assets/warehouse.gltf",
-        "length_m": foot["length_m"],
-        "width_m": foot["width_m"],
-        "height_m": foot["height_m"],
-        "note": "Parametric warehouse box on an assumed pad. Not a permit. Does not score.",
+        "preset_id": preset["id"],
+        "title": preset["title"],
+        "asset": (preset.get("cad") or {}).get("gltf") or preset.get("asset") or "/assets/warehouse.gltf",
+        "cad": preset.get("cad"),
+        "length_m": preset["length_m"],
+        "width_m": preset["width_m"],
+        "height_m": preset["height_m"],
+        "interior_claim": "schematic_program",
+        "interior": list(preset.get("interior") or []),
+        "presets": list_presets(mission),
+        "note": f"{PERMIT_NOTE} {INTERIOR_NOTE}",
     }

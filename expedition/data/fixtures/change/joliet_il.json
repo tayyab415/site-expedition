@@ -1,0 +1,32 @@
+{
+  "candidate_id": "joliet_il",
+  "lat": 41.525,
+  "lng": -88.083,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "land_change": {
+    "dynamic_world": {
+      "early_mode": {"code": 4, "label": "crops"},
+      "late_mode": {"code": 6, "label": "built"},
+      "early_built_frac": 0.12,
+      "late_built_frac": 0.39,
+      "neighbor_built_frac": 0.31,
+      "scale_m": 10,
+      "windows": {"early": "2016-01-01/2018-12-31", "late": "2022-01-01/2024-12-31"}
+    },
+    "nlcd": {
+      "early_developed_frac": 0.16,
+      "late_developed_frac": 0.29,
+      "early_mode": 82,
+      "late_mode": 22,
+      "scale_m": 30,
+      "years": [2016, 2021]
+    },
+    "site_radius_m": 60,
+    "neighborhood_radius_m": 250,
+    "change_type": "built_gain",
+    "agreement": "agree",
+    "dw_built_delta": 0.27,
+    "nlcd_developed_delta": 0.13,
+    "score_used": false
+  }
+}
