@@ -1,4 +1,4 @@
-"""Record the UChicago Aerial View 3D orbit on Earth, and Orbit without the cartoon tilt.
+"""Record Earth on the selected pin, and Orbit without the cartoon tilt.
 
     DISPLAY=:98 PYTHONPATH=. python3 -m expedition.verify.earth_record --base-url http://127.0.0.1:8030
 """
@@ -103,38 +103,47 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             _evaluate(cdp, "selectSite('san_marcos_tx', {fly:true})")
             time.sleep(0.8)
 
-            recorder.start("earth-uchicago")
+            recorder.start("earth-this-pin")
             _evaluate(cdp, "applyMode('earth')")
-            deadline = time.monotonic() + 20
+            deadline = time.monotonic() + 12
             state = {}
             while time.monotonic() < deadline:
                 state = _scene(cdp)
                 recorder.grab(cdp)
                 if (
                     state.get("sceneMode") == "earth"
-                    and not state.get("videoHidden")
-                    and state.get("videoTime", 0) > 0.3
+                    and state.get("selectedId") == "san_marcos_tx"
+                    and (
+                        not state.get("earthHidden")
+                        or not state.get("videoHidden")
+                    )
                 ):
                     break
                 time.sleep(0.4)
             time.sleep(3.0)
-            recorder.grab(cdp, "earth-uchicago")
+            state = _scene(cdp)
+            recorder.grab(cdp, "earth-this-pin")
+            context = (state.get("context") or "").lower()
             _check(
                 checks,
-                "earth-uchicago",
-                "Earth plays the UChicago Aerial View 3D orbit",
-                state.get("sceneMode") == "earth"
-                and not state.get("videoHidden")
-                and "http" in (state.get("videoSrc") or ""),
+                "earth-this-pin",
+                "Earth stays on the selected pin",
+                state.get("sceneMode") == "earth" and state.get("selectedId") == "san_marcos_tx",
                 json.dumps(state),
             )
             _check(
                 checks,
-                "earth-uchicago",
-                "Earth is Aerial View, not a tilted 2D map",
-                state.get("earthHidden") is True
-                and "aerial view" in (state.get("context") or "").lower(),
-                state.get("context"),
+                "earth-this-pin",
+                "Earth shows this pin, not the University of Chicago clip",
+                "chicago" not in context and "uchicago" not in context
+                and (
+                    state.get("earthHidden") is False
+                    or (
+                        not state.get("videoHidden")
+                        and "http" in (state.get("videoSrc") or "")
+                    )
+                ),
+                json.dumps(state),
             )
             recorder.stop()
 

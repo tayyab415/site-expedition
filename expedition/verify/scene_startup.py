@@ -140,9 +140,20 @@ def run(args: argparse.Namespace) -> dict:
                 1,
             )
             state["nonblank_first_mode"] = (
-                state["sceneMode"] in {"aerial", "osm"}
-                and state["quickMapVisible"]
-                and state["quickMapTilesLoaded"] > 0
+                (
+                    (
+                        state["sceneMode"] in {"aerial", "osm"}
+                        and state["quickMapVisible"]
+                        and state["quickMapTilesLoaded"] > 0
+                    )
+                    or (
+                        state["sceneMode"] == "mesh"
+                        and (
+                            (state["quickMapVisible"] and state["quickMapTilesLoaded"] > 0)
+                            or int(state.get("tileContentReady") or 0) > 0
+                        )
+                    )
+                )
                 and state["after_confirm_ms"] <= args.budget_seconds * 1000
             )
             screenshot = args.output_dir / "startup.png"

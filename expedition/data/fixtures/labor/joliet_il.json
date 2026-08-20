@@ -1,0 +1,23 @@
+{
+  "candidate_id": "joliet_il",
+  "lat": 41.525,
+  "lng": -88.083,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "labor_access": {
+    "geoid": "17197",
+    "county_name": "Will County, Illinois",
+    "state_fips": "17",
+    "county_fips": "197",
+    "civilian_labor_force": 372000,
+    "civilian_employed": 354200,
+    "mean_commute_minutes": 32,
+    "lodes": {
+      "vintage": "2022",
+      "workplace_jobs": 248000,
+      "residence_jobs": 331000,
+      "note": "County-scale LODES-style context from a reviewed fixture. Not worker availability."
+    },
+    "scale": "county",
+    "workers_available": null
+  }
+}

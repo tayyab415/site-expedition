@@ -676,6 +676,35 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
                 }
             )
 
+            _evaluate(cdp, "passSite('alliance_tx')")
+            swipe = _evaluate(
+                cdp,
+                """(() => {
+                  const alliance = document.querySelector('#cards .card[data-id="alliance_tx"]');
+                  const sanLeon = document.querySelector('#cards .card[data-id="san_leon"]');
+                  return {
+                    cards: document.querySelectorAll('#cards .card').length,
+                    alliancePassed: Boolean(alliance && alliance.classList.contains('passed')),
+                    sanLeonCard: Boolean(sanLeon),
+                    face: Boolean(document.querySelector('#swipe-face')),
+                    keep: Boolean(document.querySelector('#keep-site')),
+                    pass: Boolean(document.querySelector('#pass-site')),
+                    origins: Array.from(document.querySelectorAll('#cards .origin')).map((el) => el.textContent),
+                  };
+                })()""",
+            )
+            swipe_ok = (
+                isinstance(swipe, dict)
+                and int(swipe.get("cards") or 0) == 4
+                and bool(swipe.get("alliancePassed"))
+                and bool(swipe.get("sanLeonCard"))
+                and bool(swipe.get("face"))
+                and bool(swipe.get("keep"))
+                and bool(swipe.get("pass"))
+            )
+            report["steps"].append({"id": "swipe_pass", "ok": swipe_ok, "state": swipe})
+            _evaluate(cdp, "typeof undoSwipe === 'function' && undoSwipe()")
+
             _evaluate(cdp, "applyMode('mesh')")
             try:
                 warehouse_scene = _wait_for_scene(cdp)

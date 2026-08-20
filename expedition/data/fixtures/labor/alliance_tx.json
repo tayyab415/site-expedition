@@ -1,0 +1,23 @@
+{
+  "candidate_id": "alliance_tx",
+  "lat": 32.976,
+  "lng": -97.319,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "labor_access": {
+    "geoid": "48439",
+    "county_name": "Tarrant County, Texas",
+    "state_fips": "48",
+    "county_fips": "439",
+    "civilian_labor_force": 1123400,
+    "civilian_employed": 1072100,
+    "mean_commute_minutes": 27,
+    "lodes": {
+      "vintage": "2022",
+      "workplace_jobs": 1185000,
+      "residence_jobs": 1048000,
+      "note": "County-scale LODES-style context from a reviewed fixture. Not worker availability."
+    },
+    "scale": "county",
+    "workers_available": null
+  }
+}

@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 import urllib.error
 
-from expedition.adapters.streetview import street_meta
+from expedition.adapters.streetview import lookup_image, street_meta
 
 
 class StreetViewTests(unittest.TestCase):
@@ -46,6 +46,29 @@ class StreetViewTests(unittest.TestCase):
                 out = street_meta(40.0, -90.0, cache_dir=Path(tmp), key="not-secret")
         self.assertFalse(out["available"])
         self.assertEqual(out["http_status"], 403)
+
+    def test_image_fetch_prefers_pano_id_over_pin_location(self):
+        captured = {}
+
+        class Fake:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return b"\xff\xd8\xff"
+
+        def fake_open(request, timeout=0):
+            captured["url"] = request.full_url
+            return Fake()
+
+        with patch("expedition.adapters.streetview.urllib.request.urlopen", side_effect=fake_open):
+            lookup_image(32.982, -97.312, 70, "not-secret", pano_id="ZfcBqrnQMm6uvpFBU_RUvA")
+        self.assertIn("pano=ZfcBqrnQMm6uvpFBU_RUvA", captured["url"])
+        self.assertNotIn("location=", captured["url"])
+
 
 
 if __name__ == "__main__":

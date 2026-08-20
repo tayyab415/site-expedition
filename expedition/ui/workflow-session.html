@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Place / Scout / Screen / Sketch session</title>
+  <link rel="stylesheet" href="/fonts.css">
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; font: 16px/1.5 Clash, system-ui, sans-serif; background: #0c0d0e; color: #ece8e0; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+    h1 { font-weight: 700; margin: 0 0 8px; font-size: 28px; }
+    h2 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #9a948a; margin: 36px 0 10px; }
+    p, li, figcaption { color: #c4bfb4; }
+    a { color: #ece8e0; }
+    .lede { max-width: 46rem; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 18px; }
+    @media (max-width: 820px) { .pair { grid-template-columns: 1fr; } }
+    figure { margin: 0; position: relative; }
+    figure img, video {
+      display: block; width: 100%; background: #111;
+      border: 1px solid rgba(236,232,224,.14);
+    }
+    figcaption { font-size: 13px; margin-top: 8px; }
+    .tag {
+      display: inline-block; font: 11px ui-monospace, monospace;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: #9a948a; margin-bottom: 6px;
+    }
+    ol.notes { margin: 0 0 28px; padding-left: 1.2rem; }
+    ol.notes li { margin: 0 0 8px; }
+    .wide { margin: 0 0 18px; }
+    video { margin-top: 6px; }
+    .chapters { columns: 2; gap: 28px; }
+    @media (max-width: 720px) { .chapters { columns: 1; } }
+    .chapters li { break-inside: avoid; margin: 0 0 10px; }
+    code { font: 13px ui-monospace, monospace; color: #ece8e0; }
+    .pins { position: relative; }
+    .pin {
+      position: absolute; max-width: 42%;
+      background: rgba(12,13,14,.88);
+      border: 1px solid rgba(236,232,224,.35);
+      color: #ece8e0;
+      font-size: 11px; line-height: 1.35;
+      padding: 6px 8px;
+      pointer-events: none;
+    }
+    .pin b { display: block; font: 10px ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase; color: #c2b9a6; margin-bottom: 2px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="/">Planning board</a> · <a href="/swipe-session">Keep/Pass session</a> · <a href="/recordings">other recordings</a></p>
+    <h1>Place → Scout → Screen → Sketch</h1>
+    <p class="lede">
+      19 Aug 2026, this working tree. Before shots are the Keep/Pass board from earlier today
+      (title “Pick the next warehouse pin”, button “Confirm Mission Plan”, “Run Expedition”).
+      After shots and the video are the beat workflow I added on top of that dock.
+      Keep / Pass did not go away. Screening still waits until you ask. Pass is still not a FEMA Reject.
+    </p>
+    <p class="lede">
+      What changed is the loop a person is supposed to follow. Onboard now says where you are in the run.
+      Find vs Check is a real split. The board names the beat, tells you the next move, and dimms comparison
+      until packets exist. FUTURE is a labeled sketch, not a permit.
+    </p>
+
+    <h2>1. Onboard. The run has a first beat.</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · Keep/Pass tree</span>
+        <div class="pins">
+          <img src="/workflow-session/stills/before-01-onboard.png" alt="Before onboard: Pick the next warehouse pin, Confirm Mission Plan">
+          <span class="pin" style="top:8%;left:4%"><b>1</b> Title is a hunt line. No Place / Scout / Screen / Sketch strip.</span>
+          <span class="pin" style="bottom:10%;left:4%;max-width:48%"><b>2</b> Confirm Mission Plan. Warehouse already selected, Texas Triangle, flood veto on.</span>
+        </div>
+        <figcaption>
+          You land on a warehouse pitch. The plan is one dashed card. Extra controls hide behind Adjust the plan.
+          There is no Find vs Check. The implied job is “confirm, then run.”
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · this session</span>
+        <div class="pins">
+          <img src="/workflow-session/stills/after-01-onboard.png" alt="After onboard: Place the next warehouse, Open the board">
+          <span class="pin" style="top:4%;left:4%"><b>1</b> Place is lit. Scout, Screen, Sketch wait. This page is only Place.</span>
+          <span class="pin" style="top:22%;right:4%;max-width:44%"><b>2</b> Title follows the mission tile. Warehouse copy talks flood veto and Conditional survivors.</span>
+          <span class="pin" style="bottom:12%;left:4%;max-width:50%"><b>3</b> Find a Site is on. Open the board, not Confirm Mission Plan. Same #confirm id for smoke tests.</span>
+        </div>
+        <figcaption>
+          Warehouse is still the default tile. Same Texas Triangle envelope, same flood checkbox.
+          The page now tells you the rest of the run exists. You are placing, not screening yet.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>Place / Scout / Screen / Sketch is a strip of four words with an arrow between them. Only Place is current on this page.</li>
+      <li>Find a Site keeps the curated Texas pins. Check a Site is the other tab. It does not run triage from onboard.</li>
+      <li>The plan card still names the skills that will fire. It now leads with “You're placing a warehouse in Texas Triangle.”</li>
+    </ol>
+
+    <h2>2. Mission copy actually changes</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">After · Farm tile</span>
+        <img src="/workflow-session/stills/after-02-farm.png" alt="Farm onboard: Place the farm, cultivated land required">
+        <figcaption>
+          Click Farm. Title becomes “Place the farm.” Kicker says cited crop facts, water right is never inferred.
+          Lede says cultivated land is required, FUTURE is a packing-shed sketch. Plan card switches to farm skills.
+          Flood checkbox is off on Farm. Home and data hall do the same title swap in the video.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Check a Site</span>
+        <div class="pins">
+          <img src="/workflow-session/stills/after-03-check.png" alt="Check a Site panel with address and lat/lng">
+          <span class="pin" style="top:58%;left:4%;max-width:52%"><b>4</b> Check a Site opens address + lat/lng. The board will add a USER SITE after confirm. Ambiguous addresses stop.</span>
+        </div>
+        <figcaption>
+          Click Check a Site. Find stays available. The note under the tabs changes to USER SITE language.
+          Address / lat / lng show the placeholder (3605 Winfield Cove, 30.236, -97.781). Nothing was typed and nothing was geocoded.
+          Live Mireye stays off. A real pin becomes a USER SITE only after Open the board.
+          Run All still skips user pins. Screen this site is the inspector button for those.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>3. Scout board. Comparison waits.</h2>
+    <p class="lede">
+      This is the actual product change on the board. Same four Texas pins. Same Keep / Pass / Undo dock.
+      The chrome around them now names the beat and refuses to pretend comparison is ready.
+    </p>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · dock crop</span>
+        <img src="/workflow-session/crops/before-03-board.png" alt="Before dock: Run Expedition, comparison already visible">
+        <figcaption>
+          Left deck says Run Expedition. Comparison table is already the other half of the dock, empty dashes.
+          No beat strip. No next-move line. The face is San Leon, Not screened. Pass / Keep work.
+          HUD copy is still “Pick the next warehouse pin” energy, not a beat.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Scout dock</span>
+        <img src="/workflow-session/crops/after-04-scout.png" alt="After scout dock: Screen N pins, compare-wait, Keep Pass">
+        <figcaption>
+          Dock on Scout. Face is San Leon, Not screened. Pass / Undo / Keep stay.
+          Comparison is dimmed and the wait line sits on it: “Keep the pins you want. This table fills after you screen.”
+          Four POTENTIAL chips, all NOT SCREENED. The Screen 4 pins button is on the left deck, not in this crop. See the full still below.
+        </figcaption>
+      </figure>
+    </div>
+    <div class="wide">
+      <figure>
+        <span class="tag">After · full Scout board</span>
+        <div class="pins">
+          <img src="/workflow-session/stills/after-04-scout.png" alt="Full scout board with beat strip over the map">
+          <span class="pin" style="top:10%;left:28%;max-width:36%"><b>6</b> Beat strip on the map: Scout is on. Story HUD names the current pin.</span>
+          <span class="pin" style="bottom:28%;left:2%;max-width:28%"><b>7</b> Next move + Screen 4 pins. Same four POTENTIAL chips. No MLS.</span>
+        </div>
+        <figcaption>
+          Cesium is TODAY context. It does not score. Credits should still read 245 / 20000 because swipe and scout do not call Mireye.
+          Inspector still says Keep or Pass this pin. Screening waits until you ask.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>Smoke tests still click #confirm then #run-all. The visible labels changed. The ids did not.</li>
+      <li>Passing a pin does not fill the comparison table. That is the whole point of Scout as a beat.</li>
+      <li>On Scout, the swipe column is wide. On Compare / Sketch it shrinks so the table can actually be read.</li>
+    </ol>
+
+    <h2>4. Pass still is not Reject</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · Pass Alliance</span>
+        <img src="/workflow-session/crops/before-04-pass.png" alt="Before: Alliance faded Passed, Port Houston on the face">
+        <figcaption>
+          Same mechanic as this morning. Click Pass on Alliance. Chip goes slate, 42% opacity, stamp Passed.
+          Face advances. Comparison still unscreend. Undo is live.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Pass on Scout</span>
+        <img src="/workflow-session/crops/after-05-pass.png" alt="After Pass: Screen 3 kept pins, Alliance Passed">
+        <figcaption>
+          Same Pass. The new bit is the left button: “Screen 3 kept pins” once Alliance is out.
+          Next-move updates to “3 kept · 1 passed.” Alliance is not a Reject. Flood has not run.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>5. Screen, then Compare</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">After · intended Screening still</span>
+        <img src="/workflow-session/stills/after-06-screening.png" alt="Replay already on Compare, Screen again">
+        <figcaption>
+          I clicked Screen 3 kept pins and shot immediately. Replay cache already had packets, so this frame is already Compare:
+          Screen again, San Leon Reject in the story HUD, Alliance still Passed / not screened. Credits 245 / 20000.
+          The Screening… label exists in code. On this cached run it lasts less than a second. Watch 0:35 in the video.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Compare</span>
+        <img src="/workflow-session/crops/after-07-compare.png" alt="Compare beat after packets, Screen again">
+        <figcaption>
+          Dock after the same run. Table is live. San Marcos and Port Houston Conditional. San Leon Reject mapped.sfha.
+          Alliance faded Passed, verdict still a dash. Pass did not become Reject.
+        </figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · San Leon after run</span>
+        <img src="/workflow-session/crops/before-06-san-leon.png" alt="Before: San Leon Reject mapped.sfha">
+        <figcaption>
+          Verdict is still Reject · mapped_sfha. That rule did not move. The old button was Run Expedition.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · San Leon on Compare</span>
+        <img src="/workflow-session/crops/after-08-san-leon.png" alt="After: San Leon Reject with Compare beat">
+        <figcaption>
+          Same Reject. Story HUD should say San Leon Reject · FEMA mapped floodplain.
+          Compare is on. Sketch is available because warehouse has a FUTURE concept.
+          Passed Alliance, if present, is still Passed, not red Reject.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>San Marcos and Port Houston stay Conditional. Homework is still sale, power, trucking, zoning. There is no composite score.</li>
+      <li>Clicking Compare before packets exist does not fake a table. Jumping to Sketch before FUTURE is ready no-ops.</li>
+      <li>Credits should stay 245 / 20000 on replay. If they moved, Live Mireye was on and this page is lying.</li>
+    </ol>
+
+    <h2>6. Sketch is FUTURE, not FIT</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">After · FUTURE on San Marcos</span>
+        <img src="/workflow-session/stills/after-09-sketch.png" alt="Sketch beat, FUTURE massing on San Marcos">
+        <figcaption>
+          Click FUTURE, or the Sketch beat. Board title becomes Sketch.
+          Next-move: FUTURE is a labeled sketch. Interior is a program diagram. Not a permit, not FIT.
+          Placement claim stays visual_concept. FIT stays a named gap.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · schematic interior</span>
+        <img src="/workflow-session/stills/after-10-interior.png" alt="Interior checkbox and concept preset on Sketch">
+        <figcaption>
+          Interior checkbox plus the warehouse preset list. Schematic only.
+          DXF / IFC links are conceptual CAD, not a permit set. TODAY 3D is still the real site if you click back.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>Walkthrough video</h2>
+    <p class="lede">
+      Headed Chromium on Xvfb :95, kiosk 1440×1000, ffmpeg x11grab 12 fps, mouse drawn, 1m 21s.
+      Clicks are CDP mouse events, not passSite() from the console. Pause it. It does not loop.
+      The OS cursor sometimes sits on the map, not on the button. The buttons still fire.
+    </p>
+    <figure class="wide">
+      <video id="walk" controls playsinline preload="metadata"
+        poster="/workflow-session/stills/after-04-scout.png"
+        src="/workflow-session/warehouse-clickthrough.mp4"></video>
+      <figcaption>
+        Warehouse Place → Farm / Home / data hall copy → Check a Site → Open the board → Pass Alliance →
+        Screen kept pins → San Leon Reject → San Marcos FUTURE / interior → Scout beat again.
+      </figcaption>
+    </figure>
+    <ol class="chapters" id="chapters">
+      <li><strong>0:01.</strong> Place. Warehouse selected. Find a Site. Open the board is live. No Confirm Mission Plan.</li>
+      <li><strong>0:05.</strong> Farm. Title “Place the farm.” Flood checkbox off. 4 POTENTIAL pins.</li>
+      <li><strong>0:08.</strong> Home. Title “Place the house.” Labor ranking stays out.</li>
+      <li><strong>0:10.</strong> Data hall, then warehouse again. Copy follows the tile.</li>
+      <li><strong>0:16.</strong> Check a Site. Placeholder address and lat/lng. Not submitted.</li>
+      <li><strong>0:22.</strong> Find a Site, Open the board.</li>
+      <li><strong>0:26.</strong> Scout. Beat strip. Screen 4 pins. Comparison dimmed. Credits 245 / 20000.</li>
+      <li><strong>0:34.</strong> Alliance Passed. Face is Port Houston. Button is Screen 3 kept pins. Still not screened.</li>
+      <li><strong>0:35.</strong> Screen click. Replay is instant. Compare by 0:40. San Leon Reject, two Conditional, Alliance Passed.</li>
+      <li><strong>0:47.</strong> Click San Leon. Inspector is Reject · mapped_sfha. Alliance chip still Passed, not red.</li>
+      <li><strong>1:04.</strong> San Marcos FUTURE. Board title Sketch. 80×40 m cross-dock, assumption not FIT.</li>
+      <li><strong>1:13.</strong> Schematic interior on. Rack aisles / dock bays. glTF DXF IFC. Credits still 245 / 20000.</li>
+      <li><strong>1:18.</strong> Click Scout on the strip. The strip says Scout. The warehouse mass stays because FUTURE mode was not turned off. Two rows, two jobs.</li>
+    </ol>
+
+    <h2>What I checked</h2>
+    <ol class="notes">
+      <li>Before stills are copies of the Keep/Pass after-shots from <code>/swipe-session</code>. I did not rewind git HEAD. HEAD is older than Keep/Pass.</li>
+      <li>After stills were a headless CDP capture. The video is a separate headed x11grab of the same loop. I read the PNGs and sampled the video at 0:01, 0:05, 0:08, 0:12, 0:16, 0:28, 0:36, 0:40, 0:44, 0:71, 0:77, 0:79.</li>
+      <li>Alliance Passed is not in the screened id set (san_leon, san_marcos_tx, port_houston). San Leon is Reject. Passed and Reject are different CSS classes.</li>
+      <li>#confirm and #run-all still exist. Visible text is Open the board / Screen N pins / Screen again.</li>
+      <li>Credits stayed 245 / 20000 on stills and on every sampled video frame. Swipe and replay did not call live Mireye.</li>
+      <li>The automated verify script also passed: onboard title, confirm label, farm title, Check panel, Scout beat, Pass Alliance, San Leon Reject, Pass ≠ Reject, stills not black, video not black.</li>
+    </ol>
+  </main>
+</body>
+</html>

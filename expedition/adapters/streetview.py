@@ -27,29 +27,46 @@ def maps_key() -> str:
     return ""
 
 
-def _cache_path(lat: float, lng: float, cache_dir: Path | None = None) -> Path:
-    return (cache_dir or CACHE_DIR) / f"{lat:.5f}_{lng:.5f}.json"
+def _cache_path(lat: float, lng: float, cache_dir: Path | None = None, radius: int = 500) -> Path:
+    return (cache_dir or CACHE_DIR) / f"{lat:.5f}_{lng:.5f}_r{int(radius)}.json"
 
 
-def lookup_metadata(lat: float, lng: float, key: str) -> dict:
-    url = META_URL + "?" + urllib.parse.urlencode({"location": f"{lat},{lng}", "key": key})
+def lookup_metadata(lat: float, lng: float, key: str, *, radius: int = 500) -> dict:
+    url = META_URL + "?" + urllib.parse.urlencode(
+        {
+            "location": f"{lat},{lng}",
+            "radius": int(radius),
+            "source": "outdoor",
+            "key": key,
+        }
+    )
     request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
     with urllib.request.urlopen(request, timeout=20) as response:
         return json.loads(response.read().decode())
 
 
-def lookup_image(lat: float, lng: float, heading: float, key: str, *, size: str = "640x640") -> bytes:
-    url = IMAGE_URL + "?" + urllib.parse.urlencode(
-        {
-            "location": f"{lat},{lng}",
-            "size": size,
-            "heading": int(heading) % 360,
-            "pitch": 8,
-            "fov": 80,
-            "source": "outdoor",
-            "key": key,
-        }
-    )
+def lookup_image(
+    lat: float,
+    lng: float,
+    heading: float,
+    key: str,
+    *,
+    size: str = "640x640",
+    pano_id: str | None = None,
+) -> bytes:
+    params = {
+        "size": size,
+        "heading": int(heading) % 360,
+        "pitch": 8,
+        "fov": 80,
+        "source": "outdoor",
+        "key": key,
+    }
+    if pano_id:
+        params["pano"] = pano_id
+    else:
+        params["location"] = f"{lat},{lng}"
+    url = IMAGE_URL + "?" + urllib.parse.urlencode(params)
     request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
     with urllib.request.urlopen(request, timeout=20) as response:
         return response.read()
@@ -57,14 +74,15 @@ def lookup_image(lat: float, lng: float, heading: float, key: str, *, size: str 
 
 def street_meta(lat: float, lng: float, *, cache_dir: Path | None = None, key: str | None = None) -> dict:
     """Return coverage metadata. Does not persist image bytes."""
-    cache_path = _cache_path(lat, lng, cache_dir)
+    radius = 500
+    cache_path = _cache_path(lat, lng, cache_dir, radius)
     if cache_path.exists():
         return json.loads(cache_path.read_text())
     api_key = key if key is not None else maps_key()
     if not api_key:
         return {"status": "KEY_MISSING", "available": False, "lat": lat, "lng": lng}
     try:
-        raw = lookup_metadata(lat, lng, api_key)
+        raw = lookup_metadata(lat, lng, api_key, radius=radius)
     except urllib.error.HTTPError as exc:
         return {
             "status": "FAILED",

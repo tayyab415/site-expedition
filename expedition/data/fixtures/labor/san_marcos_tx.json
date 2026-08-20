@@ -1,0 +1,23 @@
+{
+  "candidate_id": "san_marcos_tx",
+  "lat": 29.883,
+  "lng": -97.941,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "labor_access": {
+    "geoid": "48209",
+    "county_name": "Hays County, Texas",
+    "state_fips": "48",
+    "county_fips": "209",
+    "civilian_labor_force": 152400,
+    "civilian_employed": 145800,
+    "mean_commute_minutes": 28,
+    "lodes": {
+      "vintage": "2022",
+      "workplace_jobs": 68400,
+      "residence_jobs": 89200,
+      "note": "County-scale LODES-style context from a reviewed fixture. Not worker availability."
+    },
+    "scale": "county",
+    "workers_available": null
+  }
+}

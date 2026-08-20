@@ -1,0 +1,32 @@
+{
+  "candidate_id": "alliance_tx",
+  "lat": 32.976,
+  "lng": -97.319,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "land_change": {
+    "dynamic_world": {
+      "early_mode": {"code": 6, "label": "built"},
+      "late_mode": {"code": 6, "label": "built"},
+      "early_built_frac": 0.62,
+      "late_built_frac": 0.66,
+      "neighbor_built_frac": 0.58,
+      "scale_m": 10,
+      "windows": {"early": "2016-01-01/2018-12-31", "late": "2022-01-01/2024-12-31"}
+    },
+    "nlcd": {
+      "early_developed_frac": 0.71,
+      "late_developed_frac": 0.74,
+      "early_mode": 23,
+      "late_mode": 23,
+      "scale_m": 30,
+      "years": [2016, 2021]
+    },
+    "site_radius_m": 60,
+    "neighborhood_radius_m": 250,
+    "change_type": "stable",
+    "agreement": "stable",
+    "dw_built_delta": 0.04,
+    "nlcd_developed_delta": 0.03,
+    "score_used": false
+  }
+}

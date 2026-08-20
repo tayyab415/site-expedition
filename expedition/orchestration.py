@@ -436,7 +436,8 @@ def run_workstreams(
                         transition(
                             row,
                             WorkstreamStatus.CANCELLED,
-                            f"reliable veto from {reliable_vetoes[0]}",
+                            f"reliable veto from {reliable_vetoes[0]} made this "
+                            "moot; its question stays in the official follow-ups",
                         )
                         made_progress = True
 

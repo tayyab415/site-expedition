@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examine / Discover mockups</title>
+  <link rel="stylesheet" href="/fonts.css">
+  <style>
+    :root {
+      --ink: #ece8e0;
+      --muted: #9a948a;
+      --line: rgba(236,232,224,.14);
+      --cream: #e7e0d2;
+      --night: #0c0d0e;
+      --reject: #d4654d;
+      --cond: #d4a04a;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--night);
+      color: var(--ink);
+      font: 16px/1.5 Clash, system-ui, sans-serif;
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 36px 20px 120px; }
+    .kicker {
+      margin: 0 0 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    h1 { font-size: 36px; margin: 0 0 12px; }
+    h2 { font-size: 22px; margin: 40px 0 8px; }
+    h3 { font-size: 18px; margin: 0 0 8px; }
+    p, li { color: #c9c3b8; }
+    a { color: var(--ink); }
+    .lede { font-size: 18px; max-width: 46rem; }
+    .panel {
+      margin: 28px 0;
+      padding: 18px 18px 14px;
+      border: 1px solid var(--line);
+      background: rgba(14,15,16,.72);
+    }
+    .mock img, .ref img {
+      display: block;
+      width: 100%;
+      background: #111;
+      border: 1px solid var(--line);
+    }
+    .meta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 8px 0 12px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      margin-top: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: #141616;
+      color: var(--ink);
+      font: 14px/1.45 Clash, system-ui, sans-serif;
+    }
+    .thoughts { margin: 12px 0 0; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 800px) { .grid2 { grid-template-columns: 1fr; } }
+    .steal { color: var(--cond); }
+    nav.toc { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 18px 0 8px; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="kicker">GPT Image 2 · ten mockups · not the live board</p>
+  <h1>Examine / Discover, ten ways</h1>
+  <p class="lede">Each image is a GPT Image 2 mock from the current UI collage plus a long prompt. Clash type, cream onboard, night globe, white pins, FEMA red, Google 3D as pictures only. Steal pieces. Do not ship a collage.</p>
+  <nav class="toc">
+    <a href="#confusion">Confusion</a>
+    <a href="#mireye">Mireye</a>
+    <a href="#m01">01 click HUD</a>
+    <a href="#m02">02 Texas field</a>
+    <a href="#m03">03 click-ask</a>
+    <a href="#m04">04 cameras</a>
+    <a href="#m05">05 recs</a>
+    <a href="#m06">06 massing</a>
+    <a href="#m07">07 two tabs</a>
+    <a href="#m08">08 touch</a>
+    <a href="#m09">09 one field</a>
+    <a href="#m10">10 Texas DC</a>
+  </nav>
+
+  <section id="confusion" class="panel">
+    <p class="kicker">What was confused</p>
+    <h2>The pile we were carrying</h2>
+    <p>The live product is a cream form that compiles a Mission Plan, then a night board with Scout / Screen / Compare / Sketch, Street / Earth / Orbit / 3D / Map, Keep / Pass, Screen N pins, a homework rail, and a comparison table that eats itself. The globe often renders black. Clicking the ground does nothing.</p>
+    <p>We then stacked Find vs Check, OSM map search, Texas Triangle as a default region, and Concept Studio as a later beat. Find in Chicago can work (16 POTENTIAL map places). Find in Texas dumps OSM on the 4 curated pins and the Screen button lies. Data center has no Texas catalog pins at all, only Ashburn VA and Quincy WA. That is why a Texas DC look can feel like two mute dots.</p>
+    <p>The sentence that still holds: give a place, read the surface, click the map for more, stay on one page. Two jobs, Examine and Discover. Everything else is a camera, a chip, or another pin.</p>
+    <div class="grid2 ref">
+      <div>
+        <p class="kicker">Reference collage fed to the model</p>
+        <img src="/mockups/reference-current-ui.png" alt="Current UI collage: onboard, Chicago scout, San Leon reject, interior">
+      </div>
+      <div>
+        <p class="kicker">Still true after watching recordings</p>
+        <ul>
+          <li>Placeholders look filled (Chicago, IL and the Austin address).</li>
+          <li>Screen 16 / 20 pins counts OSM cards. Run All screens the catalog.</li>
+          <li>Chicago Find still has search_region Texas Triangle under the hood.</li>
+          <li>Orbit, Street, FUTURE massing, FEMA veto already exist. They are buried.</li>
+          <li>Mireye is in the packet after Screen. It is not the HUD.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="mireye" class="panel">
+    <p class="kicker">Suggestion</p>
+    <h2>Put Mireye on the pin, not behind Screen</h2>
+    <p>Right now Mireye only shows up after an expedition stream. Discover returns mute POTENTIAL pins. Curated Texas warehouses have replay packets, so San Leon can say FEMA. OSM warehouses and almost every data-center pin do not. You click nothing, you learn nothing, you get two or three dots.</p>
+    <p>Examine should call Mireye when the pin lands. Not the full workstream novel. A short surface packet plus chips:</p>
+    <ul>
+      <li>Identity of the coordinate or resolved address.</li>
+      <li>Hard vetoes first. Mapped SFHA is the one people already understand.</li>
+      <li>A few INFORM fields for the mission. Grid and heat for data halls. Rail and flood for warehouses. Always with source names.</li>
+      <li>Named gaps in plain speech. FIT, sale, deliverable MW. Never claimed.</li>
+    </ul>
+    <p>Click a chip or a painted layer and run <code>/v1/ask</code> for that question at that coordinate. That is the “find out more” path. Live spend shows on the credit mark. Replay cache stays free.</p>
+    <p>Discover may keep OSM as POTENTIAL map features so Texas is not four research pins. It must not look listed. Clicking a Discover pin is Examine, and Examine is where Mireye happens. If we cannot fetch, the HUD says so. Mute pins are how we lost trust.</p>
+    <p>Data center in Texas needs either OSM + live Mireye on click, or we stop pretending the catalog covers Texas. The catalog does not.</p>
+  </section>
+
+  <article id="m01" class="panel mock">
+    <p class="kicker">Mockup 01</p>
+    <h3>Examine: click the ground, HUD speaks</h3>
+    <p class="meta"><span>3 frames</span><span>empty → pin → flood chip</span><span>kill the buttons</span></p>
+    <img src="/mockups/01-examine-click-hud.png" alt="Three-frame Examine HUD: empty globe, pin with veto, flood overlay">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Closest to the product. Nameplate on the pin, chips, click-chip paints flood. Credits stay. Empty state teaches click-the-ground. If we only keep one, keep this. The model still put a little instructional caption under the cursor. Shipping HUD would drop that caption.</p>
+      <p class="steal">Steal: nameplate, chips, click-ground. Leave: leftover captions.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m02" class="panel mock">
+    <p class="kicker">Mockup 02</p>
+    <h3>Discover: Texas as a pin field</h3>
+    <p class="meta"><span>3 frames</span><span>query → many pins → one selected</span></p>
+    <img src="/mockups/02-discover-texas-field.png" alt="Discover Texas pin field with many POTENTIAL places">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Density is right. Asking Mireye on the selected pin is right. The model also invented PLAN / MIREYE / SAVED tabs and a Find places button. Ignore those. Discover is a pin field, not a second app with its own nav.</p>
+      <p class="steal">Steal: filmstrip, 18 map places line, Asking Mireye. Leave: extra top tabs.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m03" class="panel mock">
+    <p class="kicker">Mockup 03</p>
+    <h3>Click the map to ask Mireye</h3>
+    <p class="meta"><span>3 frames</span><span>hover peek · click layer · click ground</span></p>
+    <img src="/mockups/03-click-ask-mireye.png" alt="Map click grammar: hover, ask flood, move pin">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Hover peek without a credit, click flood for the cited veto, click ground to move the pin. That grammar is the one. The model kept a GIS layer checklist and a 2D/3D toggle. That is the button relapse. Shipping Examine should paint layers from chips, not from a checklist.</p>
+      <p class="steal">Steal: hover free, click-layer ask, click-ground move. Leave: the layer checklist.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m04" class="panel mock">
+    <p class="kicker">Mockup 04</p>
+    <h3>Orbit, street, inside as cameras</h3>
+    <p class="meta"><span>3 frames</span><span>3D · orbit · ground</span></p>
+    <img src="/mockups/04-cameras-not-tabs.png" alt="Same pin in 3D, orbit, and street-level cameras">
+    <div class="thoughts">
+      <p><strong>My take.</strong> The three cameras are the point: TODAY 3D, orbit, street with a tiny pad PiP. The model then built a real-estate dossier under them (acres, team activity, View all gaps). That is not us. Pictures still do not score. Ignore the dossier.</p>
+      <p class="steal">Steal: three cameras of one pin. Leave: team activity and the FIT GAPS table as the first read.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m05" class="panel mock">
+    <p class="kicker">Mockup 05</p>
+    <h3>Reject lights other pins</h3>
+    <p class="meta"><span>3 frames</span><span>veto → recs ignite → fly</span></p>
+    <img src="/mockups/05-recs-as-pins.png" alt="San Leon reject lighting other Texas pins as recs">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Recs as geography works. San Leon stays, arcs to inland pins, San Marcos comes back Conditional with Flood pass / Rail useful / Sale still a gap. VIEW DETAILS is a button we do not need if the nameplate is the details.</p>
+      <p class="steal">Steal: ghost pin, recs as pins, those three chips. Leave: View details.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m06" class="panel mock">
+    <p class="kicker">Mockup 06</p>
+    <h3>Massing on the lot after a verdict</h3>
+    <p class="meta"><span>3 frames</span><span>dashed pad · yaw · cutaway</span></p>
+    <img src="/mockups/06-massing-on-the-lot.png" alt="Concept warehouse massing and schematic interior on the lot">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Best architecture sequence. Dashed pad, then 80×40×10 box you drag, then cutaway with dock bays. CAD links stay. The stats row (clear height, 12" water) starts sounding like a listing. Keep the massing. Keep the homework line. Do not invent building sf.</p>
+      <p class="steal">Steal: click-lot massing, cutaway, not-a-permit. Leave: leading with interiors or listing specs.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m07" class="panel mock">
+    <p class="kicker">Mockup 07</p>
+    <h3>Only two words of chrome</h3>
+    <p class="meta"><span>desktop + phone</span><span>Examine | Discover</span></p>
+    <img src="/mockups/07-two-tabs-desktop-phone.png" alt="Desktop and phone with only Examine and Discover tabs">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Two tabs on desktop and a phone sheet are the chrome I want. Empty phone globe with "Click the map or type Chicago, IL" is the right empty state. The filled card invented 3605 Winfield Cove as Houston with 2.5 MW and 220,000 sf. That is listing fantasy. Kill those numbers. MW is never claimed.</p>
+      <p class="steal">Steal: two tabs, phone sheet, empty globe. Leave: invented MW and building sf.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m08" class="panel mock">
+    <p class="kicker">Mockup 08</p>
+    <h3>Touch, long-press, orbit</h3>
+    <p class="meta"><span>3 frames</span><span>animation / touch</span></p>
+    <img src="/mockups/08-touch-orbit-animation.png" alt="Long-press orbit animation storyboard">
+    <div class="thoughts">
+      <p><strong>My take.</strong> Long-press orbit is still the second gesture I would ship. The model put a row of Site / Flood / Power pills back on the map. That is the button relapse from 03. Sliding a chip to paint can stay if the chip lives on the nameplate, not in a toolbar of ten layers.</p>
+      <p class="steal">Steal: long-press orbit, typing Mireye line. Leave: ten layer pills.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m09" class="panel mock">
+    <p class="kicker">Mockup 09</p>
+    <h3>One field, no tabs</h3>
+    <p class="meta"><span>3 frames</span><span>empty click vs typed need vs typed address</span></p>
+    <img src="/mockups/09-one-field-does-both.png" alt="Single search field doing Examine and Discover">
+    <div class="thoughts">
+      <p><strong>My take.</strong> The empty field "Ask a place or a need" is the clearest no-tab idea. Typed need blooms pins. Typed Chicago address becomes Examine with cited rows. I still would not ship this as v1. Tabs are clearer the first week. The Examine list is a bit long. Chips first, list behind a chip.</p>
+      <p class="steal">Steal: placeholder that names both jobs. Leave: shipping one magic field as v1.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <article id="m10" class="panel mock">
+    <p class="kicker">Mockup 10</p>
+    <h3>Texas warehouse and data hall with a real read</h3>
+    <p class="meta"><span>3 frames</span><span>Discover DC · Examine chips · two nameplates</span></p>
+    <img src="/mockups/10-mireye-on-texas-dc.png" alt="Texas data center and warehouse pins with Mireye chips">
+    <div class="thoughts">
+      <p><strong>My take.</strong> This is the screening complaint. 87 POTENTIAL map features across Texas, then a real read on one Dallas pad: flood pass, heat INFORM, grid useful, FIT gap, MW never claimed. Compare is two nameplates, not our overlapping ticker. OPEN IN 3D VIEW is a leftover button. Labor Tarrant on a Dallas DC is sloppy geography. The shape is right.</p>
+      <p class="steal">Steal: density plus chips with sources, two nameplates. Leave: the 3D button and the workstream novel.</p>
+      <label>Your notes
+        <textarea placeholder="What you want from this one"></textarea>
+      </label>
+    </div>
+  </article>
+
+  <section class="panel">
+    <p class="kicker">How I would combine</p>
+    <h2>A first cut, before you mark yours</h2>
+    <p>Ship 01 as the Examine default. Discover is 02’s pin field, click-through into 01. Click grammar from 03 without the GIS checklist. Long-press orbit from 08. Recs from 05 after a veto. Massing from 06 after a non-kill verdict. Tabs from 07, empty globe included. Mireye chips from 10 on every selected pin. Ignore invented MW, building sf, extra nav, and team activity.</p>
+    <p>Add your notes in the boxes. Then we pick one HUD and one Discover, and we screen those instead of the old board.</p>
+  </section>
+</main>
+</body>
+</html>

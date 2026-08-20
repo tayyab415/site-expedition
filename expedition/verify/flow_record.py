@@ -203,6 +203,49 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             _grab(cdp, frames, args.output_dir, "09-future-san-marcos")
             notes.append("san_marcos_future:" + json.dumps(_state(cdp), default=str))
 
+            _evaluate(
+                cdp,
+                """(() => {
+                  const box = document.querySelector('#show-interior');
+                  if (box) {
+                    box.checked = true;
+                    box.dispatchEvent(new Event('change', {bubbles: true}));
+                  }
+                  return {
+                    interior: Boolean(box && box.checked),
+                    cadHidden: Boolean(document.querySelector('#concept-cad')?.hidden),
+                    cadText: document.querySelector('#concept-cad')?.innerText || '',
+                    preset: document.querySelector('#concept-preset')?.selectedOptions?.[0]?.textContent || '',
+                    rail: document.querySelector('#rail')?.innerText || '',
+                    gaps: document.querySelector('#gaps')?.innerText || '',
+                    scout: document.querySelector('#scout-followups')?.innerText || '',
+                  };
+                })()""",
+            )
+            time.sleep(2.6)
+            _grab(cdp, frames, args.output_dir, "11-future-interior")
+            notes.append("san_marcos_interior:" + json.dumps(_state(cdp), default=str))
+            notes.append(
+                "san_marcos_studio:"
+                + json.dumps(
+                    _evaluate(
+                        cdp,
+                        """(() => ({
+                          interior: Boolean(document.querySelector('#show-interior')?.checked),
+                          cadHidden: Boolean(document.querySelector('#concept-cad')?.hidden),
+                          cadText: document.querySelector('#concept-cad')?.innerText || '',
+                          preset: document.querySelector('#concept-preset')?.value || '',
+                          presetLabel: document.querySelector('#concept-preset')?.selectedOptions?.[0]?.textContent || '',
+                          note: document.querySelector('#concept-note')?.textContent || '',
+                          rail: document.querySelector('#rail')?.innerText || '',
+                          scout: document.querySelector('#scout-followups')?.innerText || '',
+                          scorecard: document.querySelector('#scorecard')?.innerText || '',
+                        }))()""",
+                    ),
+                    default=str,
+                )
+            )
+
             _evaluate(cdp, "applyMode('pad')")
             time.sleep(1.6)
             _grab(cdp, frames, args.output_dir, "10-pad-san-marcos")

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "san_leon",
+  "lat": 29.475732,
+  "lng": -94.966533,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "labor": {
+    "labor_shed_declared": false,
+    "county": "Galveston County, TX",
+    "metro": "Houston–The Woodlands–Sugar Land",
+    "availability_claim": false,
+    "commute_proxy": "declared logistics destinations on the Mission Plan, not a labor shed"
+  }
+}

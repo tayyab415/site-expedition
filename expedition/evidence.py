@@ -44,6 +44,10 @@ FAMILY = {
     "route_duration_s": ("GOOGLE_ROUTES", "GOOGLE_ROUTES"),
     "aerial_video_id": ("GOOGLE_VISUAL", "GOOGLE_VISUAL"),
     "maps_3d_scene": ("GOOGLE_VISUAL", "GOOGLE_VISUAL"),
+    "dw_built_fraction_change": ("DYNAMIC_WORLD", "DYNAMIC_WORLD"),
+    "climate_scenario_tasmax": ("NASA_GDDP", "NASA_GDDP"),
+    "labor_shed_context": ("CENSUS_LODES", "CENSUS_LODES"),
+    "official_followup_sources": ("OFFICIAL_FOLLOWUP", "OFFICIAL_FOLLOWUP"),
 }
 
 

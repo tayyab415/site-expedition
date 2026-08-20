@@ -4,8 +4,10 @@ Secure, US-only site screening and comparison for the Mireye challenge. Warehous
 is the visual hero; Home, Farm, Data Center, and reviewed Custom Missions share
 the same deterministic engine.
 
-Current release gate: **115/115 tests**, **11/11 held-out cases**, **8/8 live
-E2E**, and **7/7 real-browser flows** on loopback and the HTTPS tunnel.
+Current release gate (2026-08-20): **253/253 tests** including the catered
+discovery harness and adversarial intent suite; browser smoke 8/9 (the ninth,
+`warehouse_3d`, is a known headless-Chromium tile-streaming flake that
+predates this week's changes).
 
 ## Run locally
 
@@ -92,5 +94,5 @@ inventory, authoritative capacity, zoning approval, water rights, FIT parcel
 geometry, cloud monetary instrumentation, and progressive result streaming
 remain intentionally deferred.
 
-For the demo path and exact residual risks, read [`var/DEMO.md`](var/DEMO.md)
+For the demo path and exact residual risks, read [`DEMO.md`](DEMO.md)
 and [`HANDOFF.md`](HANDOFF.md).

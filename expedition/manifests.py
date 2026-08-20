@@ -25,9 +25,10 @@ REVIEWED_MANIFESTS: dict[str, str] = {
     "logistics-resilience": "logistics-resilience.v1.json",
 }
 
-# These skills are already part of the frozen MVP capability vocabulary and
-# have a shipped execution/presentation path. Deferred source-scout and other
-# unproved capabilities intentionally do not appear here.
+# These skills are already part of the capability vocabulary and have a shipped
+# execution path. Arbitrary discovery, package install, and unreviewed skills
+# stay forbidden. source-scout here is the constrained official follow-up pack,
+# not a web crawl.
 ALLOWED_CUSTOM_SKILLS = frozenset(
     {
         "resolve-site",
@@ -39,6 +40,12 @@ ALLOWED_CUSTOM_SKILLS = frozenset(
         "skeptic-review",
         "compare-candidates",
         "farm-history",
+        "land-change",
+        "labor-access",
+        "climate-trajectory",
+        "source-scout",
+        "environmental-record",
+        "observed-heat",
     }
 )
 REQUIRED_CUSTOM_SKILLS = frozenset(
@@ -307,9 +314,9 @@ def _string_list(
 def _only_allowed(name: str, values: tuple[str, ...], allowed: frozenset[str]) -> None:
     rejected = sorted(set(values) - allowed)
     if rejected:
-        if "source-scout" in rejected:
+        if any(item in rejected for item in {"web-crawl", "web-discover", "install-python-package"}):
             raise ManifestValidationError(
-                "source-scout is forbidden: Custom Missions cannot perform arbitrary source discovery"
+                "arbitrary source discovery and executable skills are forbidden"
             )
         raise ManifestValidationError(
             f"{name} contain values outside the reviewed catalog: {', '.join(rejected)}"

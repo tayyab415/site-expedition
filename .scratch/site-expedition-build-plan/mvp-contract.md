@@ -2,11 +2,25 @@
 
 **Status:** Frozen by [Freeze the approved challenge MVP contract](./issues/01-freeze-the-approved-challenge-mvp-contract.md)  
 **Frozen at:** 2026-08-15  
+**Destination-spec addendum:** 2026-08-19 (user reversal; see below)  
 **Product authority:** [`grilling_session.markdown`](../../grilling_session.markdown) §§4–14, 20  
 **Feasibility authority:** [`FULL_FEASIBILITY_DIAGNOSIS.md`](../../FULL_FEASIBILITY_DIAGNOSIS.md) §§1, 15, 17–18; [`feasibility/REQUIREMENT_LEDGER.md`](../../feasibility/REQUIREMENT_LEDGER.md)  
 **Domain language:** [`CONTEXT.md`](../../CONTEXT.md) — use those terms exactly
 
 This is the implementation contract. Later tickets may specify schemas, budgets, candidates, runtime, and UI behavior. They may not reopen the product vision or convert a failed, blocked, untested, or infeasible claim into a pass.
+
+## Destination-spec addendum — 2026-08-19
+
+The 2026-08-15 freeze deferred `land-change`, `labor-access`, `climate-trajectory`, Source Scout, extra architectural presets, interiors, and CAD. **The user did not ask for those cuts.** This addendum restores them as destination spec:
+
+| Restored | Honest label |
+|---|---|
+| `land-change`, `labor-access`, `climate-trajectory`, constrained `source-scout` | INFORM only. Never score. Home never receives labor-access. Scout is official follow-up, not web discovery. |
+| Ten-plus parametric presets, schematic interiors, conceptual DXF/IFC | Visual concept / coordination CAD. Labeled not for permit. |
+
+**Still excluded:** stamped or permit-certified drawings; existing-building interior reconstruction from Google tiles or uploaded as-builts; licensed-parcel FIT; arbitrary source discovery or package installation.
+
+See [`expedition/DECISIONS.md`](../../expedition/DECISIONS.md).
 
 ---
 
@@ -155,6 +169,8 @@ Exact layout and interaction remain for [Prototype the desktop planning board](.
 | `concept-fit` | Conditional proof | `PLAUSIBLE` / `CONFLICT` / `UNKNOWN` from independently licensed geometry. Never permit/engineering approval. | UNTESTED |
 | `source-scout` | Deferred | Constrained only; no unrestricted live-source discovery. | — |
 
+**2026-08-19 addendum.** `land-change`, `labor-access`, `climate-trajectory`, and constrained `source-scout` are INFORM workstreams on Standard/Deep. They never score. Home never receives `labor-access`. `concept-fit` remains deferred (no licensed parcel).
+
 Starting Warehouse non-parcel screen fields (catalog v0.14.0, not permanent thresholds): `elevation`, `slope_degrees`, `fema_flood_zone`, `within_floodplain_polygon`, `intersects_wetland`, `coast_distance_m`, `nearest_major_road_distance_m`, `nearest_major_road_class`, `nearest_long_haul_rail_corridor_distance_m`, `nearest_substation_distance_m`, `fiber_broadband_available`, `within_water_service_area`, `within_sewer_service_area`, `nearest_hazardous_facility_distance_m`. A development-time catalog check must fail if a required field disappears or changes type/source.
 
 Versioned manifests and compiler rules remain for [Design Mission Plans and reviewed skill manifests](./issues/06-design-mission-plans-and-reviewed-skill-manifests.md).
@@ -205,7 +221,9 @@ Versioned manifests and compiler rules remain for [Design Mission Plans and revi
 | `FIT` | Conditional proof | Constraint and buildable-envelope display only from independently licensed parcel/constraint geometry. |
 | `FUTURE` | Conditional proof | One prebuilt, rights-cleared warehouse glTF/GLB with declared footprint, height, setback-as-assumption, dock/yard assumptions, and orientation controls. Concept Test must pass on one positive, one known-conflict, and one ambiguous/low-quality boundary **without Google tiles present**. |
 
-**Honest fallback.** If the three-case Concept Test does not pass before demo lock, remove `FUTURE` (and `FIT` if it depends on the same unproven geometry) rather than show visual theater. Live generative CAD, permit-ready IFC/DXF, interiors, and ten presets are **Deferred**.
+**Honest fallback.** If the three-case Concept Test does not pass before demo lock, remove `FUTURE` (and `FIT` if it depends on the same unproven geometry) rather than show visual theater.
+
+**2026-08-19 addendum.** Parametric presets, schematic interiors, and conceptual (not stamped) DXF/IFC are in. Live generative CAD from Google tiles, permit-ready IFC/DXF, and existing-building reconstruction stay out.
 
 Inputs remain for [Establish the warehouse concept inputs](./issues/10-establish-the-warehouse-concept-inputs.md). The include/defer decision remains for [Prove or defer Concept Studio](./issues/11-prove-or-defer-concept-studio.md).
 
@@ -253,7 +271,7 @@ These stay out of the challenge MVP even if later tickets have leftover time:
 - Collaboration, invitations, teams, roles, shared editing, accounts, signup, email, notifications, production background jobs.
 - User evidence uploads, unrestricted live-source discovery, arbitrary code installation, consumer-marketplace scraping.
 - Nationwide commercial / farm / data-center listing claims without a licensed adapter.
-- Permit-ready CAD/IFC, engineering or architectural certification, existing-building interiors, ten live architectural presets.
+- Stamped / permit-certified CAD/IFC, engineering or architectural certification, existing-building interior reconstruction from tiles or uploaded drawings. Conceptual coordination CAD and schematic program interiors are in (2026-08-19 addendum).
 - Claims of utility headroom, redundant enterprise fiber, water rights/capacity, zoning approval, listing availability, vacancy, building condition, title, permits, or legal permission without the responsible authority.
 - Machine interpretation, geometry extraction, prohibited caching, or prohibited export of Google imagery and 3D content.
 - Production SaaS persistence, private Vault, broad export suites, account-bound history.

@@ -9,7 +9,10 @@ MISSIONS = ("home", "farm", "warehouse", "data_center", "custom")
 SCAN_BUDGETS = frozenset({"quick", "standard", "deep"})
 SITE_FORMS = frozenset({"either", "existing_asset", "developable_land"})
 GEOGRAPHY_BANDS = frozenset({"selected_region", "adjacent_regions", "statewide"})
-SEARCH_REGIONS = frozenset({"texas_triangle", "houston_metro", "austin_san_antonio", "dallas_fort_worth"})
+SEARCH_REGIONS = frozenset({
+    "texas_triangle", "houston_metro", "austin_san_antonio", "dallas_fort_worth",
+    "chicago", "atlanta", "phoenix", "denver", "seattle", "los_angeles", "new_york", "miami",
+})
 PREFERENCE_WEIGHTS = frozenset({"not_considered", "useful", "important", "priority"})
 OPTIONAL_INVESTIGATIONS = frozenset(
     {
@@ -19,8 +22,25 @@ OPTIONAL_INVESTIGATIONS = frozenset(
         "farm_history",
         "observed_heat",
         "environmental_record",
+        "land_change",
+        "labor_access",
+        "climate_trajectory",
+        "source_scout",
     }
 )
+
+INVESTIGATION_SKILLS = {
+    "flood_rewind": "flood-rewind",
+    "route_reality": "route-reality",
+    "farm_history": "farm-history",
+    "scene_context": "scene-context",
+    "observed_heat": "observed-heat",
+    "environmental_record": "environmental-record",
+    "land_change": "land-change",
+    "labor_access": "labor-access",
+    "climate_trajectory": "climate-trajectory",
+    "source_scout": "source-scout",
+}
 
 WAREHOUSE_FIELDS = [
     "elevation",
@@ -196,6 +216,14 @@ def compile_plan(
         skills.append("environmental-record")
     if route_anchors:
         skills.append("route-reality")
+    if mission in {"warehouse", "farm", "data_center"}:
+        skills.append("land-change")
+    if mission in {"warehouse", "data_center"}:
+        skills.append("labor-access")
+    if mission in {"warehouse", "farm", "data_center", "home"}:
+        skills.append("climate-trajectory")
+    if mission != "custom":
+        skills.append("source-scout")
     if mission == "home":
         # Housing ranking must never include demographic / labor facts.
         skills = [s for s in skills if s not in {"labor-access"}]
@@ -257,21 +285,20 @@ def compile_plan(
         if "route-reality" in skills and not route_anchors:
             route_anchors = [dict(anchor) for anchor in WAREHOUSE_ROUTE_ANCHORS]
     elif investigations_were_specified:
-        allowed_by_control = {
-            "flood-rewind": "flood_rewind",
-            "route-reality": "route_reality",
-            "farm-history": "farm_history",
-            "scene-context": "scene_context",
-            "observed-heat": "observed_heat",
-        }
+        controllable = set(INVESTIGATION_SKILLS.values())
         skills = [
             skill for skill in skills
-            if skill not in allowed_by_control or allowed_by_control[skill] in investigations
+            if skill not in controllable
+            or next(key for key, value in INVESTIGATION_SKILLS.items() if value == skill) in investigations
         ]
-        if "scene_context" in investigations and "scene-context" not in skills:
-            skills.append("scene-context")
-        if mission == "data_center" and "observed_heat" in investigations:
-            skills.append("observed-heat")
+        for investigation, skill in INVESTIGATION_SKILLS.items():
+            if investigation not in investigations or skill in skills:
+                continue
+            if skill == "labor-access" and mission == "home":
+                continue
+            skills.append(skill)
+    if mission == "home":
+        skills = [s for s in skills if s not in {"labor-access"}]
 
     return MissionPlan(
         mission=mission,

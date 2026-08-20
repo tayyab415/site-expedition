@@ -1,0 +1,17 @@
+{
+  "candidate_id": "alliance_tx",
+  "lat": 32.976,
+  "lng": -97.319,
+  "fetched_at": "2026-08-15T00:00:00Z",
+  "land_change": {
+    "method": "modal_top1_built_fraction",
+    "buffer_m": 1000,
+    "early_window": "2018-01-01/2020-12-31",
+    "late_window": "2023-01-01/2025-12-31",
+    "early_built_frac": 0.1918,
+    "late_built_frac": 0.2326,
+    "scale_m": 10,
+    "validated_against_nlcd": false
+  },
+  "replay_provenance": "SKILL_COMBINATION_TEST_RESEARCH.md Dynamic World modal built fraction"
+}

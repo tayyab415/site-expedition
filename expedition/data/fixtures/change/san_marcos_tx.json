@@ -1,0 +1,32 @@
+{
+  "candidate_id": "san_marcos_tx",
+  "lat": 29.883,
+  "lng": -97.941,
+  "fetched_at": "2026-08-19T00:00:00Z",
+  "land_change": {
+    "dynamic_world": {
+      "early_mode": {"code": 2, "label": "grass"},
+      "late_mode": {"code": 6, "label": "built"},
+      "early_built_frac": 0.18,
+      "late_built_frac": 0.41,
+      "neighbor_built_frac": 0.36,
+      "scale_m": 10,
+      "windows": {"early": "2016-01-01/2018-12-31", "late": "2022-01-01/2024-12-31"}
+    },
+    "nlcd": {
+      "early_developed_frac": 0.22,
+      "late_developed_frac": 0.34,
+      "early_mode": 71,
+      "late_mode": 22,
+      "scale_m": 30,
+      "years": [2016, 2021]
+    },
+    "site_radius_m": 60,
+    "neighborhood_radius_m": 250,
+    "change_type": "built_gain",
+    "agreement": "agree",
+    "dw_built_delta": 0.23,
+    "nlcd_developed_delta": 0.12,
+    "score_used": false
+  }
+}
