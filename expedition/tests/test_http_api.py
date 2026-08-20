@@ -657,5 +657,25 @@ class SlowClientBoundaryTests(unittest.TestCase):
             thread.join(timeout=2)
 
 
+class CloudRunListenConfigTests(unittest.TestCase):
+    def test_listen_port_prefers_cloud_run_port(self):
+        self.assertEqual(8080, serve.listen_port({"PORT": "8080"}))
+        self.assertEqual(8030, serve.listen_port({}))
+        self.assertEqual(9000, serve.listen_port({"EXPEDITION_PORT": "9000"}))
+        self.assertEqual(8080, serve.listen_port({"PORT": "8080", "EXPEDITION_PORT": "9000"}))
+
+    def test_cloud_run_binds_all_interfaces_and_trusts_proxy(self):
+        self.assertEqual("0.0.0.0", serve.bind_host({"K_SERVICE": "site-expedition"}))
+        self.assertEqual("127.0.0.1", serve.bind_host({}))
+        self.assertEqual("10.0.0.1", serve.bind_host({"EXPEDITION_BIND_HOST": "10.0.0.1"}))
+        self.assertTrue(serve.trust_proxy_enabled({"K_SERVICE": "site-expedition"}))
+        self.assertFalse(serve.trust_proxy_enabled({}))
+        self.assertFalse(
+            serve.trust_proxy_enabled(
+                {"K_SERVICE": "site-expedition", "EXPEDITION_TRUST_PROXY": "0"}
+            )
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

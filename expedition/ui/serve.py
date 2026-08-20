@@ -12,6 +12,7 @@ import threading
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections.abc import Mapping
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -34,7 +35,50 @@ from expedition.security import (  # noqa: E402
     request_scheme,
 )
 
-PORT = 8030
+def listen_port(environ: Mapping[str, str] | None = None) -> int:
+    """Cloud Run injects PORT. Local default stays 8030."""
+
+    values = os.environ if environ is None else environ
+    raw = str(values.get("PORT") or values.get("EXPEDITION_PORT") or "8030").strip()
+    try:
+        port = int(raw)
+    except ValueError as exc:
+        raise ValueError(f"invalid PORT {raw!r}") from exc
+    if not 1 <= port <= 65535:
+        raise ValueError(f"PORT out of range: {port}")
+    return port
+
+
+def bind_host(environ: Mapping[str, str] | None = None) -> str:
+    values = os.environ if environ is None else environ
+    explicit = (values.get("EXPEDITION_BIND_HOST") or "").strip()
+    if explicit:
+        return explicit
+    if (values.get("K_SERVICE") or "").strip():
+        return "0.0.0.0"
+    return "127.0.0.1"
+
+
+def _flag(raw: str | None) -> bool | None:
+    if raw is None:
+        return None
+    text = raw.strip().lower()
+    if text in {"1", "true", "yes", "on"}:
+        return True
+    if text in {"0", "false", "no", "off"}:
+        return False
+    return None
+
+
+def trust_proxy_enabled(environ: Mapping[str, str] | None = None) -> bool:
+    values = os.environ if environ is None else environ
+    explicit = _flag(values.get("EXPEDITION_TRUST_PROXY"))
+    if explicit is not None:
+        return explicit
+    return bool((values.get("K_SERVICE") or "").strip())
+
+
+PORT = listen_port()
 GOOGLE_TILES = "https://tile.googleapis.com"
 ENV_FILE = Path.home() / ".config" / "mireye-challenge-maps.env"
 MISSION_SITES = json.loads((PKG / "data" / "mission_sites.json").read_text())
@@ -43,9 +87,7 @@ _tile_sessions: dict[str, dict] = {}
 AUTH = BrowserSessionGate(OptionalBearerTokenGate.from_env())
 API_LIMITER = PerIpRateLimiter(limit=180, window_seconds=60)
 TILE_LIMITER = PerIpRateLimiter(limit=3000, window_seconds=60)
-TRUST_PROXY = os.environ.get("EXPEDITION_TRUST_PROXY", "").strip().lower() in {
-    "1", "true", "yes", "on"
-}
+TRUST_PROXY = trust_proxy_enabled()
 
 _GEO_RANK = {"selected": 0, "adjacent": 1, "statewide": 2}
 _GEO_STOP = {"selected_region": 0, "adjacent_regions": 1, "statewide": 2}
@@ -238,7 +280,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             self._send(401, b'{"error":"authentication required"}', "application/json", AUTH.challenge_headers())
             return False
         limiter = TILE_LIMITER if path.startswith(("/v1/3dtiles", "/g2d/", "/g2dm/", "/sv")) else API_LIMITER
-        decision = limiter.check(client_ip(self))
+        decision = limiter.check(client_ip(self, trust_proxy=TRUST_PROXY))
         if not decision.allowed:
             self._send(429, b'{"error":"rate limit exceeded"}', "application/json", {"Retry-After": str(decision.retry_after)})
             return False
@@ -1148,7 +1190,7 @@ def ensure_server_auth() -> bool:
 
 def main() -> None:
     created = ensure_server_auth()
-    host = os.environ.get("EXPEDITION_BIND_HOST", "127.0.0.1").strip() or "127.0.0.1"
+    host = bind_host()
     max_connections = int(os.environ.get("EXPEDITION_MAX_CONNECTIONS", "128"))
     socket_timeout = float(os.environ.get("EXPEDITION_SOCKET_TIMEOUT", "5"))
     slot_wait_timeout = float(os.environ.get("EXPEDITION_SLOT_WAIT", "15"))
