@@ -1,5 +1,9 @@
 # Site Expedition
 
+Live prototype: https://site-expedition-1027824348124.us-central1.run.app
+
+Replay demo. Leave Live Mireye off. That path spends credits.
+
 A US-only site-selection agent for the [Mireye Build Challenge](MIREYE_BUILD_CHALLENGE.md).
 
 Mireye gave agents cited facts about a place: flood, terrain, grid, parcel. Eyes. Eyes are not a search. Someone still has to say what they are trying to place, find candidate pins, and decide. That is the slow, expensive part today.
@@ -80,4 +84,4 @@ Current gate is 253/253 tests. Browser smoke, scene startup, and HTTP stress run
 | [`expedition/SUBMISSION.md`](expedition/SUBMISSION.md) | Judge-facing writeup. |
 | [`harness/`](harness/) and [`iteration-1/`](iteration-1/)–[`iteration-7/`](iteration-7/) | Earlier KEEP/KILL packets that led here. |
 
-This is a locally demoable prototype, not production hosting. Licensed national listings, zoning approval, water rights, and utility-capacity letters are deferred on purpose.
+The hosted board is a replay prototype, not production. Licensed national listings, zoning approval, water rights, and utility-capacity letters are deferred on purpose.

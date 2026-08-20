@@ -47,6 +47,8 @@ skeleton: public adjusters and ag lenders (see `../PRODUCT.md`).
 
 ## The wow path (two minutes, zero credits)
 
+Live prototype: https://site-expedition-1027824348124.us-central1.run.app
+
 `DEMO.md` is the walked script. Short version: type **"corn plantations in
 New Jersey"** → the agent keeps your geography (New York band covers northern
 NJ), tells you what it can't cover, warns that corn is atypical there and
