@@ -288,7 +288,26 @@ def judge(
         "reasons": reasons,
         "gaps": [g.to_dict() for g in gaps],
         "inform": _inform(atoms),
+        "stars": gate_stars(verdict, [g.to_dict() for g in gaps]),
     }
+
+
+def gate_stars(verdict: str, gaps: list[dict]) -> int:
+    """Deterministic gate summary, NOT a market score.
+
+    1 = a hard gate failed. 2-4 = conditional, fewer blocking gaps is more.
+    5 = strong fit. Pure rendering of the verdict; no model, no weights.
+    """
+    if verdict == "reject":
+        return 1
+    if verdict == "strong_fit":
+        return 5
+    blocking = sum(1 for g in gaps if g.get("blocking"))
+    if blocking >= 5:
+        return 2
+    if blocking >= 3:
+        return 3
+    return 4
 
 
 def _inform(atoms: list[EvidenceAtom]) -> dict:

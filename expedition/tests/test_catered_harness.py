@@ -121,6 +121,22 @@ class CateredHarnessTests(unittest.TestCase):
                 self.assertNotEqual(site.get("label"), "LISTED", path.name)
 
 
+class GateStarsTests(unittest.TestCase):
+    """Stars are a rendering of the deterministic verdict, never a score."""
+
+    def test_stars_map_verdict_and_blocking_gaps(self):
+        from expedition.verdict import gate_stars
+
+        self.assertEqual(gate_stars("reject", [{"blocking": True}]), 1)
+        self.assertEqual(gate_stars("strong_fit", []), 5)
+        self.assertEqual(gate_stars("conditional", [{"blocking": True}] * 5), 2)
+        self.assertEqual(gate_stars("conditional", [{"blocking": True}] * 4), 3)
+        self.assertEqual(
+            gate_stars("conditional", [{"blocking": True}] * 2 + [{"blocking": False}] * 3),
+            4,
+        )
+
+
 class AdversarialIntentTests(unittest.TestCase):
     """Catered asks that used to silently become warehouse searches."""
 

@@ -69,8 +69,9 @@ MISSION_FILTERS = {
         'nwr["industrial"="warehouse"]',
         'nwr["building"="industrial"]',
     ),
-    # landuse=farmland with a name is dropped on purpose: measured 14 s for
-    # 5 hits on overpass-api.de, which alone blows the query budget.
+    # Buildings and yards only: the fields come from a second, separate
+    # Overpass pass (FARM_FIELD_FILTERS). A farmhouse footprint can never
+    # pass the CDL cultivated gate; a field centroid can.
     "farm": (
         'nwr["building"="farm"]',
         'nwr["landuse"="farmyard"]',
@@ -88,6 +89,11 @@ MISSION_FILTERS = {
         'nwr["building"="data_center"]',
     ),
 }
+
+
+# Unnamed farmland ways are fast (measured ~8 s worst); the old named
+# variant scanned 14 s for 5 hits. Ways only: farmland relations are huge.
+FARM_FIELD_FILTERS = ('way["landuse"="farmland"]',)
 
 
 class DiscoverError(RuntimeError):
@@ -163,8 +169,12 @@ def geocode_look(query: str) -> dict:
     }
 
 
-def _overpass_query(mission: str, hubs: list[tuple[float, float, int]]) -> str:
-    filters = MISSION_FILTERS.get(mission) or MISSION_FILTERS["warehouse"]
+def _overpass_query(
+    mission: str,
+    hubs: list[tuple[float, float, int]],
+    filters: tuple[str, ...] | None = None,
+) -> str:
+    filters = filters or MISSION_FILTERS.get(mission) or MISSION_FILTERS["warehouse"]
     clauses = []
     for lat, lng, radius in hubs:
         for selector in filters:
@@ -179,11 +189,15 @@ def _overpass_query(mission: str, hubs: list[tuple[float, float, int]]) -> str:
     )
 
 
-def _overpass_search(mission: str, hubs: list[tuple[float, float, int]]) -> list[dict]:
-    payload = urllib.parse.urlencode({"data": _overpass_query(mission, hubs)}).encode()
+def _overpass_pass(
+    mission: str,
+    hubs: list[tuple[float, float, int]],
+    deadline: float,
+    filters: tuple[str, ...] | None = None,
+) -> list[dict]:
+    payload = urllib.parse.urlencode({"data": _overpass_query(mission, hubs, filters)}).encode()
     last_error: Exception | None = None
     data: dict | None = None
-    deadline = time.monotonic() + OVERPASS_TOTAL_BUDGET
     for url in OVERPASS_URLS:
         remaining = deadline - time.monotonic()
         if remaining < 2:
@@ -204,6 +218,19 @@ def _overpass_search(mission: str, hubs: list[tuple[float, float, int]]) -> list
         if parsed:
             out.append(parsed)
     return out
+
+
+def _overpass_search(mission: str, hubs: list[tuple[float, float, int]]) -> list[dict]:
+    deadline = time.monotonic() + OVERPASS_TOTAL_BUDGET
+    sites = _overpass_pass(mission, hubs, deadline)
+    if mission == "farm":
+        # Second pass: field polygons. Their centroids are what can actually
+        # pass the CDL cultivated gate; buildings never can. Partial is fine.
+        try:
+            sites.extend(_overpass_pass(mission, hubs, deadline, FARM_FIELD_FILTERS))
+        except DiscoverError:
+            pass
+    return sites
 
 
 
@@ -249,6 +276,8 @@ def _site_name(mission: str, tags: dict, osm_id: int) -> str:
     address = _site_address(tags)
     if address:
         return address
+    if tags.get("landuse") == "farmland":
+        return f"Field OSM {osm_id}"
     kind = {
         "warehouse": "Warehouse",
         "custom": "Warehouse",

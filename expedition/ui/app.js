@@ -2074,7 +2074,11 @@ function paintPinCard(site, packet) {
   const prior = packet || packets[site.id];
   if ($("show-receipts")) $("show-receipts").hidden = !prior;
   if (!prior) $("app").classList.remove("receipts-open");
-  if ($("pin-kicker")) $("pin-kicker").textContent = site.label || "POTENTIAL";
+  if ($("pin-kicker")) {
+    const stars = prior && prior.verdict ? starIcons(prior.verdict.stars) : "";
+    $("pin-kicker").textContent = `${site.label || "POTENTIAL"}${stars ? " · " + stars : ""}`;
+    $("pin-kicker").title = stars ? STARS_TITLE : "";
+  }
   if ($("pin-name")) $("pin-name").textContent = site.name;
   const chips = $("pin-chips");
   if (chips) {
@@ -2109,7 +2113,7 @@ function paintPinCard(site, packet) {
   }
   const cite = [];
   if (prior && prior.verdict && prior.verdict.reasons && prior.verdict.reasons.length) {
-    cite.push((prior.verdict.reasons || []).join(", "));
+    cite.push((prior.verdict.reasons || []).map(humanizeReason).join(", "));
   }
   const atom = floodAtom(prior);
   if (atom && atom.source) cite.push(atom.source);
@@ -3507,6 +3511,15 @@ function humanizeReason(slug) {
   return slug.replace(/_/g, " ");
 }
 
+const STARS_TITLE = "Gate stars — deterministic verdict summary. 1 = a hard gate failed, "
+  + "2-4 = conditional with fewer blocking gaps, 5 = strong fit. Not a market score.";
+
+function starIcons(stars) {
+  if (!Number.isFinite(stars) || stars < 1) return "";
+  const n = Math.max(1, Math.min(5, Math.round(stars)));
+  return "★".repeat(n) + "☆".repeat(5 - n);
+}
+
 function verdictLine(packet) {
   const v = packet.verdict.verdict;
   const reasons = (packet.verdict.reasons || []).map(humanizeReason).join(", ") || "no veto";
@@ -4016,7 +4029,9 @@ function showPacket(packet, opts) {
     : "";
   const cancelled = (packet.workstreams || []).some((w) => w.status === "cancelled");
   const moot = cancelled ? " · cancelled questions live under Official follow-ups" : "";
-  box.textContent = `${verdictLine(packet)}${extra}${moot}`;
+  const stars = starIcons(packet.verdict.stars);
+  box.textContent = `${stars ? stars + " " : ""}${verdictLine(packet)}${extra}${moot}`;
+  box.title = STARS_TITLE;
   if (entryPath === "check" && (v === "reject" || v === "conditional")) {
     openRecommendations(
       v === "reject"
