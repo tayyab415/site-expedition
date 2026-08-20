@@ -137,7 +137,27 @@ def public_aerial(payload: dict, query: str) -> dict:
 
 
 NOMINATIM_REVERSE = "https://nominatim.openstreetmap.org/reverse"
+GOOGLE_GEOCODE = "https://maps.googleapis.com/maps/api/geocode/json"
 _REVERSE_CACHE: dict[tuple[float, float], str] = {}
+
+
+def google_reverse_address(lat: float, lng: float, key: str) -> str | None:
+    """Rooftop reverse geocode. Google covers US industrial parcels Nominatim misses."""
+    url = GOOGLE_GEOCODE + "?" + urllib.parse.urlencode(
+        {
+            "latlng": f"{lat:.7f},{lng:.7f}",
+            "result_type": "street_address|premise",
+            "key": key,
+        }
+    )
+    request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        raw = json.loads(response.read().decode())
+    for result in raw.get("results") or []:
+        formatted = result.get("formatted_address")
+        if isinstance(formatted, str) and formatted:
+            return formatted.removesuffix(", USA")
+    return None
 
 
 def postal_address_from_nominatim(raw: dict) -> str | None:
@@ -164,7 +184,7 @@ def postal_address_from_nominatim(raw: dict) -> str | None:
     return ", ".join(parts)
 
 
-def reverse_address(lat: float, lng: float) -> str | None:
+def reverse_address(lat: float, lng: float, key: str = "") -> str | None:
     """Turn a US pin into a postal line Aerial View can look up."""
     if not (18 <= lat <= 72 and -180 <= lng <= -65):
         return None
@@ -181,9 +201,18 @@ def reverse_address(lat: float, lng: float) -> str | None:
         }
     )
     request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
-    with urllib.request.urlopen(request, timeout=15) as response:
-        raw = json.loads(response.read().decode())
-    postal = postal_address_from_nominatim(raw)
+    postal = None
+    try:
+        with urllib.request.urlopen(request, timeout=15) as response:
+            raw = json.loads(response.read().decode())
+        postal = postal_address_from_nominatim(raw)
+    except Exception:
+        postal = None
+    if not postal and key:
+        try:
+            postal = google_reverse_address(lat, lng, key)
+        except Exception:
+            postal = None
     if postal:
         _REVERSE_CACHE[cache_key] = postal
     return postal
@@ -203,7 +232,7 @@ def ensure_aerial(
     """Lookup Aerial View for a pin. Reverse-geocode if the pin has no address."""
     query = (address or "").strip()
     if not query and lat is not None and lng is not None:
-        query = reverse_address(float(lat), float(lng)) or ""
+        query = reverse_address(float(lat), float(lng), key) or ""
     if not query:
         return {"state": "NO_ADDRESS", "video_id": None, "query": "", "duration": None, "capture_date": None}
     # ACTIVE video ids are stable, so repeat clicks skip the metadata round trip.
