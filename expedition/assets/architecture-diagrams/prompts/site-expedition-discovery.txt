@@ -1,0 +1,22 @@
+Use case: infographic-diagram
+Asset type: methodology architecture diagram for a technical markdown/report
+Primary request: Show how Site Expedition discovers candidate pins and applies honest labels, and that Mireye does not search a region.
+Canvas: 16:9 landscape, light white background, clean presentation-slide style.
+Typography: Google Sans Flex style, large readable labels, dark gray text. Every label large enough to read on a GitHub README.
+Title text, verbatim: "Discovery finds pins. It does not list them."
+Layout: left-to-right. Left column is inputs. Middle column is three labeled outputs. Right column is the next cheap Mireye screen. A small muted note under Mireye that it does not search.
+Diagram labels, verbatim and keep short:
+1. "Search Region + Mission"
+2. "OSM Overpass"
+3. "POTENTIAL"
+4. "User address or pin"
+5. "USER SITE"
+6. "LISTED"
+7. "only with a listing id"
+8. "Then Mireye screen"
+9. "Mireye does not search a region"
+Footer text, verbatim: "No listing is ever asserted from a map tag. Market Availability stays a Verification Gap."
+Style: Stage / compute boxes in blue, analysis or gate boxes in teal, final output in orange, inputs in white outlined boxes, reject / safety in muted red outline. Thin gray arrows. Almost no shadow.
+Color mapping: "Search Region + Mission" and "User address or pin" are white outlined inputs. "OSM Overpass" is blue compute. "POTENTIAL" and "USER SITE" are teal. "LISTED" is teal with the qualifier "only with a listing id". "Then Mireye screen" is orange. The "Mireye does not search a region" note is dark gray helper text, not a new system box.
+Constraints: no extra systems, no invented metrics, no logos, no watermark, no dark background, no tiny text, no 3D, no decorative blobs. Do not show Zillow, LoopNet, Realtor, or Google Places as a source. Do not label OSM, EIA, or Earth Engine as LISTED. Do not copy LaunchRoom, ECHO, or Redrob labels.
+Avoid: clutter, dark theme, copied agent names from other products.

@@ -1,0 +1,27 @@
+Use case: infographic-diagram
+Asset type: methodology architecture diagram for a technical markdown/report
+Primary request: Show Mireye as the cited present-state record, Earth Engine as independent witnesses, public follow-ups on the side, and Google aerial as presentation only.
+Canvas: 16:9 landscape, light white background, clean presentation-slide style.
+Typography: Google Sans Flex style, large readable labels, dark gray text. Every label large enough to read on a GitHub README.
+Title text, verbatim: "Cited record, then independent witnesses"
+Layout: two main zones side by side with a thin gray arrow from left to right labeled "record asks for witnesses". A small side column for public follow-ups. An orange box below or to the far right labeled presentation only. Generous spacing.
+Diagram labels, verbatim and keep short:
+1. "Mireye"
+2. "FEMA"
+3. "terrain"
+4. "grid"
+5. "parcel"
+6. "Earth Engine"
+7. "JRC water history"
+8. "NASADEM vs 3DEP"
+9. "Dynamic World"
+10. "OSM"
+11. "EPA ECHO"
+12. "Routes"
+13. "Google aerial / 3D"
+14. "presentation only"
+Footer text, verbatim: "Mireye says what the official record is today. Earth Engine says whether the ground has been arguing with that record."
+Style: Stage / compute boxes in blue, analysis or gate boxes in teal, final output in orange, inputs in white outlined boxes, reject / safety in muted red outline. Thin gray arrows. Almost no shadow.
+Color mapping: Left Mireye zone is blue compute. Right Earth Engine zone is teal. Side OSM / EPA ECHO / Routes are white outlined. Google aerial / 3D is orange and labeled "presentation only". Do not connect Google aerial to the verdict.
+Constraints: no extra systems, no invented metrics, no logos, no watermark, no dark background, no tiny text, no 3D chrome, no decorative blobs. The globe must not score. Do not show a model deciding anything. Spell NASADEM, 3DEP, JRC, FEMA, EPA ECHO exactly. Do not copy LaunchRoom, ECHO product, or Redrob labels. No Campaign Director, no Lyria.
+Avoid: clutter, dark theme, copied agent names from other products.
