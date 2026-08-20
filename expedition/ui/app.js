@@ -3493,9 +3493,23 @@ function openRecommendations(reason) {
   }).catch(() => {});
 }
 
+const REASON_WORDS = {
+  mapped_sfha: "inside a FEMA-mapped flood zone",
+  not_cultivated: "not cultivated cropland",
+  site_form_mismatch: "wrong site form for this plan",
+};
+
+function humanizeReason(slug) {
+  if (REASON_WORDS[slug]) return REASON_WORDS[slug];
+  if (slug.startsWith("route_time_exceeds_max:")) {
+    return `too far from ${slug.split(":")[1].replace(/_/g, " ")}`;
+  }
+  return slug.replace(/_/g, " ");
+}
+
 function verdictLine(packet) {
   const v = packet.verdict.verdict;
-  const reasons = (packet.verdict.reasons || []).join(", ") || "no veto";
+  const reasons = (packet.verdict.reasons || []).map(humanizeReason).join(", ") || "no veto";
   if (v === "reject") return `Not a good idea · ${reasons}`;
   if (v === "conditional") return `Possible, with homework · ${reasons}`;
   if (v === "strong_fit") return `This works on the supported gates · ${reasons}`;
@@ -4000,7 +4014,9 @@ function showPacket(packet, opts) {
   const extra = v === "reject" && demGap
     ? " · ground untrusted: 3DEP and NASADEM disagree"
     : "";
-  box.textContent = `${verdictLine(packet)}${extra}`;
+  const cancelled = (packet.workstreams || []).some((w) => w.status === "cancelled");
+  const moot = cancelled ? " · cancelled questions live under Official follow-ups" : "";
+  box.textContent = `${verdictLine(packet)}${extra}${moot}`;
   if (entryPath === "check" && (v === "reject" || v === "conditional")) {
     openRecommendations(
       v === "reject"
@@ -4045,6 +4061,8 @@ function showPacket(packet, opts) {
   }
   const brief = packet.brief || {};
   const citations = (brief.citations || []).filter((citation) => citation && citation.source);
+  const briefDetails = $("brief").closest("details");
+  if (briefDetails && (brief.title || (brief.actions || []).length)) briefDetails.open = true;
   $("brief").innerHTML =
     `<p>${brief.title || ""}</p>` +
     `<ol>${(brief.actions || []).map((a) => `<li>${a}</li>`).join("")}</ol>` +
