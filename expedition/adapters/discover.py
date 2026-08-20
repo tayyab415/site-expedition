@@ -400,5 +400,8 @@ def discover_sites(
         "fetched_at": _now(),
         "count": len(candidates),
     }
-    _write_json(cache_root / f"{key}.json", payload)
+    # An empty result is worth returning but not persisting: the read path
+    # ignores empty payloads, so writing one only plants a junk file.
+    if candidates:
+        _write_json(cache_root / f"{key}.json", payload)
     return payload

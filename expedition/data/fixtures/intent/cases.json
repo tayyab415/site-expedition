@@ -161,7 +161,7 @@
       }
     },
     {
-      "id": "iowa_corn_open_inventory",
+      "id": "iowa_corn_nearest_metro",
       "text": "Iowa corn farm, dry summers, soil water availability",
       "expect": {
         "mission": "farm",
@@ -169,10 +169,7 @@
         "require_cultivated": true,
         "size_band": "flexible",
         "region_allowlist": [
-          "chicago",
-          "dallas_fort_worth",
-          "denver",
-          "atlanta"
+          "chicago"
         ],
         "preference_ids": [
           "soil_water_capacity",

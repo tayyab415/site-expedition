@@ -425,6 +425,22 @@ NON_US_HINTS = (
     "australia", "sydney", "brazil", "sao paulo", "india",
 )
 
+# Uncovered states whose populated side sits inside (or beside) a covered
+# metro band. A stated geography wins over a crop belt, so these keep the
+# user's location instead of discarding it.
+ADJACENT_STATE_REGIONS = {
+    "new jersey": ("new_york",),
+    "connecticut": ("new_york",),
+    "delaware": ("new_york",),
+    "wisconsin": ("chicago",),
+    "indiana": ("chicago",),
+    "michigan": ("chicago",),
+    "iowa": ("chicago",),
+    "wyoming": ("denver",),
+    "oklahoma": ("dallas_fort_worth",),
+    "oregon": ("seattle",),
+}
+
 INTENT_PROMPT = """You propose a Site Expedition Mission Plan. You do not decide verdicts.
 Return JSON only:
 {"mission":"warehouse"|"farm"|"home"|"data_center",
@@ -543,17 +559,30 @@ def _pick_crop(blob: str) -> str | None:
     return None
 
 
-def _geography_note(blob: str) -> str | None:
+def _geography_fallback(blob: str) -> tuple[str | None, tuple[str, ...]]:
+    """Honest note plus nearest covered metros for a named-but-uncovered place."""
     for hint in NON_US_HINTS:
         if _mentions(blob, (hint,)):
-            return f"{hint.title()} is outside the US. This agent is US-only."
+            return (
+                f"{hint.title()} is outside the US. This agent is US-only.",
+                (),
+            )
     for state in UNCOVERED_STATE_HINTS:
         if _mentions(blob, (state,)):
+            nearest = ADJACENT_STATE_REGIONS.get(state) or ()
+            if nearest:
+                return (
+                    f"{state.title()} has no direct locate coverage; the "
+                    "nearest covered metro stands in: "
+                    + ", ".join(nearest) + ".",
+                    nearest,
+                )
             return (
                 f"{state.title()} has no locate coverage yet, "
-                "so covered metros stand in."
+                "so covered metros stand in.",
+                (),
             )
-    return None
+    return None, ()
 
 
 def _pick_regions(blob: str, catalog: dict) -> list[str]:
@@ -709,7 +738,9 @@ def parse_intent(text: str) -> dict:
     size_band = _pick_size_band(blob, mission)
     require_cultivated = _pick_require_cultivated(blob, mission)
     crop = _pick_crop(blob) if mission == "farm" else None
-    geography_note = _geography_note(blob)
+    geography_note, nearest_regions = _geography_fallback(blob)
+    if not allowlist and nearest_regions:
+        allowlist = list(nearest_regions)
     crop_note = None
     if crop:
         belt = list(CROP_REGIONS.get(crop) or ())
@@ -769,6 +800,10 @@ def parse_intent(text: str) -> dict:
     return {
         "mission": mission,
         "crop": crop,
+        # Kept as fields so they survive the model merge: the model's
+        # rationale replaces the deterministic one, but these get re-appended.
+        "crop_note": crop_note,
+        "geography_note": geography_note,
         "search_region": search_region,
         "region_allowlist": allowlist,
         "flood_intolerant": flood_intolerant,
@@ -899,6 +934,13 @@ def propose_intent(text: str, *, live_model: bool = False) -> dict:
             row for row in proposed["preferences"] if row["id"] not in {"labor_access", "labor"}
         ]
         proposed["require_cultivated"] = False
+    # The model's rationale replaces the deterministic one wholesale. Code
+    # owns the honesty notes, so they are re-appended after the merge.
+    for key in ("geography_note", "crop_note"):
+        note = proposed.get(key)
+        rationale = proposed.get("rationale") or []
+        if note and note not in rationale:
+            proposed["rationale"] = rationale + [note]
     allowlist = proposed.get("region_allowlist") or []
     triangle_ok = proposed["search_region"] == "texas_triangle" and set(allowlist) <= set(
         load_catalog()["state_regions"].get("TX") or []

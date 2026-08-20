@@ -178,6 +178,29 @@ class AdversarialIntentTests(unittest.TestCase):
         self.assertTrue(result["ok"])
         self.assertTrue(any("US-only" in note for note in result["rationale"]))
 
+    def test_named_geography_wins_over_the_crop_belt(self):
+        # "corn plantations in New Jersey" must keep the user's geography
+        # (New York band covers northern NJ), not swap in a distant corn belt.
+        result = propose_intent("corn plantations in New Jersey", live_model=False)
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["region_allowlist"], ["new_york"])
+        self.assertEqual(result["controls"]["search_region"], "new_york")
+        self.assertTrue(
+            any("nearest covered metro" in note for note in result["rationale"])
+        )
+        self.assertTrue(
+            any("not a typical crop" in note for note in result["rationale"])
+        )
+
+    def test_adjacent_state_maps_to_nearest_metro(self):
+        for text, region in (
+            ("dairy farm in Wisconsin", "chicago"),
+            ("Iowa corn farm, dry summers, soil water availability", "chicago"),
+        ):
+            with self.subTest(text=text):
+                result = propose_intent(text, live_model=False)
+                self.assertEqual(result["region_allowlist"], [region])
+
     def test_uncovered_state_is_named_honestly(self):
         result = propose_intent("need 5000 acres for wheat in Montana", live_model=False)
         self.assertTrue(result["ok"])
@@ -256,8 +279,42 @@ class AdversarialIntentTests(unittest.TestCase):
                 self.assertEqual(result["controls"]["mission"], "farm")
                 self.assertFalse(result["controls"]["require_cultivated"])
 
+    def test_coffee_note_survives_the_model_merge(self):
+        # The live path replaces the deterministic rationale with the model's.
+        # The honesty note must survive that merge — it did not on 2026-08-20
+        # ("coffee plantations in us" on the board showed no Hawaii note).
+        luna_reply = {
+            "ok": True,
+            "text": (
+                '{"mission": "farm", "region_allowlist": [], '
+                '"flood_intolerant": false, "require_cultivated": true, '
+                '"rationale": ["Coffee plantations require cultivated '
+                'agricultural land."]}'
+            ),
+            "model": "gpt-5.6-luna",
+        }
+        with patch("expedition.intent._complete_intent", return_value=luna_reply):
+            result = propose_intent("coffee plantations in us", live_model=True)
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["source"], "model")
+        self.assertEqual(result["crop"], "coffee")
+        self.assertTrue(
+            any("Hawaii" in note for note in result["rationale"]),
+            result["rationale"],
+        )
+
+    def test_geography_note_survives_the_model_merge(self):
+        luna_reply = {
+            "ok": True,
+            "text": '{"mission": "farm", "region_allowlist": [], "rationale": ["A farm."]}',
+            "model": "gpt-5.6-luna",
+        }
+        with patch("expedition.intent._complete_intent", return_value=luna_reply):
+            result = propose_intent("farm in Toronto", live_model=True)
+        self.assertTrue(any("US-only" in note for note in result["rationale"]))
+
     def test_coffee_gets_an_honest_no_belt_note(self):
-        for text in ("coffee plantations", "coffee plantation in texas"):
+        for text in ("coffee plantations in us", "coffee plantation in texas"):
             with self.subTest(text=text):
                 result = propose_intent(text, live_model=False)
                 self.assertTrue(result["ok"])
