@@ -1,0 +1,29 @@
+Use case: infographic-diagram
+Asset type: methodology architecture diagram for a technical markdown/report
+Primary request: Show the five Site Expedition harness layers from PRODUCT.md, and that the running harness is Eyes plus Verdict plus Packet.
+Canvas: 16:9 landscape, light white background, clean presentation-slide style.
+Typography: Google Sans Flex style, large readable labels, dark gray text. Every label large enough to read on a GitHub README.
+Title text, verbatim: "Five layers, verdict stays in code"
+Layout: five stacked rounded layers, top to bottom, generous spacing. A thin teal bracket or caption on the left marking Eyes + Verdict + Packet as "harness/vet.py". Intelligence and Interface sit in the stack but are visually quieter.
+Diagram labels, verbatim and keep short:
+1. "1 Eyes"
+2. "Mireye cited record"
+3. "Earth Engine witnesses"
+4. "Google pretty, never in the packet"
+5. "2 Intelligence"
+6. "Triage, adjudication, consequence"
+7. "unfinished"
+8. "3 Verdict"
+9. "KEEP / KILL / HUMAN"
+10. "in code, deterministic"
+11. "4 Packet"
+12. "kill_letter.md + verdict.json"
+13. "every fact cited"
+14. "5 Interface"
+15. "paused"
+16. "harness/vet.py"
+Footer text, verbatim: "Verdicts are code. Google pixels never enter the cited packet."
+Style: Stage / compute boxes in blue, analysis or gate boxes in teal, final output in orange, inputs in white outlined boxes, reject / safety in muted red outline. Thin gray arrows. Almost no shadow.
+Color mapping: Eyes is blue. Intelligence is a quieter teal with the word "unfinished". Verdict is teal, with KILL using a muted red outline. Packet is orange. Interface is white outlined and labeled paused. The harness/vet.py caption is dark gray, not a sixth layer.
+Constraints: no extra systems, no invented metrics, no logos, no watermark, no dark background, no tiny text, no 3D, no decorative blobs. Do not add a sixth layer. Do not show a model deciding KEEP, KILL, or HUMAN. Do not copy LaunchRoom, ECHO, or Redrob labels. No Campaign Director, no Lyria.
+Avoid: clutter, dark theme, copied agent names from other products.

@@ -1,0 +1,23 @@
+Use case: infographic-diagram
+Asset type: methodology architecture diagram for a technical markdown/report
+Primary request: Show how Site Expedition computes a site-selection verdict from a typed need, left to right, with no extra systems.
+Canvas: 16:9 landscape, light white background, clean presentation-slide style.
+Typography: Google Sans Flex style, large readable labels, dark gray text. Every label large enough to read on a GitHub README.
+Title text, verbatim: "Site Expedition: Need to Verdict"
+Layout: left-to-right row of six rounded boxes, generous spacing, thin gray arrows between them. One title at top. One footer sentence at bottom.
+Diagram labels, verbatim and keep short:
+1. "Mission Plan"
+2. "No credit yet"
+3. "OSM or user pin"
+4. "USER SITE / POTENTIAL / LISTED"
+5. "Mireye screen"
+6. "Earth Engine + public follow-ups"
+7. "When the record asks"
+8. "Code verdict"
+9. "Reject / Conditional / Strong Fit"
+10. "Cited brief"
+Footer text, verbatim: "A model may narrate. It never changes the verdict. The globe is the view, not the evidence."
+Style: Stage / compute boxes in blue, analysis or gate boxes in teal, final output in orange, inputs in white outlined boxes, reject / safety in muted red outline. Thin gray arrows. Almost no shadow.
+Color mapping: "Mission Plan" and "OSM or user pin" are white outlined inputs. "Mireye screen" is blue compute. "Earth Engine + public follow-ups" and "Code verdict" are teal. "Cited brief" is orange. "Reject" may use a muted red outline. "LISTED" appears only as a label, never as a guaranteed output.
+Constraints: no extra systems, no invented metrics, no logos, no watermark, no dark background, no tiny text, no 3D, no decorative blobs. Do not show Google aerial or a globe as a scoring step. Do not show a model deciding Reject, Conditional, or Strong Fit. Do not copy LaunchRoom, ECHO, or Redrob labels. No Campaign Director, no Lyria, no URSI, no Raspberry Pi.
+Avoid: clutter, dark theme, copied agent names from other products.

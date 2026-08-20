@@ -18,6 +18,34 @@ Warehouse is the visual hero. Home, Farm, Data Center, and reviewed Custom missi
 
 Mireye says what the official record is today. Earth Engine says whether the ground has been arguing with that record.
 
+## How it computes
+
+Four slides. Labels come from this README, `ONE_PAGER.md`, and `PRODUCT.md`. The loop that made them is in [`OPENAI_IMAGE_DIAGRAMS.md`](OPENAI_IMAGE_DIAGRAMS.md).
+
+### Agent
+
+![Site Expedition: Need to Verdict](expedition/assets/architecture-diagrams/site-expedition-agent-pipeline.png)
+
+A model may narrate. It never changes the verdict. The globe is the view, not the evidence.
+
+### Harness
+
+![Five layers, verdict stays in code](expedition/assets/architecture-diagrams/site-expedition-harness-layers.png)
+
+`harness/vet.py` is Eyes plus Verdict plus Packet. Intelligence is still the unfinished layer. Interface is paused. Verdicts are code. Google pixels never enter the cited packet.
+
+### Discovery
+
+![Discovery finds pins. It does not list them.](expedition/assets/architecture-diagrams/site-expedition-discovery.png)
+
+OSM Overpass yields `POTENTIAL`. A user pin is `USER SITE`. `LISTED` only with a listing id. Mireye does not search a region. No listing is ever asserted from a map tag.
+
+### Mireye
+
+![Cited record, then independent witnesses](expedition/assets/architecture-diagrams/site-expedition-mireye-eyes.png)
+
+Mireye is FEMA, terrain, grid, parcel. Earth Engine is JRC water history, NASADEM vs 3DEP, Dynamic World. OSM, EPA ECHO, and Routes are follow-ups. Google aerial is presentation only.
+
 ## Run locally
 
 Python 3.12+, from the repository root:
@@ -46,7 +74,9 @@ Current gate is 253/253 tests. Browser smoke, scene startup, and HTTP stress run
 | Path | What it is |
 |---|---|
 | [`expedition/`](expedition/) | The product. Board, engine, adapters, tests. |
+| [`expedition/assets/architecture-diagrams/`](expedition/assets/architecture-diagrams/) | Agent, harness, discovery, and Mireye slides. |
 | [`ONE_PAGER.md`](ONE_PAGER.md) | Challenge one-pager. |
+| [`OPENAI_IMAGE_DIAGRAMS.md`](OPENAI_IMAGE_DIAGRAMS.md) | Codex imagegen playbook for Site Expedition and the insurance skin. Style lock, prompt schema, Stitch vs slides. |
 | [`expedition/SUBMISSION.md`](expedition/SUBMISSION.md) | Judge-facing writeup. |
 | [`harness/`](harness/) and [`iteration-1/`](iteration-1/)–[`iteration-7/`](iteration-7/) | Earlier KEEP/KILL packets that led here. |
 
