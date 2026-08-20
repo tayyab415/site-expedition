@@ -9,7 +9,10 @@ MISSIONS = ("home", "farm", "warehouse", "data_center", "custom")
 SCAN_BUDGETS = frozenset({"quick", "standard", "deep"})
 SITE_FORMS = frozenset({"either", "existing_asset", "developable_land"})
 GEOGRAPHY_BANDS = frozenset({"selected_region", "adjacent_regions", "statewide"})
-SEARCH_REGIONS = frozenset({"texas_triangle", "houston_metro", "austin_san_antonio", "dallas_fort_worth"})
+SEARCH_REGIONS = frozenset({
+    "texas_triangle", "houston_metro", "austin_san_antonio", "dallas_fort_worth",
+    "chicago", "atlanta", "phoenix", "denver", "seattle", "los_angeles", "new_york", "miami",
+})
 PREFERENCE_WEIGHTS = frozenset({"not_considered", "useful", "important", "priority"})
 OPTIONAL_INVESTIGATIONS = frozenset(
     {

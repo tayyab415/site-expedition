@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -16,6 +17,7 @@ CACHE_DIR = ROOT / "var" / "cache" / "aerial"
 ENV_FILE = Path.home() / ".config" / "mireye-challenge-maps.env"
 METADATA_URL = "https://aerialview.googleapis.com/v1/videos:lookupVideoMetadata"
 VIDEO_URL = "https://aerialview.googleapis.com/v1/videos:lookupVideo"
+RENDER_URL = "https://aerialview.googleapis.com/v1/videos:renderVideo"
 
 
 def maps_key() -> str:
@@ -38,11 +40,57 @@ def lookup_metadata(query: str, key: str) -> dict:
         return json.loads(response.read().decode())
 
 
+def lookup_metadata_by_id(video_id: str, key: str) -> dict:
+    url = METADATA_URL + "?" + urllib.parse.urlencode({"videoId": video_id, "key": key})
+    request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
+    with urllib.request.urlopen(request, timeout=25) as response:
+        return json.loads(response.read().decode())
+
+
 def lookup_playback(video_id: str, key: str) -> dict:
     url = VIDEO_URL + "?" + urllib.parse.urlencode({"videoId": video_id, "key": key})
     request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
     with urllib.request.urlopen(request, timeout=25) as response:
         return json.loads(response.read().decode())
+
+
+def render_video(address: str, key: str) -> dict:
+    url = RENDER_URL + "?" + urllib.parse.urlencode({"key": key})
+    body = json.dumps({"address": address}).encode()
+    request = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "mireye-expedition-board",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=25) as response:
+        return json.loads(response.read().decode())
+
+
+_PLAYBACK_URI_CACHE: dict[str, tuple[str, float]] = {}
+
+
+def _uri_expiry_epoch(uri: str) -> float:
+    try:
+        query = urllib.parse.parse_qs(urllib.parse.urlparse(uri).query)
+        expire = float((query.get("expire") or ["0"])[0])
+    except (TypeError, ValueError):
+        expire = 0.0
+    return expire or time.time() + 20 * 60
+
+
+def cached_playback_uri(video_id: str, key: str, *, refresh: bool = False) -> str | None:
+    """Signed URI, reused until ~2 minutes before it expires. Memory only, never disk."""
+    hit = None if refresh else _PLAYBACK_URI_CACHE.get(video_id)
+    if hit and hit[1] - time.time() > 120:
+        return hit[0]
+    uri = playback_uri(lookup_playback(video_id, key))
+    if uri:
+        _PLAYBACK_URI_CACHE[video_id] = (uri, _uri_expiry_epoch(uri))
+    return uri
 
 
 def playback_uri(playback: dict) -> str | None:
@@ -60,6 +108,126 @@ def playback_uri(playback: dict) -> str | None:
                 if isinstance(candidate, str) and candidate.startswith("http"):
                     return candidate
     return None
+
+
+def video_id_from(payload: dict) -> str | None:
+    if not isinstance(payload, dict):
+        return None
+    if isinstance(payload.get("videoId"), str) and payload["videoId"]:
+        return payload["videoId"]
+    meta = payload.get("metadata")
+    if isinstance(meta, dict) and isinstance(meta.get("videoId"), str) and meta["videoId"]:
+        return meta["videoId"]
+    return None
+
+
+def public_aerial(payload: dict, query: str) -> dict:
+    """Metadata only. Signed playback URIs never leave this helper."""
+    payload = payload if isinstance(payload, dict) else {}
+    state = str(payload.get("state") or "").upper()
+    meta = payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
+    video_id = video_id_from(payload) if state in {"ACTIVE", "PROCESSING"} else None
+    return {
+        "state": state or "UNKNOWN",
+        "video_id": video_id,
+        "duration": payload.get("duration") or meta.get("duration"),
+        "capture_date": payload.get("captureDate") or meta.get("captureDate"),
+        "query": query,
+    }
+
+
+NOMINATIM_REVERSE = "https://nominatim.openstreetmap.org/reverse"
+_REVERSE_CACHE: dict[tuple[float, float], str] = {}
+
+
+def postal_address_from_nominatim(raw: dict) -> str | None:
+    addr = raw.get("address") if isinstance(raw, dict) else None
+    if not isinstance(addr, dict):
+        return None
+    house = str(addr.get("house_number") or "").strip()
+    road = str(addr.get("road") or addr.get("pedestrian") or "").strip()
+    city = str(
+        addr.get("city") or addr.get("town") or addr.get("village") or addr.get("hamlet") or ""
+    ).strip()
+    state = str(addr.get("state") or "").strip()
+    postcode = str(addr.get("postcode") or "").strip()
+    if not (house and road):
+        return None
+    head = f"{house} {road}".strip()
+    parts = [head]
+    if city:
+        parts.append(city)
+    if state:
+        parts.append(state)
+    if postcode:
+        parts.append(postcode)
+    return ", ".join(parts)
+
+
+def reverse_address(lat: float, lng: float) -> str | None:
+    """Turn a US pin into a postal line Aerial View can look up."""
+    if not (18 <= lat <= 72 and -180 <= lng <= -65):
+        return None
+    cache_key = (round(lat, 5), round(lng, 5))
+    if cache_key in _REVERSE_CACHE:
+        return _REVERSE_CACHE[cache_key]
+    url = NOMINATIM_REVERSE + "?" + urllib.parse.urlencode(
+        {
+            "lat": f"{lat:.7f}",
+            "lon": f"{lng:.7f}",
+            "format": "json",
+            "addressdetails": 1,
+            "zoom": 18,
+        }
+    )
+    request = urllib.request.Request(url, headers={"User-Agent": "mireye-expedition-board"})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        raw = json.loads(response.read().decode())
+    postal = postal_address_from_nominatim(raw)
+    if postal:
+        _REVERSE_CACHE[cache_key] = postal
+    return postal
+
+
+_ENSURE_CACHE: dict[str, dict] = {}
+
+
+def ensure_aerial(
+    *,
+    address: str = "",
+    lat: float | None = None,
+    lng: float | None = None,
+    render: bool = False,
+    key: str,
+) -> dict:
+    """Lookup Aerial View for a pin. Reverse-geocode if the pin has no address."""
+    query = (address or "").strip()
+    if not query and lat is not None and lng is not None:
+        query = reverse_address(float(lat), float(lng)) or ""
+    if not query:
+        return {"state": "NO_ADDRESS", "video_id": None, "query": "", "duration": None, "capture_date": None}
+    # ACTIVE video ids are stable, so repeat clicks skip the metadata round trip.
+    hit = _ENSURE_CACHE.get(query)
+    if hit:
+        return dict(hit)
+    try:
+        record = public_aerial(lookup_metadata(query, key), query)
+    except urllib.error.HTTPError as exc:
+        if exc.code != 404:
+            raise
+        record = public_aerial({"state": "NOT_FOUND"}, query)
+    if record["state"] == "ACTIVE":
+        _ENSURE_CACHE[query] = dict(record)
+    if record["state"] == "ACTIVE" or not render:
+        return record
+    try:
+        return public_aerial(render_video(query, key), query)
+    except urllib.error.HTTPError as exc:
+        if exc.code == 400:
+            return {"state": "UNSUPPORTED", "video_id": None, "query": query, "duration": None, "capture_date": None}
+        if exc.code == 404:
+            return public_aerial({"state": "NOT_FOUND"}, query)
+        raise
 
 
 def _cache_path(candidate_id: str, cache_dir: Path | None = None) -> Path:

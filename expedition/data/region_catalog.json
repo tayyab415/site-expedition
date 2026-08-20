@@ -1,0 +1,543 @@
+{
+  "locate_inventory": [
+    "houston_metro",
+    "austin_san_antonio",
+    "dallas_fort_worth",
+    "chicago",
+    "atlanta",
+    "phoenix",
+    "denver",
+    "seattle",
+    "los_angeles",
+    "new_york",
+    "miami"
+  ],
+  "state_regions": {
+    "TX": [
+      "houston_metro",
+      "austin_san_antonio",
+      "dallas_fort_worth"
+    ],
+    "IL": [
+      "chicago"
+    ],
+    "GA": [
+      "atlanta"
+    ],
+    "AZ": [
+      "phoenix"
+    ],
+    "CO": [
+      "denver"
+    ],
+    "WA": [
+      "seattle"
+    ],
+    "CA": [
+      "los_angeles"
+    ],
+    "NY": [
+      "new_york"
+    ],
+    "FL": [
+      "miami"
+    ]
+  },
+  "regions": {
+    "houston_metro": {
+      "region_id": "houston_metro",
+      "label": "Houston metro",
+      "state": "TX",
+      "geography_family": "metro",
+      "centroid": [
+        29.7589,
+        -95.3677
+      ],
+      "fly": [
+        -95.37,
+        29.76,
+        180000
+      ],
+      "adjacent": [
+        "austin_san_antonio",
+        "dallas_fort_worth"
+      ],
+      "probes": [
+        {
+          "id": "houston_cbd",
+          "lat": 29.7589,
+          "lng": -95.3677,
+          "role": "cbd"
+        },
+        {
+          "id": "houston_ship_channel",
+          "lat": 29.73,
+          "lng": -95.12,
+          "role": "industrial_port"
+        },
+        {
+          "id": "houston_katy",
+          "lat": 29.7858,
+          "lng": -95.8245,
+          "role": "inland_logistics"
+        },
+        {
+          "id": "houston_woodlands",
+          "lat": 30.1588,
+          "lng": -95.4894,
+          "role": "north_suburb"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "48201",
+          "name": "Harris County, Texas"
+        }
+      ]
+    },
+    "austin_san_antonio": {
+      "region_id": "austin_san_antonio",
+      "label": "Austin\u2013San Antonio corridor",
+      "state": "TX",
+      "geography_family": "corridor",
+      "centroid": [
+        29.85,
+        -97.9
+      ],
+      "fly": [
+        -97.9,
+        29.9,
+        220000
+      ],
+      "adjacent": [
+        "houston_metro",
+        "dallas_fort_worth"
+      ],
+      "probes": [
+        {
+          "id": "austin_cbd",
+          "lat": 30.2711,
+          "lng": -97.7437,
+          "role": "cbd"
+        },
+        {
+          "id": "san_antonio_cbd",
+          "lat": 29.4241,
+          "lng": -98.4936,
+          "role": "cbd"
+        },
+        {
+          "id": "san_marcos",
+          "lat": 29.883,
+          "lng": -97.941,
+          "role": "midpoint"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "48453",
+          "name": "Travis County, Texas"
+        },
+        {
+          "geoid": "48029",
+          "name": "Bexar County, Texas"
+        }
+      ]
+    },
+    "dallas_fort_worth": {
+      "region_id": "dallas_fort_worth",
+      "label": "Dallas\u2013Fort Worth",
+      "state": "TX",
+      "geography_family": "metro",
+      "centroid": [
+        32.7767,
+        -96.797
+      ],
+      "fly": [
+        -96.9,
+        32.78,
+        180000
+      ],
+      "adjacent": [
+        "austin_san_antonio",
+        "houston_metro"
+      ],
+      "probes": [
+        {
+          "id": "dallas_cbd",
+          "lat": 32.7767,
+          "lng": -96.797,
+          "role": "cbd"
+        },
+        {
+          "id": "fort_worth_cbd",
+          "lat": 32.7555,
+          "lng": -97.3308,
+          "role": "cbd"
+        },
+        {
+          "id": "alliance",
+          "lat": 32.976,
+          "lng": -97.319,
+          "role": "industrial_logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "48113",
+          "name": "Dallas County, Texas"
+        },
+        {
+          "geoid": "48439",
+          "name": "Tarrant County, Texas"
+        }
+      ]
+    },
+    "chicago": {
+      "region_id": "chicago",
+      "label": "Chicago",
+      "state": "IL",
+      "geography_family": "metro",
+      "centroid": [
+        41.8756,
+        -87.6244
+      ],
+      "fly": [
+        -87.63,
+        41.88,
+        160000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "chicago_loop",
+          "lat": 41.8756,
+          "lng": -87.6244,
+          "role": "cbd"
+        },
+        {
+          "id": "chicago_south",
+          "lat": 41.743,
+          "lng": -87.551,
+          "role": "industrial"
+        },
+        {
+          "id": "joliet",
+          "lat": 41.525,
+          "lng": -88.0817,
+          "role": "inland_logistics"
+        },
+        {
+          "id": "o_hare_logistics",
+          "lat": 41.9742,
+          "lng": -87.9073,
+          "role": "air_cargo"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "17031",
+          "name": "Cook County, Illinois"
+        },
+        {
+          "geoid": "17197",
+          "name": "Will County, Illinois"
+        }
+      ]
+    },
+    "atlanta": {
+      "region_id": "atlanta",
+      "label": "Atlanta",
+      "state": "GA",
+      "geography_family": "metro",
+      "centroid": [
+        33.7488,
+        -84.3883
+      ],
+      "fly": [
+        -84.39,
+        33.75,
+        160000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "atlanta_cbd",
+          "lat": 33.7488,
+          "lng": -84.3883,
+          "role": "cbd"
+        },
+        {
+          "id": "atlanta_airport",
+          "lat": 33.6407,
+          "lng": -84.4277,
+          "role": "air_cargo"
+        },
+        {
+          "id": "gwinnett",
+          "lat": 33.9604,
+          "lng": -84.0379,
+          "role": "suburb_logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "13121",
+          "name": "Fulton County, Georgia"
+        }
+      ]
+    },
+    "phoenix": {
+      "region_id": "phoenix",
+      "label": "Phoenix",
+      "state": "AZ",
+      "geography_family": "metro",
+      "centroid": [
+        33.4484,
+        -112.074
+      ],
+      "fly": [
+        -112.07,
+        33.45,
+        160000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "phoenix_cbd",
+          "lat": 33.4484,
+          "lng": -112.074,
+          "role": "cbd"
+        },
+        {
+          "id": "mesa",
+          "lat": 33.4152,
+          "lng": -111.8315,
+          "role": "suburb"
+        },
+        {
+          "id": "goodyear",
+          "lat": 33.4353,
+          "lng": -112.3582,
+          "role": "west_logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "04013",
+          "name": "Maricopa County, Arizona"
+        }
+      ]
+    },
+    "denver": {
+      "region_id": "denver",
+      "label": "Denver",
+      "state": "CO",
+      "geography_family": "metro",
+      "centroid": [
+        39.7392,
+        -104.9903
+      ],
+      "fly": [
+        -104.99,
+        39.74,
+        160000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "denver_cbd",
+          "lat": 39.7392,
+          "lng": -104.9903,
+          "role": "cbd"
+        },
+        {
+          "id": "aurora",
+          "lat": 39.7294,
+          "lng": -104.8319,
+          "role": "suburb"
+        },
+        {
+          "id": "commerce_city",
+          "lat": 39.8083,
+          "lng": -104.9339,
+          "role": "industrial"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "08031",
+          "name": "Denver County, Colorado"
+        }
+      ]
+    },
+    "seattle": {
+      "region_id": "seattle",
+      "label": "Seattle",
+      "state": "WA",
+      "geography_family": "metro",
+      "centroid": [
+        47.6062,
+        -122.3321
+      ],
+      "fly": [
+        -122.33,
+        47.61,
+        160000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "seattle_cbd",
+          "lat": 47.6062,
+          "lng": -122.3321,
+          "role": "cbd"
+        },
+        {
+          "id": "seattle_tideflats",
+          "lat": 47.266,
+          "lng": -122.43,
+          "role": "port"
+        },
+        {
+          "id": "kent_valley",
+          "lat": 47.3809,
+          "lng": -122.2348,
+          "role": "logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "53033",
+          "name": "King County, Washington"
+        }
+      ]
+    },
+    "los_angeles": {
+      "region_id": "los_angeles",
+      "label": "Los Angeles",
+      "state": "CA",
+      "geography_family": "metro",
+      "centroid": [
+        34.0522,
+        -118.2437
+      ],
+      "fly": [
+        -118.24,
+        34.05,
+        180000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "la_downtown",
+          "lat": 34.0522,
+          "lng": -118.2437,
+          "role": "cbd"
+        },
+        {
+          "id": "la_port",
+          "lat": 33.74,
+          "lng": -118.27,
+          "role": "port"
+        },
+        {
+          "id": "inland_empire",
+          "lat": 34.0633,
+          "lng": -117.6509,
+          "role": "inland_logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "06037",
+          "name": "Los Angeles County, California"
+        }
+      ]
+    },
+    "new_york": {
+      "region_id": "new_york",
+      "label": "New York",
+      "state": "NY",
+      "geography_family": "metro",
+      "centroid": [
+        40.7128,
+        -74.006
+      ],
+      "fly": [
+        -74.01,
+        40.71,
+        140000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "manhattan_midtown",
+          "lat": 40.758,
+          "lng": -73.9855,
+          "role": "cbd"
+        },
+        {
+          "id": "newark_port",
+          "lat": 40.6895,
+          "lng": -74.1529,
+          "role": "port"
+        },
+        {
+          "id": "long_island_city",
+          "lat": 40.744,
+          "lng": -73.948,
+          "role": "industrial"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "36061",
+          "name": "New York County, New York"
+        }
+      ]
+    },
+    "miami": {
+      "region_id": "miami",
+      "label": "Miami",
+      "state": "FL",
+      "geography_family": "metro",
+      "centroid": [
+        25.7617,
+        -80.1918
+      ],
+      "fly": [
+        -80.19,
+        25.76,
+        140000
+      ],
+      "adjacent": [],
+      "probes": [
+        {
+          "id": "miami_cbd",
+          "lat": 25.7617,
+          "lng": -80.1918,
+          "role": "cbd"
+        },
+        {
+          "id": "miami_beach",
+          "lat": 25.7907,
+          "lng": -80.13,
+          "role": "coastal"
+        },
+        {
+          "id": "doral_logistics",
+          "lat": 25.8195,
+          "lng": -80.3553,
+          "role": "inland_logistics"
+        }
+      ],
+      "counties": [
+        {
+          "geoid": "12086",
+          "name": "Miami-Dade County, Florida"
+        }
+      ]
+    }
+  }
+}

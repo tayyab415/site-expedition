@@ -47,6 +47,62 @@ TRUST_PROXY = os.environ.get("EXPEDITION_TRUST_PROXY", "").strip().lower() in {
     "1", "true", "yes", "on"
 }
 
+_GEO_RANK = {"selected": 0, "adjacent": 1, "statewide": 2}
+_GEO_STOP = {"selected_region": 0, "adjacent_regions": 1, "statewide": 2}
+
+
+def mission_catalog_ids(mission: str) -> list[str]:
+    """Lawful curated ids for a Mission. Custom reuses the warehouse pool."""
+    return list(
+        MISSION_SITES.get(mission)
+        or (MISSION_SITES.get("warehouse", []) if mission == "custom" else [])
+    )
+
+
+def _warehouse_in_search_region(candidate_id: str, controls: dict | None) -> bool:
+    from expedition.engine import _warehouse_candidate_band
+
+    controls = controls or {}
+    region = str(controls.get("search_region") or "texas_triangle")
+    stop = _GEO_STOP.get(str(controls.get("geography_band") or "selected_region"), 0)
+    band = _warehouse_candidate_band(region, candidate_id)
+    if band is None:
+        return False
+    return _GEO_RANK.get(band, 99) <= stop
+
+
+def expedition_catalog_ids(
+    mission: str,
+    requested: object | None = None,
+    controls: dict | None = None,
+) -> list[str]:
+    """Intersect an optional Keep/Pass subset with the lawful Mission list.
+
+    Omit or send the full lawful set and the Texas Triangle warehouse filter
+    stays in ``run_mission`` (len > 4). A proper subset also drops ids outside
+    the confirmed Search Region. Unknown ids are ignored, never loaded.
+    """
+    lawful = mission_catalog_ids(mission)
+    if requested is None:
+        return lawful
+    if not isinstance(requested, list):
+        raise ValueError("candidate_ids must be a list of catalog ids")
+    wanted = {
+        item.strip()
+        for item in requested
+        if isinstance(item, str) and item.strip()
+    }
+    chosen = [candidate_id for candidate_id in lawful if candidate_id in wanted]
+    if chosen == lawful:
+        return lawful
+    if mission in {"warehouse", "custom"}:
+        chosen = [
+            candidate_id
+            for candidate_id in chosen
+            if _warehouse_in_search_region(candidate_id, controls)
+        ]
+    return chosen
+
 
 def maps_key() -> str:
     if os.environ.get("GOOGLE_MAPS_API_KEY"):
@@ -205,6 +261,12 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             "/recordings.html": (ROOT / "recordings.html", "text/html; charset=utf-8"),
             "/verify": (ROOT / "verify.html", "text/html; charset=utf-8"),
             "/verify.html": (ROOT / "verify.html", "text/html; charset=utf-8"),
+            "/swipe-session": (ROOT / "swipe-session.html", "text/html; charset=utf-8"),
+            "/swipe-session.html": (ROOT / "swipe-session.html", "text/html; charset=utf-8"),
+            "/workflow-session": (ROOT / "workflow-session.html", "text/html; charset=utf-8"),
+            "/workflow-session.html": (ROOT / "workflow-session.html", "text/html; charset=utf-8"),
+            "/mockups": (ROOT / "mockups.html", "text/html; charset=utf-8"),
+            "/mockups.html": (ROOT / "mockups.html", "text/html; charset=utf-8"),
         }
         if path in files:
             file, ctype = files[path]
@@ -226,6 +288,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
         recording_files = {
             "/recordings/after.mp4": (recordings / "after" / "warehouse-user-flow.mp4", "video/mp4"),
             "/recordings/before.mp4": (recordings / "warehouse-user-flow.mp4", "video/mp4"),
+            "/recordings/studio.mp4": (recordings / "studio-walk" / "warehouse-user-flow.mp4", "video/mp4"),
         }
         if path in recording_files:
             file, ctype = recording_files[path]
@@ -234,9 +297,10 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                 return
             self._send(200, file.read_bytes(), ctype)
             return
-        if path.startswith("/recordings/stills/"):
+        if path.startswith("/recordings/stills/") or path.startswith("/recordings/studio/stills/"):
             name = path.rsplit("/", 1)[-1]
-            still = recordings / "after" / "stills" / name
+            folder = recordings / "studio-walk" / "stills" if "/studio/" in path else recordings / "after" / "stills"
+            still = folder / name
             if name != still.name or ".." in name or not still.is_file() or still.suffix != ".png":
                 self._json(404, {"error": "not found"})
                 return
@@ -257,6 +321,50 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             folder = recordings / "looks" / ("clips" if "/clips/" in path else "stills")
             allowed = {".mp4": "video/mp4", ".png": "image/png"}
             target = folder / name
+            if name != target.name or ".." in name or target.suffix not in allowed or not target.is_file():
+                self._json(404, {"error": "not found"})
+                return
+            self._send(200, target.read_bytes(), allowed[target.suffix])
+            return
+        swipe_dir = recordings / "swipe-session"
+        if path == "/swipe-session/warehouse-clickthrough.mp4":
+            video = swipe_dir / "warehouse-clickthrough.mp4"
+            if not video.is_file():
+                self._json(404, {"error": "recording missing"})
+                return
+            self._send(200, video.read_bytes(), "video/mp4")
+            return
+        if path.startswith("/swipe-session/stills/") or path.startswith("/swipe-session/crops/"):
+            name = path.rsplit("/", 1)[-1]
+            folder = swipe_dir / ("crops" if "/crops/" in path else "stills")
+            target = folder / name
+            if name != target.name or ".." in name or not target.is_file() or target.suffix != ".png":
+                self._json(404, {"error": "not found"})
+                return
+            self._send(200, target.read_bytes(), "image/png")
+            return
+        workflow_dir = recordings / "workflow-session"
+        if path == "/workflow-session/warehouse-clickthrough.mp4":
+            video = workflow_dir / "warehouse-clickthrough.mp4"
+            if not video.is_file():
+                self._json(404, {"error": "recording missing"})
+                return
+            self._send(200, video.read_bytes(), "video/mp4")
+            return
+        if path.startswith("/workflow-session/stills/") or path.startswith("/workflow-session/crops/"):
+            name = path.rsplit("/", 1)[-1]
+            folder = workflow_dir / ("crops" if "/crops/" in path else "stills")
+            target = folder / name
+            if name != target.name or ".." in name or not target.is_file() or target.suffix != ".png":
+                self._json(404, {"error": "not found"})
+                return
+            self._send(200, target.read_bytes(), "image/png")
+            return
+        mockup_dir = PKG / "var" / "ui-mockups"
+        if path.startswith("/mockups/"):
+            name = path.rsplit("/", 1)[-1]
+            target = mockup_dir / name
+            allowed = {".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp"}
             if name != target.name or ".." in name or target.suffix not in allowed or not target.is_file():
                 self._json(404, {"error": "not found"})
                 return
@@ -285,17 +393,18 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             self._json(200, snapshot())
             return
         if path == "/api/aerial-play":
-            from expedition.adapters.aerial import lookup_playback, playback_uri
+            from expedition.adapters.aerial import cached_playback_uri
 
-            video_id = (parse_qs(urlparse(self.path).query).get("video_id") or [""])[0]
+            play_qs = parse_qs(urlparse(self.path).query)
+            video_id = (play_qs.get("video_id") or [""])[0]
+            refresh = (play_qs.get("refresh") or [""])[0] == "1"
             if not video_id or len(video_id) > 256 or not all(
                 c.isalnum() or c in "-_" for c in video_id
             ):
                 self._json(400, {"error": "invalid video id"})
                 return
             try:
-                playback = lookup_playback(video_id, maps_key())
-                uri = playback_uri(playback)
+                uri = cached_playback_uri(video_id, maps_key(), refresh=refresh)
                 if not uri:
                     self._json(502, {"error": "Aerial playback URI unavailable"})
                     return
@@ -307,10 +416,20 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                 self._json(502, {"error": "Aerial playback unavailable"})
             return
         if path == "/api/aerial-meta":
-            from expedition.adapters.aerial import lookup_metadata
+            from expedition.adapters.aerial import (
+                lookup_metadata,
+                lookup_metadata_by_id,
+                public_aerial,
+            )
 
-            query = (parse_qs(urlparse(self.path).query).get("query") or [""])[0].strip()
-            if not query or len(query) > 200:
+            qs = parse_qs(urlparse(self.path).query)
+            query = (qs.get("query") or [""])[0].strip()
+            video_id = (qs.get("video_id") or [""])[0].strip()
+            if video_id:
+                if len(video_id) > 256 or not all(c.isalnum() or c in "-_" for c in video_id):
+                    self._json(400, {"error": "invalid video id"})
+                    return
+            elif not query or len(query) > 200:
                 self._json(400, {"error": "address query required"})
                 return
             key = maps_key()
@@ -318,27 +437,24 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                 self._json(503, {"error": "aerial lookup unavailable"})
                 return
             try:
-                raw = lookup_metadata(query, key)
+                raw = (
+                    lookup_metadata_by_id(video_id, key)
+                    if video_id
+                    else lookup_metadata(query, key)
+                )
             except urllib.error.HTTPError as exc:
                 if exc.code == 404:
-                    self._json(200, {"state": "NOT_FOUND", "video_id": None, "query": query})
+                    self._json(
+                        200,
+                        public_aerial({"state": "NOT_FOUND"}, query or video_id),
+                    )
                     return
                 self._json(exc.code, {"error": "aerial lookup unavailable"})
                 return
             except Exception:
                 self._json(502, {"error": "aerial lookup unavailable"})
                 return
-            state = str(raw.get("state") or "").upper()
-            self._json(
-                200,
-                {
-                    "state": state,
-                    "video_id": raw.get("videoId") if state == "ACTIVE" else None,
-                    "duration": raw.get("duration"),
-                    "capture_date": raw.get("captureDate"),
-                    "query": query,
-                },
-            )
+            self._json(200, public_aerial(raw, query or video_id))
             return
         if path == "/api/street-meta":
             from expedition.adapters.streetview import street_meta
@@ -369,12 +485,15 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             if not (18 <= lat <= 72 and -180 <= lng <= -65):
                 self._json(400, {"error": "point is outside the US envelope"})
                 return
+            pano = str((query.get("pano") or [""])[0]).strip()
+            if pano and (len(pano) > 64 or not all(ch.isalnum() or ch in "_-" for ch in pano)):
+                pano = ""
             key = maps_key()
             if not key:
                 self._json(503, {"error": "street view unavailable"})
                 return
             try:
-                body = lookup_image(lat, lng, heading, key)
+                body = lookup_image(lat, lng, heading, key, pano_id=pano or None)
             except urllib.error.HTTPError as exc:
                 self._json(exc.code, {"error": "street view unavailable"})
                 return
@@ -537,6 +656,132 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                 return
             self._json(200, plan.to_dict())
             return
+        if path == "/api/intent":
+            from expedition.intent import propose_intent
+
+            text = payload.get("text") or payload.get("intent") or ""
+            if not isinstance(text, str):
+                self._api_error(400, "invalid_request", "intent text must be a string")
+                return
+            live_model = bool(payload.get("live_model"))
+            try:
+                result = propose_intent(text, live_model=live_model)
+            except ValueError as exc:
+                self._api_error(400, "invalid_request", str(exc))
+                return
+            if not result.get("ok"):
+                # Honest refusal (e.g. cafe, solar farm): the UI shows message.
+                self._json(422, result)
+                return
+            self._json(200, result)
+            return
+        if path == "/api/regions":
+            from expedition.plan import compile_plan
+            from expedition.regions import rank_regions
+
+            controls = dict(payload.get("controls") or payload)
+            mission = str(
+                payload.get("mission") or controls.get("mission") or "warehouse"
+            ).replace(" ", "_").lower()
+            if "region_allowlist" in payload:
+                allowlist = payload.get("region_allowlist") or []
+            elif controls.get("region_allowlist"):
+                allowlist = controls.get("region_allowlist")
+            elif payload.get("open_inventory"):
+                allowlist = []
+            elif controls.get("search_region"):
+                allowlist = [str(controls["search_region"])]
+            else:
+                allowlist = []
+            try:
+                plan = compile_plan(
+                    mission,
+                    scan_budget=controls.get("scan_budget") or "standard",
+                    site_form=controls.get("site_form") or "either",
+                    flood_intolerant=controls.get("flood_intolerant"),
+                    search_region=controls.get("search_region") or "texas_triangle",
+                    geography_band=controls.get("geography_band") or "selected_region",
+                    size_band=controls.get("size_band") or "flexible",
+                    budget_band=controls.get("budget_band") or "flexible",
+                    preferences=controls.get("preferences") or [],
+                )
+                packet = rank_regions(
+                    plan.mission,
+                    preferences=controls.get("preferences") or [],
+                    allowlist=allowlist,
+                    flood_intolerant=plan.flood_intolerant,
+                    geography_band=plan.geography_band,
+                )
+            except (KeyError, TypeError, ValueError) as exc:
+                self._api_error(400, "invalid_request", str(exc))
+                return
+            self._json(200, packet)
+            return
+        if path == "/api/aerial-render":
+            from expedition.adapters.aerial import public_aerial, render_video
+
+            address = str(payload.get("address") or "").strip()
+            if not address or len(address) > 200:
+                self._json(400, {"error": "address required"})
+                return
+            key = maps_key()
+            if not key:
+                self._json(503, {"error": "aerial lookup unavailable"})
+                return
+            try:
+                raw = render_video(address, key)
+            except urllib.error.HTTPError as exc:
+                if exc.code == 400:
+                    self._json(200, {"state": "UNSUPPORTED", "video_id": None, "query": address})
+                    return
+                if exc.code == 404:
+                    self._json(200, public_aerial({"state": "NOT_FOUND"}, address))
+                    return
+                self._json(exc.code, {"error": "Aerial render unavailable"})
+                return
+            except Exception:
+                self._json(502, {"error": "Aerial render unavailable"})
+                return
+            self._json(200, public_aerial(raw, address))
+            return
+        if path == "/api/aerial-ensure":
+            from expedition.adapters.aerial import ensure_aerial
+
+            address = str(payload.get("address") or "").strip()
+            lat = payload.get("lat")
+            lng = payload.get("lng")
+            try:
+                lat_f = float(lat) if lat is not None and lat != "" else None
+                lng_f = float(lng) if lng is not None and lng != "" else None
+            except (TypeError, ValueError):
+                self._json(400, {"error": "lat and lng must be numbers"})
+                return
+            if not address and (lat_f is None or lng_f is None):
+                self._json(400, {"error": "address or lat/lng pin required"})
+                return
+            if address and len(address) > 200:
+                self._json(400, {"error": "address required"})
+                return
+            key = maps_key()
+            if not key:
+                self._json(503, {"error": "aerial lookup unavailable"})
+                return
+            try:
+                record = ensure_aerial(
+                    address=address,
+                    lat=lat_f,
+                    lng=lng_f,
+                    render=bool(payload.get("render")),
+                    key=key,
+                )
+            except urllib.error.HTTPError as exc:
+                self._json(exc.code, {"error": "Aerial lookup unavailable"})
+                return
+            except Exception:
+                self._json(502, {"error": "Aerial lookup unavailable"})
+                return
+            self._json(200, record)
+            return
         if path == "/api/resolve-address":
             from expedition.adapters.mireye import resolve_address
             from expedition.credits import CreditCeiling, snapshot
@@ -572,6 +817,58 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             except Exception as exc:
                 self._json(502, {"error": f"address resolve failed: {type(exc).__name__}"})
             return
+        if path == "/api/discover":
+            from expedition.adapters.discover import DiscoverError, discover_sites
+
+            from expedition.adapters.discover import REGION_HUBS
+            from expedition.plan import MISSIONS
+
+            mission = str(payload.get("mission") or "warehouse").replace(" ", "_").lower()
+            if mission not in MISSIONS:
+                self._api_error(400, "invalid_request", f"unknown mission {mission}")
+                return
+            search_region = str(payload.get("search_region") or "texas_triangle")
+            if search_region not in REGION_HUBS:
+                self._api_error(400, "invalid_request", f"unknown search region {search_region}")
+                return
+            look_query = str(payload.get("look_query") or "").strip()
+            network = payload.get("network")
+            if network is None:
+                network = True
+            try:
+                result = discover_sites(
+                    mission,
+                    search_region=search_region,
+                    look_query=look_query,
+                    network=bool(network),
+                )
+            except DiscoverError as exc:
+                self._json(
+                    200,
+                    {
+                        "mission": mission,
+                        "search_region": search_region,
+                        "look_query": look_query,
+                        "candidates": [],
+                        "source": "none",
+                        "note": str(exc),
+                    },
+                )
+                return
+            except Exception:
+                self._json(
+                    200,
+                    {
+                        "mission": mission,
+                        "search_region": search_region,
+                        "candidates": [],
+                        "source": "none",
+                        "note": "Map search failed. Starter pins still work.",
+                    },
+                )
+                return
+            self._json(200, result)
+            return
         if path in {"/api/run", "/api/expedition", "/api/run-stream", "/api/expedition-stream"}:
             from expedition.candidates import CandidateError
             from expedition.credits import CreditCeiling
@@ -597,6 +894,14 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                     controls["manifest_id"] = payload["manifest_id"]
                 live = bool(payload.get("live"))
                 review = bool(payload.get("review"))
+                requested_ids = (
+                    payload["candidate_ids"] if "candidate_ids" in payload else None
+                )
+                catalog_ids = (
+                    []
+                    if single
+                    else expedition_catalog_ids(mission, requested_ids, controls)
+                )
                 if streaming:
                     self._begin_ndjson()
                     try:
@@ -614,12 +919,9 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                                 on_progress=on_progress,
                             )
                         else:
-                            ids = MISSION_SITES.get(mission) or (
-                                MISSION_SITES.get("warehouse", []) if mission == "custom" else []
-                            )
                             packet = run_mission(
                                 mission,
-                                ids,
+                                catalog_ids,
                                 live=live,
                                 review=review,
                                 controls=controls,
@@ -646,12 +948,9 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                     )
                     self._json(200, packet)
                     return
-                ids = MISSION_SITES.get(mission) or (
-                    MISSION_SITES.get("warehouse", []) if mission == "custom" else []
-                )
                 packet = run_mission(
                     mission,
-                    ids,
+                    catalog_ids,
                     live=live,
                     review=review,
                     controls=controls,

@@ -263,8 +263,8 @@ PRESETS: tuple[dict, ...] = (
 
 DEFAULT_PRESET_ID = "cross_dock"
 PRESET_BY_ID = {row["id"]: row for row in PRESETS}
-SHELL_ORANGE = [1.0, 0.36, 0.08, 1.0]
-SHELL_CUTAWAY = [1.0, 0.36, 0.08, 0.28]
+SHELL_MASS = [0.74, 0.71, 0.66, 0.94]
+SHELL_CUTAWAY = [0.74, 0.71, 0.66, 0.16]
 
 
 def list_presets() -> list[dict]:
@@ -342,7 +342,7 @@ def _gltf_text(preset_id: str, interiors: bool) -> str:
     colors: list[float] = []
     indices: list[int] = []
 
-    shell_color = SHELL_CUTAWAY if interiors else SHELL_ORANGE
+    shell_color = SHELL_CUTAWAY if interiors else SHELL_MASS
     _box(
         positions,
         normals,

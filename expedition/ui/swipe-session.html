@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep/Pass session</title>
+  <link rel="stylesheet" href="/fonts.css">
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; font: 16px/1.5 Clash, system-ui, sans-serif; background: #0c0d0e; color: #ece8e0; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+    h1 { font-weight: 700; margin: 0 0 8px; font-size: 28px; }
+    h2 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #9a948a; margin: 36px 0 10px; }
+    p, li, figcaption { color: #c4bfb4; }
+    a { color: #ece8e0; }
+    .lede { max-width: 46rem; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 18px; }
+    @media (max-width: 820px) { .pair { grid-template-columns: 1fr; } }
+    figure { margin: 0; }
+    figure img, video {
+      display: block; width: 100%; background: #111;
+      border: 1px solid rgba(236,232,224,.14);
+    }
+    figcaption { font-size: 13px; margin-top: 8px; }
+    .tag {
+      display: inline-block; font: 11px ui-monospace, monospace;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: #9a948a; margin-bottom: 6px;
+    }
+    ol.notes { margin: 0 0 28px; padding-left: 1.2rem; }
+    ol.notes li { margin: 0 0 8px; }
+    .wide { margin: 0 0 18px; }
+    video { margin-top: 6px; }
+    .chapters { columns: 2; gap: 28px; }
+    @media (max-width: 720px) { .chapters { columns: 1; } }
+    .chapters li { break-inside: avoid; margin: 0 0 10px; }
+    code { font: 13px ui-monospace, monospace; color: #ece8e0; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="/">Planning board</a> · <a href="/workflow-session">Place / Scout / Screen / Sketch</a> · <a href="/recordings">other recordings</a></p>
+    <h1>Keep/Pass on the candidate rail</h1>
+    <p class="lede">
+      19 Aug 2026. Before shots are the committed warehouse board (git HEAD).
+      After shots and the video are this working tree, driven with real mouse and keyboard,
+      not <code>passSite()</code> from the console.
+    </p>
+    <p class="lede">
+      The session added Keep / Pass / Undo on the existing candidate-card rail.
+      Right is Keep, left is Pass. That does not screen and it is not a FEMA Reject.
+      The onboard page and the left deck also got a rewrite in the same dirty tree.
+      That restyle is in the before/after too. The swipe work is the dock.
+    </p>
+
+    <h2>1. Onboard</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · HEAD</span>
+        <img src="/swipe-session/stills/before-01-onboard.png" alt="HEAD onboard: What are you placing, all plan controls visible">
+        <figcaption>
+          Title is “What are you placing?” Every search envelope, hard constraint, preference, and investigation sits on the page at once.
+          Confirm stays disabled until a mission tile is picked.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · this tree</span>
+        <img src="/swipe-session/stills/after-01-onboard.png" alt="Current onboard: Pick the next warehouse pin, warehouse already selected">
+        <figcaption>
+          Title is “Pick the next warehouse pin.” Warehouse is already selected, Texas Triangle, flood veto checked.
+          The plan summary is one dashed card. Extra controls hide behind Adjust the plan.
+          Confirm Mission Plan is live.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>2. Confirmed board, the dock</h2>
+    <p class="lede">This is the actual change. Same four Texas pins. The bottom strip is a different product.</p>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · dock crop</span>
+        <img src="/swipe-session/crops/before-03-board.png" alt="HEAD dock: 140px, cards in a grid next to comparison, HUD overlay">
+        <figcaption>
+          Dock is 140px. Cards on the left in a wrapping grid with lat/lng on each chip.
+          Comparison on the right with Verdict / Gaps / Route columns.
+          No Keep, no Pass, no face photo. The A HUD overlay is still on, and an old Chicago Aerial clip can sit over the map.
+          Port Houston is half clipped in the card grid.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · dock crop</span>
+        <img src="/swipe-session/crops/after-03-board.png" alt="Current dock: swipe face, Pass Undo Keep, compare above four filmstrip cards">
+        <figcaption>
+          Dock is 276px. Left column is the current card: satellite chip (context only, does not score), POTENTIAL,
+          San Leon coastal pin, Texas Triangle · Existing asset or land · Not screened.
+          Buttons: Pass, Undo (disabled until you move), Keep.
+          Hint: “Right Keep · Left Pass. Does not screen. Pass is not a Reject.”
+          Right column, row 1: comparison (Site / Label / Verdict only).
+          Right column, row 2: four filmstrip chips, all NOT SCREENED, San Leon selected.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>The filmstrip is the same four curated pins. No MLS, no fake LISTED.</li>
+      <li>The face is identity plus a context chip. Flood, power, and score stay out of it.</li>
+      <li>Keep and Pass live on this rail. Run Expedition is still the left-hand button. Screen this site is still the inspector.</li>
+    </ol>
+
+    <h2>3. Click Alliance, then Pass</h2>
+    <div class="pair">
+      <figure>
+        <span class="tag">Before · Alliance selected</span>
+        <img src="/swipe-session/stills/before-04-alliance.png" alt="HEAD board with Alliance among the POTENTIAL cards, Chicago aerial overlay">
+        <figcaption>
+          Clicking Alliance only highlights that chip. There is nothing to Pass.
+          The map is still the leftover Chicago Aerial overlay with a Close control.
+          Comparison still says POTENTIAL / —.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Alliance on the face</span>
+        <img src="/swipe-session/crops/after-04-alliance.png" alt="Alliance on the swipe face with satellite chip">
+        <figcaption>
+          Click the Alliance filmstrip chip. The face switches to Alliance / Fort Worth logistics pin
+          and a satellite chip of that pin. Keep / Pass / Undo stay. Nothing has been screened. Credits stay 245 / 20000.
+        </figcaption>
+      </figure>
+    </div>
+    <div class="wide">
+      <figure>
+        <span class="tag">After · Pass clicked</span>
+        <img src="/swipe-session/crops/after-05-pass.png" alt="Alliance faded Passed on the filmstrip, Port Houston now on the face">
+        <figcaption>
+          Click Pass. Alliance slides to the end of the strip, opacity drops, stamp says Passed, not Reject.
+          The face advances to Port Houston. Comparison still has four rows, all unscreend. Pass is not a verdict.
+          Undo is now live. Keep on Port Houston would advance again without Passing anyone.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>Passed uses slate, 42% opacity, flex order 2. Reject later uses red and mapped.sfha. They are not the same class.</li>
+      <li>Undo put Alliance back on the face in the click walk. That still is after-06-undo.</li>
+      <li>ArrowLeft Passes the current face. U undoes. A left drag past 72px Passes. Those are in the video, not a second still.</li>
+    </ol>
+
+    <h2>4. Drop a USER SITE</h2>
+    <div class="wide">
+      <figure>
+        <span class="tag">After · Austin pin</span>
+        <img src="/swipe-session/crops/after-07-user-site.png" alt="USER SITE on top of the rail at 30.2672, -97.7431">
+        <figcaption>
+          Check a Site, type 30.2672 / -97.7431, Add USER SITE. The pin lands on top as USER SITE, auto-Kept.
+          Five cards. Face says User pin 30.2672, -97.7431, Not screened.
+          Comparison shows the user row first. Port Houston is the fifth chip, so the table still scrolls.
+          Run Expedition will not screen this pin. Screen this site will.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>5. Pass Alliance, then Run Expedition</h2>
+    <p class="lede">
+      This is the proof that Pass changes who gets screened, and that Passed is not Reject.
+      HEAD never had this path, so there is no before crop.
+    </p>
+    <div class="pair">
+      <figure>
+        <span class="tag">After · San Leon Reject</span>
+        <img src="/swipe-session/crops/after-10-san-leon-reject.png" alt="San Leon red Reject next to faded Alliance Passed">
+        <figcaption>
+          Click San Leon after the run. Face: Screened. See inspector.
+          Chip: red REJECT, mapped.sfha. Inspector verdict is Reject · mapped_sfha.
+          Story line: San Leon Reject · FEMA mapped floodplain.
+        </figcaption>
+      </figure>
+      <figure>
+        <span class="tag">After · Alliance still Passed</span>
+        <img src="/swipe-session/crops/after-11-alliance-still-passed.png" alt="Alliance face not screened, filmstrip still Passed">
+        <figcaption>
+          Click the faded Alliance chip. Face is still Not screened. Comparison row is still “—”.
+          Filmstrip still says Passed, not Reject. Alliance was not in the screened set
+          (san_leon, san_marcos_tx, port_houston). Credits still 245 / 20000.
+        </figcaption>
+      </figure>
+    </div>
+    <ol class="notes">
+      <li>San Marcos and Port Houston came back Conditional. Homework is still sale, power, trucking, zoning.</li>
+      <li>The first Pass-then-run dropped Alliance off the rail because the board only kept screened ids. That was a real bug. Passed ids now stay on the rail.</li>
+      <li>Passing anyone sends a 3-id subset, so the engine skips the len&gt;4 replacement pool. San Leon still Rejects. Nothing is brought in to replace it. That is leftover product behavior, not a click flake.</li>
+    </ol>
+
+    <h2>Walkthrough video</h2>
+    <p class="lede">
+      Headed Chromium on Xvfb, kiosk, 1440×1000, ffmpeg x11grab, 12 fps, 1m 37s.
+      Mouse events are CDP clicks. The OS cursor sometimes sits on the map, not on the button.
+      The buttons still fire. Pause it. It does not loop.
+    </p>
+    <figure class="wide">
+      <video id="walk" controls playsinline preload="metadata"
+        poster="/swipe-session/crops/after-03-board.png"
+        src="/swipe-session/warehouse-clickthrough.mp4"></video>
+      <figcaption>Warehouse confirm → Keep/Pass/Undo → key Pass → drag Pass → USER SITE → replan → Pass Alliance → Run Expedition → Reject vs Passed.</figcaption>
+    </figure>
+    <ol class="chapters">
+      <li><strong>0:02.</strong> Onboard. Warehouse already selected. Confirm Mission Plan.</li>
+      <li><strong>0:10.</strong> Board. Face is San Leon. Pass / Undo / Keep visible. Four NOT SCREENED chips.</li>
+      <li><strong>0:16.</strong> Click Alliance. Face and map pin switch. Still not screened.</li>
+      <li><strong>0:22.</strong> Pass Alliance, Undo, Keep. Face moves. Strip stays at four cards.</li>
+      <li><strong>0:32.</strong> ArrowLeft / drag Pass on Port Houston. That chip goes faded Passed. San Leon is the face again.</li>
+      <li><strong>0:50.</strong> Check a Site opens. Lat/lng fields. Live Mireye stays off.</li>
+      <li><strong>1:00.</strong> Add USER SITE. Face becomes User pin 30.2672, -97.7431. Five chips. Inspector says USER SITE · not screened. Street View chip, does not score.</li>
+      <li><strong>1:12.</strong> Change plan, confirm warehouse again, Pass Alliance. Alliance is Passed before Run Expedition.</li>
+      <li><strong>1:28.</strong> Run finished. San Leon red REJECT mapped.sfha. San Marcos and Port Houston CONDITIONAL. Alliance faded Passed, NOT SCREENED. Story: FEMA floodplain vs homework.</li>
+      <li><strong>1:36.</strong> Click Alliance. Face still Not screened. Pass did not become Reject after the run.</li>
+    </ol>
+
+    <h2>What I checked</h2>
+    <ol class="notes">
+      <li>HEAD stills were taken after swapping index.html, app.js, and styles.css to git HEAD, then restoring the working tree. The after stills match the restored files.</li>
+      <li>Click walk (separate from this video) was 13/13 after the Passed-ids-stay-on-the-rail fix. Pass, Undo, Keep, ArrowLeft, U, drag, USER SITE, Pass-then-run, no-Pass-run.</li>
+      <li>I sampled this video at 0:02, 0:10, 0:16, 0:22, 0:32, 0:50, 1:00, 1:12, 1:28, 1:36. It is the warehouse board, not a black Xvfb, not the old Chicago overlay.</li>
+      <li>Credits never left 245 / 20000. Swipe did not call Mireye.</li>
+      <li>The comparison table still needs a scrollbar for a fourth or fifth row. Farm / Home / Data center were not walked in this clip. Screen this site on the USER SITE was not clicked.</li>
+    </ol>
+  </main>
+</body>
+</html>

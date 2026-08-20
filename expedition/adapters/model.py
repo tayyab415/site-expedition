@@ -77,17 +77,31 @@ def _azure(deployment: str, prompt: str) -> tuple[str, dict]:
     key = env.get("AZURE_OPENAI_API_KEY")
     if not base or not key:
         raise RuntimeError("azure_not_configured")
-    url = f"{base}/openai/deployments/{deployment}/chat/completions?api-version=2024-10-21"
-    payload = {
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0,
-        "max_tokens": 512,
-    }
+    if base.endswith("/v1") or "/openai/v1" in base:
+        url = f"{base}/chat/completions"
+        payload = {
+            "model": deployment,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_completion_tokens": 700,
+        }
+        headers = {
+            "api-key": key,
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json",
+        }
+    else:
+        url = f"{base}/openai/deployments/{deployment}/chat/completions?api-version=2024-10-21"
+        payload = {
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0,
+            "max_tokens": 512,
+        }
+        headers = {"api-key": key, "Content-Type": "application/json"}
     req = urllib.request.Request(
         url,
         data=json.dumps(payload).encode(),
         method="POST",
-        headers={"api-key": key, "Content-Type": "application/json"},
+        headers=headers,
     )
     with urllib.request.urlopen(req, timeout=40) as resp:
         data = json.loads(resp.read().decode())

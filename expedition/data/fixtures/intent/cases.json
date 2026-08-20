@@ -1,0 +1,232 @@
+{
+  "note": "Deterministic intent harness. Expected values are literals. Luna may propose; plan.py still compiles. Farm water availability is soil AWC, never a water right. A stated crop with no covered metro suggests that crop's belt among covered metros.",
+  "cases": [
+    {
+      "id": "corn_plantations",
+      "text": "corn plantations",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "chicago",
+          "dallas_fort_worth",
+          "denver",
+          "atlanta"
+        ],
+        "preference_ids": []
+      }
+    },
+    {
+      "id": "big_farm_arizona_dry_water",
+      "text": "big farm in Arizona, dry weather, water availability",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "500_2000_acres",
+        "region_allowlist": [
+          "phoenix"
+        ],
+        "preference_ids": [
+          "soil_water_capacity",
+          "drought_context"
+        ]
+      }
+    },
+    {
+      "id": "soy_chicago_400_acre_no_flood",
+      "text": "400 acre soybean farm outside Chicago, no flood",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": true,
+        "require_cultivated": true,
+        "size_band": "100_500_acres",
+        "region_allowlist": [
+          "chicago"
+        ],
+        "preference_ids": []
+      }
+    },
+    {
+      "id": "rice_houston_flood_ok",
+      "text": "rice farm near Houston, flood irrigation is fine",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "houston_metro"
+        ],
+        "preference_ids": [
+          "soil_water_capacity"
+        ]
+      }
+    },
+    {
+      "id": "vineyard_california_drought",
+      "text": "vineyard in California, keep drought burden down",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "los_angeles"
+        ],
+        "preference_ids": [
+          "drought_context"
+        ]
+      }
+    },
+    {
+      "id": "cattle_ranch_denver",
+      "text": "looking for acreage to run cattle near Denver",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": false,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "denver"
+        ],
+        "preference_ids": []
+      }
+    },
+    {
+      "id": "orchard_seattle_irrigation",
+      "text": "orchard outside Seattle, irrigation and soil water matter",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "seattle"
+        ],
+        "preference_ids": [
+          "soil_water_capacity"
+        ]
+      }
+    },
+    {
+      "id": "hay_texas_drought",
+      "text": "hayfields somewhere in Texas, arid conditions",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "houston_metro",
+          "austin_san_antonio",
+          "dallas_fort_worth"
+        ],
+        "preference_ids": [
+          "drought_context"
+        ]
+      }
+    },
+    {
+      "id": "vegetables_austin_hill_country",
+      "text": "organic vegetable acreage in the hill country near Austin",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "austin_san_antonio"
+        ],
+        "preference_ids": []
+      }
+    },
+    {
+      "id": "small_farm_phoenix_hot_dry",
+      "text": "small 80 acre farm in Phoenix, hot and dry, need available water in the soil",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "under_100_acres",
+        "region_allowlist": [
+          "phoenix"
+        ],
+        "preference_ids": [
+          "soil_water_capacity",
+          "drought_context"
+        ]
+      }
+    },
+    {
+      "id": "iowa_corn_open_inventory",
+      "text": "Iowa corn farm, dry summers, soil water availability",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "chicago",
+          "dallas_fort_worth",
+          "denver",
+          "atlanta"
+        ],
+        "preference_ids": [
+          "soil_water_capacity",
+          "drought_context"
+        ]
+      }
+    },
+    {
+      "id": "greenhouse_atlanta",
+      "text": "greenhouse operation near Atlanta for year-round crops",
+      "expect": {
+        "mission": "farm",
+        "flood_intolerant": false,
+        "require_cultivated": true,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "atlanta"
+        ],
+        "preference_ids": []
+      }
+    },
+    {
+      "id": "warehouse_beside_farm_stays_warehouse",
+      "text": "warehouse next to a farm near Dallas, rail and highway, no flood",
+      "expect": {
+        "mission": "warehouse",
+        "flood_intolerant": true,
+        "require_cultivated": false,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "dallas_fort_worth"
+        ],
+        "preference_ids": [
+          "major_road_access",
+          "rail_access"
+        ]
+      }
+    },
+    {
+      "id": "data_hall_seattle_heat_fiber",
+      "text": "data hall in Seattle, keep heat down, fiber context",
+      "expect": {
+        "mission": "data_center",
+        "flood_intolerant": true,
+        "require_cultivated": false,
+        "size_band": "flexible",
+        "region_allowlist": [
+          "seattle"
+        ],
+        "preference_ids": [
+          "fiber_context",
+          "lower_heat"
+        ]
+      }
+    }
+  ]
+}
