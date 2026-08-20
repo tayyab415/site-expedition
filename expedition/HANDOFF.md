@@ -56,7 +56,7 @@ Workspace rules:
   a real blocker (credit raise, Luna deployment, key-restriction change).
 
 Start at HANDOFF step 1 (route-reality). Stop when the two-minute demo script
-in expedition/var/DEMO.md exists and you have walked it once on replay.
+in expedition/DEMO.md exists and you have walked it once on replay.
 ```
 
 ---
@@ -179,7 +179,7 @@ The board accepts lat/lng as `USER SITE`. Address entry should resolve once, the
 
 ### 6. Two-minute demo script
 
-Write `expedition/var/DEMO.md` from a run you actually walked, replay first.
+Write `expedition/DEMO.md` from a run you actually walked, replay first.
 
 Required beats (contract §11):
 
@@ -192,7 +192,7 @@ Required beats (contract §11):
 7. Brief with cited actions.
 8. TODAY 3D (Aerial 404 → 3D). FUTURE box optional and labeled “visual concept, not a permit”.
 
-**Done when:** `expedition/var/DEMO.md` names the live vs replay of each beat, the public URL you used, credit delta, and the one command to restart the board.
+**Done when:** `expedition/DEMO.md` names the live vs replay of each beat, the public URL you used, credit delta, and the one command to restart the board.
 
 ---
 
