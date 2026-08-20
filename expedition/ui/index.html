@@ -23,18 +23,35 @@
     </form>
   </section>
   <section id="onboard" class="onboard" data-entry="find">
-    <p class="kicker" id="onboard-kicker">Cited facts · not a listing · not a permit</p>
-    <h1 id="onboard-title">Find warehouse places</h1>
-    <p class="lede" id="onboard-lede">Pick a mission and where to look. Matching starter places, not listings.</p>
+    <header class="onboard-head">
+      <p class="kicker" id="onboard-kicker">Cited facts · not a listing · not a permit</p>
+      <h1 id="onboard-title">Find warehouse places</h1>
+      <p class="lede" id="onboard-lede">Pick a mission and where to look. Matching starter places, not listings.</p>
+    </header>
+
+    <ol class="place-beats" id="place-beats" aria-label="Discovery steps">
+      <li data-step="mission"><button type="button" data-focus="tiles"><i>1</i> Mission</button></li>
+      <li data-step="ask"><button type="button" data-focus="intent-text"><i>2</i> Ask</button></li>
+      <li data-step="where"><button type="button" data-focus="look-query"><i>3</i> Where</button></li>
+      <li data-step="go"><button type="button" data-focus="confirm"><i>4</i> Find</button></li>
+    </ol>
+
+    <div class="onboard-body">
+    <div class="onboard-flow">
     <div class="tiles" id="tiles"></div>
     <p id="custom-status" class="form-status" role="status"></p>
 
     <div id="intent-box" class="intent-box">
-      <label>What are you trying to do?
-        <textarea id="intent-text" maxlength="4000" placeholder="Corn farm in Arizona, dry weather, soil water"></textarea>
-      </label>
-      <button type="button" id="intent-go">Read this</button>
+      <label for="intent-text">What are you trying to do?</label>
+      <textarea id="intent-text" maxlength="4000" placeholder="Corn farm in Arizona, dry weather, soil water"></textarea>
+      <div id="intent-examples" class="intent-examples" aria-label="Example asks"></div>
+      <div class="intent-actions">
+        <button type="button" id="intent-go">Read this</button>
+        <span class="intent-kbd">or <kbd>Ctrl</kbd> + <kbd>Enter</kbd></span>
+      </div>
+      <p id="intent-source" class="intent-source" hidden></p>
       <p id="intent-status" class="form-status" role="status"></p>
+      <ul id="intent-reasons" class="intent-reasons" hidden></ul>
       <div id="intent-chips" class="intent-chips" hidden></div>
     </div>
 
@@ -56,11 +73,20 @@
     </div>
 
     <div class="hero-plan">
-      <label>City or metro
-        <input id="look-query" type="text" autocomplete="address-level2" placeholder="City or metro">
-      </label>
-      <label><span id="region-label">Or pick a region</span>
-        <select id="search-region">
+      <div class="hero-row">
+        <label for="look-query">City or metro
+          <input id="look-query" type="text" autocomplete="address-level2" placeholder="City or metro">
+        </label>
+        <label class="check flood-gate"><input type="checkbox" id="flood" checked> <span>Reject mapped Special Flood Hazard Area</span></label>
+      </div>
+      <div class="region-field">
+        <span class="region-field-label" id="region-label">Or pick a region</span>
+        <div id="region-pills" class="region-pills" role="radiogroup" aria-labelledby="region-label"></div>
+        <p class="region-hint" id="region-hint" role="status"></p>
+        <p class="region-note">A number counts checked-in starter pins. Map search finds more real map features when you confirm.</p>
+        <!-- The pills above are the control. This select stays as the single
+             source of truth every other code path already reads and writes. -->
+        <select id="search-region" class="mirror-field" tabindex="-1" aria-hidden="true">
           <option value="texas_triangle" selected>Texas Triangle</option>
           <option value="houston_metro">Houston metro</option>
           <option value="austin_san_antonio">Austin–San Antonio corridor</option>
@@ -74,15 +100,14 @@
           <option value="new_york">New York</option>
           <option value="miami">Miami</option>
         </select>
-      </label>
-      <label class="check flood-gate"><input type="checkbox" id="flood" checked> Reject mapped Special Flood Hazard Area</label>
+      </div>
     </div>
 
     <aside class="plan-card" id="plan-card">Select a Mission.</aside>
     <button type="button" id="confirm" disabled>Find geographies</button>
 
-    <details class="more-plan">
-      <summary>Adjust the plan</summary>
+    <details class="more-plan" id="more-plan">
+      <summary>Adjust the plan<span class="tuned-count" id="tuned-count" hidden></span></summary>
       <div class="control-deck">
         <fieldset class="control-section">
           <legend>Search envelope</legend>
@@ -165,6 +190,30 @@
         </fieldset>
       </div>
     </details>
+    </div>
+
+    <aside id="plan-preview" class="plan-preview" aria-live="polite">
+      <p class="kicker">Mission plan</p>
+      <p class="preview-headline" id="preview-headline">Compiling…</p>
+      <div class="preview-stats">
+        <div class="stat"><b id="preview-pins">0</b><span id="preview-pins-label">starter pins</span></div>
+        <div class="stat"><b id="preview-fields">0</b><span>evidence fields</span></div>
+        <div class="stat"><b id="preview-skills">0</b><span>skills</span></div>
+      </div>
+      <h3>Hard gates</h3>
+      <div class="preview-chips" id="preview-gates"></div>
+      <h3>Always a gap</h3>
+      <div class="preview-chips" id="preview-gaps"></div>
+      <h3>Then the board</h3>
+      <ol class="preview-steps">
+        <li>Ranks the covered metros</li>
+        <li>Scouts starter and map pins</li>
+        <li>Screens only when you ask</li>
+        <li>Compares, then sketches</li>
+      </ol>
+      <p class="preview-note">Nothing here is a listing, a permit, or a price. A gap stays a gap until an authorized source closes it.</p>
+    </aside>
+    </div>
   </section>
 
   <div id="app" class="app hud hidden">
@@ -231,6 +280,7 @@
       <p id="pin-cite" class="pin-cite"></p>
       <p id="pin-note" class="pin-note"></p>
       <button type="button" id="run-one" hidden>Read this pin</button>
+      <button type="button" id="show-receipts" hidden>Receipts · scorecard &amp; workstreams</button>
       <p id="fit-gap" class="fit-gap" hidden>FIT is a named gap: no licensed parcel envelope. The sketch is not a survey and not a permit.</p>
       <ul id="gaps"></ul>
       <label class="check hud-live"><input type="checkbox" id="live"> Live Mireye</label>
@@ -309,24 +359,24 @@
         <p class="hint">Replay needs a cache. A new pin screens only with Live Mireye on.</p>
       </details>
 
-      <details class="more-tools">
+    </aside>
+
+    <aside class="rail" id="rail-panel">
+      <button type="button" class="collapse" id="toggle-rail">Close receipts</button>
+      <details class="more-tools" open>
         <summary>Evidence bars · not a score</summary>
         <h2>Scorecard</h2>
         <div id="scorecard"></div>
         <h2>Evidence coverage</h2>
         <div id="coverage"></div>
       </details>
-    </aside>
-
-    <aside class="rail" id="rail-panel">
-      <button type="button" class="collapse" id="toggle-rail">Collapse rail</button>
-      <details class="more-tools">
+      <details class="more-tools" open>
         <summary>Workstreams</summary>
         <ol id="rail"></ol>
         <h2>Agent actions</h2>
         <ol id="expedition-log"><li>Scout the pins. Screen when the shortlist feels right.</li></ol>
       </details>
-      <details class="more-tools">
+      <details class="more-tools" open>
         <summary>Official follow-ups</summary>
         <ul id="scout-followups"></ul>
       </details>

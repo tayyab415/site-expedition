@@ -39,7 +39,7 @@ GOOGLE_TILES = "https://tile.googleapis.com"
 ENV_FILE = Path.home() / ".config" / "mireye-challenge-maps.env"
 MISSION_SITES = json.loads((PKG / "data" / "mission_sites.json").read_text())
 CANDIDATES = json.loads((PKG / "data" / "candidates.json").read_text())
-_sat_session: dict | None = None
+_tile_sessions: dict[str, dict] = {}
 AUTH = BrowserSessionGate(OptionalBearerTokenGate.from_env())
 API_LIMITER = PerIpRateLimiter(limit=180, window_seconds=60)
 TILE_LIMITER = PerIpRateLimiter(limit=3000, window_seconds=60)
@@ -114,14 +114,14 @@ def maps_key() -> str:
     return ""
 
 
-def satellite_session() -> str | None:
-    global _sat_session
+def tile_session(map_type: str) -> str | None:
     key = maps_key()
     if not key:
         return None
-    if _sat_session and _sat_session.get("session"):
-        return _sat_session["session"]
-    body = json.dumps({"mapType": "satellite", "language": "en-US", "region": "US"}).encode()
+    cached = _tile_sessions.get(map_type)
+    if cached and cached.get("session"):
+        return cached["session"]
+    body = json.dumps({"mapType": map_type, "language": "en-US", "region": "US"}).encode()
     req = urllib.request.Request(
         f"{GOOGLE_TILES}/v1/createSession?key={urllib.parse.quote(key)}",
         data=body,
@@ -129,8 +129,12 @@ def satellite_session() -> str | None:
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=20) as resp:
-        _sat_session = json.loads(resp.read())
-    return _sat_session.get("session")
+        _tile_sessions[map_type] = json.loads(resp.read())
+    return _tile_sessions[map_type].get("session")
+
+
+def satellite_session() -> str | None:
+    return tile_session("satellite")
 
 
 def proxy_google(path: str, query: str) -> tuple[int, bytes, str]:
@@ -154,7 +158,7 @@ def proxy_google(path: str, query: str) -> tuple[int, bytes, str]:
 
 class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
     def log_message(self, fmt: str, *args) -> None:
-        if "/v1/3dtiles/" in self.path or "/g2d/" in self.path or self.path.startswith("/sv"):
+        if "/v1/3dtiles/" in self.path or "/g2d/" in self.path or "/g2dm/" in self.path or self.path.startswith("/sv"):
             return
         sys.stderr.write("ui: " + (fmt % args) + "\n")
 
@@ -177,7 +181,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             path = self.path or ""
             # Keep a finite timeout. Clearing it lets Cesium tile keep-alives
             # hold every worker slot until the board stops answering.
-            timeout = 20.0 if ("/v1/3dtiles/" in path or "/g2d/" in path or path.startswith("/sv")) else 90.0
+            timeout = 20.0 if ("/v1/3dtiles/" in path or "/g2d/" in path or "/g2dm/" in path or path.startswith("/sv")) else 90.0
             try:
                 self.connection.settimeout(timeout)
             except OSError:
@@ -219,6 +223,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             path.startswith("/api/")
             or path.startswith("/v1/3dtiles")
             or path.startswith("/g2d/")
+            or path.startswith("/g2dm/")
             or path.startswith("/sv")
         )
         if not protected:
@@ -232,7 +237,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
         if require_auth and not AUTH.allows(self.headers):
             self._send(401, b'{"error":"authentication required"}', "application/json", AUTH.challenge_headers())
             return False
-        limiter = TILE_LIMITER if path.startswith(("/v1/3dtiles", "/g2d/", "/sv")) else API_LIMITER
+        limiter = TILE_LIMITER if path.startswith(("/v1/3dtiles", "/g2d/", "/g2dm/", "/sv")) else API_LIMITER
         decision = limiter.check(client_ip(self))
         if not decision.allowed:
             self._send(429, b'{"error":"rate limit exceeded"}', "application/json", {"Retry-After": str(decision.retry_after)})
@@ -267,6 +272,8 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             "/workflow-session.html": (ROOT / "workflow-session.html", "text/html; charset=utf-8"),
             "/mockups": (ROOT / "mockups.html", "text/html; charset=utf-8"),
             "/mockups.html": (ROOT / "mockups.html", "text/html; charset=utf-8"),
+            "/orbit-stage.html": (ROOT / "orbit-stage.html", "text/html; charset=utf-8"),
+            "/orbit-stage.js": (ROOT / "orbit-stage.js", "text/javascript"),
         }
         if path in files:
             file, ctype = files[path]
@@ -471,6 +478,59 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                 return
             self._json(200, street_meta(lat, lng))
             return
+        if path == "/api/orbit-clip":
+            from expedition.ui.orbit_clip import ensure_clip
+
+            query = parse_qs(urlparse(self.path).query)
+            try:
+                lat = float((query.get("lat") or [""])[0])
+                lng = float((query.get("lng") or [""])[0])
+            except (TypeError, ValueError):
+                self._json(400, {"error": "lat and lng required"})
+                return
+            if not (18 <= lat <= 72 and -180 <= lng <= -65):
+                self._json(400, {"error": "point is outside the US envelope"})
+                return
+            if not maps_key():
+                self._json(503, {"error": "orbit clips need the Google tiles key"})
+                return
+            base = f"http://127.0.0.1:{self.server.server_address[1]}"
+            self._json(200, ensure_clip(lat, lng, base))
+            return
+        if path.startswith("/orbit-clips/"):
+            from expedition.ui.orbit_clip import CLIP_DIR
+
+            name = path.rsplit("/", 1)[-1]
+            target = CLIP_DIR / name
+            if name != target.name or not name.endswith(".mp4") or not target.is_file():
+                self._json(404, {"error": "clip not found"})
+                return
+            data = target.read_bytes()
+            rng = (self.headers.get("Range") or "").strip()
+            if rng.startswith("bytes="):
+                try:
+                    spec = rng.split("=", 1)[1].split("-")
+                    start = int(spec[0]) if spec[0] else 0
+                    end = int(spec[1]) if len(spec) > 1 and spec[1] else len(data) - 1
+                except ValueError:
+                    start, end = 0, len(data) - 1
+                start = max(0, start)
+                end = min(end, len(data) - 1)
+                if start > end:
+                    self._send(416, b"", "video/mp4", {"Content-Range": f"bytes */{len(data)}"})
+                    return
+                self._send(
+                    206,
+                    data[start:end + 1],
+                    "video/mp4",
+                    {
+                        "Content-Range": f"bytes {start}-{end}/{len(data)}",
+                        "Accept-Ranges": "bytes",
+                    },
+                )
+                return
+            self._send(200, data, "video/mp4", {"Accept-Ranges": "bytes"})
+            return
         if path == "/sv":
             from expedition.adapters.streetview import lookup_image
 
@@ -512,6 +572,7 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
                     "has_google_tiles": bool(maps_key()),
                     "tileset": "/v1/3dtiles/root.json",
                     "satellite": "/g2d/{z}/{x}/{y}",
+                    "roadmap": "/g2dm/{z}/{x}/{y}",
                     "warehouse_gltf": "/assets/warehouse.gltf",
                     "concept": concept,
                     "presets": list_presets(),
@@ -566,15 +627,15 @@ class Handler(SecurityHeadersMixin, BaseHTTPRequestHandler):
             status, body, ctype = proxy_google(path, urlparse(self.path).query)
             self._send(status, body, ctype)
             return
-        if path.startswith("/g2d/"):
+        if path.startswith("/g2d/") or path.startswith("/g2dm/"):
             parts = path.strip("/").split("/")
             if len(parts) != 4:
-                self._json(400, {"error": "expected /g2d/z/x/y"})
+                self._json(400, {"error": "expected /g2d/z/x/y or /g2dm/z/x/y"})
                 return
-            _, z, x, y = parts
-            session = satellite_session()
+            prefix, z, x, y = parts
+            session = tile_session("roadmap" if prefix == "g2dm" else "satellite")
             if not session:
-                self._json(503, {"error": "no satellite session"})
+                self._json(503, {"error": "no tile session"})
                 return
             status, body, ctype = proxy_google(
                 f"/v1/2dtiles/{z}/{x}/{y}",

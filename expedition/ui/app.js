@@ -6,6 +6,38 @@ const TILES = [
   ["custom", "Constrained Custom", "One reviewed manifest."],
 ];
 
+// Clickable starter asks. Each one is a real sentence the intent compiler
+// already handles, so a click and a typed ask land in the same place.
+const INTENT_EXAMPLES = {
+  warehouse: [
+    "warehouse near the Port of Houston",
+    "250k sq ft cross-dock in Dallas, no floodplain",
+    "light industrial in Chicago with rail access",
+  ],
+  farm: [
+    "corn plantations in New Jersey",
+    "corn farm in Arizona, dry weather, soil water",
+    "pasture land near Denver",
+  ],
+  home: [
+    "family home near Austin, away from mapped flood",
+    "quiet lot outside Seattle on a gentle slope",
+  ],
+  data_center: [
+    "data hall near Phoenix substations",
+    "data center in Atlanta, cool climate, fiber",
+  ],
+  custom: [
+    "screen this against the reviewed manifest",
+  ],
+};
+
+const SCAN_LABELS = {
+  quick: "Quick scan",
+  standard: "Standard scan",
+  deep: "Deep scan",
+};
+
 const SIZE_BANDS = {
   warehouse: [
     ["flexible", "Flexible / not supplied"],
@@ -344,6 +376,10 @@ let clickHandler = null;
 let activeChip = null;
 let regionAllowlist = [];
 let intentOpenGeography = false;
+let intentRead = false;
+let defaultAnchorCount = 0;
+let regionTouched = false;
+let previewSignature = "";
 let locatePacket = null;
 
 const REGION_FLY = {
@@ -441,6 +477,18 @@ async function boot() {
     b.dataset.id = id;
     tiles.appendChild(b);
   });
+  document.querySelectorAll(".onboard-flow > *").forEach((el, index) => {
+    el.style.setProperty("--r", String(index + 2));
+  });
+  const preview = $("plan-preview");
+  if (preview) preview.style.setProperty("--r", "3");
+  renderRegionPills();
+  document.querySelectorAll("#place-beats button[data-focus]").forEach((btn) => {
+    btn.onclick = () => {
+      const id = btn.dataset.focus;
+      revealTarget(id === "tiles" ? ".tile.on" : `#${id}`);
+    };
+  });
   $("confirm").onclick = confirmPlan;
   if ($("intent-go")) $("intent-go").onclick = readIntent;
   if ($("intent-text")) {
@@ -462,6 +510,7 @@ async function boot() {
     if ($("story")) $("story").textContent = "";
     $("onboard").classList.remove("hidden");
     $("confirm").disabled = !plan;
+    $("confirm").classList.remove("busy");
     $("confirm").textContent = entryPath === "check" ? "Is this a good idea?" : "Find geographies";
   };
   $("run-all").onclick = runExpedition;
@@ -476,6 +525,13 @@ async function boot() {
   if ($("entry-find")) $("entry-find").onclick = () => setEntryPath("find");
   if ($("entry-check")) $("entry-check").onclick = () => setEntryPath("check");
   bindHud();
+  if ($("look-query")) {
+    $("look-query").addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      if (!$("confirm").disabled) $("confirm").click();
+    });
+  }
   ["entry-address", "entry-lat", "entry-lng", "look-query"].forEach((id) => {
     if ($(id)) $(id).addEventListener("input", () => {
       if (id === "look-query") syncLookRegion();
@@ -487,7 +543,14 @@ async function boot() {
   });
   $("close-video").onclick = closeAerial;
   $("aerial-video").addEventListener("error", onAerialError);
-  $("toggle-rail").onclick = () => $("app").classList.toggle("rail-off");
+  $("toggle-rail").onclick = () => {
+    // In the HUD the rail is the receipts drawer; elsewhere keep the old collapse.
+    if ($("app").classList.contains("hud")) $("app").classList.remove("receipts-open");
+    else $("app").classList.toggle("rail-off");
+  };
+  if ($("show-receipts")) {
+    $("show-receipts").onclick = () => $("app").classList.toggle("receipts-open");
+  }
   $("toggle-deck").onclick = () => $("app").classList.toggle("deck-off");
   $("add-anchor").onclick = () => {
     appendRouteAnchor({ name: "", lat: "", lng: "", max_minutes: null });
@@ -656,6 +719,288 @@ function syncInteriorLegend(packet) {
     : "";
 }
 
+function motionOk() {
+  return !window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function flashField(el) {
+  if (!el) return;
+  el.classList.remove("flash-field");
+  // Reading offsetWidth restarts the animation on a repeat click.
+  void el.offsetWidth;
+  el.classList.add("flash-field");
+  setTimeout(() => el.classList.remove("flash-field"), 1500);
+}
+
+function revealTarget(selector, { openPlan = false } = {}) {
+  if (openPlan && $("more-plan")) $("more-plan").open = true;
+  const el = typeof selector === "string" ? document.querySelector(selector) : selector;
+  if (!el) return;
+  el.scrollIntoView({ behavior: motionOk() ? "smooth" : "auto", block: "center" });
+  const focusable = el.matches("input, select, textarea, button")
+    ? el
+    : el.querySelector("input, select, textarea, button");
+  if (focusable) focusable.focus({ preventScroll: true });
+  flashField(el);
+}
+
+function prettyToken(value) {
+  return String(value).replace(/_/g, " ");
+}
+
+// Starter pins that survive if this region is the one you pick. Mirrors
+// regionAllows, but for a region that is not selected yet.
+function countForRegion(regionId) {
+  const missionIds = missionSites[mission]
+    || (mission === "custom" ? missionSites.warehouse : [])
+    || [];
+  const geo = ($("geography-band") && $("geography-band").value) || "selected_region";
+  const stop = { selected_region: 0, adjacent_regions: 1, statewide: 2 }[geo] ?? 0;
+  const radius = BAND_RADIUS_KM[geo] ?? BAND_RADIUS_KM.selected_region;
+  const bands = (mission === "warehouse" || mission === "custom")
+    ? WAREHOUSE_BANDS[regionId]
+    : null;
+  const rank = { selected: 0, adjacent: 1, statewide: 2 };
+  return catalog.filter((row) => {
+    if (!missionIds.includes(row.id)) return false;
+    if (bands) return (row.id in bands) && rank[bands[row.id]] <= stop;
+    if (!Number.isFinite(row.lat) || !Number.isFinite(row.lng)) return true;
+    return hubDistanceKm(row.lat, row.lng, regionId) <= radius;
+  }).length;
+}
+
+function lookMappedRegion() {
+  const look = ((($("look-query") && $("look-query").value) || "")).trim().toLowerCase();
+  if (!look) return "";
+  return LOOK_TO_REGION[look] || LOOK_TO_REGION[look.split(",")[0].trim()] || "";
+}
+
+function renderRegionPills() {
+  const wrap = $("region-pills");
+  const select = $("search-region");
+  if (!wrap || !select) return;
+  wrap.innerHTML = Array.from(select.options).map((opt) => (
+    `<button type="button" class="region-pill" role="radio" aria-checked="false" tabindex="-1" data-region="${escapeHtml(opt.value)}">` +
+    `<span>${escapeHtml(opt.textContent)}</span><b>–</b></button>`
+  )).join("");
+  const pills = Array.from(wrap.querySelectorAll(".region-pill"));
+  pills.forEach((btn, index) => {
+    btn.onclick = () => selectRegion(btn.dataset.region);
+    btn.onkeydown = (event) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+      if (!step) return;
+      event.preventDefault();
+      const next = pills[(index + step + pills.length) % pills.length];
+      next.focus();
+      selectRegion(next.dataset.region);
+    };
+  });
+  syncRegionPills();
+}
+
+function selectRegion(value) {
+  const select = $("search-region");
+  if (!select || !value) return;
+  regionTouched = true;
+  if (select.value === value) {
+    syncRegionPills();
+    return;
+  }
+  select.value = value;
+  // "Or pick a region": a typed city and a picked region are alternatives,
+  // so picking one drops the other instead of quietly outranking it.
+  if ($("look-query")) $("look-query").value = "";
+  select.dispatchEvent(new Event("change"));
+}
+
+function syncRegionPills() {
+  const select = $("search-region");
+  const wrap = $("region-pills");
+  if (!select || !wrap) return;
+  const mapped = lookMappedRegion();
+  wrap.querySelectorAll(".region-pill").forEach((btn) => {
+    const id = btn.dataset.region;
+    const on = id === select.value;
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-checked", on ? "true" : "false");
+    btn.tabIndex = on ? 0 : -1;
+    btn.classList.toggle("matched", Boolean(mapped) && id === mapped);
+    const count = countForRegion(id);
+    btn.classList.toggle("empty", count === 0);
+    const badge = btn.querySelector("b");
+    if (badge) {
+      badge.textContent = count ? String(count) : "";
+      badge.hidden = !count;
+    }
+    btn.title = count
+      ? `${count} checked-in starter pin${count === 1 ? "" : "s"} here. Not listings.`
+      : "No checked-in starter pin here. Map search still runs on confirm.";
+  });
+  const hint = $("region-hint");
+  if (hint) {
+    const look = ((($("look-query") && $("look-query").value) || "")).trim();
+    if (!look) hint.textContent = "";
+    else if (mapped) hint.textContent = `"${look}" reads as ${REGION_LABELS[mapped] || mapped}.`;
+    else hint.textContent = `Map search runs around "${look}". The picked region stays the fallback band.`;
+  }
+}
+
+function renderIntentExamples(id) {
+  const wrap = $("intent-examples");
+  if (!wrap) return;
+  const rows = INTENT_EXAMPLES[id] || INTENT_EXAMPLES.warehouse;
+  if ($("intent-text") && rows[0]) $("intent-text").placeholder = rows[0];
+  wrap.innerHTML = rows.map((text, index) => (
+    `<button type="button" class="intent-example" style="--i:${index}">${escapeHtml(text)}</button>`
+  )).join("");
+  wrap.querySelectorAll(".intent-example").forEach((btn) => {
+    btn.onclick = () => {
+      if (!$("intent-text")) return;
+      $("intent-text").value = btn.textContent.replace(/^\u201C|\u201D$/g, "");
+      readIntent();
+    };
+  });
+}
+
+function renderIntentReasons(lines) {
+  const wrap = $("intent-reasons");
+  if (!wrap) return;
+  const rows = (lines || []).filter(Boolean);
+  wrap.hidden = !rows.length;
+  wrap.innerHTML = rows.map((line, index) => {
+    const caution = /(no direct|stands in|not a typical|not covered|unusual|cannot|no locate)/i.test(line);
+    return `<li class="${caution ? "caution" : ""}" style="--i:${index}">${escapeHtml(line)}</li>`;
+  }).join("");
+}
+
+function setIntentSource(text) {
+  const el = $("intent-source");
+  if (!el) return;
+  el.textContent = text || "";
+  el.hidden = !text;
+}
+
+function countTo(el, value) {
+  if (!el) return;
+  const from = parseInt(el.textContent, 10);
+  const target = Number(value) || 0;
+  if (!motionOk() || !Number.isFinite(from) || from === target) {
+    el.textContent = String(target);
+    return;
+  }
+  const start = performance.now();
+  const step = (now) => {
+    const t = Math.min(1, (now - start) / 320);
+    el.textContent = String(Math.round(from + (target - from) * t));
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function paintPreviewChips(el, values, kind, emptyLabel) {
+  if (!el) return;
+  const rows = (values || []).map(prettyToken);
+  el.innerHTML = rows.length
+    ? rows.map((label, index) => `<span class="pc ${kind}" style="--i:${index}">${escapeHtml(label)}</span>`).join("")
+    : `<span class="pc none">${escapeHtml(emptyLabel)}</span>`;
+}
+
+function updatePlanPreview() {
+  const wrap = $("plan-preview");
+  if (!wrap) return;
+  const headline = $("preview-headline");
+  if (!plan) {
+    if (headline) headline.textContent = "No Mission Plan compiled yet.";
+    countTo($("preview-pins"), 0);
+    countTo($("preview-fields"), 0);
+    countTo($("preview-skills"), 0);
+    paintPreviewChips($("preview-gates"), [], "gate", "Nothing compiled");
+    paintPreviewChips($("preview-gaps"), [], "gap", "Nothing compiled");
+    previewSignature = "";
+    return;
+  }
+  const copy = MISSION_COPY[mission] || MISSION_COPY.warehouse;
+  const region = REGION_LABELS[plan.search_region] || plan.search_region;
+  const scan = SCAN_LABELS[plan.scan_budget] || "Standard scan";
+  const pins = matchingCount();
+  const look = ((($("look-query") && $("look-query").value) || "")).trim();
+  const stated = Boolean(look) || regionAllowlist.length > 0;
+  if (headline) {
+    if (entryPath === "check") headline.textContent = `${copy.placing} on your own pin. ${scan}.`;
+    else if (stated) headline.textContent = `${copy.placing} in ${look || region}. ${scan}.`;
+    else headline.textContent = `${copy.placing}, geography not stated yet. ${scan}.`;
+  }
+  const pinLabel = $("preview-pins-label");
+  if (pinLabel) pinLabel.textContent = entryPath === "check" ? "fallback pins" : "starter pins";
+  countTo($("preview-pins"), pins);
+  countTo($("preview-fields"), (plan.fields || []).length);
+  countTo($("preview-skills"), (plan.skills || []).length);
+  paintPreviewChips($("preview-gates"), plan.hard_constraints, "gate", "No hard gate");
+  paintPreviewChips($("preview-gaps"), plan.gaps_always, "gap", "None declared");
+  const signature = JSON.stringify([
+    mission, entryPath, plan.search_region, plan.scan_budget, pins,
+    plan.fields, plan.skills, plan.hard_constraints, plan.gaps_always,
+  ]);
+  if (previewSignature && signature !== previewSignature && motionOk()) {
+    wrap.classList.remove("bumped");
+    void wrap.offsetWidth;
+    wrap.classList.add("bumped");
+  }
+  previewSignature = signature;
+}
+
+function updateStepRail() {
+  const rail = $("place-beats");
+  if (!rail) return;
+  const asked = intentRead || Boolean(((($("intent-text") && $("intent-text").value) || "")).trim());
+  const placed = entryPath === "check"
+    ? checkEntryReady()
+    : regionTouched || Boolean(((($("look-query") && $("look-query").value) || "")).trim());
+  const state = { mission: Boolean(mission), ask: asked, where: placed, go: Boolean(plan) };
+  const order = ["mission", "ask", "where", "go"];
+  const current = order.find((key) => !state[key]) || "go";
+  rail.querySelectorAll("li").forEach((li) => {
+    const key = li.dataset.step;
+    li.classList.toggle("on", key === current);
+    li.classList.toggle("done", key !== "go" && state[key] && key !== current);
+  });
+}
+
+// How many controls the user (or a read ask) moved off the Mission default.
+function tunedCount() {
+  let count = 0;
+  const value = (id) => ($(id) && $(id).value) || "";
+  if (value("geography-band") !== "selected_region") count += 1;
+  if (value("site-form") !== "either") count += 1;
+  if (value("size-band") && value("size-band") !== "flexible") count += 1;
+  if (value("budget-band") !== "flexible") count += 1;
+  if (value("scan") !== "standard") count += 1;
+  ["water-service", "sewer-service", "fiber-service"].forEach((id) => {
+    if ($(id) && $(id).checked) count += 1;
+  });
+  if ($("flood") && $("flood").checked !== (mission !== "farm")) count += 1;
+  if (mission === "farm" && $("cultivated") && !$("cultivated").checked) count += 1;
+  document.querySelectorAll(".preference").forEach((el) => {
+    if (el.value !== "useful") count += 1;
+  });
+  const defaults = {};
+  (INVESTIGATION_OPTIONS[mission] || []).forEach(([key, , checked]) => { defaults[key] = Boolean(checked); });
+  document.querySelectorAll(".investigation").forEach((el) => {
+    if (el.checked !== Boolean(defaults[el.value])) count += 1;
+  });
+  const anchors = document.querySelectorAll("#route-anchors .route-row").length;
+  if (anchors !== defaultAnchorCount) count += Math.abs(anchors - defaultAnchorCount);
+  return count;
+}
+
+function updateTunedCount() {
+  const badge = $("tuned-count");
+  if (!badge) return;
+  const count = tunedCount();
+  badge.hidden = !count;
+  badge.textContent = count ? `${count} tuned` : "";
+}
+
 function pickMission(id) {
   mission = id;
   plan = null;
@@ -683,6 +1028,7 @@ function applyMissionCopy(id) {
   const lede = entryPath === "check" ? copy.checkLede : copy.findLede;
   if ($("onboard-title")) $("onboard-title").textContent = title;
   if ($("onboard-lede")) $("onboard-lede").textContent = lede;
+  renderIntentExamples(id);
 }
 
 function checkEntryReady() {
@@ -798,6 +1144,7 @@ function renderInvestigations(id) {
 
 function resetRouteAnchors(id) {
   $("route-anchors").innerHTML = "";
+  defaultAnchorCount = (DEFAULT_ROUTE_ANCHORS[id] || []).length;
   (DEFAULT_ROUTE_ANCHORS[id] || []).forEach(appendRouteAnchor);
   $("route-section").classList.toggle("optional", !["warehouse", "data_center"].includes(id));
   $("anchor-status").textContent = "";
@@ -933,16 +1280,22 @@ async function previewPlan() {
   if (!mission) return;
   const payload = controls();
   const request = ++planRequest;
+  syncRegionPills();
+  updateTunedCount();
   if (!payload) {
     plan = null;
     $("confirm").disabled = true;
     $("plan-card").textContent = "Fix the highlighted controls before confirming this Mission Plan.";
+    updatePlanPreview();
+    updateStepRail();
     return;
   }
   if (mission === "custom" && !payload.manifest_id) {
     plan = null;
     $("confirm").disabled = true;
     $("plan-card").textContent = "Custom Mission requires a reviewed manifest. The standard Mission recipes remain available.";
+    updatePlanPreview();
+    updateStepRail();
     return;
   }
   try {
@@ -957,6 +1310,8 @@ async function previewPlan() {
       plan = null;
       $("confirm").disabled = true;
       $("plan-card").textContent = nextPlan.message || nextPlan.error || `Mission Plan could not be compiled (HTTP ${res.status}).`;
+      updatePlanPreview();
+      updateStepRail();
       return;
     }
     plan = nextPlan;
@@ -973,12 +1328,15 @@ async function previewPlan() {
         (checkEntryReady() ? "We screen your pin." : "Add an address or click the map after you open the globe.");
     } else {
       const look = ($("look-query") && $("look-query").value.trim()) || "";
+      const stated = Boolean(look) || regionAllowlist.length > 0;
       $("plan-card").textContent =
-        `${copy.placing} in ${look || region}. ` +
+        `${copy.placing}${stated ? ` in ${look || region}` : ""}. ` +
         (hardFlood ? "Mapped floodplain is a hard no. " : "") +
         (look
           ? `Map search around ${look}. Not listings.`
-          : `${n} starter pin${n === 1 ? "" : "s"} in ${region}. Not listings.`);
+          : stated
+            ? `${n} starter pin${n === 1 ? "" : "s"} in ${region}. Not listings.`
+            : `${n} starter pin${n === 1 ? "" : "s"} across the covered metros. Pick a region or type a city to narrow. Not listings.`);
     }
     const ready = true;
     $("confirm").disabled = !ready;
@@ -990,12 +1348,16 @@ async function previewPlan() {
     } else if ($("entry-status")) {
       $("entry-status").textContent = "";
     }
+    updatePlanPreview();
+    updateStepRail();
   } catch (error) {
     if (error instanceof AuthenticationRequired) throw error;
     if (request !== planRequest) return;
     plan = null;
     $("confirm").disabled = true;
     $("plan-card").textContent = `Mission Plan could not be compiled: ${error.message}`;
+    updatePlanPreview();
+    updateStepRail();
   }
 }
 
@@ -1043,8 +1405,14 @@ async function readIntent() {
     if (status) status.textContent = "Say what you are trying to do.";
     return;
   }
-  if ($("intent-go")) $("intent-go").disabled = true;
-  if (status) status.textContent = "Compiling a Mission Plan…";
+  if ($("intent-go")) {
+    $("intent-go").disabled = true;
+    $("intent-go").classList.add("busy");
+  }
+  if ($("intent-box")) $("intent-box").classList.add("reading");
+  if (status) status.textContent = "Reading your ask. Luna proposes, the compiler owns the gates.";
+  renderIntentReasons([]);
+  setIntentSource("");
   try {
     const res = await apiFetch("/api/intent", {
       method: "POST",
@@ -1054,18 +1422,29 @@ async function readIntent() {
     const payload = await res.json().catch(() => ({}));
     if (!res.ok) {
       if (status) status.textContent = payload.message || payload.error || "Could not read that.";
+      renderIntentReasons([]);
+      setIntentSource("");
+      if ($("intent-chips")) $("intent-chips").hidden = true;
       return;
     }
     applyIntentResult(payload);
-    const who = payload.source === "model"
-      ? `${payload.model || "Luna"} proposed. Compiler still owns the gates.`
-      : "";
-    if (status) status.textContent = `${who} ${(payload.rationale || []).join(" ")}`.trim();
+    intentRead = true;
+    if (payload.region_allowlist && payload.region_allowlist.length) regionTouched = true;
+    setIntentSource(payload.source === "model"
+      ? `${payload.model || "Luna"} proposed · the compiler still owns the gates`
+      : "Deterministic parser · the compiler owns the gates");
+    renderIntentReasons(payload.rationale || []);
+    if (status) status.textContent = "";
+    updateStepRail();
   } catch (error) {
     if (error instanceof AuthenticationRequired) throw error;
     if (status) status.textContent = error.message || "Could not read that.";
   } finally {
-    if ($("intent-go")) $("intent-go").disabled = false;
+    if ($("intent-go")) {
+      $("intent-go").disabled = false;
+      $("intent-go").classList.remove("busy");
+    }
+    if ($("intent-box")) $("intent-box").classList.remove("reading");
   }
 }
 
@@ -1099,25 +1478,35 @@ function renderIntentChips(payload) {
   if (!wrap) return;
   const controlsIn = payload.controls || {};
   const chips = [];
-  if (controlsIn.mission) chips.push(controlsIn.mission.replace("_", " "));
-  (payload.region_allowlist || []).forEach((id) => chips.push(REGION_LABELS[id] || id));
-  if (payload.open_inventory) chips.push("all locate metros");
-  if (controlsIn.flood_intolerant) chips.push("no mapped floodplain");
+  const add = (label, target, openPlan) => chips.push({ label, target, openPlan: Boolean(openPlan) });
+  if (controlsIn.mission) add(controlsIn.mission.replace("_", " "), ".tile.on");
+  (payload.region_allowlist || []).forEach((id) => add(REGION_LABELS[id] || id, "#region-pills"));
+  if (payload.open_inventory) add("all locate metros", "#region-pills");
+  if (controlsIn.flood_intolerant) add("no mapped floodplain", "#flood");
   if (controlsIn.size_band && controlsIn.size_band !== "flexible") {
-    chips.push(String(controlsIn.size_band).replace(/_/g, " "));
+    add(String(controlsIn.size_band).replace(/_/g, " "), "#size-band", true);
   }
   if (controlsIn.mission === "farm" && controlsIn.require_cultivated === false) {
-    chips.push("pasture, not CDL cultivated");
+    add("pasture, not CDL cultivated", "#cultivated", true);
   }
   (controlsIn.preferences || []).forEach((row) => {
     if (row.weight && row.weight !== "not_considered") {
-      chips.push(`${String(row.id).replace(/_/g, " ")} · ${row.weight}`);
+      add(
+        `${String(row.id).replace(/_/g, " ")} · ${row.weight}`,
+        `.preference[data-preference="${row.id}"]`,
+        true,
+      );
     }
   });
   wrap.hidden = !chips.length;
-  wrap.innerHTML = chips.map((label, index) => (
-    `<span class="intent-chip${index ? " soft" : ""}">${escapeHtml(label)}</span>`
+  wrap.innerHTML = chips.map((chip, index) => (
+    `<button type="button" class="intent-chip${index ? " soft" : ""}" style="--i:${index}"` +
+    ` data-target="${escapeHtml(chip.target)}" data-open="${chip.openPlan ? "1" : "0"}"` +
+    ` title="Show the control this set">${escapeHtml(chip.label)}</button>`
   )).join("");
+  wrap.querySelectorAll(".intent-chip").forEach((btn) => {
+    btn.onclick = () => revealTarget(btn.dataset.target, { openPlan: btn.dataset.open === "1" });
+  });
 }
 
 function showLocatePanel(show) {
@@ -1291,14 +1680,17 @@ async function confirmPlan() {
   resetSwipe();
   $("confirm").disabled = true;
   $("confirm").textContent = "Opening globe…";
+  $("confirm").classList.add("busy");
   try {
     await loadCesium();
   } catch (error) {
     $("plan-card").textContent = "The globe could not load. Check the network and try again.";
     $("confirm").disabled = false;
+    $("confirm").classList.remove("busy");
     $("confirm").textContent = entryPath === "check" ? "Is this a good idea?" : "Find geographies";
     return;
   }
+  $("confirm").classList.remove("busy");
   $("onboard").classList.add("hidden");
   $("app").classList.remove("hidden");
   $("app").dataset.mission = mission;
@@ -1674,10 +2066,14 @@ function paintPinCard(site, packet) {
     if ($("pin-cite")) $("pin-cite").textContent = "";
     if ($("pin-note")) $("pin-note").textContent = "Drop a pin. The HUD reads the surface. Credits stay in the corner.";
     if ($("flood-expand")) $("flood-expand").hidden = true;
+    if ($("show-receipts")) $("show-receipts").hidden = true;
+    $("app").classList.remove("receipts-open");
     return;
   }
   card.hidden = false;
   const prior = packet || packets[site.id];
+  if ($("show-receipts")) $("show-receipts").hidden = !prior;
+  if (!prior) $("app").classList.remove("receipts-open");
   if ($("pin-kicker")) $("pin-kicker").textContent = site.label || "POTENTIAL";
   if ($("pin-name")) $("pin-name").textContent = site.name;
   const chips = $("pin-chips");
@@ -1888,6 +2284,21 @@ function meshTilesReady() {
   if (!tileset) return false;
   const stats = tileset._statistics || {};
   return Number(stats.numberOfTilesWithContentReady || 0) >= 8;
+}
+
+function roadTileTemplate() {
+  // Road-map tiles come from the server's Google proxy. OSM stays only as a
+  // keyless dev fallback; production traffic must not hit OSM's tile servers.
+  return (config.has_google_tiles && config.roadmap)
+    ? config.roadmap
+    : "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+}
+
+function roadTileUrl(zoom, x, y) {
+  return roadTileTemplate()
+    .replace("{z}", String(zoom))
+    .replace("{x}", String(x))
+    .replace("{y}", String(y));
 }
 
 function ensureGlobeImagery() {
@@ -2399,7 +2810,7 @@ function renderQuickMap(site, mode) {
     tile.style.top = `${y * 256 - worldY + height / 2}px`;
     tile.src = mode === "aerial" && config.has_google_tiles
       ? config.satellite.replace("{z}", zoom).replace("{x}", wrappedX).replace("{y}", y)
-      : `https://tile.openstreetmap.org/${zoom}/${wrappedX}/${y}.png`;
+      : roadTileUrl(zoom, wrappedX, y);
     tile.addEventListener("load", () => {
       if (renderId !== quickMapRender) return;
       tile.dataset.loaded = "true";
@@ -2577,10 +2988,12 @@ function applyMode(mode) {
       viewer.imageryLayers.removeAll();
       viewer.scene.globe.show = true;
       viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
-        url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        url: roadTileTemplate(),
         maximumLevel: 19,
       }));
-      $("context-tag").textContent = "OpenStreetMap — context only. Does not score.";
+      $("context-tag").textContent = (config.has_google_tiles && config.roadmap)
+        ? "Google map — context only. Does not score."
+        : "OpenStreetMap — context only. Does not score.";
     } else {
       ensureGlobeImagery();
       $("context-tag").textContent = "Satellite globe — context only. Does not score.";
@@ -3228,7 +3641,7 @@ function contextChipUrl(site, mode) {
   if (mode === "aerial" && config.has_google_tiles) {
     return config.satellite.replace("{z}", String(zoom)).replace("{x}", String(wrappedX)).replace("{y}", String(y));
   }
-  return `https://tile.openstreetmap.org/${zoom}/${wrappedX}/${y}.png`;
+  return roadTileUrl(zoom, wrappedX, y);
 }
 
 async function streetMetaFor(site) {
@@ -3848,7 +4261,23 @@ async function runOne(candidateId) {
     review: $("review").checked,
     controls: runControls,
   };
-  if (site && ["user_pin", "user_address", "openstreetmap"].includes(site.source)) body.candidate = site;
+  // Inline candidates carry user-owned provenance by definition: screening a
+  // discovered map place is a user request, never reviewed inventory.
+  if (site && ["user_pin", "user_address", "openstreetmap"].includes(site.source)) {
+    body.candidate = { ...site, label: "USER SITE" };
+  }
+  let runFailed = false;
+  const paintRunFailure = (code, message) => {
+    $("status").textContent = "";
+    $("verdict").className = "verdict reject";
+    $("verdict").textContent = `Screening failed · ${message || code}`;
+    $("rail").innerHTML = `<li>failed · ${escapeHtml(code)}</li>`;
+    if ($("pin-note")) {
+      $("pin-note").textContent = "This pin did not finish. Nothing was decided. Try again, or pick another place.";
+    }
+    runFailed = true;
+    openRecommendations("We could not finish this pin. Other cards are places you can try now.");
+  };
   try {
     const res = await apiFetch("/api/run-stream", {
       method: "POST",
@@ -3862,20 +4291,12 @@ async function runOne(candidateId) {
         if (event.event === "packet") packet = event.packet;
       });
     } catch (err) {
-      $("status").textContent = "";
-      $("verdict").className = "verdict reject";
-      $("verdict").textContent = err.message || "run failed";
-      const code = (err.payload && err.payload.error) || err.message || "failed";
-      $("rail").innerHTML = `<li>failed · ${escapeHtml(code)}</li>`;
-      openRecommendations("We could not finish this pin. Other cards are places you can try now.");
+      paintRunFailure((err.payload && err.payload.error) || err.message || "failed", err.message);
       return;
     }
     $("status").textContent = "";
     if (!packet) {
-      $("verdict").className = "verdict reject";
-      $("verdict").textContent = "run failed";
-      $("rail").innerHTML = "<li>failed · empty stream</li>";
-      openRecommendations("We could not finish this pin. Other cards are places you can try now.");
+      paintRunFailure("empty stream", "the run returned nothing");
       return;
     }
     showPacket(packet);
@@ -3883,7 +4304,9 @@ async function runOne(candidateId) {
   } finally {
     $("run-one").disabled = false;
     $("run-all").disabled = false;
-    if (!packets[candidateId] && boardBeat === "screen") setBoardBeat("scout");
+    // On failure stay on the examined pin so the error is readable; the scout
+    // browse would cover the pin card.
+    if (!packets[candidateId] && boardBeat === "screen" && !runFailed) setBoardBeat("scout");
     syncSwipeActions();
     syncWorkflow();
   }
@@ -4270,6 +4693,45 @@ function stopEarthPoll() {
   earthPollTimer = null;
 }
 
+async function playLocalOrbitClip(site, seq) {
+  if (!site) return;
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    if (seq !== earthLookSeq || sceneMode !== "earth" || aerialPlayId) return;
+    let payload = null;
+    try {
+      const res = await apiFetch(`/api/orbit-clip?lat=${site.lat}&lng=${site.lng}`);
+      payload = await res.json().catch(() => null);
+      if (!res.ok || !payload || payload.state === "FAILED") return;
+    } catch (err) {
+      return;
+    }
+    if (payload.state === "READY" && payload.url) {
+      if (seq !== earthLookSeq || sceneMode !== "earth" || aerialPlayId) return;
+      const video = $("aerial-video");
+      const uri = new URL(payload.url, location.origin).href;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      if (video.src !== uri) video.src = uri;
+      try {
+        await video.play();
+      } catch (err) {
+        return;
+      }
+      if (seq !== earthLookSeq || sceneMode !== "earth" || aerialPlayId) return;
+      hideStreetStage();
+      hideEarthStage();
+      $("video-panel").hidden = false;
+      const credit = $("aerial-credit");
+      if (credit) credit.textContent = "Local 3D orbit rendered from Google photorealistic tiles. Not Aerial View. Does not score.";
+      $("context-tag").textContent = "Local 3D orbit clip of this pin. Google's Aerial View swaps in when its render finishes. Does not score.";
+      $("status").textContent = "";
+      return;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+  }
+}
+
 function presentEarthLook(site, packet) {
   const seq = ++earthLookSeq;
   stopEarthPoll();
@@ -4326,17 +4788,20 @@ async function runEarthPipeline(site, seq) {
     }
     if (meta.state === "PROCESSING" && meta.video_id) {
       $("context-tag").textContent = "Photorealistic 3D while Google renders an Aerial clip for this pin. Does not score.";
-      $("status").textContent = "Google is rendering an Aerial View clip — usually a few minutes. It plays here when ready.";
+      $("status").textContent = "Rendering a local orbit clip now. Google's Aerial View swaps in when its render finishes.";
       pollEarthAerial(site, meta.video_id, seq, 0);
+      playLocalOrbitClip(site, seq);
       return;
     }
     if (meta.state === "NO_ADDRESS") {
       $("context-tag").textContent = "Photorealistic 3D of this pin. No street address here for Aerial View. Does not score.";
-      $("status").textContent = "";
+      $("status").textContent = "Rendering a local orbit clip of this pin now — about a minute.";
+      playLocalOrbitClip(site, seq);
       return;
     }
     $("context-tag").textContent = "Photorealistic 3D of this pin. No Aerial View here. Does not score.";
-    $("status").textContent = "";
+    $("status").textContent = "Rendering a local orbit clip of this pin now — about a minute.";
+    playLocalOrbitClip(site, seq);
   } catch (err) {
     if (seq !== earthLookSeq || sceneMode !== "earth") return;
     startPhotorealisticOrbit(site);
