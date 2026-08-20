@@ -400,6 +400,10 @@ def aerial_atoms(
             api_key = key if key is not None else maps_key()
             if not api_key:
                 raise RuntimeError("maps_key_missing")
+            if not site.get("address"):
+                # Aerial View wants a postal address; a bare coordinate string
+                # 404s even where a clip exists. Same path the Orbit UI uses.
+                query = reverse_address(float(site["lat"]), float(site["lng"]), api_key) or query
             raw = lookup_metadata(query, api_key)
             state = str(raw.get("state") or "").upper()
             video_id = raw.get("videoId")
