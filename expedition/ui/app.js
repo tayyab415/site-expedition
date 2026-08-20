@@ -4060,16 +4060,33 @@ function showPacket(packet, opts) {
     fitGap.hidden = !named;
   }
   const brief = packet.brief || {};
-  const citations = (brief.citations || []).filter((citation) => citation && citation.source);
+  const seenCitations = new Set();
+  const citations = (brief.citations || []).filter((citation) => {
+    if (!citation || !citation.source) return false;
+    const key = `${citation.source}|${citation.dataset_vintage || ""}`;
+    if (seenCitations.has(key)) return false;
+    seenCitations.add(key);
+    return true;
+  });
   const briefDetails = $("brief").closest("details");
   if (briefDetails && (brief.title || (brief.actions || []).length)) briefDetails.open = true;
+  const briefTitle = (brief.title || "").replace(
+    /: (reject|conditional|strong fit)$/,
+    (m, word) => ({
+      reject: ": not a good idea",
+      conditional: ": possible, with homework",
+      "strong fit": ": works on the supported gates",
+    })[word] || m,
+  );
   $("brief").innerHTML =
-    `<p>${brief.title || ""}</p>` +
+    `<p>${briefTitle}</p>` +
     `<ol>${(brief.actions || []).map((a) => `<li>${a}</li>`).join("")}</ol>` +
     (citations.length
       ? `<h3>Sources</h3><ul>${citations.map((citation) => {
           const fetched = citation.fetched_at ? new Date(citation.fetched_at).toLocaleString() : "time unavailable";
-          const role = citation.authority || "authority unknown";
+          const role = citation.authority && citation.authority !== "none"
+            ? citation.authority
+            : "context";
           const mode = citation.live_label || "mode unknown";
           const label = `${citation.source}${citation.dataset_vintage ? ` · ${citation.dataset_vintage}` : ""}`;
           return `<li>${citation.source_url ? `<a href="${citation.source_url}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>` : escapeHtml(label)}<br><small>${escapeHtml(role)} · ${escapeHtml(mode)} · fetched ${escapeHtml(fetched)}</small></li>`;
@@ -4091,7 +4108,7 @@ function showPacket(packet, opts) {
   const cov = packet.coverage || { ratio: 0, usable: 0, relevant: 0 };
   $("coverage").innerHTML =
     `<div class="cov"><i style="width:${Math.round(cov.ratio * 100)}%"></i></div>` +
-    `<p class="hint">${cov.usable}/${cov.relevant} decision atoms · ${cov.note || ""}</p>`;
+    `<p class="hint">${cov.usable} of ${cov.relevant} decision checks landed · ${cov.note || ""}</p>`;
   $("run-one").hidden = true;
   renderCards();
   renderCompare();
