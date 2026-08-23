@@ -67,6 +67,7 @@ Live screening (`--live`) spends Mireye credits and needs credentials outside th
 ## Verify
 
 ```bash
+python3 scripts/validate_environment.py
 PYTHONPATH=. python3 -m unittest discover -s expedition/tests
 PYTHONPATH=. python3 -m expedition verify
 ```
