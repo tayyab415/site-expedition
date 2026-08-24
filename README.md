@@ -86,3 +86,7 @@ Current gate is 253/253 tests. Browser smoke, scene startup, and HTTP stress run
 | [`harness/`](harness/) and [`iteration-1/`](iteration-1/)–[`iteration-7/`](iteration-7/) | Earlier KEEP/KILL packets that led here. |
 
 The hosted board is a replay prototype, not production. Licensed national listings, zoning approval, water rights, and utility-capacity letters are deferred on purpose.
+
+### Diagnostic and Verification Tools
+- `python3 scripts/check_site_status.py`: Verify project configuration files and environment diagnostic readiness.
+- `python3 scripts/validate_environment.py`: Check required environment variables and API integrations.
